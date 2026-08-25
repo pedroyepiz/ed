@@ -3,78 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unidad II - Pilas | Estructuras de Datos</title>
+<title>Programa básico de Pilas | Estructuras de Datos</title>
+
 <style>
 :root {
     --uabc:#006847;
     --uabc-dark:#004b35;
-    --uabc-soft:#eaf5f0;
-    --gold:#d4a017;
     --navy:#0d2b45;
-    --ink:#1f2937;
-    --muted:#5b6470;
     --line:#d8e2dc;
-    --white:#ffffff;
-    --orange:#ef6c00;
-    --purple:#6a1b9a;
-    --blue:#1565c0;
-    --red:#c62828;
+    --code:#18221e;
+    --code-top:#0f1815;
+    --gold:#ffd54f;
 }
 * { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
 body {
     margin:0;
-    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-    color:var(--ink);
     background:#eef3f0;
-    line-height:1.5;
+    font-family:"Segoe UI",Arial,Helvetica,sans-serif;
+    color:#1f2937;
 }
 .page {
-    width:min(1120px, 96%);
+    width:min(1180px,96%);
     margin:22px auto;
     background:white;
-    box-shadow:0 8px 30px rgba(0,0,0,.08);
     border:1px solid #dfe8e3;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
 }
 .header {
     display:grid;
-    grid-template-columns: 1.45fr 1fr 170px;
+    grid-template-columns:1.45fr 1fr 165px;
     gap:20px;
     align-items:center;
-    padding:18px 24px;
+    padding:20px 24px;
     border-top:8px solid var(--uabc);
     border-bottom:2px solid var(--uabc);
-    background:linear-gradient(90deg,#ffffff 0%,#f8fbf9 100%);
+    background:linear-gradient(90deg,#fff,#f8fbf9);
 }
-.titleblock h1 {
+.title h1 {
     margin:0;
-    font-size:44px;
-    line-height:1;
     color:var(--navy);
-    letter-spacing:-1px;
+    font-size:43px;
+    line-height:1;
 }
-.titleblock h1 span {
+.title h1 span {
     display:block;
     color:var(--uabc);
-    font-size:31px;
-    margin-top:6px;
+    font-size:30px;
+    margin-top:8px;
 }
 .subtitle {
     margin-top:12px;
-    font-size:19px;
+    font-size:18px;
     font-weight:700;
     color:#174c3b;
 }
-.badge {
-    display:inline-block;
-    margin-top:10px;
-    padding:7px 12px;
-    background:var(--navy);
-    color:white;
-    border-radius:8px;
-    font-weight:700;
-}
-.badge b { color:#ffd54f; }
 .meta {
     border-left:1px solid #d6e2dc;
     padding-left:18px;
@@ -85,347 +67,85 @@ body {
     display:block;
     color:var(--uabc-dark);
     font-size:12px;
-    letter-spacing:.4px;
 }
-.logo {
-    text-align:center;
-}
+.logo { text-align:center; }
 .logo img {
-    width:135px;
-    max-height:170px;
+    width:130px;
+    max-height:160px;
     object-fit:contain;
 }
 .ribbon {
     background:var(--uabc);
     color:white;
-    padding:8px 24px;
+    padding:9px 24px;
     font-weight:800;
-    letter-spacing:.4px;
     display:flex;
     justify-content:space-between;
     gap:10px;
     flex-wrap:wrap;
 }
-.content { padding:24px; }
-.grid4 {
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:14px;
+.content {
+    padding:24px;
 }
-.card {
+.code-card {
     border:1px solid var(--line);
     border-radius:12px;
     overflow:hidden;
+    margin:0 0 24px;
     background:white;
-    box-shadow:0 2px 8px rgba(0,0,0,.04);
 }
-.card h3 {
+.code-head {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding:11px 14px;
+    background:var(--code-top);
+    color:white;
+}
+.file-name {
+    font-family:Consolas,"Courier New",monospace;
+    font-size:16px;
+    font-weight:800;
+}
+.copy-btn {
+    border:1px solid #6b7f76;
+    background:#263a32;
+    color:white;
+    border-radius:7px;
+    padding:7px 11px;
+    cursor:pointer;
+    font-weight:700;
+}
+.copy-btn:hover {
+    background:var(--uabc);
+}
+pre {
     margin:0;
-    color:white;
-    padding:10px 14px;
-    text-align:center;
-    font-size:18px;
+    padding:20px;
+    overflow:auto;
+    background:var(--code);
+    color:#f3fff8;
+    font-family:Consolas,"Courier New",monospace;
+    font-size:14px;
+    line-height:1.55;
+    tab-size:4;
+    white-space:pre;
 }
-.card .body { padding:14px 16px 16px; font-size:14.5px; }
-.green h3 { background:var(--uabc); }
-.blue h3 { background:var(--blue); }
-.purple h3 { background:var(--purple); }
-.orange h3 { background:var(--orange); }
-.card ul { padding-left:19px; margin:7px 0; }
-.card li { margin:7px 0; }
-.icon {
-    text-align:center;
-    font-size:46px;
-    margin:3px 0 8px;
-}
-.section-title {
-    margin:26px 0 12px;
-    background:linear-gradient(90deg,var(--uabc-dark),var(--uabc));
-    color:white;
-    padding:9px 15px;
-    border-radius:8px;
+.code-label {
+    margin:0 0 10px;
+    color:var(--uabc-dark);
     font-size:20px;
     font-weight:800;
-}
-.note {
-    background:#fff7df;
-    border-left:5px solid var(--gold);
-    padding:12px 15px;
-    border-radius:8px;
-    margin:14px 0;
-}
-.key {
-    background:var(--uabc-soft);
-    border:1px solid #b7d8c8;
-    padding:12px 15px;
-    border-radius:9px;
-}
-.diagram {
-    background:#fbfdfc;
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:14px;
-    overflow-x:auto;
-}
-.stack-row {
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-    gap:8px;
-    min-width:790px;
-    padding:10px;
-}
-.step {
-    width:145px;
-    min-height:245px;
-    border-right:1px solid #d8e0dc;
-    text-align:center;
-    padding:0 7px;
-}
-.step:last-child { border-right:none; }
-.step-title {
-    font-size:13px;
-    font-weight:800;
-    color:var(--navy);
-    min-height:40px;
-}
-.stack-box {
-    width:80px;
-    height:160px;
-    border:2px solid #455a64;
-    border-top:0;
-    border-radius:0 0 9px 9px;
-    margin:12px auto 8px;
-    display:flex;
-    flex-direction:column-reverse;
-    justify-content:flex-start;
-    gap:2px;
-    padding:0 6px 6px;
-    background:linear-gradient(180deg,#f8fbfa 0%, #eef7f1 100%);
-    position:relative;
-}
-.level {
-    height:28px;
-    border-radius:4px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:800;
-    color:#0d2b45;
-    border:1px solid rgba(0,0,0,.14);
-}
-.l1 { background:#c8e6c9; }
-.l2 { background:#bbdefb; }
-.l3 { background:#d1c4e9; }
-.l4 { background:#ffe0b2; }
-.empty-dash {
-    position:absolute;
-    width:58px;
-    height:1px;
-    background:#cfd8dc;
-    left:9px;
-}
-.top-label {
-    color:var(--red);
-    font-size:12px;
-    font-weight:800;
-    margin-top:4px;
-}
-.top-val {
-    color:var(--uabc-dark);
-    font-weight:800;
-    font-size:18px;
-}
-.arrow-big {
-    font-size:38px;
-    color:var(--uabc);
-    margin:0 3px 40px;
-}
-.nodes {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:0;
-    min-width:740px;
-    padding:20px 10px;
-}
-.node {
-    display:flex;
-    border:2px solid #20352c;
-    background:white;
-    border-radius:5px;
-    overflow:hidden;
-    height:58px;
-}
-.node .data {
-    width:70px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-weight:800;
-    font-size:19px;
-    background:#f7fbf9;
-}
-.node .next {
-    width:46px;
-    border-left:2px solid #20352c;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--uabc);
-    font-size:22px;
-}
-.arrow {
-    width:42px;
-    height:2px;
-    background:var(--uabc);
-    position:relative;
-}
-.arrow:after {
-    content:"";
-    position:absolute;
-    right:-1px;
-    top:-5px;
-    border-left:9px solid var(--uabc);
-    border-top:6px solid transparent;
-    border-bottom:6px solid transparent;
-}
-.null {
-    border:1.5px dashed #7a8580;
-    padding:8px 12px;
-    border-radius:5px;
-    font-family:Consolas,monospace;
-    background:#fafafa;
-}
-.pointer-label {
-    color:var(--uabc-dark);
-    font-weight:800;
-    font-size:13px;
-    margin:0 8px;
-}
-.two-col {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-}
-.op {
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:14px;
-}
-.op h4 {
-    margin:0 0 8px;
-    font-size:19px;
-    color:var(--uabc-dark);
-}
-.op ol { margin:8px 0; padding-left:22px; }
-.op li { margin:6px 0; }
-.complexity {
-    margin-top:10px;
-    background:#eef7f2;
-    border:1px solid #c2ded0;
-    text-align:center;
-    padding:7px;
-    border-radius:7px;
-    font-weight:700;
-}
-.pseudo {
-    margin:10px 0 0;
-    background:#1f2d28;
-    color:#f4fff9;
-    padding:12px 14px;
-    border-radius:8px;
-    font-family:Consolas, "Courier New", monospace;
-    white-space:pre-wrap;
-    font-size:13px;
-}
-table {
-    width:100%;
-    border-collapse:collapse;
-    margin:10px 0 18px;
-}
-th {
-    background:var(--uabc);
-    color:white;
-    padding:9px;
-    border:1px solid #d3ddd8;
-}
-td {
-    border:1px solid #d3ddd8;
-    padding:9px;
-    vertical-align:top;
-}
-tr:nth-child(even) td { background:#f8fbf9; }
-.compare th:first-child { width:24%; }
-.summary {
-    display:grid;
-    grid-template-columns:70px 1fr;
-    gap:12px;
-    align-items:center;
-    background:#fff7e3;
-    border:1px solid #ead39a;
-    border-radius:10px;
-    padding:14px;
-    margin-top:18px;
-}
-.summary .bulb { font-size:44px; text-align:center; }
-.footer {
-    background:var(--uabc-dark);
-    color:white;
-    display:grid;
-    grid-template-columns:1fr 1.4fr 1fr;
-    align-items:center;
-    gap:12px;
-    padding:14px 24px;
-    font-size:12px;
-}
-.footer .uabc {
-    font-size:28px;
-    font-weight:900;
-    letter-spacing:1px;
-}
-.footer .center { text-align:center; }
-.footer .right { text-align:right; color:#ffd54f; font-weight:800; }
-.small { font-size:12px; color:var(--muted); }
-.structure {
-    border:1px solid #b9d5c7;
-    background:#f6fbf8;
-    padding:12px;
-    border-radius:8px;
-    font-family:Consolas,monospace;
-    line-height:1.7;
-}
-.structure b { color:var(--uabc-dark); }
-.chips {
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:8px;
-}
-.chip {
-    background:#eef7f2;
-    color:var(--uabc-dark);
-    border:1px solid #c7ddcf;
-    border-radius:999px;
-    padding:6px 10px;
-    font-size:13px;
-    font-weight:700;
 }
 @media(max-width:850px) {
     .header { grid-template-columns:1fr; text-align:center; }
     .meta { border-left:none; padding-left:0; }
-    .grid4 { grid-template-columns:1fr 1fr; }
-    .two-col { grid-template-columns:1fr; }
-    .footer { grid-template-columns:1fr; text-align:center; }
-    .footer .right { text-align:center; }
-}
-@media(max-width:520px) {
-    .grid4 { grid-template-columns:1fr; }
-    .titleblock h1 { font-size:36px; }
 }
 @media print {
     body { background:white; }
     .page { width:100%; margin:0; box-shadow:none; border:none; }
+    .copy-btn { display:none; }
     * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
 }
 </style>
@@ -435,14 +155,12 @@ tr:nth-child(even) td { background:#f8fbf9; }
 <div class="page">
 
 <header class="header">
-    <div class="titleblock">
-        <h1>PILAS <span>(STACK) · ESTÁTICAS Y DINÁMICAS</span></h1>
-        <div class="subtitle">Estructura de datos tipo LIFO <i>(Last In, First Out)</i></div>
-        <div class="badge">🍽️ Como una <b>torre de platos</b></div>
+    <div class="title">
+        <h1>PROGRAMA BÁSICO DE PILAS <span>C / C++ · Memoria dinámica</span></h1>
+        <div class="subtitle">Código base para prácticas de Estructuras de Datos</div>
     </div>
 
     <div class="meta">
-        <div><strong>UNIDAD</strong>Unidad II · Pilas</div>
         <div><strong>MATERIA</strong>Estructuras de Datos</div>
         <div><strong>MAESTRO</strong>Pedro Núñez Yepiz</div>
         <div><strong>CARRERA</strong>Ingeniero en Software y Tecnologías Emergentes</div>
@@ -456,369 +174,273 @@ tr:nth-child(even) td { background:#f8fbf9; }
 
 <div class="ribbon">
     <span>UNIDAD II · PILAS</span>
-    <span>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</span>
+    <span>ARCHIVOS DE CÓDIGO PARA COPIAR</span>
 </div>
 
 <main class="content">
 
-<div class="note">
-    <b>Competencia:</b>
-    Elaborar un programa de procesamiento de información, aplicando los conceptos de pilas,
-    con el propósito de dar solución a un problema específico pertinente, con una actitud creativa,
-    proactiva y honesta.
-    <br><br>
-    <b>Contenido:</b> 2.1 Definición · 2.2 Implementación y aplicaciones · 2.3 Solución de problemas
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <b>Duración:</b> 4 horas
-</div>
-
-<section class="grid4">
-    <article class="card green">
-        <h3>1 · ¿QUÉ ES?</h3>
-        <div class="body">
-            <div class="icon">📚</div>
-            <p>Una <b>pila</b> es una estructura de datos lineal donde los elementos se insertan y eliminan por el mismo extremo.</p>
-            <div class="key"><b>LIFO:</b> el último que entra es el primero que sale.</div>
+    <div class="code-label">Archivo de cabecera (.h)</div>
+    <section class="code-card">
+        <div class="code-head">
+            <div class="file-name">karely_ruiz_v1.h</div>
+            <button class="copy-btn" onclick="copiarCodigo('codigoH', this)">Copiar código</button>
         </div>
-    </article>
+        <pre><code id="codigoH">//  propietario :  PEDRO NUÑEZ YEPIZ
+// FECHA.  13 DE MARZO 2026 ULTIMA MODF: 20 MARZO  
+//  karely_ruiz.h  V 1.1
+// AGREGO.  FUNCION my_fgets  y my_int
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+#include &lt;dos.h&gt;
+#include &lt;conio.h&gt;
+#define N 15
+#define N2 20
+#define SALTO printf(&quot;\n&quot;);
+// DEFINICION DE TIPOS DE DATOS
+typedef struct _nom{
+  char nombre[30];
+  char appat[30];
+  char apmat[30];
+}Ts_nom;
+//****
+typedef struct _talum{
+  int status; //0.INACTIVO   1  ACTIVO
+  int matri; // pk   campo llave
+  Ts_nom nombre;
+  int edad; 
+  int sexo; //1.  M  o 2.- H  
+}Ts_alum;
 
-    <article class="card blue">
-        <h3>2 · ¿PARA QUÉ SIRVE?</h3>
-        <div class="body">
-            <div class="icon">🎯</div>
-            <ul>
-                <li>Almacenar datos temporalmente.</li>
-                <li>Deshacer y rehacer acciones.</li>
-                <li>Evaluar expresiones.</li>
-                <li>Gestionar llamadas a funciones.</li>
-                <li>Resolver backtracking y recorridos.</li>
-            </ul>
+//PROTOTIPOS
+void my_fgets(char string[],int tam);
+int my_int(int ri, int rf, const char msge[]);
+int busq_sec(Ts_alum vect[],int m, int num);
+void burbuja_seleccion (Ts_alum vect[],int m);
+
+//***************************************************
+void my_fgets(char string[],int tam)
+{
+  int i=0 ;
+  fflush(stdin);
+  fgets(string,tam,stdin);
+  while (string[i] != &#x27;\0&#x27;)
+  {
+    i++;
+  }
+  string[i-1]=&#x27;\0&#x27;;
+}
+//*********************************************************
+  //  FUNCION QUE SIRVE PARA VALIDAR UN MNUMERO ENTERO,
+//*****************************************************
+int my_int(int ri, int rf, const char msge[])
+{
+  int num;
+  char my_num[30];
+  do{
+    printf (&quot;%s&quot;,msge);
+    my_fgets(my_num,30);
+    num = atoi(my_num);
+  }while(num &lt; ri || num &gt; rf);
+  
+  return num;  // REGRESA  EL VALOR YA VALIDADO
+}
+
+//********
+int busq_sec(Ts_alum vect[],int m, int num)
+{
+    for (int i = 0;i &lt; m;i++)
+    {
+        if (num == vect[i].matri)
+        {
+          if (vect[i].status != 0)
+          {     
+            return i; // si lo encontro y esta activo
+          }
+          else
+          {
+            return -2;  //  si lo encontro pero status es 0
+          }
+        }
+    }
+    return -1; // no lo encontro
+}
+
+//****
+void burbuja_seleccion (Ts_alum vect[],int m)
+{
+    int i,j;
+    Ts_alum temp;
+    for (i = 0; i &lt; m-1; i++)
+    {
+      for(j= i+1;j&lt;m;j++)
+      {
+          if (vect[j].matri &lt; vect[i].matri)
+          {
+              temp = vect[j];
+              vect[j]=vect[i];
+              vect[i]=temp;
+          }
+      }
+    }
+
+
+}</code></pre>
+    </section>
+
+    <div class="code-label">Archivo principal (.cpp)</div>
+    <section class="code-card">
+        <div class="code-head">
+            <div class="file-name">pila.cpp</div>
+            <button class="copy-btn" onclick="copiarCodigo('codigoCPP', this)">Copiar código</button>
         </div>
-    </article>
+        <pre><code id="codigoCPP">#include &quot;karely_ruiz_v1.h&quot;
+//****************************************
+// ESTA ES LA ESTRUCTURA PRINCIPAL DE UN NODO
+typedef struct _tdato{
+    int dato;
+    struct _tdato *sig;
+}sTdato;
 
-    <article class="card purple">
-        <h3>3 · ¿CÓMO FUNCIONA?</h3>
-        <div class="body">
-            <div class="icon">⚙️</div>
-            <ul>
-                <li><b>PUSH:</b> inserta en el tope.</li>
-                <li><b>POP:</b> elimina del tope.</li>
-                <li><b>PEEK / TOP:</b> consulta el tope.</li>
-                <li><b>TOPE:</b> apunta al elemento más reciente.</li>
-            </ul>
-        </div>
-    </article>
+typedef sTdato *Tdato;
+//****************************************************
+Tdato gen_nodo();
+void servicio (Tdato nodo);
+void PUSH(Tdato &amp;pila, Tdato &amp;nodo);
+Tdato POP(Tdato &amp;pila);
+int letrero();
+void menu ();
+//*********************************************
+int main() 
+{
+    menu();
+    return 0;
+}
+//*********************************
+Tdato gen_nodo(int num)
+{
+    Tdato nodo=NULL;
+    //int num;
+    //num = rand()% 98;
+    nodo = (Tdato) malloc(sizeof(sTdato));
+    if (nodo)
+    {
+        nodo-&gt;dato = num;
+        nodo-&gt;sig = NULL;
+    }    
+   return nodo;
+}
+//*****************************************
+void servicio (Tdato nodo)
+{
+    //system (&quot;CLS&quot;);
+    if (nodo)
+    {
+        printf (&quot;|%3d|-&gt;&quot;,nodo-&gt;dato);
+    }
+    else
+    {
+        printf (&quot;...SIN NODOS...&quot;);
+    }
+   getch();
+}
+//***************************************
+void PUSH(Tdato &amp;pila, Tdato &amp;nodo)
+{
+     if (nodo)
+     {
+       nodo-&gt;sig = pila;
+     }
+     pila = nodo;
+     nodo = NULL;
+}
+//******************************************************
+Tdato POP (Tdato &amp;pila)
+{
+    Tdato nodo = NULL;
+    if (pila)
+    {
+        nodo = pila;
+        pila= nodo-&gt;sig;
+    }
+    return nodo;
+}
+//**************************************************
+int letrero()
+{
+    int op;
+    system (&quot;CLS&quot;);
+    printf (&quot;1.- POP\n&quot;);
+    printf (&quot;2.- PUSH\n&quot;);
+    printf (&quot;3.- SALIR\n&quot;);
+    op = my_int(1,3, &quot;ESCOGE UNA OPCION &quot;);
+    return op;
 
-    <article class="card orange">
-        <h3>4 · USOS EN COMPUTACIÓN</h3>
-        <div class="body">
-            <div class="icon">🖥️</div>
-            <ul>
-                <li>Pila de llamadas (call stack).</li>
-                <li>Historial de navegación.</li>
-                <li>Deshacer / rehacer en editores.</li>
-                <li>Conversión infija a postfija.</li>
-                <li>Recursividad y parsing.</li>
-            </ul>
-        </div>
-    </article>
-</section>
+}
+//**************************************************
+void menu ()
+{
+    Tdato nodo=NULL;
+    Tdato pila = NULL;
+    int num,op;
+    do{
+        op=letrero();
+        switch(op)
+        {
+           case 1:
+            system (&quot;CLS&quot;);
+            num=my_int(0,99, &quot;DAME UN NUMERO :&quot;);
+            nodo = gen_nodo(num);
+            PUSH(pila,nodo);
+            break;
+           case 2:
+            nodo=POP(pila);
+            servicio(nodo);
+            free(nodo);
+            break;
+           case 3:
+            while (pila)
+            {
+                nodo=POP(pila);
+                servicio(nodo);
+                free(nodo);
+            }
+            printf (&quot;\n PILA VACIA&quot;);
+        }
 
-<div class="section-title">5 · DOS FORMAS DE IMPLEMENTAR UNA PILA</div>
+    }while (op != 3); 
+}
 
-<table class="compare">
-<tr><th>Característica</th><th>Pila estática</th><th>Pila dinámica</th></tr>
-<tr><td>Estructura</td><td>Arreglo</td><td>Nodos enlazados</td></tr>
-<tr><td>Memoria</td><td>Reservada previamente</td><td>Se solicita conforme se necesita</td></tr>
-<tr><td>Tamaño</td><td>Fijo o limitado</td><td>Flexible</td></tr>
-<tr><td>Control</td><td>Índice <b>tope</b></td><td>Puntero <b>tope</b></td></tr>
-<tr><td>Principio</td><td colspan="2" style="text-align:center"><b>LIFO — Last In, First Out</b></td></tr>
-</table>
+//*****************************************************
 
-<div class="section-title">6 · PILA ESTÁTICA · ARREGLO</div>
-<div class="note"><b>Analogía:</b> como una pila de platos. Solo puedes agregar o quitar platos por la parte superior.</div>
+</code></pre>
+    </section>
 
-<div class="diagram">
-    <div class="stack-row">
-        <div class="step">
-            <div class="step-title">PILA VACÍA</div>
-            <div class="small">tope = -1</div>
-            <div class="stack-box">
-                <div class="empty-dash" style="bottom:32px"></div>
-                <div class="empty-dash" style="bottom:62px"></div>
-                <div class="empty-dash" style="bottom:92px"></div>
-                <div class="empty-dash" style="bottom:122px"></div>
-            </div>
-            <div class="top-label">TOPE</div>
-            <div class="top-val">-1</div>
-        </div>
-
-        <div class="step">
-            <div class="step-title">PUSH(10)</div>
-            <div class="small">se inserta 10</div>
-            <div class="stack-box">
-                <div class="level l1">10</div>
-                <div class="empty-dash" style="bottom:32px"></div>
-                <div class="empty-dash" style="bottom:62px"></div>
-                <div class="empty-dash" style="bottom:92px"></div>
-            </div>
-            <div class="top-label">TOPE</div>
-            <div class="top-val">0</div>
-        </div>
-
-        <div class="step">
-            <div class="step-title">PUSH(20)</div>
-            <div class="small">se inserta 20</div>
-            <div class="stack-box">
-                <div class="level l2">20</div>
-                <div class="level l1">10</div>
-                <div class="empty-dash" style="bottom:62px"></div>
-                <div class="empty-dash" style="bottom:92px"></div>
-            </div>
-            <div class="top-label">TOPE</div>
-            <div class="top-val">1</div>
-        </div>
-
-        <div class="step">
-            <div class="step-title">PUSH(30)</div>
-            <div class="small">se inserta 30</div>
-            <div class="stack-box">
-                <div class="level l3">30</div>
-                <div class="level l2">20</div>
-                <div class="level l1">10</div>
-                <div class="empty-dash" style="bottom:92px"></div>
-            </div>
-            <div class="top-label">TOPE</div>
-            <div class="top-val">2</div>
-        </div>
-
-        <div class="step">
-            <div class="step-title">POP()</div>
-            <div class="small">sale 30</div>
-            <div class="stack-box">
-                <div class="level l2">20</div>
-                <div class="level l1">10</div>
-                <div class="empty-dash" style="bottom:62px"></div>
-                <div class="empty-dash" style="bottom:92px"></div>
-            </div>
-            <div class="top-label">TOPE</div>
-            <div class="top-val">1</div>
-        </div>
-
-        <div class="step">
-            <div class="step-title">POP()</div>
-            <div class="small">sale 20</div>
-            <div class="stack-box">
-                <div class="level l1">10</div>
-                <div class="empty-dash" style="bottom:32px"></div>
-                <div class="empty-dash" style="bottom:62px"></div>
-                <div class="empty-dash" style="bottom:92px"></div>
-            </div>
-            <div class="top-label">TOPE</div>
-            <div class="top-val">0</div>
-        </div>
-    </div>
-</div>
-
-<div class="two-col" style="margin-top:14px">
-    <div class="op">
-        <h4>PUSH · Insertar</h4>
-        <ol>
-            <li>Verificar si la pila está llena.</li>
-            <li>Incrementar <b>tope</b>.</li>
-            <li>Guardar el dato en la nueva posición del tope.</li>
-        </ol>
-        <div class="complexity">Operación típica: O(1)</div>
-        <div class="pseudo">ALGORITMO PUSH
-SI la pila está llena
-    Informar “Pila llena”
-SINO
-    incrementar TOPE
-    guardar DATO en PILA[TOPE]
-FIN SI</div>
-    </div>
-
-    <div class="op">
-        <h4>POP · Eliminar</h4>
-        <ol>
-            <li>Verificar si la pila está vacía.</li>
-            <li>Obtener el dato que está en el tope.</li>
-            <li>Decrementar <b>tope</b>.</li>
-            <li>Devolver el elemento eliminado.</li>
-        </ol>
-        <div class="complexity">Operación típica: O(1)</div>
-        <div class="pseudo">ALGORITMO POP
-SI la pila está vacía
-    Informar “Pila vacía”
-SINO
-    obtener DATO de PILA[TOPE]
-    decrementar TOPE
-FIN SI</div>
-    </div>
-</div>
-
-<div class="section-title">7 · PILA DINÁMICA · NODOS Y PUNTEROS</div>
-
-<div class="note"><b>Analogía:</b> una torre de platos que puede crecer o reducirse según sea necesario. Cada nuevo plato se coloca arriba del anterior.</div>
-
-<div class="two-col">
-    <div>
-        <h3 style="color:var(--uabc-dark);margin-top:0">Nodo básico</h3>
-        <div class="structure">
-            <b>NODO</b><br>
-            &nbsp;&nbsp;dato : entero<br>
-            &nbsp;&nbsp;siguiente : referencia a otro NODO
-        </div>
-        <p>En una pila dinámica, el <b>tope</b> apunta al nodo más reciente. Cada nodo contiene el <b>dato</b> y una referencia al <b>siguiente</b> nodo.</p>
-        <div class="chips">
-            <span class="chip">tope = primer nodo</span>
-            <span class="chip">último nodo → NULL</span>
-            <span class="chip">crece según la necesidad</span>
-        </div>
-    </div>
-
-    <div class="diagram">
-        <div style="text-align:center;font-weight:800;color:var(--uabc-dark)">REPRESENTACIÓN DEL NODO</div>
-        <div style="display:flex;justify-content:center;align-items:center;margin-top:22px">
-            <span class="pointer-label">dato</span>
-            <div class="node"><div class="data">12</div><div class="next">○</div></div>
-            <div class="arrow"></div>
-            <span class="pointer-label">siguiente</span>
-        </div>
-    </div>
-</div>
-
-<div class="section-title">8 · ASÍ FUNCIONA UNA PILA DINÁMICA</div>
-
-<div class="diagram">
-    <div style="text-align:center;margin-bottom:10px">
-        <b style="color:var(--uabc-dark)">TOPE</b> apunta al primer nodo de la pila
-    </div>
-
-    <div class="nodes">
-        <span class="pointer-label">TOPE →</span>
-        <div class="node"><div class="data">30</div><div class="next">○</div></div>
-        <div class="arrow"></div>
-        <div class="node"><div class="data">20</div><div class="next">○</div></div>
-        <div class="arrow"></div>
-        <div class="node"><div class="data">10</div><div class="next">○</div></div>
-        <div class="arrow"></div>
-        <div class="null">NULL</div>
-    </div>
-</div>
-
-<div class="two-col" style="margin-top:14px">
-    <div class="op">
-        <h4>PUSH · Pila dinámica</h4>
-        <ol>
-            <li>Crear un nuevo nodo.</li>
-            <li>Guardar el dato dentro del nodo.</li>
-            <li>Hacer que el nuevo nodo apunte al tope actual.</li>
-            <li>Mover el <b>tope</b> al nuevo nodo.</li>
-        </ol>
-        <div class="pseudo">ALGORITMO PUSH
-crear NUEVO NODO
-guardar DATO
-NUEVO.siguiente ← TOPE
-TOPE ← NUEVO</div>
-    </div>
-
-    <div class="op">
-        <h4>POP · Pila dinámica</h4>
-        <ol>
-            <li>Verificar si la pila está vacía.</li>
-            <li>Guardar temporalmente el nodo del tope.</li>
-            <li>Mover el <b>tope</b> al siguiente nodo.</li>
-            <li>Liberar la memoria del nodo eliminado.</li>
-        </ol>
-        <div class="pseudo">ALGORITMO POP
-SI la pila está vacía
-    Informar “Pila vacía”
-SINO
-    AUXILIAR ← TOPE
-    TOPE ← TOPE.siguiente
-    liberar AUXILIAR
-FIN SI</div>
-    </div>
-</div>
-
-<div class="section-title">9 · CARACTERÍSTICAS IMPORTANTES</div>
-<div class="grid4">
-    <article class="card green">
-        <h3>MEMORIA</h3>
-        <div class="body">
-            <p><b>Estática:</b> usa un arreglo de tamaño fijo.</p>
-            <p><b>Dinámica:</b> usa nodos enlazados y memoria variable.</p>
-        </div>
-    </article>
-    <article class="card blue">
-        <h3>EFICIENCIA</h3>
-        <div class="body">
-            <p><b>PUSH</b> y <b>POP</b> suelen ejecutarse en tiempo constante <b>O(1)</b>.</p>
-        </div>
-    </article>
-    <article class="card purple">
-        <h3>OVERFLOW</h3>
-        <div class="body">
-            <p>En una pila estática ocurre cuando se intenta hacer <b>PUSH</b> y el arreglo ya está lleno.</p>
-        </div>
-    </article>
-    <article class="card orange">
-        <h3>UNDERFLOW</h3>
-        <div class="body">
-            <p>Ocurre cuando se intenta hacer <b>POP</b> sobre una pila vacía.</p>
-        </div>
-    </article>
-</div>
-
-<div class="section-title">10 · APLICACIONES EN COMPUTACIÓN</div>
-<table>
-<tr><th>Aplicación</th><th>Uso de la pila</th></tr>
-<tr><td>Llamadas a funciones</td><td>La pila de llamadas guarda parámetros, direcciones de retorno y variables locales.</td></tr>
-<tr><td>Historial del navegador</td><td>Permite regresar a páginas visitadas recientemente.</td></tr>
-<tr><td>Undo / Redo</td><td>Apila acciones para deshacer y rehacer cambios.</td></tr>
-<tr><td>Expresiones matemáticas</td><td>Convierte y evalúa expresiones infijas, postfijas y prefijas.</td></tr>
-<tr><td>Backtracking</td><td>Ayuda a retroceder en laberintos, rompecabezas o búsquedas.</td></tr>
-<tr><td>Compiladores</td><td>Se usa en análisis sintáctico y procesamiento de expresiones.</td></tr>
-</table>
-
-<div class="summary">
-    <div class="bulb">💡</div>
-    <div>
-        <b>EN RESUMEN</b><br>
-        Una pila siempre conserva el principio <b>LIFO</b>: el último en entrar es el primero en salir.
-        La diferencia está en la forma de almacenarla: con un <b>arreglo</b> (pila estática)
-        o con <b>nodos enlazados</b> (pila dinámica). En ambos casos, todas las operaciones principales
-        se realizan desde un mismo extremo: el <b>tope</b>.
-    </div>
-</div>
-
-<div class="summary">
-    <div class="bulb">💡</div>
-    <div>
-        <b>CODIGO EN C </b><br>
-        <div class="card-foot">
-            <a class="btn" href="programa_basico_pilas_codigo_isyte.html">Abrir Codigo completo en C / C++</a>
-    </div>
-        
-    </div>
-</div>
 </main>
-
-<footer class="footer">
-    <div>
-        <div class="uabc">UABC</div>
-        <div>UNIVERSIDAD AUTÓNOMA<br>DE BAJA CALIFORNIA</div>
-    </div>
-    <div class="center">
-        <b>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</b><br>
-        Estructuras de Datos · Unidad II: Pilas
-    </div>
-    <div class="right">
-        POR LA REALIZACIÓN PLENA DEL SER
-    </div>
-</footer>
-
 </div>
+
+<script>
+async function copiarCodigo(id, boton) {
+    const texto = document.getElementById(id).textContent;
+    try {
+        await navigator.clipboard.writeText(texto);
+        const original = boton.textContent;
+        boton.textContent = "¡Copiado!";
+        setTimeout(() => boton.textContent = original, 1500);
+    } catch (e) {
+        const area = document.createElement("textarea");
+        area.value = texto;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+        const original = boton.textContent;
+        boton.textContent = "¡Copiado!";
+        setTimeout(() => boton.textContent = original, 1500);
+    }
+}
+</script>
+
 </body>
 </html>
