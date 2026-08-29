@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listas Dobles Circulares | Estructuras de Datos</title>
+<link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="page-listas-dobles-circulares">
+<div class="page">
+
+<header class="header">
+<div class="titleblock">
+<h1>LISTAS DOBLES CIRCULARES <span>UNIDAD I · LISTAS ENLAZADAS</span></h1>
+<div class="subtitle">Enlaces anterior y siguiente formando un ciclo cerrado</div>
+<div class="badge">🎵 Como un <b>reproductor en modo repetir</b></div>
+</div>
+
+<div class="meta">
+<div><strong>MATERIA</strong>Estructuras de Datos</div>
+<div><strong>MAESTRO</strong>Pedro Núñez Yepiz</div>
+<div><strong>CARRERA</strong>Ingeniero en Software y Tecnologías Emergentes</div>
+<div><strong>UNIVERSIDAD</strong>Universidad Autónoma de Baja California (UABC)</div>
+</div>
+
+<div class="logo"><img src="images/uabc_logo.png" alt="Escudo UABC"></div>
+</header>
+
+<div class="ribbon">
+<span>UNIDAD I · LISTAS DOBLES CIRCULARES</span>
+<span>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</span>
+</div>
+
+<main class="content">
+
+<section class="grid4">
+<article class="card green"><h3>1 · ¿QUÉ ES?</h3><div class="body"><div class="icon">🔄</div><p>Una <b>lista doble circular</b> contiene dos enlaces por nodo y, además, el último nodo se conecta nuevamente con el primero.</p><div class="key">Se puede avanzar y retroceder sin encontrar un final natural.</div></div></article>
+<article class="card blue"><h3>2 · ¿PARA QUÉ SIRVE?</h3><div class="body"><div class="icon">🎯</div><ul><li>Recorridos cíclicos.</li><li>Navegación hacia ambos lados.</li><li>Procesos repetitivos.</li><li>Sistemas de selección continua.</li></ul></div></article>
+<article class="card purple"><h3>3 · ¿CÓMO FUNCIONA?</h3><div class="body"><div class="icon">⚙️</div><ul><li>Cada nodo conoce al anterior.</li><li>Cada nodo conoce al siguiente.</li><li>El último conecta con el primero.</li><li>El primero conecta con el último.</li></ul></div></article>
+<article class="card orange"><h3>4 · USOS</h3><div class="body"><div class="icon">🖥️</div><ul><li>Reproductores de música.</li><li>Galerías de imágenes.</li><li>Menús rotativos.</li><li>Turnos cíclicos.</li></ul></div></article>
+</section>
+
+<div class="section">5 · ESTRUCTURA DEL NODO</div>
+
+<div class="two">
+<div>
+<div class="key"><b>NODO DOBLE CIRCULAR</b><br><br>anterior · dato · siguiente</div>
+<p>La estructura del nodo puede ser la misma que en una lista doble. Lo que cambia es la forma en que se enlazan los extremos.</p>
+</div>
+<div>
+<h3 style="color:var(--uabc-dark)">Estructura básica en C</h3>
+<div class="code">struct nodo {
+    int dato;
+    struct nodo *anterior;
+    struct nodo *siguiente;
+};</div>
+</div>
+</div>
+
+<div class="section">6 · REPRESENTACIÓN GRÁFICA</div>
+
+<div class="diagram">
+<div class="circle-line">
+<div class="loop-top"></div>
+<div class="circle-row">
+<div class="node"><div class="prev">○</div><div class="data">10</div><div class="next">○</div></div>
+<div class="bi">⇄</div>
+<div class="node"><div class="prev">○</div><div class="data">20</div><div class="next">○</div></div>
+<div class="bi">⇄</div>
+<div class="node"><div class="prev">○</div><div class="data">30</div><div class="next">○</div></div>
+<div class="bi">⇄</div>
+<div class="node"><div class="prev">○</div><div class="data">40</div><div class="next">○</div></div>
+</div>
+<div class="loop-bottom"></div>
+</div>
+</div>
+
+<div class="note"><b>Idea clave:</b> desde cualquier nodo puedes avanzar con <b>siguiente</b> o regresar con <b>anterior</b>. Al llegar a un extremo, el recorrido continúa por el otro porque la estructura es circular.</div>
+
+<div class="section">7 · ANALOGÍA · REPRODUCTOR DE MÚSICA</div>
+
+<div class="two">
+<div class="player">
+<div class="album">🎵</div>
+<div class="track">Canción 3 de 4</div>
+<div class="controls">
+<button class="ctrl">⏮</button>
+<button class="ctrl">▶</button>
+<button class="ctrl">⏭</button>
+</div>
+<div class="note" style="margin-bottom:0"><b>Modo repetir:</b> después de la última canción vuelve la primera; si retrocedes desde la primera, puedes volver a la última.</div>
+</div>
+
+<div>
+<div class="key">
+<b>Correspondencia con la lista doble circular</b><br><br>
+Canción actual → nodo actual<br>
+⏭ Siguiente → puntero siguiente<br>
+⏮ Anterior → puntero anterior<br>
+Última canción → enlaza con la primera<br>
+Primera canción → enlaza con la última
+</div>
+<p>Esta analogía permite visualizar las dos características al mismo tiempo: <b>doble enlace</b> y <b>circularidad</b>.</p>
+</div>
+</div>
+
+<div class="section">8 · OTRA ANALOGÍA · GALERÍA DE IMÁGENES</div>
+
+<div class="two">
+<div class="gallery">
+<div class="photo">🌄</div>
+<div class="photo">🏙️</div>
+<div class="photo">🌊</div>
+<div class="photo">🌲</div>
+<div class="photo">🌅</div>
+<div class="photo">🏞️</div>
+</div>
+<div>
+<div class="note"><b>Galería circular:</b> el usuario puede desplazarse con “imagen anterior” o “imagen siguiente”. Después de la última imagen vuelve a la primera; antes de la primera aparece nuevamente la última.</div>
+<div class="key"><b>Ventaja:</b> el usuario nunca llega a un “fin” visual; la navegación puede continuar indefinidamente.</div>
+</div>
+</div>
+
+<div class="section">9 · RECORRIDO HACIA ADELANTE</div>
+
+<div class="op">
+<div class="pseudo">ALGORITMO Recorrer_Adelante_Circular
+
+SI la lista no está vacía
+
+    AUXILIAR ← PRIMERO
+
+    REPETIR
+        Mostrar dato de AUXILIAR
+        AUXILIAR ← siguiente
+    HASTA que AUXILIAR sea nuevamente PRIMERO
+
+FIN SI
+
+FIN ALGORITMO</div>
+</div>
+
+<div class="section">10 · RECORRIDO HACIA ATRÁS</div>
+
+<div class="op">
+<div class="pseudo">ALGORITMO Recorrer_Atras_Circular
+
+SI la lista no está vacía
+
+    AUXILIAR ← ULTIMO
+
+    REPETIR
+        Mostrar dato de AUXILIAR
+        AUXILIAR ← anterior
+    HASTA que AUXILIAR sea nuevamente ULTIMO
+
+FIN SI
+
+FIN ALGORITMO</div>
+</div>
+
+<div class="section">11 · INSERCIÓN AL INICIO</div>
+
+<div class="op">
+<div class="pseudo">ALGORITMO Insertar_Inicio
+
+Crear NUEVO nodo
+Guardar DATO
+
+SI la lista está vacía
+    NUEVO.siguiente ← NUEVO
+    NUEVO.anterior ← NUEVO
+    PRIMERO ← NUEVO
+    ULTIMO ← NUEVO
+SINO
+    NUEVO.siguiente ← PRIMERO
+    NUEVO.anterior ← ULTIMO
+
+    PRIMERO.anterior ← NUEVO
+    ULTIMO.siguiente ← NUEVO
+
+    PRIMERO ← NUEVO
+FIN SI
+
+FIN ALGORITMO</div>
+</div>
+
+<div class="section">12 · INSERCIÓN AL FINAL</div>
+
+<div class="op">
+<div class="pseudo">ALGORITMO Insertar_Final
+
+Crear NUEVO nodo
+Guardar DATO
+
+SI la lista está vacía
+    NUEVO.siguiente ← NUEVO
+    NUEVO.anterior ← NUEVO
+    PRIMERO ← NUEVO
+    ULTIMO ← NUEVO
+SINO
+    NUEVO.anterior ← ULTIMO
+    NUEVO.siguiente ← PRIMERO
+
+    ULTIMO.siguiente ← NUEVO
+    PRIMERO.anterior ← NUEVO
+
+    ULTIMO ← NUEVO
+FIN SI
+
+FIN ALGORITMO</div>
+</div>
+
+<div class="section">13 · ELIMINACIÓN</div>
+
+<div class="diagram">
+<b>ANTES:</b> 10 ⇄ 20 ⇄ 30 ⇄ 40 ⇄ (regresa a 10)
+<br><br>
+<span style="color:var(--red);font-weight:800">Eliminar 30</span>
+<br><br>
+<b>DESPUÉS:</b> 10 ⇄ 20 ⇄ 40 ⇄ (regresa a 10)
+</div>
+
+<div class="op" style="margin-top:14px">
+<div class="pseudo">ALGORITMO Eliminar_Doble_Circular
+
+Buscar NODO
+
+SI NODO existe
+
+    SI NODO es el único nodo
+        PRIMERO ← NULL
+        ULTIMO ← NULL
+    SINO
+        NODO.anterior.siguiente ← NODO.siguiente
+        NODO.siguiente.anterior ← NODO.anterior
+
+        SI NODO es PRIMERO
+            PRIMERO ← NODO.siguiente
+        FIN SI
+
+        SI NODO es ULTIMO
+            ULTIMO ← NODO.anterior
+        FIN SI
+    FIN SI
+
+    Liberar NODO
+
+FIN SI
+
+FIN ALGORITMO</div>
+</div>
+
+<div class="section">14 · USOS EN COMPUTACIÓN</div>
+
+<table>
+<tr><th>Aplicación</th><th>Ejemplo</th></tr>
+<tr><td><b>Reproductores de música</b></td><td>Canción anterior/siguiente con repetición continua.</td></tr>
+<tr><td><b>Galerías de imágenes</b></td><td>Imagen previa/siguiente sin detenerse al llegar a los extremos.</td></tr>
+<tr><td><b>Carruseles web</b></td><td>Tarjetas o fotografías que se recorren indefinidamente.</td></tr>
+<tr><td><b>Menús rotativos</b></td><td>Opciones que pueden recorrerse hacia ambos lados y reiniciar automáticamente.</td></tr>
+<tr><td><b>Turnos cíclicos</b></td><td>Participantes que se atienden en ciclo, con posibilidad de retroceder.</td></tr>
+</table>
+
+<div class="section">15 · CUIDADOS IMPORTANTES</div>
+
+<section class="grid4">
+<article class="card green"><h3>CIRCULARIDAD</h3><div class="body">El <b>siguiente</b> del último nodo debe apuntar al primero.</div></article>
+<article class="card blue"><h3>RETORNO</h3><div class="body">El <b>anterior</b> del primer nodo debe apuntar al último.</div></article>
+<article class="card purple"><h3>RECORRIDO</h3><div class="body">No busques NULL para terminar; debes detectar cuándo vuelves al nodo inicial.</div></article>
+<article class="card orange"><h3>ENLACES</h3><div class="body">Cada inserción o eliminación modifica enlaces en ambos sentidos.</div></article>
+</section>
+
+<div class="summary">
+<div class="bulb">💡</div>
+<div><b>EN RESUMEN</b><br>
+Una lista doble circular combina dos ideas: <b>puedes avanzar o retroceder</b> y, además, <b>el recorrido nunca termina de forma natural</b>.
+Un reproductor de música en modo repetir o una galería de imágenes continua son analogías ideales: después del último elemento vuelves al primero y también puedes desplazarte en sentido contrario.
+</div>
+</div>
+
+</main>
+
+<footer class="footer">
+<div><div class="uabc">UABC</div><div>UNIVERSIDAD AUTÓNOMA<br>DE BAJA CALIFORNIA</div></div>
+<div class="center"><b>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</b><br>Estructuras de Datos · Unidad I: Listas Dobles Circulares</div>
+<div class="right">POR LA REALIZACIÓN PLENA DEL SER</div>
+</footer>
+
+</div>
+  <script src="scripts/app.js" defer></script>
+</body>
+</html>

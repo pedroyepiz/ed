@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listas Simples | Estructuras de Datos</title>
+
+<link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body class="page-listas-simples">
+<div class="page">
+
+<header class="header">
+  <div class="titleblock">
+    <h1>LISTAS SIMPLES <span>UNIDAD I · LISTAS ENLAZADAS</span></h1>
+    <div class="subtitle">Abiertas o cerradas · Ordenadas o desordenadas</div>
+    <div class="badge">🔗 Un nodo conoce solamente a su <b>siguiente</b></div>
+  </div>
+
+  <div class="meta">
+    <div><strong>MATERIA</strong>Estructuras de Datos</div>
+    <div><strong>MAESTRO</strong>Pedro Núñez Yepiz</div>
+    <div><strong>CARRERA</strong>Ingeniero en Software y Tecnologías Emergentes</div>
+    <div><strong>UNIVERSIDAD</strong>Universidad Autónoma de Baja California (UABC)</div>
+  </div>
+
+  <div class="logo">
+    <img src="images/uabc_logo.png" alt="Escudo UABC">
+  </div>
+</header>
+
+<div class="ribbon">
+  <span>UNIDAD I · LISTAS SIMPLES</span>
+  <span>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</span>
+</div>
+
+<main class="content">
+
+<section class="grid4">
+  <article class="card green">
+    <h3>1 · ¿QUÉ ES?</h3>
+    <div class="body">
+      <div class="icon">🔗</div>
+      <p>Una <b>lista simple</b> está formada por nodos donde cada nodo guarda un dato y una referencia al nodo siguiente.</p>
+      <div class="key">Cada nodo sabe únicamente quién viene después.</div>
+    </div>
+  </article>
+
+  <article class="card blue">
+    <h3>2 · ¿PARA QUÉ SIRVE?</h3>
+    <div class="body">
+      <div class="icon">🎯</div>
+      <ul>
+        <li>Guardar datos dinámicamente.</li>
+        <li>Insertar y eliminar elementos.</li>
+        <li>Recorrer información secuencial.</li>
+        <li>Construir otras estructuras.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="card purple">
+    <h3>3 · ¿CÓMO FUNCIONA?</h3>
+    <div class="body">
+      <div class="icon">⚙️</div>
+      <ul>
+        <li>Se inicia desde CABEZA.</li>
+        <li>Cada nodo apunta al siguiente.</li>
+        <li>El recorrido avanza en un solo sentido.</li>
+        <li>Puede terminar en NULL o volver al inicio.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="card orange">
+    <h3>4 · CLASIFICACIÓN</h3>
+    <div class="body">
+      <div class="icon">🧭</div>
+      <ul>
+        <li>Ordenadas.</li>
+        <li>Desordenadas.</li>
+        <li>Abiertas.</li>
+        <li>Cerradas.</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<div class="section">5 · ESTRUCTURA BÁSICA DEL NODO</div>
+
+<div class="two">
+  <div>
+    <div class="key">
+      <b>NODO SIMPLE</b><br><br>
+      DATO | SIGUIENTE
+    </div>
+    <p>El nodo almacena la información y la dirección del siguiente nodo de la lista.</p>
+  </div>
+
+  <div>
+    <h3 style="color:var(--uabc-dark);margin-top:0">Estructura básica en C</h3>
+    <div class="code">struct nodo {
+    int dato;
+    struct nodo *siguiente;
+};</div>
+  </div>
+</div>
+
+<div class="section">6 · LISTA SIMPLE ABIERTA</div>
+
+<div class="diagram">
+  <div class="node-row">
+    <b style="margin-right:10px;color:var(--uabc-dark)">CABEZA →</b>
+    <div class="node"><div class="data">10</div><div class="next">○</div></div>
+    <div class="arr"></div>
+    <div class="node"><div class="data">25</div><div class="next">○</div></div>
+    <div class="arr"></div>
+    <div class="node"><div class="data">40</div><div class="next">○</div></div>
+    <div class="arr"></div>
+    <div class="null">NULL</div>
+  </div>
+</div>
+
+<div class="note">
+  <b>Lista abierta:</b> el último nodo apunta a <b>NULL</b>. Existe un inicio y existe un final claramente definido.
+</div>
+
+<div class="analogy">
+  <div class="visual">
+    <div class="bigicon">🚂</div>
+    <div class="visual-title">Analogía: un tren</div>
+  </div>
+  <div>
+    <h3 style="color:var(--uabc-dark)">Un vagón conoce al siguiente</h3>
+    <p>Imagina un tren visto desde la locomotora. Cada vagón está conectado con el siguiente y existe un último vagón.</p>
+    <div class="key"><b>Locomotora → CABEZA</b><br>Vagón → nodo<br>Enganche → siguiente<br>Último vagón → NULL</div>
+  </div>
+</div>
+
+<div class="section">7 · LISTA SIMPLE CERRADA</div>
+
+<div class="diagram loopline">
+  <div class="node-row">
+    <b style="margin-right:10px;color:var(--uabc-dark)">CABEZA →</b>
+    <div class="node"><div class="data">10</div><div class="next">○</div></div>
+    <div class="arr"></div>
+    <div class="node"><div class="data">25</div><div class="next">○</div></div>
+    <div class="arr"></div>
+    <div class="node"><div class="data">40</div><div class="next">○</div></div>
+  </div>
+</div>
+
+<div class="note">
+  <b>Lista cerrada:</b> el último nodo no apunta a NULL; vuelve a apuntar al primero. Por eso también se conoce como <b>lista circular simple</b>.
+</div>
+
+<div class="analogy">
+  <div class="visual">
+    <div class="circle-people">
+      <span>👩</span><span>👨</span><span>🧑</span><span>👩‍💻</span>
+    </div>
+    <div class="visual-title">Analogía: una ronda de turnos</div>
+  </div>
+  <div>
+    <h3 style="color:var(--uabc-dark)">Después del último vuelve el primero</h3>
+    <p>Imagina cuatro personas sentadas alrededor de una mesa. Cuando termina el turno de la cuarta persona, vuelve a comenzar la primera.</p>
+    <div class="key">Persona → nodo<br>Siguiente turno → puntero siguiente<br>Último turno → regresa al primero</div>
+  </div>
+</div>
+
+<div class="section">8 · LISTAS ORDENADAS</div>
+
+<div class="diagram">
+  <div class="node-row">
+    <div class="node"><div class="data">10</div><div class="next">○</div></div>
+    <div class="arr"></div>
+    <div class="node"><div class="data">20</div><div class="next">○</div></div>
+    <div class="arr"></div>
+    <div class="node"><div class="data">30</div><div class="next">○</div></div>
+    <div class="arr"></div>
+    <div class="node"><div class="data">40</div><div class="next">○</div></div>
+    <div class="arr"></div>
+    <div class="null">NULL</div>
+  </div>
+</div>
+
+<div class="note">
+  <b>Lista ordenada:</b> los nodos se mantienen acomodados de acuerdo con un criterio: número, matrícula, nombre, fecha, prioridad, etc.
+</div>
+
+<div class="analogy">
+  <div class="visual">
+    <div class="shelf">
+      <div class="book">1</div><div class="book">2</div><div class="book">3</div><div class="book">4</div>
+    </div>
+    <div class="visual-title">Analogía: libros acomodados</div>
+  </div>
+  <div>
+    <h3 style="color:var(--uabc-dark)">Cada libro tiene su lugar</h3>
+    <p>En una biblioteca, los libros pueden colocarse por número, autor o título. Si llega un nuevo libro, no se coloca necesariamente al final: se busca la posición que le corresponde.</p>
+    <div class="key"><b>Ejemplo:</b> si la lista contiene 10 → 20 → 40 y llega 30, debe insertarse entre 20 y 40.</div>
+  </div>
+</div>
+
+<div class="section">9 · INSERCIÓN EN UNA LISTA ORDENADA</div>
+
+<div class="op">
+  <div class="pseudo">ALGORITMO Insertar_Ordenado
+
+Crear NUEVO nodo
+Guardar DATO en NUEVO
+
+SI la lista está vacía
+    CABEZA ← NUEVO
+
+SINO SI DATO debe ir antes de CABEZA
+    NUEVO.siguiente ← CABEZA
+    CABEZA ← NUEVO
+
+SINO
+    AUXILIAR ← CABEZA
+
+    MIENTRAS exista siguiente
+          Y el siguiente dato sea menor que DATO
+        AUXILIAR ← siguiente
+    FIN MIENTRAS
+
+    NUEVO.siguiente ← AUXILIAR.siguiente
+    AUXILIAR.siguiente ← NUEVO
+FIN SI
+
+FIN ALGORITMO</div>
+</div>
+
+<div class="section">10 · LISTAS DESORDENADAS</div>
+
+<div class="diagram">
+  <div class="node-row">
+    <div class="node"><div class="data">40</div><div class="next">○</div></div>
+    <div class="arr"></div>
+    <div class="node"><div class="data">10</div><div class="next">○</div></div>
+    <div class="arr"></div>
+    <div class="node"><div class="data">35</div><div class="next">○</div></div>
+    <div class="arr"></div>
+    <div class="node"><div class="data">20</div><div class="next">○</div></div>
+    <div class="arr"></div>
+    <div class="null">NULL</div>
+  </div>
+</div>
+
+<div class="note">
+  <b>Lista desordenada:</b> los nodos se insertan sin mantener un criterio de orden. La posición depende de cómo se hayan agregado.
+</div>
+
+<div class="analogy">
+  <div class="visual">
+    <div class="queue-people">
+      <span class="person">🧑‍🎓</span>
+      <span class="person">👩‍🔬</span>
+      <span class="person">👨‍💻</span>
+      <span class="person">👩‍🏫</span>
+    </div>
+    <div class="visual-title">Analogía: lista de pendientes</div>
+  </div>
+  <div>
+    <h3 style="color:var(--uabc-dark)">Se agrega conforme llega</h3>
+    <p>Piensa en una lista rápida de pendientes. Las tareas pueden registrarse conforme aparecen, sin preocuparse inicialmente por ordenarlas.</p>
+    <div class="key">La estructura sigue funcionando aunque los datos no estén ordenados.</div>
+  </div>
+</div>
+
+<div class="section">11 · DOS CARACTERÍSTICAS INDEPENDIENTES</div>
+
+<div class="note">
+  Una lista puede clasificarse por <b>cómo termina</b> y también por <b>cómo están acomodados sus datos</b>. Por eso “abierta/cerrada” y “ordenada/desordenada” son características diferentes.
+</div>
+
+<div class="matrix">
+  <div class="typebox">
+    <h4>ABIERTA + ORDENADA</h4>
+    10 → 20 → 30 → 40 → NULL
+  </div>
+  <div class="typebox">
+    <h4>ABIERTA + DESORDENADA</h4>
+    40 → 10 → 35 → 20 → NULL
+  </div>
+  <div class="typebox">
+    <h4>CERRADA + ORDENADA</h4>
+    10 → 20 → 30 → 40 → vuelve a 10
+  </div>
+  <div class="typebox">
+    <h4>CERRADA + DESORDENADA</h4>
+    40 → 10 → 35 → 20 → vuelve a 40
+  </div>
+</div>
+
+<div class="section">12 · RECORRIDO</div>
+
+<div class="two">
+  <div class="op">
+    <h4>Lista abierta</h4>
+    <div class="pseudo">AUXILIAR ← CABEZA
+
+MIENTRAS AUXILIAR no sea NULL
+    Mostrar dato
+    AUXILIAR ← siguiente
+FIN MIENTRAS</div>
+  </div>
+
+  <div class="op">
+    <h4>Lista cerrada</h4>
+    <div class="pseudo">SI la lista no está vacía
+
+    AUXILIAR ← CABEZA
+
+    REPETIR
+        Mostrar dato
+        AUXILIAR ← siguiente
+    HASTA que AUXILIAR sea CABEZA
+
+FIN SI</div>
+  </div>
+</div>
+
+<div class="section">13 · COMPARACIÓN</div>
+
+<table>
+<tr>
+  <th>Tipo</th>
+  <th>Característica</th>
+  <th>Final del recorrido</th>
+  <th>Analogía</th>
+</tr>
+<tr>
+  <td><b>Abierta</b></td>
+  <td>Tiene principio y final.</td>
+  <td>NULL</td>
+  <td>🚂 Tren</td>
+</tr>
+<tr>
+  <td><b>Cerrada</b></td>
+  <td>El último vuelve al primero.</td>
+  <td>Regreso a CABEZA</td>
+  <td>🔄 Ronda de turnos</td>
+</tr>
+<tr>
+  <td><b>Ordenada</b></td>
+  <td>Mantiene un criterio.</td>
+  <td>Depende de si es abierta o cerrada.</td>
+  <td>📚 Libros acomodados</td>
+</tr>
+<tr>
+  <td><b>Desordenada</b></td>
+  <td>Se inserta sin mantener orden.</td>
+  <td>Depende de si es abierta o cerrada.</td>
+  <td>📝 Lista de pendientes</td>
+</tr>
+</table>
+
+<div class="section">14 · USOS EN COMPUTACIÓN</div>
+
+<table>
+<tr><th>Aplicación</th><th>Uso</th></tr>
+<tr><td><b>Registros dinámicos</b></td><td>Agregar información sin reservar un arreglo de tamaño fijo.</td></tr>
+<tr><td><b>Catálogos</b></td><td>Mantener elementos ordenados por clave o desordenados según su llegada.</td></tr>
+<tr><td><b>Turnos</b></td><td>Usar listas cerradas cuando el proceso debe repetirse continuamente.</td></tr>
+<tr><td><b>Procesamiento secuencial</b></td><td>Recorrer los datos desde la cabeza hasta el final.</td></tr>
+<tr><td><b>Base de otras estructuras</b></td><td>Construcción de pilas, colas y otras estructuras dinámicas.</td></tr>
+</table>
+
+<div class="section">15 · CUIDADOS IMPORTANTES</div>
+
+<section class="grid4">
+  <article class="card green"><h3>CABEZA</h3><div class="body">Debe conservar siempre la referencia al primer nodo.</div></article>
+  <article class="card blue"><h3>NULL</h3><div class="body">En una lista abierta, NULL indica que terminó el recorrido.</div></article>
+  <article class="card purple"><h3>CIRCULARIDAD</h3><div class="body">En una lista cerrada debes detenerte al regresar a CABEZA para evitar ciclos infinitos.</div></article>
+  <article class="card orange"><h3>ORDEN</h3><div class="body">Si la lista es ordenada, cada nueva inserción debe respetar el criterio elegido.</div></article>
+</section>
+
+<div class="summary">
+  <div class="bulb">💡</div>
+  <div>
+    <b>EN RESUMEN</b><br>
+    Una lista simple enlaza cada nodo únicamente con su siguiente. Puede ser <b>abierta</b> si termina en NULL o <b>cerrada</b> si el último nodo vuelve al primero. Independientemente de eso, sus datos pueden mantenerse <b>ordenados</b> o almacenarse <b>desordenados</b>.
+  </div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div>
+    <div class="uabc">UABC</div>
+    <div>UNIVERSIDAD AUTÓNOMA<br>DE BAJA CALIFORNIA</div>
+  </div>
+  <div class="center">
+    <b>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</b><br>
+    Estructuras de Datos · Unidad I: Listas Simples
+  </div>
+  <div class="right">POR LA REALIZACIÓN PLENA DEL SER</div>
+</footer>
+
+</div>
+  <script src="scripts/app.js" defer></script>
+</body>
+</html>
