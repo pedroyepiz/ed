@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unidad I - Listas Enlazadas</title><link rel="stylesheet" href="../styles/styles.css"></head><body class="page-listas">
+<div class="page">
+<header class="header">
+<div><h1>LISTAS ENLAZADAS <span>UNIDAD I · MEMORIA DINÁMICA</span></h1><div class="subtitle">Estructuras lineales formadas por nodos enlazados</div><div class="badge">🔗 Como una <b>cadena de nodos conectados</b></div></div>
+<div class="meta"><div><strong>UNIDAD</strong>Unidad I · Listas Enlazadas</div><div><strong>MATERIA</strong>Estructuras de Datos</div><div><strong>MAESTRO</strong>Pedro Núñez Yepiz</div><div><strong>CARRERA</strong>Ingeniero en Software y Tecnologías Emergentes</div><div><strong>UNIVERSIDAD</strong>Universidad Autónoma de Baja California (UABC)</div></div>
+<div class="logo"><img src="../images/uabc_logo.png" alt="Escudo UABC"></div>
+</header>
+<div class="ribbon"><span>UNIDAD I · LISTAS ENLAZADAS</span><span>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</span></div>
+<main class="content">
+
+<div class="note"><b>Competencia:</b> Desarrollar un programa de procesamiento de información, aplicando los conceptos de listas enlazadas, con el propósito de dar solución a un problema específico pertinente, con una actitud analítica y creativa.<br><br><b>Duración:</b> 6 horas</div>
+
+
+
+
+
+<section class="grid4">
+<article class="card green"><h3>1 · ¿QUÉ ES?</h3><div class="body"><div class="icon">🔗</div><p>Una <b>lista enlazada</b> es una estructura dinámica formada por <b>nodos</b>.</p><div class="key">Los nodos no necesitan ocupar posiciones consecutivas de memoria.</div></div></article>
+<article class="card blue"><h3>2 · ¿PARA QUÉ SIRVE?</h3><div class="body"><div class="icon">🎯</div><ul><li>Almacenar datos variables.</li><li>Insertar y eliminar elementos.</li><li>Construir pilas y colas.</li><li>Administrar registros dinámicos.</li></ul></div></article>
+<article class="card purple"><h3>3 · ¿CÓMO FUNCIONA?</h3><div class="body"><div class="icon">⚙️</div><ul><li>Cada nodo guarda un dato.</li><li>Los enlaces conectan nodos.</li><li>La lista se recorre siguiendo enlaces.</li><li>El tamaño cambia en ejecución.</li></ul></div></article>
+<article class="card orange"><h3>4 · USOS EN COMPUTACIÓN</h3><div class="body"><div class="icon">🖥️</div><ul><li>Agendas y catálogos.</li><li>Procesos e historiales.</li><li>Sistemas de turnos.</li><li>Otras estructuras dinámicas.</li></ul></div></article>
+</section>
+
+<div class="section">5 · 1.1 DEFINICIÓN · EL NODO</div>
+<p>Una lista enlazada es una estructura de datos dinámica. A diferencia de un arreglo, sus elementos no tienen que estar almacenados en posiciones consecutivas de memoria. Cada nodo contiene información y uno o más enlaces que permiten localizar otros nodos.</p>
+<div class="two">
+<div><div class="key"><b>NODO</b><br>dato<br>siguiente</div><p>El campo <b>dato</b> almacena la información y <b>siguiente</b> guarda la referencia al próximo nodo.</p></div>
+<div class="diagram"><b>REPRESENTACIÓN BÁSICA DEL NODO</b><br><br><div class="node"><div class="d">12</div><div class="n">○</div></div><div class="arr"></div><span><b>siguiente</b></span></div>
+</div>
+<h3 style="color:var(--uabc-dark)">Estructura básica en C</h3>
+<div class="code">struct nodo {
+    int dato;
+    struct nodo *siguiente;
+};</div>
+<div class="note">Las operaciones posteriores se estudian mediante <b>pseudocódigo</b>, no con implementación completa en C.</div>
+
+<div class="section">6 · 1.1.1 LISTAS ENLAZADAS SENCILLAS</div>
+<p>En una lista sencilla, cada nodo contiene un enlace hacia el nodo siguiente. El primer nodo se denomina normalmente <b>CABEZA</b>. El último nodo apunta a <b>NULL</b>.</p>
+<div class="diagram"><b>CABEZA →</b>&nbsp;&nbsp;<div class="node"><div class="d">10</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">25</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">40</div><div class="n">○</div></div><div class="arr"></div><div class="null">NULL</div></div>
+
+<div class="two" style="margin-top:14px">
+<div class="op"><h4>Insertar al inicio</h4><div class="pseudo">ALGORITMO Insertar_Inicio
+
+Crear NUEVO nodo
+Guardar DATO en NUEVO
+Hacer que NUEVO apunte al primer nodo
+Hacer que CABEZA apunte a NUEVO
+
+FIN ALGORITMO</div></div>
+<div class="op"><h4>Insertar al final</h4><div class="pseudo">ALGORITMO Insertar_Final
+
+Crear NUEVO nodo
+Guardar DATO en NUEVO
+NUEVO apunta a NULL
+
+SI la lista está vacía
+    CABEZA apunta a NUEVO
+SINO
+    AUXILIAR ← CABEZA
+    MIENTRAS AUXILIAR tenga siguiente
+        Avanzar AUXILIAR
+    FIN MIENTRAS
+    AUXILIAR apunta a NUEVO
+FIN SI
+
+FIN ALGORITMO</div></div>
+</div>
+
+<div class="two" style="margin-top:14px">
+<div class="op"><h4>Recorrido</h4><div class="pseudo">ALGORITMO Recorrer_Lista
+
+AUXILIAR ← CABEZA
+
+MIENTRAS AUXILIAR no sea NULL
+    Mostrar dato de AUXILIAR
+    AUXILIAR ← siguiente nodo
+FIN MIENTRAS
+
+FIN ALGORITMO</div></div>
+<div class="op"><h4>Eliminación</h4><div class="pseudo">ALGORITMO Eliminar
+
+Buscar el nodo que contiene el dato
+
+SI el nodo existe
+    Conservar referencia al nodo anterior
+    Conectar el nodo anterior con el siguiente
+    Liberar el nodo eliminado
+FIN SI
+
+FIN ALGORITMO</div></div>
+</div>
+<div class="diagram" style="margin-top:14px"><b>EJEMPLO DE ELIMINACIÓN</b><p><b>Antes:</b> 10 → 20 → 30 → 40 → NULL</p><p style="color:#c62828"><b>Eliminar:</b> 20</p><p><b>Después:</b> 10 → 30 → 40 → NULL</p></div>
+
+<div class="section">7 · 1.1.2 LISTAS ENLAZADAS DOBLES</div>
+<p>Una lista doblemente enlazada contiene dos enlaces en cada nodo: uno al nodo anterior y otro al nodo siguiente. Esto permite desplazarse en ambos sentidos.</p>
+<div class="diagram"><div class="null">NULL</div> ⇄ <div class="node double"><div class="p">○</div><div class="d">10</div><div class="n">○</div></div> ⇄ <div class="node double"><div class="p">○</div><div class="d">20</div><div class="n">○</div></div> ⇄ <div class="node double"><div class="p">○</div><div class="d">30</div><div class="n">○</div></div> ⇄ <div class="null">NULL</div></div>
+<h3 style="color:var(--uabc-dark)">Estructura básica en C</h3>
+<div class="code">struct nodo {
+    int dato;
+    struct nodo *anterior;
+    struct nodo *siguiente;
+};</div>
+<div class="two">
+<div class="op"><h4>Recorrer hacia adelante</h4><div class="pseudo">ALGORITMO Recorrer_Adelante
+
+AUXILIAR ← PRIMERO
+MIENTRAS AUXILIAR no sea NULL
+    Mostrar dato
+    AUXILIAR ← siguiente
+FIN MIENTRAS
+
+FIN ALGORITMO</div></div>
+<div class="op"><h4>Recorrer hacia atrás</h4><div class="pseudo">ALGORITMO Recorrer_Atras
+
+AUXILIAR ← ULTIMO
+MIENTRAS AUXILIAR no sea NULL
+    Mostrar dato
+    AUXILIAR ← anterior
+FIN MIENTRAS
+
+FIN ALGORITMO</div></div>
+</div>
+
+<div class="section">8 · 1.1.3 LISTAS ENLAZADAS CIRCULARES</div>
+<p>En una lista circular, el último nodo vuelve a enlazarse con el primero. No existe un <b>NULL</b> natural que marque el final.</p>
+<div class="diagram"><div class="node"><div class="d">10</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">20</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">30</div><div class="n">↻</div></div><div style="margin-top:10px;color:var(--uabc-dark);font-weight:800">El último nodo regresa al primero</div></div>
+<h3 style="color:var(--uabc-dark)">Estructura básica en C</h3>
+<div class="code">struct nodo {
+    int dato;
+    struct nodo *siguiente;
+};</div>
+<div class="op"><h4>Recorrido circular</h4><div class="pseudo">ALGORITMO Recorrer_Circular
+
+SI la lista no está vacía
+    AUXILIAR ← CABEZA
+
+    REPETIR
+        Mostrar dato de AUXILIAR
+        AUXILIAR ← siguiente
+    HASTA que AUXILIAR sea nuevamente CABEZA
+FIN SI
+
+FIN ALGORITMO</div></div>
+<div class="note"><b>Aplicaciones:</b> turnos de jugadores, procesos atendidos cíclicamente, planificación, listas de reproducción repetitivas y administración de recursos por turnos.</div>
+
+<div class="section">9 · 1.2 IMPLEMENTACIÓN Y APLICACIONES</div>
+<p>Las listas enlazadas son apropiadas cuando la cantidad de elementos puede cambiar durante la ejecución. No es necesario definir previamente el número exacto de registros.</p>
+<div class="diagram"><b>ALUMNOS →</b>&nbsp;&nbsp;<div class="node"><div class="d">Ana</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Luis</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Carlos</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">María</div><div class="n">○</div></div><div class="arr"></div><div class="null">NULL</div></div>
+<table><tr><th>Aplicación</th><th>Ejemplo</th></tr><tr><td>Registro dinámico</td><td>Estudiantes que se agregan conforme llegan.</td></tr><tr><td>Catálogos</td><td>Productos que pueden insertarse o eliminarse.</td></tr><tr><td>Agenda de contactos</td><td>Registros enlazados de tamaño variable.</td></tr><tr><td>Procesos e historiales</td><td>Secuencias dinámicas de tareas o eventos.</td></tr><tr><td>Otras estructuras</td><td>Base para pilas, colas y otras estructuras dinámicas.</td></tr></table>
+
+<div class="section">10 · 1.3 SOLUCIÓN DE PROBLEMAS</div>
+<h3 style="color:var(--uabc-dark)">Problema propuesto · Lista de estudiantes</h3>
+<p>Una institución necesita mantener temporalmente una lista de números de matrícula. Debe permitir registrar, mostrar, buscar y eliminar matrículas.</p>
+<div class="diagram"><b>CABEZA →</b>&nbsp;&nbsp;<div class="node"><div class="d">12501</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">12508</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">12515</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">12522</div><div class="n">○</div></div><div class="arr"></div><div class="null">NULL</div></div>
+<div class="pseudo">INICIO
+
+Crear una lista vacía
+
+REPETIR
+    Mostrar menú
+
+    1. Insertar estudiante
+    2. Mostrar estudiantes
+    3. Buscar estudiante
+    4. Eliminar estudiante
+    5. Salir
+
+    Leer opción
+
+    SEGÚN opción HACER
+        1:
+            Leer matrícula
+            Insertar matrícula en la lista
+        2:
+            Recorrer la lista
+            Mostrar cada matrícula
+        3:
+            Leer matrícula
+            Buscar matrícula
+            Informar resultado
+        4:
+            Leer matrícula
+            Buscar matrícula
+            Si existe, eliminarla
+        5:
+            Terminar
+    FIN SEGÚN
+
+HASTA seleccionar Salir
+
+FIN</div>
+
+<div class="section">11 · RESUMEN DE LA UNIDAD</div>
+<table><tr><th>Tipo de lista</th><th>Enlaces por nodo</th><th>Recorrido</th><th>Final</th></tr><tr><td><b>Sencilla</b></td><td>1</td><td>Hacia adelante</td><td>NULL</td></tr><tr><td><b>Doble</b></td><td>2</td><td>Adelante y atrás</td><td>NULL</td></tr><tr><td><b>Circular</b></td><td>1 o 2</td><td>Cíclico</td><td>Regresa al inicio</td></tr></table>
+
+<div class="key"><b>Conceptos que el estudiante debe dominar:</b><ul><li>Qué es un nodo y cuál es el papel de los punteros.</li><li>Diferencias entre lista sencilla, doble y circular.</li><li>Representación gráfica de una lista enlazada.</li><li>Inserción, búsqueda, recorrido y eliminación.</li><li>Uso de pseudocódigo para expresar algoritmos.</li><li>Selección del tipo de lista apropiado para un problema.</li><li>Relación entre listas enlazadas y memoria dinámica en C.</li></ul></div>
+
+<section class="listas-nav-panel" aria-labelledby="titulo-tipos-listas">
+  <div class="listas-nav-icono" aria-hidden="true">🧩</div>
+
+  <div class="listas-nav-contenido">
+    <h3 id="titulo-tipos-listas">TIPOS DE LISTAS ENLAZADAS</h3>
+    <p>Explora cada tipo de lista y compara cómo cambian sus enlaces, recorridos y aplicaciones.</p>
+
+    <div class="listas-nav-links">
+      <a class="listas-nav-link" href="listas_simples_isyte.html">
+        <span class="listas-nav-emoji">➡️</span>
+        <span>
+          <strong>Listas Abiertas</strong>
+          <small>Lista simple · termina en NULL</small>
+        </span>
+      </a>
+
+      <a class="listas-nav-link" href="listas_circulares_isyte.html">
+        <span class="listas-nav-emoji">🔄</span>
+        <span>
+          <strong>Listas Circulares</strong>
+          <small>El último nodo regresa al primero</small>
+        </span>
+      </a>
+
+      <a class="listas-nav-link" href="listas_dobles_isyte.html">
+        <span class="listas-nav-emoji">↔️</span>
+        <span>
+          <strong>Listas Dobles</strong>
+          <small>Enlace anterior y siguiente</small>
+        </span>
+      </a>
+
+      <a class="listas-nav-link" href="listas_dobles_circulares_isyte.html">
+        <span class="listas-nav-emoji">🔁</span>
+        <span>
+          <strong>Listas Dobles Circulares</strong>
+          <small>Dos sentidos dentro de un ciclo cerrado</small>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="summary"><div class="bulb">💡</div><div><b>IDEA CLAVE</b><br>En una lista enlazada, lo importante no es únicamente dónde se encuentra almacenado un dato, sino <b>qué nodo conoce la dirección del siguiente elemento</b>.</div></div>
+
+</main>
+<footer class="footer"><div><div class="uabc">UABC</div><div>UNIVERSIDAD AUTÓNOMA<br>DE BAJA CALIFORNIA</div></div><div class="center"><b>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</b><br>Estructuras de Datos · Unidad I: Listas Enlazadas</div><div class="right">POR LA REALIZACIÓN PLENA DEL SER</div></footer>
+</div>
+<!-- BOTÓN FLOTANTE UABC: REGRESA AL INDEX -->
+<!-- FIN BOTÓN FLOTANTE UABC -->
+
+  <script src="../scripts/app.js" defer></script>
+</body></html>

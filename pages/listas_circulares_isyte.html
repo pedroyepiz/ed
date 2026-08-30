@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Listas Circulares | Estructuras de Datos</title>
+<link rel="stylesheet" href="../styles/styles.css">
+</head><body class="page-listas-circulares">
+<div class="page">
+<header class="header">
+<div><h1>LISTAS CIRCULARES <span>UNIDAD I · LISTAS ENLAZADAS</span></h1><div class="subtitle">Una estructura donde el último nodo vuelve al primero</div><div class="badge">🎡 Como una <b>ruleta que vuelve a empezar</b></div></div>
+<div class="meta"><div><strong>MATERIA</strong>Estructuras de Datos</div><div><strong>MAESTRO</strong>Pedro Núñez Yepiz</div><div><strong>CARRERA</strong>Ingeniero en Software y Tecnologías Emergentes</div><div><strong>UNIVERSIDAD</strong>Universidad Autónoma de Baja California (UABC)</div></div>
+<div class="logo"><img src="../images/uabc_logo.png" alt="Escudo UABC"></div>
+</header>
+<div class="ribbon"><span>UNIDAD I · LISTAS CIRCULARES</span><span>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</span></div>
+<main class="content">
+
+<section class="grid4">
+<article class="card green"><h3>1 · ¿QUÉ ES?</h3><div class="body"><div class="icon">🔄</div><p>Lista enlazada donde el último nodo vuelve a enlazarse con el primero.</p><div class="key">No existe un NULL natural al final.</div></div></article>
+<article class="card blue"><h3>2 · ¿PARA QUÉ SIRVE?</h3><div class="body"><div class="icon">🎯</div><ul><li>Procesos repetitivos.</li><li>Turnos cíclicos.</li><li>Recorridos continuos.</li><li>Recursos rotativos.</li></ul></div></article>
+<article class="card purple"><h3>3 · ¿CÓMO FUNCIONA?</h3><div class="body"><div class="icon">⚙️</div><ul><li>Se parte de CABEZA.</li><li>Cada nodo apunta al siguiente.</li><li>El último vuelve a CABEZA.</li></ul></div></article>
+<article class="card orange"><h3>4 · USOS</h3><div class="body"><div class="icon">🖥️</div><ul><li>Round Robin.</li><li>Turnos de jugadores.</li><li>Playlists.</li><li>Buffers circulares.</li></ul></div></article>
+</section>
+
+<div class="section">5 · REPRESENTACIÓN BÁSICA</div>
+<div class="diagram"><div class="nodes"><b style="margin-right:10px;color:var(--uabc-dark)">CABEZA →</b><div class="node"><div class="d">10</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">20</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">30</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">40</div><div class="n">○</div></div><div class="loop"></div></div></div>
+
+<div class="two" style="margin-top:14px">
+<div><h3 style="color:var(--uabc-dark)">Nodo básico</h3><div class="key"><b>NODO</b><br>dato<br>siguiente</div><p>La diferencia con una lista sencilla está en cómo se conecta el último nodo.</p></div>
+<div><h3 style="color:var(--uabc-dark)">Estructura base en C</h3><div class="code">struct nodo {
+    int dato;
+    struct nodo *siguiente;
+};</div></div>
+</div>
+
+<div class="section">6 · ANALOGÍA VISUAL · RULETA DE CASINO</div>
+<div class="roulette-wrap">
+<div class="roulette"><div class="arrowpin"></div><div class="slot" style="transform:rotate(0deg) translateY(-108px) rotate(-0deg)">0</div><div class="slot" style="transform:rotate(30deg) translateY(-108px) rotate(-30deg)">32</div><div class="slot" style="transform:rotate(60deg) translateY(-108px) rotate(-60deg)">15</div><div class="slot" style="transform:rotate(90deg) translateY(-108px) rotate(-90deg)">19</div><div class="slot" style="transform:rotate(120deg) translateY(-108px) rotate(-120deg)">4</div><div class="slot" style="transform:rotate(150deg) translateY(-108px) rotate(-150deg)">21</div><div class="slot" style="transform:rotate(180deg) translateY(-108px) rotate(-180deg)">2</div><div class="slot" style="transform:rotate(210deg) translateY(-108px) rotate(-210deg)">25</div><div class="slot" style="transform:rotate(240deg) translateY(-108px) rotate(-240deg)">17</div><div class="slot" style="transform:rotate(270deg) translateY(-108px) rotate(-270deg)">34</div><div class="slot" style="transform:rotate(300deg) translateY(-108px) rotate(-300deg)">6</div><div class="slot" style="transform:rotate(330deg) translateY(-108px) rotate(-330deg)">27</div></div>
+<div><div class="note"><b>Analogía:</b> una ruleta de casino es un excelente ejemplo visual. Los números están distribuidos alrededor de un círculo. Después de recorrer todos los espacios, el siguiente vuelve a ser el primero.</div>
+<div class="key"><b>Correspondencia:</b><br>Número de la ruleta → nodo<br>Siguiente casilla → enlace siguiente<br>Vuelta completa → recorrido circular<br>Regreso al primer número → regreso a CABEZA</div></div>
+</div>
+
+<div class="section">7 · RECORRIDO CIRCULAR</div>
+<div class="op"><div class="pseudo">ALGORITMO Recorrer_Circular
+
+SI la lista no está vacía
+    AUXILIAR ← CABEZA
+
+    REPETIR
+        Mostrar dato de AUXILIAR
+        AUXILIAR ← siguiente
+    HASTA que AUXILIAR sea nuevamente CABEZA
+FIN SI
+
+FIN ALGORITMO</div></div>
+
+<div class="section">8 · INSERCIÓN</div>
+<div class="two">
+<div class="op"><h3>Insertar al inicio</h3><div class="pseudo">ALGORITMO Insertar_Inicio_Circular
+
+Crear NUEVO nodo
+Guardar DATO en NUEVO
+
+SI la lista está vacía
+    NUEVO.siguiente ← NUEVO
+    CABEZA ← NUEVO
+SINO
+    Localizar ULTIMO
+    NUEVO.siguiente ← CABEZA
+    ULTIMO.siguiente ← NUEVO
+    CABEZA ← NUEVO
+FIN SI</div></div>
+<div class="op"><h3>Insertar al final</h3><div class="pseudo">ALGORITMO Insertar_Final_Circular
+
+Crear NUEVO nodo
+Guardar DATO en NUEVO
+
+SI la lista está vacía
+    NUEVO.siguiente ← NUEVO
+    CABEZA ← NUEVO
+SINO
+    Localizar ULTIMO
+    ULTIMO.siguiente ← NUEVO
+    NUEVO.siguiente ← CABEZA
+FIN SI</div></div>
+</div>
+
+<div class="section">9 · USOS EN COMPUTACIÓN</div>
+<table><tr><th>Aplicación</th><th>Uso</th></tr>
+<tr><td><b>Round Robin</b></td><td>Los procesos reciben tiempo de CPU por turnos y después del último se regresa al primero.</td></tr>
+<tr><td><b>Turnos de jugadores</b></td><td>Después del último jugador vuelve a iniciar el primero.</td></tr>
+<tr><td><b>Listas de reproducción</b></td><td>La última canción puede enlazarse nuevamente con la primera.</td></tr>
+<tr><td><b>Buffers circulares</b></td><td>Al alcanzar el final lógico, se reutiliza el inicio.</td></tr>
+<tr><td><b>Simulaciones</b></td><td>Representan ciclos que se repiten continuamente.</td></tr></table>
+
+<div class="section">10 · EJEMPLO · RULETA DE TURNOS</div>
+<div class="diagram"><div class="nodes"><b style="margin-right:10px;color:var(--uabc-dark)">TURNO →</b><div class="node"><div class="d">Ana</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Luis</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Carlos</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">María</div><div class="n">○</div></div><div class="loop"></div></div></div>
+<p>Después de María, el siguiente turno vuelve a Ana. Ese comportamiento representa exactamente una lista circular.</p>
+
+<div class="section">11 · CUIDADOS IMPORTANTES</div>
+<div class="grid4">
+<article class="card green"><h3>RECORRIDO</h3><div class="body">No debes esperar encontrar NULL. El recorrido termina cuando vuelves al nodo inicial.</div></article>
+<article class="card blue"><h3>LISTA VACÍA</h3><div class="body">Verifica siempre si CABEZA es nula antes de recorrer.</div></article>
+<article class="card purple"><h3>ENLACES</h3><div class="body">Al insertar o eliminar, conserva el enlace entre el último nodo y CABEZA.</div></article>
+<article class="card orange"><h3>BUCLES</h3><div class="body">Una condición incorrecta puede provocar un ciclo infinito.</div></article>
+</div>
+
+<div class="summary"><div class="bulb">💡</div><div><b>EN RESUMEN</b><br>Una lista circular es una estructura donde el último nodo regresa al primero. Es ideal para procesos repetitivos, sistemas por turnos y recorridos cíclicos. La <b>ruleta de casino</b> ayuda a visualizar que no existe un final definitivo: después de una vuelta, el recorrido comienza nuevamente.</div></div>
+
+</main>
+<footer class="footer"><div><div class="uabc">UABC</div><div>UNIVERSIDAD AUTÓNOMA<br>DE BAJA CALIFORNIA</div></div><div class="center"><b>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</b><br>Estructuras de Datos · Unidad I: Listas Circulares</div><div class="right">POR LA REALIZACIÓN PLENA DEL SER</div></footer>
+</div>
+  <script src="../scripts/app.js" defer></script>
+</body></html>

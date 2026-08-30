@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listas Dobles | Estructuras de Datos</title>
+<link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body class="page-listas-dobles">
+<div class="page">
+<header class="header">
+<div><h1>LISTAS DOBLES <span>UNIDAD I · LISTAS ENLAZADAS</span></h1><div class="subtitle">Nodos enlazados en ambos sentidos: anterior y siguiente</div><div class="badge">🌐 Como los botones <b>Anterior / Siguiente</b> del navegador</div></div>
+<div class="meta"><div><strong>MATERIA</strong>Estructuras de Datos</div><div><strong>MAESTRO</strong>Pedro Núñez Yepiz</div><div><strong>CARRERA</strong>Ingeniero en Software y Tecnologías Emergentes</div><div><strong>UNIVERSIDAD</strong>Universidad Autónoma de Baja California (UABC)</div></div>
+<div class="logo"><img src="../images/uabc_logo.png" alt="Escudo UABC"></div>
+</header>
+<div class="ribbon"><span>UNIDAD I · LISTAS DOBLEMENTE ENLAZADAS</span><span>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</span></div>
+<main class="content">
+
+<section class="grid4">
+<article class="card green"><h3>1 · ¿QUÉ ES?</h3><div class="body"><div class="icon">↔️</div><p>Una <b>lista doble</b> es una estructura dinámica en la que cada nodo tiene dos enlaces.</p><div class="key"><b>anterior</b> ← nodo → <b>siguiente</b></div></div></article>
+<article class="card blue"><h3>2 · ¿PARA QUÉ SIRVE?</h3><div class="body"><div class="icon">🎯</div><ul><li>Recorrer en ambos sentidos.</li><li>Retroceder y avanzar.</li><li>Facilitar ciertas eliminaciones.</li><li>Modelar historiales.</li></ul></div></article>
+<article class="card purple"><h3>3 · ¿CÓMO FUNCIONA?</h3><div class="body"><div class="icon">⚙️</div><ul><li>Cada nodo conoce al anterior.</li><li>Cada nodo conoce al siguiente.</li><li>PRIMERO marca el inicio.</li><li>ULTIMO marca el final.</li></ul></div></article>
+<article class="card orange"><h3>4 · USOS</h3><div class="body"><div class="icon">🖥️</div><ul><li>Historial del navegador.</li><li>Undo / Redo.</li><li>Reproductores.</li><li>Galerías de imágenes.</li></ul></div></article>
+</section>
+
+<div class="section">5 · ESTRUCTURA DEL NODO</div>
+<div class="two">
+<div><div class="key"><b>NODO DOBLE</b><br><br>anterior · dato · siguiente</div><p>El puntero <b>anterior</b> permite regresar; el puntero <b>siguiente</b> permite avanzar.</p></div>
+<div><h3 style="color:var(--uabc-dark)">Estructura básica en C</h3><div class="code">struct nodo {
+    int dato;
+    struct nodo *anterior;
+    struct nodo *siguiente;
+};</div></div>
+</div>
+
+<div class="section">6 · REPRESENTACIÓN GRÁFICA</div>
+<div class="diagram">
+NULL ⇄
+<div class="node"><div class="prev">○</div><div class="data">10</div><div class="next">○</div></div>
+⇄
+<div class="node"><div class="prev">○</div><div class="data">20</div><div class="next">○</div></div>
+⇄
+<div class="node"><div class="prev">○</div><div class="data">30</div><div class="next">○</div></div>
+⇄ NULL
+</div>
+<div class="note"><b>Idea clave:</b> en una lista doble puedes desplazarte de izquierda a derecha y también regresar de derecha a izquierda.</div>
+
+<div class="section">7 · ANALOGÍA · NAVEGADOR WEB</div>
+<div class="browser">
+<div class="bar"><div class="nav">←</div><div class="nav">→</div><div class="addr">https://ejemplo.com/pagina-actual</div></div>
+<div class="browser-body"><h3 style="color:var(--uabc-dark)">Historial de navegación</h3><span class="chip">Página A</span> ⇄ <span class="chip">Página B</span> ⇄ <span class="chip">Página C</span> ⇄ <span class="chip">Página D</span></div>
+</div>
+<div class="note"><b>Analogía:</b> el botón <b>← Anterior</b> del navegador permite regresar a la página previa y el botón <b>→ Siguiente</b> permite volver a avanzar. Es el mismo principio conceptual de una lista doble.</div>
+<table><tr><th>Navegador</th><th>Lista doble</th></tr><tr><td>Página actual</td><td>Nodo actual</td></tr><tr><td>← Anterior</td><td>Puntero anterior</td></tr><tr><td>→ Siguiente</td><td>Puntero siguiente</td></tr><tr><td>Historial</td><td>Nodos enlazados</td></tr></table>
+
+<div class="section">8 · RECORRIDO HACIA ADELANTE</div>
+<div class="op"><div class="pseudo">ALGORITMO Recorrer_Adelante
+
+AUXILIAR ← PRIMERO
+
+MIENTRAS AUXILIAR no sea NULL
+    Mostrar dato
+    AUXILIAR ← siguiente
+FIN MIENTRAS
+
+FIN ALGORITMO</div></div>
+
+<div class="section">9 · RECORRIDO HACIA ATRÁS</div>
+<div class="op"><div class="pseudo">ALGORITMO Recorrer_Atras
+
+AUXILIAR ← ULTIMO
+
+MIENTRAS AUXILIAR no sea NULL
+    Mostrar dato
+    AUXILIAR ← anterior
+FIN MIENTRAS
+
+FIN ALGORITMO</div></div>
+
+<div class="section">10 · INSERCIÓN</div>
+<div class="two">
+<div class="op"><h3>Insertar al inicio</h3><div class="pseudo">ALGORITMO Insertar_Inicio_Doble
+
+Crear NUEVO nodo
+Guardar DATO
+NUEVO.anterior ← NULL
+NUEVO.siguiente ← PRIMERO
+
+SI PRIMERO no es NULL
+    PRIMERO.anterior ← NUEVO
+SINO
+    ULTIMO ← NUEVO
+FIN SI
+
+PRIMERO ← NUEVO</div></div>
+<div class="op"><h3>Insertar al final</h3><div class="pseudo">ALGORITMO Insertar_Final_Doble
+
+Crear NUEVO nodo
+Guardar DATO
+NUEVO.siguiente ← NULL
+NUEVO.anterior ← ULTIMO
+
+SI ULTIMO no es NULL
+    ULTIMO.siguiente ← NUEVO
+SINO
+    PRIMERO ← NUEVO
+FIN SI
+
+ULTIMO ← NUEVO</div></div>
+</div>
+
+<div class="section">11 · ELIMINACIÓN</div>
+<div class="diagram"><b>ANTES:</b> 10 ⇄ 20 ⇄ 30 ⇄ 40<br><br><span style="color:var(--red);font-weight:800">Eliminar 30</span><br><br><b>DESPUÉS:</b> 10 ⇄ 20 ⇄ 40</div>
+<div class="op" style="margin-top:14px"><div class="pseudo">ALGORITMO Eliminar_Doble
+
+Buscar NODO
+
+SI NODO existe
+    SI NODO tiene anterior
+        NODO.anterior.siguiente ← NODO.siguiente
+    SINO
+        PRIMERO ← NODO.siguiente
+    FIN SI
+
+    SI NODO tiene siguiente
+        NODO.siguiente.anterior ← NODO.anterior
+    SINO
+        ULTIMO ← NODO.anterior
+    FIN SI
+
+    Liberar NODO
+FIN SI</div></div>
+
+<div class="section">12 · VENTAJAS Y DESVENTAJAS</div>
+<table><tr><th>Ventajas</th><th>Desventajas</th></tr><tr><td>Recorrido en ambos sentidos.</td><td>Usa más memoria por nodo.</td></tr><tr><td>Facilita regresar al elemento previo.</td><td>Hay más enlaces que mantener.</td></tr><tr><td>Útil para navegación e historiales.</td><td>Su implementación es más compleja.</td></tr></table>
+
+<div class="section">13 · APLICACIONES EN COMPUTACIÓN</div>
+<table><tr><th>Aplicación</th><th>Ejemplo</th></tr><tr><td><b>Navegadores</b></td><td>Anterior y siguiente entre páginas.</td></tr><tr><td><b>Undo / Redo</b></td><td>Moverse entre estados previos y posteriores.</td></tr><tr><td><b>Reproductores</b></td><td>Canción anterior o siguiente.</td></tr><tr><td><b>Galerías</b></td><td>Imagen previa o siguiente.</td></tr><tr><td><b>Historiales</b></td><td>Recorrer eventos hacia adelante o atrás.</td></tr></table>
+
+<div class="section">14 · CUIDADOS IMPORTANTES</div>
+<section class="grid4">
+<article class="card green"><h3>PRIMERO</h3><div class="body">El primer nodo debe tener <b>anterior = NULL</b>.</div></article>
+<article class="card blue"><h3>ULTIMO</h3><div class="body">El último nodo debe tener <b>siguiente = NULL</b>.</div></article>
+<article class="card purple"><h3>DOS ENLACES</h3><div class="body">Revisa siempre anterior y siguiente al insertar o eliminar.</div></article>
+<article class="card orange"><h3>MEMORIA</h3><div class="body">Libera la memoria del nodo cuando sea eliminado.</div></article>
+</section>
+
+<div class="summary"><div class="bulb">💡</div><div><b>EN RESUMEN</b><br>Una lista doble permite recorrer los datos en <b>ambos sentidos</b>. Su mejor analogía es el historial de un navegador: puedes ir hacia atrás con <b>Anterior</b> y volver hacia adelante con <b>Siguiente</b>.</div></div>
+
+</main>
+<footer class="footer"><div><div class="uabc">UABC</div><div>UNIVERSIDAD AUTÓNOMA<br>DE BAJA CALIFORNIA</div></div><div class="center"><b>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</b><br>Estructuras de Datos · Unidad I: Listas Dobles</div><div class="right">POR LA REALIZACIÓN PLENA DEL SER</div></footer>
+</div>
+  <script src="../scripts/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad II - Pilas | Estructuras de Datos</title>
+<link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body class="page-pilas">
+<div class="page">
+
+<header class="header">
+    <div class="titleblock">
+        <h1>PILAS <span>(STACK) · ESTÁTICAS Y DINÁMICAS</span></h1>
+        <div class="subtitle">Estructura de datos tipo LIFO <i>(Last In, First Out)</i></div>
+        <div class="badge">🍽️ Como una <b>torre de platos</b></div>
+    </div>
+
+    <div class="meta">
+        <div><strong>UNIDAD</strong>Unidad II · Pilas</div>
+        <div><strong>MATERIA</strong>Estructuras de Datos</div>
+        <div><strong>MAESTRO</strong>Pedro Núñez Yepiz</div>
+        <div><strong>CARRERA</strong>Ingeniero en Software y Tecnologías Emergentes</div>
+        <div><strong>UNIVERSIDAD</strong>Universidad Autónoma de Baja California (UABC)</div>
+    </div>
+
+    <div class="logo">
+        <img src="../images/uabc_logo.png" alt="Escudo UABC">
+    </div>
+</header>
+
+<div class="ribbon">
+    <span>UNIDAD II · PILAS</span>
+    <span>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</span>
+</div>
+
+<main class="content">
+
+<div class="note">
+    <b>Competencia:</b>
+    Elaborar un programa de procesamiento de información, aplicando los conceptos de pilas,
+    con el propósito de dar solución a un problema específico pertinente, con una actitud creativa,
+    proactiva y honesta.
+    <br><br>
+    <b>Contenido:</b> 2.1 Definición · 2.2 Implementación y aplicaciones · 2.3 Solución de problemas
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <b>Duración:</b> 4 horas
+</div>
+
+<section class="grid4">
+    <article class="card green">
+        <h3>1 · ¿QUÉ ES?</h3>
+        <div class="body">
+            <div class="icon">📚</div>
+            <p>Una <b>pila</b> es una estructura de datos lineal donde los elementos se insertan y eliminan por el mismo extremo.</p>
+            <div class="key"><b>LIFO:</b> el último que entra es el primero que sale.</div>
+        </div>
+    </article>
+
+    <article class="card blue">
+        <h3>2 · ¿PARA QUÉ SIRVE?</h3>
+        <div class="body">
+            <div class="icon">🎯</div>
+            <ul>
+                <li>Almacenar datos temporalmente.</li>
+                <li>Deshacer y rehacer acciones.</li>
+                <li>Evaluar expresiones.</li>
+                <li>Gestionar llamadas a funciones.</li>
+                <li>Resolver backtracking y recorridos.</li>
+            </ul>
+        </div>
+    </article>
+
+    <article class="card purple">
+        <h3>3 · ¿CÓMO FUNCIONA?</h3>
+        <div class="body">
+            <div class="icon">⚙️</div>
+            <ul>
+                <li><b>PUSH:</b> inserta en el tope.</li>
+                <li><b>POP:</b> elimina del tope.</li>
+                <li><b>PEEK / TOP:</b> consulta el tope.</li>
+                <li><b>TOPE:</b> apunta al elemento más reciente.</li>
+            </ul>
+        </div>
+    </article>
+
+    <article class="card orange">
+        <h3>4 · USOS EN COMPUTACIÓN</h3>
+        <div class="body">
+            <div class="icon">🖥️</div>
+            <ul>
+                <li>Pila de llamadas (call stack).</li>
+                <li>Historial de navegación.</li>
+                <li>Deshacer / rehacer en editores.</li>
+                <li>Conversión infija a postfija.</li>
+                <li>Recursividad y parsing.</li>
+            </ul>
+        </div>
+    </article>
+</section>
+
+<div class="section-title">5 · DOS FORMAS DE IMPLEMENTAR UNA PILA</div>
+
+<table class="compare">
+<tr><th>Característica</th><th>Pila estática</th><th>Pila dinámica</th></tr>
+<tr><td>Estructura</td><td>Arreglo</td><td>Nodos enlazados</td></tr>
+<tr><td>Memoria</td><td>Reservada previamente</td><td>Se solicita conforme se necesita</td></tr>
+<tr><td>Tamaño</td><td>Fijo o limitado</td><td>Flexible</td></tr>
+<tr><td>Control</td><td>Índice <b>tope</b></td><td>Puntero <b>tope</b></td></tr>
+<tr><td>Principio</td><td colspan="2" style="text-align:center"><b>LIFO — Last In, First Out</b></td></tr>
+</table>
+
+<div class="section-title">6 · PILA ESTÁTICA · ARREGLO</div>
+<div class="note"><b>Analogía:</b> como una pila de platos. Solo puedes agregar o quitar platos por la parte superior.</div>
+
+<div class="diagram">
+    <div class="stack-row">
+        <div class="step">
+            <div class="step-title">PILA VACÍA</div>
+            <div class="small">tope = -1</div>
+            <div class="stack-box">
+                <div class="empty-dash" style="bottom:32px"></div>
+                <div class="empty-dash" style="bottom:62px"></div>
+                <div class="empty-dash" style="bottom:92px"></div>
+                <div class="empty-dash" style="bottom:122px"></div>
+            </div>
+            <div class="top-label">TOPE</div>
+            <div class="top-val">-1</div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">PUSH(10)</div>
+            <div class="small">se inserta 10</div>
+            <div class="stack-box">
+                <div class="level l1">10</div>
+                <div class="empty-dash" style="bottom:32px"></div>
+                <div class="empty-dash" style="bottom:62px"></div>
+                <div class="empty-dash" style="bottom:92px"></div>
+            </div>
+            <div class="top-label">TOPE</div>
+            <div class="top-val">0</div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">PUSH(20)</div>
+            <div class="small">se inserta 20</div>
+            <div class="stack-box">
+                <div class="level l2">20</div>
+                <div class="level l1">10</div>
+                <div class="empty-dash" style="bottom:62px"></div>
+                <div class="empty-dash" style="bottom:92px"></div>
+            </div>
+            <div class="top-label">TOPE</div>
+            <div class="top-val">1</div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">PUSH(30)</div>
+            <div class="small">se inserta 30</div>
+            <div class="stack-box">
+                <div class="level l3">30</div>
+                <div class="level l2">20</div>
+                <div class="level l1">10</div>
+                <div class="empty-dash" style="bottom:92px"></div>
+            </div>
+            <div class="top-label">TOPE</div>
+            <div class="top-val">2</div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">POP()</div>
+            <div class="small">sale 30</div>
+            <div class="stack-box">
+                <div class="level l2">20</div>
+                <div class="level l1">10</div>
+                <div class="empty-dash" style="bottom:62px"></div>
+                <div class="empty-dash" style="bottom:92px"></div>
+            </div>
+            <div class="top-label">TOPE</div>
+            <div class="top-val">1</div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">POP()</div>
+            <div class="small">sale 20</div>
+            <div class="stack-box">
+                <div class="level l1">10</div>
+                <div class="empty-dash" style="bottom:32px"></div>
+                <div class="empty-dash" style="bottom:62px"></div>
+                <div class="empty-dash" style="bottom:92px"></div>
+            </div>
+            <div class="top-label">TOPE</div>
+            <div class="top-val">0</div>
+        </div>
+    </div>
+</div>
+
+<div class="two-col" style="margin-top:14px">
+    <div class="op">
+        <h4>PUSH · Insertar</h4>
+        <ol>
+            <li>Verificar si la pila está llena.</li>
+            <li>Incrementar <b>tope</b>.</li>
+            <li>Guardar el dato en la nueva posición del tope.</li>
+        </ol>
+        <div class="complexity">Operación típica: O(1)</div>
+        <div class="pseudo">ALGORITMO PUSH
+SI la pila está llena
+    Informar “Pila llena”
+SINO
+    incrementar TOPE
+    guardar DATO en PILA[TOPE]
+FIN SI</div>
+    </div>
+
+    <div class="op">
+        <h4>POP · Eliminar</h4>
+        <ol>
+            <li>Verificar si la pila está vacía.</li>
+            <li>Obtener el dato que está en el tope.</li>
+            <li>Decrementar <b>tope</b>.</li>
+            <li>Devolver el elemento eliminado.</li>
+        </ol>
+        <div class="complexity">Operación típica: O(1)</div>
+        <div class="pseudo">ALGORITMO POP
+SI la pila está vacía
+    Informar “Pila vacía”
+SINO
+    obtener DATO de PILA[TOPE]
+    decrementar TOPE
+FIN SI</div>
+    </div>
+</div>
+
+<div class="section-title">7 · PILA DINÁMICA · NODOS Y PUNTEROS</div>
+
+<div class="note"><b>Analogía:</b> una torre de platos que puede crecer o reducirse según sea necesario. Cada nuevo plato se coloca arriba del anterior.</div>
+
+<div class="two-col">
+    <div>
+        <h3 style="color:var(--uabc-dark);margin-top:0">Nodo básico</h3>
+        <div class="structure">
+            <b>NODO</b><br>
+            &nbsp;&nbsp;dato : entero<br>
+            &nbsp;&nbsp;siguiente : referencia a otro NODO
+        </div>
+        <p>En una pila dinámica, el <b>tope</b> apunta al nodo más reciente. Cada nodo contiene el <b>dato</b> y una referencia al <b>siguiente</b> nodo.</p>
+        <div class="chips">
+            <span class="chip">tope = primer nodo</span>
+            <span class="chip">último nodo → NULL</span>
+            <span class="chip">crece según la necesidad</span>
+        </div>
+    </div>
+
+    <div class="diagram">
+        <div style="text-align:center;font-weight:800;color:var(--uabc-dark)">REPRESENTACIÓN DEL NODO</div>
+        <div style="display:flex;justify-content:center;align-items:center;margin-top:22px">
+            <span class="pointer-label">dato</span>
+            <div class="node"><div class="data">12</div><div class="next">○</div></div>
+            <div class="arrow"></div>
+            <span class="pointer-label">siguiente</span>
+        </div>
+    </div>
+</div>
+
+<div class="section-title">8 · ASÍ FUNCIONA UNA PILA DINÁMICA</div>
+
+<div class="diagram">
+    <div style="text-align:center;margin-bottom:10px">
+        <b style="color:var(--uabc-dark)">TOPE</b> apunta al primer nodo de la pila
+    </div>
+
+    <div class="nodes">
+        <span class="pointer-label">TOPE →</span>
+        <div class="node"><div class="data">30</div><div class="next">○</div></div>
+        <div class="arrow"></div>
+        <div class="node"><div class="data">20</div><div class="next">○</div></div>
+        <div class="arrow"></div>
+        <div class="node"><div class="data">10</div><div class="next">○</div></div>
+        <div class="arrow"></div>
+        <div class="null">NULL</div>
+    </div>
+</div>
+
+<div class="two-col" style="margin-top:14px">
+    <div class="op">
+        <h4>PUSH · Pila dinámica</h4>
+        <ol>
+            <li>Crear un nuevo nodo.</li>
+            <li>Guardar el dato dentro del nodo.</li>
+            <li>Hacer que el nuevo nodo apunte al tope actual.</li>
+            <li>Mover el <b>tope</b> al nuevo nodo.</li>
+        </ol>
+        <div class="pseudo">ALGORITMO PUSH
+crear NUEVO NODO
+guardar DATO
+NUEVO.siguiente ← TOPE
+TOPE ← NUEVO</div>
+    </div>
+
+    <div class="op">
+        <h4>POP · Pila dinámica</h4>
+        <ol>
+            <li>Verificar si la pila está vacía.</li>
+            <li>Guardar temporalmente el nodo del tope.</li>
+            <li>Mover el <b>tope</b> al siguiente nodo.</li>
+            <li>Liberar la memoria del nodo eliminado.</li>
+        </ol>
+        <div class="pseudo">ALGORITMO POP
+SI la pila está vacía
+    Informar “Pila vacía”
+SINO
+    AUXILIAR ← TOPE
+    TOPE ← TOPE.siguiente
+    liberar AUXILIAR
+FIN SI</div>
+    </div>
+</div>
+
+<div class="section-title">9 · CARACTERÍSTICAS IMPORTANTES</div>
+<div class="grid4">
+    <article class="card green">
+        <h3>MEMORIA</h3>
+        <div class="body">
+            <p><b>Estática:</b> usa un arreglo de tamaño fijo.</p>
+            <p><b>Dinámica:</b> usa nodos enlazados y memoria variable.</p>
+        </div>
+    </article>
+    <article class="card blue">
+        <h3>EFICIENCIA</h3>
+        <div class="body">
+            <p><b>PUSH</b> y <b>POP</b> suelen ejecutarse en tiempo constante <b>O(1)</b>.</p>
+        </div>
+    </article>
+    <article class="card purple">
+        <h3>OVERFLOW</h3>
+        <div class="body">
+            <p>En una pila estática ocurre cuando se intenta hacer <b>PUSH</b> y el arreglo ya está lleno.</p>
+        </div>
+    </article>
+    <article class="card orange">
+        <h3>UNDERFLOW</h3>
+        <div class="body">
+            <p>Ocurre cuando se intenta hacer <b>POP</b> sobre una pila vacía.</p>
+        </div>
+    </article>
+</div>
+
+<div class="section-title">10 · APLICACIONES EN COMPUTACIÓN</div>
+<table>
+<tr><th>Aplicación</th><th>Uso de la pila</th></tr>
+<tr><td>Llamadas a funciones</td><td>La pila de llamadas guarda parámetros, direcciones de retorno y variables locales.</td></tr>
+<tr><td>Historial del navegador</td><td>Permite regresar a páginas visitadas recientemente.</td></tr>
+<tr><td>Undo / Redo</td><td>Apila acciones para deshacer y rehacer cambios.</td></tr>
+<tr><td>Expresiones matemáticas</td><td>Convierte y evalúa expresiones infijas, postfijas y prefijas.</td></tr>
+<tr><td>Backtracking</td><td>Ayuda a retroceder en laberintos, rompecabezas o búsquedas.</td></tr>
+<tr><td>Compiladores</td><td>Se usa en análisis sintáctico y procesamiento de expresiones.</td></tr>
+</table>
+
+<div class="summary">
+    <div class="bulb">💡</div>
+    <div>
+        <b>EN RESUMEN</b><br>
+        Una pila siempre conserva el principio <b>LIFO</b>: el último en entrar es el primero en salir.
+        La diferencia está en la forma de almacenarla: con un <b>arreglo</b> (pila estática)
+        o con <b>nodos enlazados</b> (pila dinámica). En ambos casos, todas las operaciones principales
+        se realizan desde un mismo extremo: el <b>tope</b>.
+    </div>
+</div>
+
+<div class="summary">
+    <div class="bulb">💡</div>
+    <div>
+        <b>CODIGO EN C </b><br>
+        <div class="card-foot">
+            <a class="btn" href="programa_basico_pilas_codigo_isyte.html">Abrir Codigo completo en C / C++</a>
+    </div>
+        
+    </div>
+</div>
+</main>
+
+<footer class="footer">
+    <div>
+        <div class="uabc">UABC</div>
+        <div>UNIVERSIDAD AUTÓNOMA<br>DE BAJA CALIFORNIA</div>
+    </div>
+    <div class="center">
+        <b>FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO</b><br>
+        Estructuras de Datos · Unidad II: Pilas
+    </div>
+    <div class="right">
+        POR LA REALIZACIÓN PLENA DEL SER
+    </div>
+</footer>
+
+</div>
+<script>
+async function copiarCodigo(id, boton) {
+    const texto = document.getElementById(id).textContent;
+    try {
+        await navigator.clipboard.writeText(texto);
+        const original = boton.textContent;
+        boton.textContent = "¡Copiado!";
+        setTimeout(() => boton.textContent = original, 1500);
+    } catch (e) {
+        const area = document.createElement("textarea");
+        area.value = texto;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+        const original = boton.textContent;
+        boton.textContent = "¡Copiado!";
+        setTimeout(() => boton.textContent = original, 1500);
+    }
+}
+</script>
+  <script src="../scripts/app.js" defer></script>
+</body>
+</html>
