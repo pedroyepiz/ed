@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const boton = document.createElement("a");
   boton.className = "back-home";
-  boton.href = "index.html";
+  boton.href = "../index.html";
   boton.title = "Regresar al menú principal";
   boton.setAttribute("aria-label", "Regresar al menú principal");
 
   const imagen = document.createElement("img");
-  imagen.src = "images/cimarron.png";
+  imagen.src = "../images/cimarron.png";
   imagen.alt = "Cimarroncillo UABC";
 
   const texto = document.createElement("span");
