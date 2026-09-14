@@ -1,0 +1,406 @@
+/* ================================================================
+   CSS externo extraído del HTML para mantener el contenido limpio.
+   Usado por: infografias_ciclos.html, infografias_expresiones.html, infografias_funciones.html, infografias_seleccion.html, programa_esqueleto_funciones.html
+   ================================================================ */
+
+/* ============================================================
+   UNIFORMIDAD VISUAL CON EL INDEX · PÁGINAS INTERNAS
+   ============================================================ */
+body.pe-home.pe-course-page{
+  background:
+    radial-gradient(circle at 10% 12%, rgba(0,104,71,.045), transparent 25%),
+    linear-gradient(180deg,#f4fbf8 0,#ffffff 34%,#f5faf8 100%);
+}
+
+body.pe-course-page .institutional-top{
+  position:sticky !important;
+  top:0;
+  z-index:2050;
+  overflow:visible;
+  width:100%;
+  box-shadow:0 4px 16px rgba(0,58,43,.18);
+}
+
+body.pe-course-page .institutional-top .brand-shield{
+  width:104px !important;
+  height:118px !important;
+  min-width:104px !important;
+  object-fit:contain;
+  background:transparent !important;
+  border:0 !important;
+  position:relative;
+  z-index:2060;
+  transform:translateY(16px);
+  filter:drop-shadow(0 5px 9px rgba(0,0,0,.22));
+}
+
+body.pe-course-page .institutional-top .pe-shell > .d-flex{min-height:92px}
+
+body.pe-course-page .brand-motto{
+  font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  font-size:1.9rem !important;
+  font-weight:600 !important;
+  line-height:1.12;
+  text-transform:none !important;
+  color:#fff !important;
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  min-width:330px;
+}
+
+body.pe-course-page .topic-course-hero{
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid #d5e8df;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(255,255,255,.58) 0 18%,transparent 19%),
+    linear-gradient(135deg,#d7eee5 0%,#e5f4ee 33%,#f8fcfa 58%,#d0e9df 79%,#bee0d3 100%);
+}
+
+body.pe-course-page .topic-course-hero::before{
+  content:"";
+  position:absolute;
+  width:720px;height:300px;
+  left:-165px;top:-125px;
+  border-radius:50%;
+  border:38px solid rgba(0,104,71,.08);
+  transform:rotate(-13deg);
+}
+
+body.pe-course-page .topic-course-hero::after{
+  content:"";
+  position:absolute;
+  width:620px;height:250px;
+  right:-125px;bottom:-145px;
+  border-radius:50%;
+  background:rgba(0,104,71,.07);
+  transform:rotate(-16deg);
+}
+
+body.pe-course-page .topic-course-hero .row{position:relative;z-index:1}
+body.pe-course-page .topic-course-hero .course-kicker{
+  color:#526d94;font-weight:900;letter-spacing:.12em
+}
+body.pe-course-page .topic-course-hero .course-title{
+  max-width:980px;
+  font-size:clamp(2.7rem,4.6vw,4.65rem) !important;
+  line-height:.97 !important;
+}
+body.pe-course-page .topic-number-pill{
+  display:inline-flex;align-items:center;gap:.55rem;
+  margin-bottom:.55rem;padding:.42rem .78rem;
+  border:1px solid rgba(0,104,71,.20);border-radius:999px;
+  background:rgba(255,255,255,.66);color:#075b43;
+  font-weight:850;font-size:.86rem;backdrop-filter:blur(5px)
+}
+
+body.pe-course-page .course-info-card{
+  background:linear-gradient(135deg,
+      rgba(224,246,237,.98) 0%,
+      rgba(194,233,217,.97) 48%,
+      rgba(225,247,239,.98) 100%) !important;
+  border:1px solid rgba(0,104,71,.38) !important;
+  box-shadow:0 14px 30px rgba(0,77,54,.15),inset 0 1px 0 rgba(255,255,255,.85) !important;
+}
+
+body.pe-course-page .course-info-card .info-row{
+  background:linear-gradient(90deg,rgba(255,255,255,.10),rgba(0,104,71,.035),rgba(255,255,255,.08));
+}
+
+body.pe-course-page .page-content-shell{padding-top:22px;padding-bottom:32px}
+body.pe-course-page .page-content-card{
+  background:#fff;border:1px solid #deebe5;border-radius:18px;
+  box-shadow:0 10px 30px rgba(7,67,48,.08);
+  padding:clamp(16px,2.4vw,28px);
+}
+body.pe-course-page .content{padding:0;overflow:visible}
+
+body.pe-course-page .topic-nav{
+  padding:12px;border:1px solid #d9e9e2;border-radius:14px;
+  background:linear-gradient(180deg,#fff,#f5fbf8);
+  box-shadow:0 5px 16px rgba(0,70,48,.06);
+}
+body.pe-course-page .section{
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,75,52,.10);
+}
+
+body.pe-course-page .gallery-intro{
+  border-radius:16px;
+  background:linear-gradient(135deg,#f5fbf8,#e8f5ef);
+  border:1px solid #d2e8dd;
+  padding:18px 20px;
+  margin-bottom:18px;
+}
+
+body.pe-course-page .topic-back-home{
+  position:fixed;right:22px;bottom:22px;z-index:2100;
+  display:flex;align-items:center;gap:9px;
+  padding:8px 14px 8px 8px;border:2px solid #006847;border-radius:999px;
+  background:#fff;color:#004b35;text-decoration:none;font-weight:800;
+  box-shadow:0 8px 22px rgba(0,0,0,.17);transition:.2s ease;
+}
+body.pe-course-page .topic-back-home:hover{
+  color:#004b35;background:#f0faf5;transform:translateY(-2px)
+}
+body.pe-course-page .topic-back-home img{
+  width:50px;height:50px;object-fit:contain
+}
+
+/* Ajuste de lightbox para convivir con header fijo */
+body.pe-course-page .infografia-lightbox{z-index:5000}
+
+/* Evitar que las clases heredadas de páginas antiguas reemplacen el layout general */
+body.pe-course-page > .page{display:none !important}
+
+@media (max-width:1199.98px){
+  body.pe-course-page .brand-motto{font-size:1.55rem !important;min-width:280px}
+  body.pe-course-page .institutional-top .brand-shield{
+    width:88px !important;height:102px !important;min-width:88px !important;transform:translateY(13px)
+  }
+  body.pe-course-page .institutional-top .pe-shell > .d-flex{min-height:82px}
+}
+
+@media (max-width:991.98px){
+  body.pe-course-page .topic-course-hero .course-title{font-size:clamp(2.6rem,6.3vw,4rem) !important}
+}
+
+@media (max-width:767.98px){
+  body.pe-course-page .institutional-top .brand-shield{
+    width:76px !important;height:90px !important;min-width:76px !important;transform:translateY(11px)
+  }
+  body.pe-course-page .institutional-top .pe-shell > .d-flex{min-height:74px}
+  body.pe-course-page .topic-course-hero .course-title{font-size:clamp(2.25rem,9vw,3.35rem) !important}
+  body.pe-course-page .page-content-shell{padding-top:14px}
+  body.pe-course-page .page-content-card{border-radius:14px;padding:15px}
+  body.pe-course-page .topic-back-home{right:12px;bottom:12px;padding-right:11px}
+  body.pe-course-page .topic-back-home img{width:44px;height:44px}
+}
+
+@media (max-width:430px){
+  body.pe-course-page .institutional-top .brand-shield{
+    width:66px !important;height:78px !important;min-width:66px !important;transform:translateY(9px)
+  }
+  body.pe-course-page .institutional-top .pe-shell > .d-flex{min-height:68px}
+  body.pe-course-page .topic-course-hero .course-title{font-size:2.3rem !important}
+  body.pe-course-page .topic-back-home span{display:none}
+  body.pe-course-page .topic-back-home{padding:7px}
+}
+
+
+/* ========================================================================
+   ESTÁNDAR GLOBAL DE DISEÑO · PÁGINAS MAESTRAS
+   Agregado 2026-09-12
+   Objetivo:
+   1) Evitar que cualquier texto quede pegado a los bordes.
+   2) Uniformar tarjetas, secciones, tablas, notas y quizzes.
+   3) Uniformar TODOS los bloques de código con fondo oscuro estilo editor.
+   ======================================================================== */
+
+/* ---------- Espacio general del contenido ---------- */
+.pe-course-page .page-content-shell{
+  padding-left: clamp(12px, 2.2vw, 30px);
+  padding-right: clamp(12px, 2.2vw, 30px);
+}
+
+.pe-course-page .page-content-card,
+.pe-course-page .page-content-card.content{
+  padding: clamp(22px, 3vw, 42px) !important;
+}
+
+/* Las secciones nunca dejan el texto pegado al borde */
+.pe-course-page .lesson-section,
+.pe-course-page .gallery-intro,
+.pe-course-page .topic-intro{
+  padding: clamp(16px, 2vw, 24px);
+  border-radius: 16px;
+}
+
+/* Evita doble caja visual cuando la sección ya tiene fondo propio */
+.pe-course-page .lesson-section{
+  margin-bottom: 22px;
+}
+
+/* Separación vertical estándar para texto */
+.pe-course-page .content p,
+.pe-course-page .content li,
+.pe-course-page .content td,
+.pe-course-page .content th{
+  line-height: 1.58;
+}
+
+.pe-course-page .content p{
+  margin-bottom: .9rem;
+}
+
+/* Encabezados con aire */
+.pe-course-page .section-heading{
+  margin-bottom: 16px;
+}
+
+.pe-course-page .section-heading + p,
+.pe-course-page .section-heading + .table-responsive,
+.pe-course-page .section-heading + .concept-grid,
+.pe-course-page .section-heading + .two-col{
+  margin-top: 10px;
+}
+
+/* ---------- Tarjetas y bloques reutilizables ---------- */
+.pe-course-page .concept-card,
+.pe-course-page .detail-card,
+.pe-course-page .reference-card,
+.pe-course-page .book-card,
+.pe-course-page .quiz-q,
+.pe-course-page .anim-card,
+.pe-course-page .practice-grid article,
+.pe-course-page .classification-grid article,
+.pe-course-page .metric-grid article,
+.pe-course-page .usage-grid article{
+  padding: clamp(16px, 1.8vw, 22px) !important;
+}
+
+/* Bloques de aviso/resumen */
+.pe-course-page .summary,
+.pe-course-page .note-box,
+.pe-course-page .warning-box,
+.pe-course-page .analogy-card{
+  padding: 16px 20px !important;
+}
+
+/* ---------- Tablas ---------- */
+.pe-course-page .table-responsive{
+  margin-top: 16px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  overflow-x: auto;
+}
+
+.pe-course-page .topic-table th,
+.pe-course-page .topic-table td{
+  padding: 12px 14px !important;
+  vertical-align: middle;
+}
+
+/* ---------- Navegación interna ---------- */
+.pe-course-page .topic-nav{
+  padding: 12px 14px;
+  margin-bottom: 22px;
+}
+
+/* ========================================================================
+   CÓDIGO · ESTILO EDITOR OSCURO GLOBAL
+   Se aplica a todos los temas que utilicen .code-card
+   ======================================================================== */
+
+.pe-course-page .code-card{
+  overflow: hidden;
+  border: 1px solid #30363d !important;
+  border-radius: 16px !important;
+  background: #0d1117 !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.13);
+  margin: 20px 0;
+}
+
+.pe-course-page .code-card .code-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 16px !important;
+  background: #161b22 !important;
+  border-bottom: 1px solid #30363d !important;
+  color: #d8dee9 !important;
+}
+
+.pe-course-page .code-card .file-name,
+.pe-course-page .code-card .code-title{
+  color: #d8dee9 !important;
+  font-family: Consolas, "Cascadia Code", "Courier New", monospace;
+  font-weight: 700;
+}
+
+.pe-course-page .code-card pre{
+  margin: 0 !important;
+  padding: 24px 26px !important;
+  overflow-x: auto;
+  background: #0d1117 !important;
+  color: #e6edf3 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.pe-course-page .code-card pre code,
+.pe-course-page .code-card code{
+  font-family: Consolas, "Cascadia Code", "Courier New", monospace !important;
+  font-size: .94rem;
+  line-height: 1.65;
+  color: #e6edf3;
+  background: transparent !important;
+}
+
+/* Colores estilo editor para clases de resaltado que ya usamos */
+.pe-course-page .code-card .tok-key{ color:#ff7b72 !important; }
+.pe-course-page .code-card .tok-type{ color:#79c0ff !important; }
+.pe-course-page .code-card .tok-num{ color:#a5d6ff !important; }
+.pe-course-page .code-card .tok-comment{ color:#8b949e !important; }
+.pe-course-page .code-card .tok-string{ color:#a5d6ff !important; }
+.pe-course-page .code-card .tok-fn{ color:#d2a8ff !important; }
+.pe-course-page .code-card .tok-pre{ color:#ffa657 !important; }
+
+/* Código inline: claro, pero no negro */
+.pe-course-page :not(pre) > code{
+  padding: .12em .38em;
+  border-radius: 5px;
+  background: #eef4f1;
+  color: #b42318;
+  font-size: .92em;
+}
+
+/* Botón copiar estándar */
+.pe-course-page .copy-btn{
+  border: 1px solid #376a5a !important;
+  border-radius: 9px;
+  padding: 6px 10px !important;
+  background: #0f5132 !important;
+  color: #fff !important;
+  font-size: .83rem;
+  font-weight: 800;
+}
+
+.pe-course-page .copy-btn:hover{
+  background: #137044 !important;
+}
+
+/* Si algún tema usa un pre directo dentro del contenido, también recibe aire */
+.pe-course-page .content > pre{
+  padding: 22px 24px;
+  border-radius: 14px;
+  overflow-x: auto;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 767.98px){
+  .pe-course-page .page-content-card,
+  .pe-course-page .page-content-card.content{
+    padding: 18px !important;
+  }
+
+  .pe-course-page .lesson-section,
+  .pe-course-page .gallery-intro,
+  .pe-course-page .topic-intro{
+    padding: 14px;
+  }
+
+  .pe-course-page .code-card pre{
+    padding: 18px !important;
+    font-size: .88rem;
+  }
+
+  .pe-course-page .topic-table th,
+  .pe-course-page .topic-table td{
+    padding: 10px 11px !important;
+  }
+}

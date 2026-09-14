@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="650" viewBox="0 0 980 650">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0f6b45"/></marker></defs>
+<rect width="980" height="650" fill="#fff"/>
+<rect x="390" y="20" width="200" height="55" rx="25" fill="#eef8f2" stroke="#0f6b45" stroke-width="3"/>
+<text x="490" y="55" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700">INICIO</text>
+<line x1="490" y1="75" x2="490" y2="115" stroke="#0f6b45" stroke-width="4" marker-end="url(#a)"/>
+<polygon points="490,115 610,180 490,245 370,180" fill="#fff6dc" stroke="#d97706" stroke-width="4"/>
+<text x="490" y="187" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700">¿nota ≥ 90?</text>
+<line x1="370" y1="180" x2="230" y2="180" stroke="#0f6b45" stroke-width="4" marker-end="url(#a)"/><text x="290" y="160" font-family="Arial" font-size="18" font-weight="700">SÍ</text>
+<rect x="80" y="145" width="150" height="70" rx="10" fill="#eaf4ff" stroke="#2563eb" stroke-width="3"/><text x="155" y="188" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700">Excelente</text>
+<line x1="490" y1="245" x2="490" y2="290" stroke="#0f6b45" stroke-width="4" marker-end="url(#a)"/><text x="510" y="270" font-family="Arial" font-size="18" font-weight="700" fill="#b04b45">NO</text>
+<polygon points="490,290 610,355 490,420 370,355" fill="#fff6dc" stroke="#d97706" stroke-width="4"/>
+<text x="490" y="362" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700">¿nota ≥ 80?</text>
+<line x1="370" y1="355" x2="230" y2="355" stroke="#0f6b45" stroke-width="4" marker-end="url(#a)"/><text x="290" y="335" font-family="Arial" font-size="18" font-weight="700">SÍ</text>
+<rect x="80" y="320" width="150" height="70" rx="10" fill="#eaf4ff" stroke="#2563eb" stroke-width="3"/><text x="155" y="363" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700">Muy bien</text>
+<line x1="490" y1="420" x2="490" y2="465" stroke="#0f6b45" stroke-width="4" marker-end="url(#a)"/><text x="510" y="445" font-family="Arial" font-size="18" font-weight="700" fill="#b04b45">NO</text>
+<polygon points="490,465 610,530 490,595 370,530" fill="#fff6dc" stroke="#d97706" stroke-width="4"/>
+<text x="490" y="537" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700">¿nota ≥ 70?</text>
+<line x1="370" y1="530" x2="230" y2="530" stroke="#0f6b45" stroke-width="4" marker-end="url(#a)"/>
+<rect x="80" y="495" width="150" height="70" rx="10" fill="#eaf4ff" stroke="#2563eb" stroke-width="3"/><text x="155" y="538" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700">Bien</text>
+<line x1="610" y1="530" x2="760" y2="530" stroke="#d9534f" stroke-width="4" marker-end="url(#a)"/>
+<rect x="760" y="495" width="150" height="70" rx="10" fill="#fff1f0" stroke="#d9534f" stroke-width="3"/><text x="835" y="538" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700">Reprobado</text>
+</svg>

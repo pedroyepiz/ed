@@ -1,0 +1,492 @@
+/* ================================================================
+   CSS externo extraído del HTML para mantener el contenido limpio.
+   Usado por: tema_00_introduccion.html
+   ================================================================ */
+
+:root{
+    --intro-green:#0f6b45;
+    --intro-green-2:#168455;
+    --intro-light:#eef8f2;
+    --intro-blue:#eaf4ff;
+    --intro-gold:#f2b134;
+    --intro-ink:#17352a;
+    --intro-line:#d6e7de;
+  }
+  html{scroll-behavior:smooth}
+  .content{overflow:hidden}
+  .topic-nav{display:flex;flex-wrap:wrap;gap:.55rem;margin:18px 0 24px}
+  .topic-nav a{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .8rem;border:1px solid var(--intro-line);border-radius:999px;background:#fff;text-decoration:none;color:var(--intro-green);font-weight:800;font-size:.88rem;box-shadow:0 2px 7px rgba(0,0,0,.05);transition:.2s}
+  .topic-nav a:hover{transform:translateY(-2px);background:var(--intro-light)}
+  .intro-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+  .mini-card{border:1px solid var(--intro-line);border-radius:16px;background:#fff;padding:16px;box-shadow:0 5px 16px rgba(0,0,0,.06);position:relative;overflow:hidden}
+  .mini-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--intro-green)}
+  .mini-card .big{font-size:2rem;line-height:1;margin-bottom:8px}
+  .mini-card h4{margin:.2rem 0 .45rem;color:var(--intro-green)}
+  .timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:20px 0 8px;position:relative}
+  .timeline::before{content:"";position:absolute;left:7%;right:7%;top:25px;height:4px;background:linear-gradient(90deg,var(--intro-green),var(--intro-gold));border-radius:5px}
+  .time-item{position:relative;text-align:center;padding:0 8px}
+  .time-dot{width:22px;height:22px;border-radius:50%;background:#fff;border:6px solid var(--intro-green);margin:15px auto 12px;position:relative;z-index:1}
+  .time-item b{display:block;color:var(--intro-green);font-size:1.05rem}
+  .time-item span{font-size:.88rem;display:block;margin-top:4px}
+  .paradigm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:16px 0}
+  .paradigm{padding:16px;border-radius:16px;background:#fff;border:1px solid var(--intro-line);box-shadow:0 4px 12px rgba(0,0,0,.05);transition:.2s}
+  .paradigm:hover{transform:translateY(-3px)}
+  .paradigm strong{display:block;color:var(--intro-green);margin:.4rem 0}
+  .flow-wrap{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:20px 0}
+  .flow-box{min-width:150px;padding:14px 16px;border:2px solid var(--intro-green);border-radius:14px;background:var(--intro-light);text-align:center;font-weight:800}
+  .flow-arrow{font-size:1.8rem;color:var(--intro-green);font-weight:900;animation:pulseArrow 1.4s infinite}
+  @keyframes pulseArrow{50%{transform:translateX(5px);opacity:.55}}
+  .three-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0}
+  .pillar{background:#fff;border:1px solid var(--intro-line);border-radius:16px;padding:18px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+  .pillar .symbol{font-size:2.3rem}.pillar h4{color:var(--intro-green);margin:.5rem 0}
+  .c-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:18px;align-items:stretch;margin:18px 0}
+  .program-map{background:linear-gradient(145deg,#f8fcfa,#e7f4ed);border:1px solid var(--intro-line);border-radius:18px;padding:18px}
+  .program-part{padding:10px 12px;margin:8px 0;border-radius:10px;background:#fff;border-left:5px solid var(--intro-green);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+  .program-part b{color:var(--intro-green)}
+  .code-toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+  .copy-btn,.demo-btn,.quiz-btn{border:0;border-radius:10px;padding:.55rem .85rem;background:var(--intro-green);color:#fff;font-weight:800;cursor:pointer}
+  .copy-btn:hover,.demo-btn:hover,.quiz-btn:hover{background:var(--intro-green-2)}
+  .copy-status{font-size:.82rem;color:var(--intro-green);font-weight:700}
+  .escape-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+  .escape{border:1px solid var(--intro-line);border-radius:12px;background:#fff;padding:13px;text-align:center}
+  .escape code{display:block;font-size:1.15rem;font-weight:900;color:var(--intro-green);margin-bottom:5px}
+  .io-demo{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}
+  .terminal{background:#12231b;color:#e9fff4;border-radius:16px;padding:18px;min-height:170px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+  .terminal .prompt{color:#8fe2b7}.terminal .output{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .demo-panel{border:1px solid var(--intro-line);border-radius:16px;padding:18px;background:#fff}
+  .demo-panel label{display:block;font-weight:800;color:var(--intro-green);margin-bottom:6px}
+  .demo-panel input{width:100%;box-sizing:border-box;padding:.7rem .8rem;border:1px solid #b9cdc2;border-radius:10px;margin-bottom:10px;font:inherit}
+  .tip{border-left:5px solid var(--intro-gold);background:#fff8e8;padding:13px 15px;border-radius:10px;margin:14px 0}
+  .compare{width:100%;border-collapse:collapse;margin:16px 0}
+  .compare th,.compare td{padding:10px;border:1px solid var(--intro-line);vertical-align:top}.compare th{background:var(--intro-light);color:var(--intro-green)}
+  .quiz{margin:22px 0;padding:18px;border:1px solid var(--intro-line);border-radius:18px;background:#fff}
+  .quiz-q{margin:14px 0;padding:14px;border-radius:12px;background:#f8fbf9}
+  .quiz-q button{display:block;width:100%;text-align:left;margin:7px 0;padding:9px 10px;border:1px solid #c8d9d0;background:#fff;border-radius:9px;cursor:pointer}
+  .quiz-q button:hover{background:var(--intro-light)}
+  .quiz-feedback{font-weight:800;margin-top:7px;min-height:1.2em}
+  .reveal{cursor:pointer}.reveal-content{display:none;margin-top:10px}.reveal.open .reveal-content{display:block}
+  @media(max-width:900px){.intro-grid,.paradigm-grid{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:1fr}.timeline::before{display:none}.time-item{display:grid;grid-template-columns:60px 1fr;text-align:left;align-items:center}.time-dot{margin:8px auto}.three-pillars,.c-layout,.io-demo{grid-template-columns:1fr}.escape-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.intro-grid,.paradigm-grid,.escape-grid{grid-template-columns:1fr}.topic-nav{display:grid;grid-template-columns:1fr 1fr}.flow-arrow{transform:rotate(90deg);animation:none}}
+
+
+/* ===============================================================
+   TEMA 0 · ADAPTACIÓN AL DISEÑO MODERNO DEL INDEX
+   =============================================================== */
+
+body.pe-home.pe-topic{
+  background:
+    radial-gradient(circle at 10% 12%, rgba(0,104,71,.055), transparent 25%),
+    linear-gradient(180deg,#f4fbf8 0,#ffffff 35%,#f5faf8 100%);
+}
+
+/* El encabezado institucional usa exactamente la estructura del INDEX */
+body.pe-topic .institutional-top{
+  position:sticky !important;
+  top:0;
+  z-index:2050;
+}
+
+/* Hero del tema: misma identidad del index, adaptada a una unidad */
+body.pe-topic .topic-course-hero{
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid #d5e8df;
+  background:
+    radial-gradient(circle at 9% 10%,rgba(255,255,255,.58) 0 18%,transparent 19%),
+    linear-gradient(135deg,#d7eee5 0%,#e6f5ef 34%,#f8fcfa 58%,#d2ebe1 80%,#c4e4d8 100%);
+}
+
+body.pe-topic .topic-course-hero::before{
+  content:"";
+  position:absolute;
+  width:720px;
+  height:300px;
+  left:-165px;
+  top:-125px;
+  border-radius:50%;
+  border:38px solid rgba(0,104,71,.08);
+  transform:rotate(-13deg);
+}
+
+body.pe-topic .topic-course-hero::after{
+  content:"";
+  position:absolute;
+  width:620px;
+  height:250px;
+  right:-125px;
+  bottom:-145px;
+  border-radius:50%;
+  background:rgba(0,104,71,.07);
+  transform:rotate(-16deg);
+}
+
+body.pe-topic .topic-course-hero .row{
+  position:relative;
+  z-index:1;
+}
+
+body.pe-topic .topic-course-hero .course-kicker{
+  color:#526d94;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+body.pe-topic .topic-course-hero .course-title{
+  max-width:950px;
+  font-size:clamp(2.55rem,4.7vw,4.55rem) !important;
+  line-height:.98 !important;
+}
+
+body.pe-topic .topic-number-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  margin-bottom:.55rem;
+  padding:.42rem .78rem;
+  border:1px solid rgba(0,104,71,.18);
+  border-radius:999px;
+  background:rgba(255,255,255,.62);
+  color:#075b43;
+  font-weight:850;
+  font-size:.86rem;
+  backdrop-filter:blur(5px);
+}
+
+body.pe-topic .topic-number-pill i{
+  font-size:1rem;
+}
+
+/* Tarjeta de identificación igual al INDEX, con tono verde visible */
+body.pe-topic .course-info-card{
+  background:
+    linear-gradient(135deg,
+      rgba(224,246,237,.98) 0%,
+      rgba(197,234,219,.96) 48%,
+      rgba(226,248,240,.98) 100%) !important;
+  border:1px solid rgba(0,104,71,.38) !important;
+  box-shadow:
+    0 14px 30px rgba(0,77,54,.15),
+    inset 0 1px 0 rgba(255,255,255,.85) !important;
+}
+
+/* Contenido del tema como panel principal */
+body.pe-topic .topic-content-shell{
+  padding-top:22px;
+  padding-bottom:32px;
+}
+
+body.pe-topic .topic-content-card{
+  background:#fff;
+  border:1px solid #deebe5;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(7,67,48,.08);
+  padding:clamp(16px,2.4vw,28px);
+}
+
+/* Navegación del tema modernizada */
+body.pe-topic .topic-nav{
+  position:relative;
+  z-index:3;
+  padding:12px;
+  border:1px solid #d9e9e2;
+  border-radius:14px;
+  background:linear-gradient(180deg,#ffffff,#f5fbf8);
+  box-shadow:0 5px 16px rgba(0,70,48,.06);
+}
+
+body.pe-topic .topic-nav a{
+  border-color:#c9e0d5;
+  background:#fff;
+}
+
+body.pe-topic .topic-nav a:hover{
+  background:#e7f6ef;
+  border-color:#98cbb4;
+}
+
+/* Secciones: mismo lenguaje visual del INDEX */
+body.pe-topic .section{
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,75,52,.10);
+}
+
+body.pe-topic .summary{
+  border-radius:14px;
+}
+
+/* Botón flotante de regreso (app.js no lo crea al usar pe-home) */
+body.pe-topic .topic-back-home{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:2100;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:8px 14px 8px 8px;
+  border:2px solid #006847;
+  border-radius:999px;
+  background:#fff;
+  color:#004b35;
+  text-decoration:none;
+  font-weight:800;
+  box-shadow:0 8px 22px rgba(0,0,0,.17);
+  transition:.2s ease;
+}
+
+body.pe-topic .topic-back-home:hover{
+  color:#004b35;
+  background:#f0faf5;
+  transform:translateY(-2px);
+}
+
+body.pe-topic .topic-back-home img{
+  width:50px;
+  height:50px;
+  object-fit:contain;
+}
+
+/* Footer moderno igual al INDEX */
+body.pe-topic .institutional-footer{
+  margin-top:0;
+}
+
+/* Bootstrap + contenido existente */
+body.pe-topic .content{
+  padding:0;
+  overflow:visible;
+}
+
+@media (max-width:991.98px){
+  body.pe-topic .topic-course-hero .course-title{
+    font-size:clamp(2.7rem,6.5vw,4rem) !important;
+  }
+}
+
+@media (max-width:767.98px){
+  body.pe-topic .topic-course-hero .course-title{
+    font-size:clamp(2.35rem,9vw,3.3rem) !important;
+  }
+
+  body.pe-topic .topic-content-shell{
+    padding-top:14px;
+  }
+
+  body.pe-topic .topic-content-card{
+    border-radius:14px;
+    padding:15px;
+  }
+
+  body.pe-topic .topic-back-home{
+    right:12px;
+    bottom:12px;
+    padding-right:11px;
+  }
+
+  body.pe-topic .topic-back-home img{
+    width:44px;
+    height:44px;
+  }
+}
+
+@media (max-width:430px){
+  body.pe-topic .topic-course-hero .course-title{
+    font-size:2.35rem !important;
+  }
+
+  body.pe-topic .topic-back-home span{
+    display:none;
+  }
+
+  body.pe-topic .topic-back-home{
+    padding:7px;
+  }
+}
+
+
+/* ============================================================
+   UNIFORMIDAD VISUAL CON EL INDEX · PÁGINAS INTERNAS
+   ============================================================ */
+body.pe-home.pe-course-page{
+  background:
+    radial-gradient(circle at 10% 12%, rgba(0,104,71,.045), transparent 25%),
+    linear-gradient(180deg,#f4fbf8 0,#ffffff 34%,#f5faf8 100%);
+}
+
+body.pe-course-page .institutional-top{
+  position:sticky !important;
+  top:0;
+  z-index:2050;
+  overflow:visible;
+  width:100%;
+  box-shadow:0 4px 16px rgba(0,58,43,.18);
+}
+
+body.pe-course-page .institutional-top .brand-shield{
+  width:104px !important;
+  height:118px !important;
+  min-width:104px !important;
+  object-fit:contain;
+  background:transparent !important;
+  border:0 !important;
+  position:relative;
+  z-index:2060;
+  transform:translateY(16px);
+  filter:drop-shadow(0 5px 9px rgba(0,0,0,.22));
+}
+
+body.pe-course-page .institutional-top .pe-shell > .d-flex{min-height:92px}
+
+body.pe-course-page .brand-motto{
+  font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  font-size:1.9rem !important;
+  font-weight:600 !important;
+  line-height:1.12;
+  text-transform:none !important;
+  color:#fff !important;
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  min-width:330px;
+}
+
+body.pe-course-page .topic-course-hero{
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid #d5e8df;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(255,255,255,.58) 0 18%,transparent 19%),
+    linear-gradient(135deg,#d7eee5 0%,#e5f4ee 33%,#f8fcfa 58%,#d0e9df 79%,#bee0d3 100%);
+}
+
+body.pe-course-page .topic-course-hero::before{
+  content:"";
+  position:absolute;
+  width:720px;height:300px;
+  left:-165px;top:-125px;
+  border-radius:50%;
+  border:38px solid rgba(0,104,71,.08);
+  transform:rotate(-13deg);
+}
+
+body.pe-course-page .topic-course-hero::after{
+  content:"";
+  position:absolute;
+  width:620px;height:250px;
+  right:-125px;bottom:-145px;
+  border-radius:50%;
+  background:rgba(0,104,71,.07);
+  transform:rotate(-16deg);
+}
+
+body.pe-course-page .topic-course-hero .row{position:relative;z-index:1}
+body.pe-course-page .topic-course-hero .course-kicker{
+  color:#526d94;font-weight:900;letter-spacing:.12em
+}
+body.pe-course-page .topic-course-hero .course-title{
+  max-width:980px;
+  font-size:clamp(2.7rem,4.6vw,4.65rem) !important;
+  line-height:.97 !important;
+}
+body.pe-course-page .topic-number-pill{
+  display:inline-flex;align-items:center;gap:.55rem;
+  margin-bottom:.55rem;padding:.42rem .78rem;
+  border:1px solid rgba(0,104,71,.20);border-radius:999px;
+  background:rgba(255,255,255,.66);color:#075b43;
+  font-weight:850;font-size:.86rem;backdrop-filter:blur(5px)
+}
+
+body.pe-course-page .course-info-card{
+  background:linear-gradient(135deg,
+      rgba(224,246,237,.98) 0%,
+      rgba(194,233,217,.97) 48%,
+      rgba(225,247,239,.98) 100%) !important;
+  border:1px solid rgba(0,104,71,.38) !important;
+  box-shadow:0 14px 30px rgba(0,77,54,.15),inset 0 1px 0 rgba(255,255,255,.85) !important;
+}
+
+body.pe-course-page .course-info-card .info-row{
+  background:linear-gradient(90deg,rgba(255,255,255,.10),rgba(0,104,71,.035),rgba(255,255,255,.08));
+}
+
+body.pe-course-page .page-content-shell{padding-top:22px;padding-bottom:32px}
+body.pe-course-page .page-content-card{
+  background:#fff;border:1px solid #deebe5;border-radius:18px;
+  box-shadow:0 10px 30px rgba(7,67,48,.08);
+  padding:clamp(16px,2.4vw,28px);
+}
+body.pe-course-page .content{padding:0;overflow:visible}
+
+body.pe-course-page .topic-nav{
+  padding:12px;border:1px solid #d9e9e2;border-radius:14px;
+  background:linear-gradient(180deg,#fff,#f5fbf8);
+  box-shadow:0 5px 16px rgba(0,70,48,.06);
+}
+body.pe-course-page .section{
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,75,52,.10);
+}
+
+body.pe-course-page .gallery-intro{
+  border-radius:16px;
+  background:linear-gradient(135deg,#f5fbf8,#e8f5ef);
+  border:1px solid #d2e8dd;
+  padding:18px 20px;
+  margin-bottom:18px;
+}
+
+body.pe-course-page .topic-back-home{
+  position:fixed;right:22px;bottom:22px;z-index:2100;
+  display:flex;align-items:center;gap:9px;
+  padding:8px 14px 8px 8px;border:2px solid #006847;border-radius:999px;
+  background:#fff;color:#004b35;text-decoration:none;font-weight:800;
+  box-shadow:0 8px 22px rgba(0,0,0,.17);transition:.2s ease;
+}
+body.pe-course-page .topic-back-home:hover{
+  color:#004b35;background:#f0faf5;transform:translateY(-2px)
+}
+body.pe-course-page .topic-back-home img{
+  width:50px;height:50px;object-fit:contain
+}
+
+/* Ajuste de lightbox para convivir con header fijo */
+body.pe-course-page .infografia-lightbox{z-index:5000}
+
+/* Evitar que las clases heredadas de páginas antiguas reemplacen el layout general */
+body.pe-course-page > .page{display:none !important}
+
+@media (max-width:1199.98px){
+  body.pe-course-page .brand-motto{font-size:1.55rem !important;min-width:280px}
+  body.pe-course-page .institutional-top .brand-shield{
+    width:88px !important;height:102px !important;min-width:88px !important;transform:translateY(13px)
+  }
+  body.pe-course-page .institutional-top .pe-shell > .d-flex{min-height:82px}
+}
+
+@media (max-width:991.98px){
+  body.pe-course-page .topic-course-hero .course-title{font-size:clamp(2.6rem,6.3vw,4rem) !important}
+}
+
+@media (max-width:767.98px){
+  body.pe-course-page .institutional-top .brand-shield{
+    width:76px !important;height:90px !important;min-width:76px !important;transform:translateY(11px)
+  }
+  body.pe-course-page .institutional-top .pe-shell > .d-flex{min-height:74px}
+  body.pe-course-page .topic-course-hero .course-title{font-size:clamp(2.25rem,9vw,3.35rem) !important}
+  body.pe-course-page .page-content-shell{padding-top:14px}
+  body.pe-course-page .page-content-card{border-radius:14px;padding:15px}
+  body.pe-course-page .topic-back-home{right:12px;bottom:12px;padding-right:11px}
+  body.pe-course-page .topic-back-home img{width:44px;height:44px}
+}
+
+@media (max-width:430px){
+  body.pe-course-page .institutional-top .brand-shield{
+    width:66px !important;height:78px !important;min-width:66px !important;transform:translateY(9px)
+  }
+  body.pe-course-page .institutional-top .pe-shell > .d-flex{min-height:68px}
+  body.pe-course-page .topic-course-hero .course-title{font-size:2.3rem !important}
+  body.pe-course-page .topic-back-home span{display:none}
+  body.pe-course-page .topic-back-home{padding:7px}
+}

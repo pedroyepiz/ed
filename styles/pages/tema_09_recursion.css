@@ -1,0 +1,335 @@
+/* ================================================================
+   TEMA 9 · RECURSIÓN
+   Complementa styles.css + paginas_uniformes.css
+   ================================================================ */
+
+.page-tema-09 .topic-intro{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 220px;
+  gap:24px;
+  align-items:center;
+  margin-bottom:24px;
+}
+
+.page-tema-09 .section-kicker{
+  color:#006847;
+  font-weight:900;
+  letter-spacing:.08em;
+  font-size:.78rem;
+  margin-bottom:6px;
+}
+
+.page-tema-09 .topic-intro h2{
+  color:#0d2b45;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.page-tema-09 .concept-badge{
+  min-height:170px;
+  border:1px solid #dbe8e2;
+  border-radius:20px;
+  background:linear-gradient(145deg,#ecf8f3,#fff);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  box-shadow:0 10px 28px rgba(0,83,60,.08);
+}
+
+.page-tema-09 .concept-badge i{font-size:3rem;color:#006847}
+.page-tema-09 .concept-badge strong{color:#0d2b45;font-size:1.35rem}
+.page-tema-09 .concept-badge span{color:#5b6470;font-size:.9rem}
+
+.page-tema-09 .lesson-section{
+  scroll-margin-top:120px;
+  margin-top:30px;
+  padding-top:4px;
+}
+
+.page-tema-09 .concept-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin:18px 0 22px;
+}
+
+.page-tema-09 .concept-card{
+  border:1px solid #dbe5e0;
+  border-radius:16px;
+  background:#fff;
+  padding:18px;
+  box-shadow:0 7px 20px rgba(0,0,0,.05);
+}
+
+.page-tema-09 .concept-card h3{
+  color:#0d2b45;
+  font-weight:850;
+  font-size:1.02rem;
+  margin:8px 0 7px;
+}
+
+.page-tema-09 .concept-card p{margin:0;font-size:.92rem}
+.page-tema-09 .concept-icon{font-size:2rem}
+
+.page-tema-09 .two-col{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin:18px 0;
+}
+
+.page-tema-09 .note-box,
+.page-tema-09 .warning-box,
+.page-tema-09 .analogy-card{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin:18px 0;
+  padding:16px 18px;
+  border-radius:15px;
+}
+
+.page-tema-09 .note-box{background:#eef8f3;border-left:5px solid #006847}
+.page-tema-09 .warning-box{background:#fff3e8;border-left:5px solid #e76b00}
+.page-tema-09 .analogy-card{background:#eef5fb;border-left:5px solid #1565c0}
+.page-tema-09 .analogy-icon{font-size:1.8rem}
+
+.page-tema-09 .recursion-flow{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:22px 0;
+}
+
+.page-tema-09 .recursion-flow>div{
+  flex:1;
+  min-height:125px;
+  border:1px solid #dbe5e0;
+  border-radius:15px;
+  padding:15px;
+  text-align:center;
+  background:#fff;
+}
+
+.page-tema-09 .recursion-flow>div span{
+  display:flex;
+  width:34px;
+  height:34px;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 8px;
+  border-radius:50%;
+  background:#006847;
+  color:#fff;
+  font-weight:900;
+}
+
+.page-tema-09 .recursion-flow b,
+.page-tema-09 .recursion-flow small{display:block}
+.page-tema-09 .recursion-flow small{margin-top:5px;color:#5b6470}
+.page-tema-09 .recursion-flow>i{font-size:1.5rem;color:#006847}
+
+.page-tema-09 .stack-demo{
+  max-width:620px;
+  margin:22px auto;
+  padding:18px;
+  border-radius:18px;
+  background:#f6faf8;
+  border:1px solid #dbe5e0;
+}
+
+.page-tema-09 .stack-title{
+  text-align:center;
+  font-weight:900;
+  color:#0d2b45;
+  margin-bottom:12px;
+}
+
+.page-tema-09 .stack-box,
+.page-tema-09 .stack-base{
+  padding:11px 14px;
+  margin:6px 0;
+  border-radius:10px;
+  text-align:center;
+  font-family:Consolas,"Courier New",monospace;
+  border:1px solid #cfded8;
+  background:#fff;
+}
+
+.page-tema-09 .stack-base{
+  background:#006847;
+  color:#fff;
+  font-weight:900;
+}
+
+.page-tema-09 .practice-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.page-tema-09 .practice-grid article{
+  border:1px solid #dbe5e0;
+  background:#fbfdfc;
+  border-radius:13px;
+  padding:15px 16px;
+}
+
+.page-tema-09 .practice-grid b{color:#006847}
+.page-tema-09 .practice-grid p{margin:5px 0 0}
+
+.page-tema-09 .trace-box{
+  margin:18px 0;
+  border:1px solid #dbe5e0;
+  border-radius:15px;
+  background:#f8fbfa;
+  padding:16px;
+}
+
+.page-tema-09 .trace-box h3{
+  color:#0d2b45;
+  font-weight:850;
+  font-size:1.05rem;
+}
+
+.page-tema-09 .trace-box pre{margin:10px 0 0}
+
+.page-tema-09 .fib-tree{
+  margin:20px auto;
+  padding:18px;
+  max-width:760px;
+  border-radius:16px;
+  background:#f4f7fb;
+  border:1px solid #d9e4ef;
+}
+
+.page-tema-09 .fib-node{
+  width:max-content;
+  min-width:90px;
+  margin:6px auto;
+  padding:9px 14px;
+  border-radius:10px;
+  background:#fff;
+  border:1px solid #adc8df;
+  text-align:center;
+  font-family:Consolas,"Courier New",monospace;
+  font-weight:800;
+}
+
+.page-tema-09 .fib-node.root{
+  background:#0d2b45;
+  color:#fff;
+}
+
+.page-tema-09 .fib-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.page-tema-09 .fib-caption{
+  text-align:center;
+  margin-top:12px;
+  color:#5b6470;
+}
+
+.page-tema-09 .use-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  margin:18px 0;
+}
+
+.page-tema-09 .use-grid article{
+  border:1px solid #dbe5e0;
+  border-radius:15px;
+  background:#fff;
+  padding:18px;
+  text-align:center;
+}
+
+.page-tema-09 .use-grid i{
+  display:block;
+  font-size:2rem;
+  color:#006847;
+  margin-bottom:8px;
+}
+
+.page-tema-09 .use-grid b{display:block;color:#0d2b45}
+.page-tema-09 .use-grid span{display:block;margin-top:5px;color:#5b6470;font-size:.9rem}
+
+.page-tema-09 .pros-card,
+.page-tema-09 .cons-card{
+  border-radius:16px;
+  padding:18px;
+}
+
+.page-tema-09 .pros-card{background:#eef8f3;border:1px solid #c6e6d7}
+.page-tema-09 .cons-card{background:#fff3ee;border:1px solid #f2d2c3}
+.page-tema-09 .pros-card h3,
+.page-tema-09 .cons-card h3{font-weight:900;color:#0d2b45}
+.page-tema-09 .pros-card ul,
+.page-tema-09 .cons-card ul{margin-bottom:0}
+
+.page-tema-09 .quiz-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+
+.page-tema-09 .quiz-q{
+  border:1px solid #dbe5e0;
+  background:#fff;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.045);
+}
+
+.page-tema-09 .quiz-q h3{
+  color:#0d2b45;
+  font-size:1rem;
+  font-weight:850;
+  margin-bottom:12px;
+}
+
+.page-tema-09 .quiz-q button{
+  display:block;
+  width:100%;
+  text-align:left;
+  border:1px solid #d9e3df;
+  background:#f8fbfa;
+  border-radius:10px;
+  padding:9px 11px;
+  margin:7px 0;
+  color:#1f2937;
+  transition:.18s ease;
+}
+
+.page-tema-09 .quiz-q button:hover{background:#edf7f2;border-color:#8ebba9}
+.page-tema-09 .quiz-q button.is-correct{background:#e6f6ed;border-color:#3aa56d}
+.page-tema-09 .quiz-q button.is-wrong{background:#fff0f0;border-color:#d66767}
+.page-tema-09 .quiz-feedback{min-height:24px;margin-top:9px;font-weight:800}
+.page-tema-09 .final-summary{margin-top:30px}
+
+@media(max-width:991.98px){
+  .page-tema-09 .topic-intro{grid-template-columns:1fr}
+  .page-tema-09 .concept-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .page-tema-09 .recursion-flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .page-tema-09 .recursion-flow>i{display:none}
+  .page-tema-09 .use-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(max-width:767.98px){
+  .page-tema-09 .two-col,
+  .page-tema-09 .practice-grid,
+  .page-tema-09 .quiz-grid,
+  .page-tema-09 .use-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:575.98px){
+  .page-tema-09 .concept-grid,
+  .page-tema-09 .recursion-flow{grid-template-columns:1fr}
+}

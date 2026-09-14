@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0f6b45"/></marker></defs>
+<rect width="900" height="560" fill="#fff"/>
+<rect x="360" y="25" width="180" height="58" rx="28" fill="#e8f5ee" stroke="#0f6b45" stroke-width="3"/>
+<text x="450" y="62" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#17352a">INICIO</text>
+<line x1="450" y1="83" x2="450" y2="135" stroke="#0f6b45" stroke-width="4" marker-end="url(#a)"/>
+<polygon points="450,135 590,215 450,295 310,215" fill="#fff6dc" stroke="#d97706" stroke-width="4"/>
+<text x="450" y="208" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#7c4b00">¿temp &gt; 37.5?</text>
+<text x="450" y="237" text-anchor="middle" font-family="Arial" font-size="18" fill="#7c4b00">condición lógica</text>
+<line x1="310" y1="215" x2="190" y2="215" stroke="#0f6b45" stroke-width="4" marker-end="url(#a)"/>
+<text x="235" y="195" font-family="Arial" font-size="20" font-weight="700" fill="#0f6b45">SÍ</text>
+<rect x="50" y="185" width="140" height="70" rx="10" fill="#eaf4ff" stroke="#2563eb" stroke-width="3"/>
+<text x="120" y="228" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#174a9c">FIEBRE</text>
+<line x1="590" y1="215" x2="710" y2="215" stroke="#b04b45" stroke-width="4" marker-end="url(#a)"/>
+<text x="635" y="195" font-family="Arial" font-size="20" font-weight="700" fill="#b04b45">NO</text>
+<rect x="710" y="185" width="140" height="70" rx="10" fill="#fff1f0" stroke="#d9534f" stroke-width="3"/>
+<text x="780" y="215" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#a8322d">TEMP.</text>
+<text x="780" y="240" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#a8322d">NORMAL</text>
+<line x1="120" y1="255" x2="120" y2="410" stroke="#0f6b45" stroke-width="4"/>
+<line x1="780" y1="255" x2="780" y2="410" stroke="#0f6b45" stroke-width="4"/>
+<line x1="120" y1="410" x2="450" y2="410" stroke="#0f6b45" stroke-width="4"/>
+<line x1="780" y1="410" x2="450" y2="410" stroke="#0f6b45" stroke-width="4"/>
+<line x1="450" y1="410" x2="450" y2="455" stroke="#0f6b45" stroke-width="4" marker-end="url(#a)"/>
+<rect x="340" y="455" width="220" height="62" rx="28" fill="#eef8f2" stroke="#0f6b45" stroke-width="3"/>
+<text x="450" y="494" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#17352a">CONTINÚA</text>
+</svg>

@@ -1,0 +1,22 @@
+/* PÁGINA MAESTRA · agregar al final de styles/styles.css */
+#site-header,
+#site-footer,
+#course-info{
+  width:100%;
+}
+
+body.pe-home #site-header{
+  position:sticky;
+  top:0;
+  z-index:2050;
+}
+
+body.pe-home #site-header:empty{
+  min-height:76px;
+  background:#006847;
+}
+
+body.pe-home #site-footer:empty{
+  min-height:76px;
+  background:#006847;
+}

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006847">
+  <meta name="description" content="Visor de bibliografía PDF del curso Estructuras de Datos.">
+  <title>Visor PDF · Estructuras de Datos</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/pages/paginas_uniformes.css">
+  <link rel="stylesheet" href="../styles/pages/visor_pdf.css">
+</head>
+
+<body class="pe-home pe-course-page page-visor-pdf">
+
+  <!-- Página maestra -->
+  <div id="site-header"></div>
+
+  <section class="topic-course-hero visor-hero">
+    <div class="container-fluid pe-shell">
+      <div class="row g-4 align-items-center py-4">
+
+        <div class="col-xl-8">
+          <div class="topic-number-pill">
+            <i class="bi bi-journal-bookmark-fill"></i>
+            BIBLIOTECA DIGITAL · VISOR PDF
+          </div>
+
+          <div class="course-kicker">PROGRAMACIÓN ESTRUCTURADA</div>
+
+          <h1 class="course-title" id="visorTitulo">Consulta de bibliografía</h1>
+
+          <p class="course-subtitle mb-0" id="visorAutor">
+            Material bibliográfico del curso.
+          </p>
+
+          <div class="hero-line"></div>
+
+          <div class="course-quote">
+            <i class="bi bi-book-half"></i>
+            <span>Consulta el libro sin salir del sitio y regresa a Bibliografía cuando quieras elegir otro.</span>
+          </div>
+        </div>
+
+        <div class="col-xl-4">
+          <div class="visor-actions-card">
+
+            <a class="visor-action primary-action"
+               href="bibliografia.html"
+               id="btnRegresarBibliografia">
+              <i class="bi bi-arrow-left-circle-fill"></i>
+              <span>Regresar a Bibliografía</span>
+            </a>
+
+            <a class="visor-action"
+               href="#"
+               id="btnAbrirDrive"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="bi bi-box-arrow-up-right"></i>
+              <span>Abrir en Google Drive</span>
+            </a>
+
+            <a class="visor-action"
+               href="#"
+               id="btnDescargarPdf"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="bi bi-download"></i>
+              <span>Descargar PDF</span>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main class="container-fluid pe-shell page-content-shell">
+    <div class="page-content-card content visor-content">
+
+      <section class="visor-toolbar">
+        <div class="visor-toolbar-title">
+          <i class="bi bi-file-earmark-pdf-fill"></i>
+          <div>
+            <strong id="toolbarTitulo">Documento PDF</strong>
+            <span>Visor integrado de Google Drive</span>
+          </div>
+        </div>
+
+        <div class="visor-toolbar-actions">
+          <a href="bibliografia.html" class="toolbar-btn back">
+            <i class="bi bi-arrow-left"></i>
+            Bibliografía
+          </a>
+
+          <button type="button" class="toolbar-btn" id="btnRecargar">
+            <i class="bi bi-arrow-clockwise"></i>
+            Recargar
+          </button>
+
+          <button type="button" class="toolbar-btn" id="btnPantallaCompleta">
+            <i class="bi bi-arrows-fullscreen"></i>
+            Pantalla completa
+          </button>
+        </div>
+      </section>
+
+      <section class="pdf-viewer-shell" id="pdfViewerShell">
+        <div class="pdf-loading" id="pdfLoading">
+          <div class="spinner-border text-success" role="status" aria-hidden="true"></div>
+          <strong>Cargando libro...</strong>
+          <span>El documento se abrirá dentro del visor.</span>
+        </div>
+
+        <iframe
+          id="pdfViewer"
+          class="pdf-viewer"
+          title="Visor PDF"
+          src="about:blank"
+          loading="eager"
+          allow="autoplay"
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </section>
+
+      <section class="viewer-help">
+        <div class="viewer-help-item">
+          <i class="bi bi-mouse2-fill"></i>
+          <div>
+            <strong>Muévete por el documento</strong>
+            <span>Usa la barra de desplazamiento del visor para cambiar de página.</span>
+          </div>
+        </div>
+
+        <div class="viewer-help-item">
+          <i class="bi bi-zoom-in"></i>
+          <div>
+            <strong>Zoom y lectura</strong>
+            <span>Google Drive proporciona sus propias herramientas de visualización.</span>
+          </div>
+        </div>
+
+        <div class="viewer-help-item">
+          <i class="bi bi-cursor-text"></i>
+          <div>
+            <strong>Seleccionar texto</strong>
+            <span>Será posible cuando el PDF contenga texto real y no únicamente páginas escaneadas como imagen.</span>
+          </div>
+        </div>
+
+        <div class="viewer-help-item">
+          <i class="bi bi-arrow-return-left"></i>
+          <div>
+            <strong>Consultar otro libro</strong>
+            <span>El botón Regresar a Bibliografía vuelve directamente al catálogo, no al índice principal.</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="visor-bottom-actions">
+        <a href="bibliografia.html" class="bottom-back-btn">
+          <i class="bi bi-arrow-left-circle-fill"></i>
+          Regresar a Bibliografía
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Página maestra -->
+  <div id="site-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- IMPORTANTE:
+       NO cargamos app.js aquí porque su botón estándar regresa al index.
+       Este visor usa su propio script para regresar a bibliografia.html. -->
+  <script src="../scripts/pages/visor_pdf.js" defer></script>
+  <script src="../scripts/layout.js" defer></script>
+</body>
+</html>

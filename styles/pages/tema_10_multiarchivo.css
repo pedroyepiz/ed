@@ -1,0 +1,260 @@
+/* ================================================================
+   TEMA 10 · MULTIARCHIVO
+   Complementa styles.css + paginas_uniformes.css
+   ================================================================ */
+
+.page-tema-10 .topic-intro{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 220px;
+  gap:24px;
+  align-items:center;
+  margin-bottom:24px;
+}
+
+.page-tema-10 .section-kicker{
+  color:#006847;
+  font-weight:900;
+  letter-spacing:.08em;
+  font-size:.78rem;
+  margin-bottom:6px;
+}
+
+.page-tema-10 .topic-intro h2{
+  color:#0d2b45;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.page-tema-10 .concept-badge{
+  min-height:170px;
+  border:1px solid #dbe8e2;
+  border-radius:20px;
+  background:linear-gradient(145deg,#ecf8f3,#fff);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  box-shadow:0 10px 28px rgba(0,83,60,.08);
+}
+
+.page-tema-10 .concept-badge i{font-size:3rem;color:#006847}
+.page-tema-10 .concept-badge strong{color:#0d2b45;font-size:1.25rem}
+.page-tema-10 .concept-badge span{color:#5b6470;font-size:.9rem}
+
+.page-tema-10 .lesson-section{
+  scroll-margin-top:120px;
+  margin-top:30px;
+  padding-top:4px;
+}
+
+.page-tema-10 .concept-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin:18px 0 22px;
+}
+
+.page-tema-10 .concept-card{
+  border:1px solid #dbe5e0;
+  border-radius:16px;
+  background:#fff;
+  padding:18px;
+  box-shadow:0 7px 20px rgba(0,0,0,.05);
+}
+
+.page-tema-10 .concept-card h3{
+  color:#0d2b45;
+  font-weight:850;
+  font-size:1.02rem;
+  margin:8px 0 7px;
+}
+
+.page-tema-10 .concept-card p{margin:0;font-size:.92rem}
+.page-tema-10 .concept-icon{font-size:2rem}
+
+.page-tema-10 .file-flow{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:22px 0;
+}
+
+.page-tema-10 .file-flow article{
+  flex:1;
+  min-height:135px;
+  border:1px solid #dbe5e0;
+  border-radius:15px;
+  padding:17px;
+  text-align:center;
+  background:#fff;
+}
+
+.page-tema-10 .file-flow article i{
+  display:block;
+  font-size:2rem;
+  color:#006847;
+  margin-bottom:8px;
+}
+
+.page-tema-10 .file-flow article b,
+.page-tema-10 .file-flow article span{display:block}
+.page-tema-10 .file-flow article span{margin-top:5px;color:#5b6470;font-size:.9rem}
+.page-tema-10 .file-flow>i{font-size:1.5rem;color:#006847}
+
+.page-tema-10 .two-col{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin:18px 0;
+}
+
+.page-tema-10 .note-box,
+.page-tema-10 .warning-box,
+.page-tema-10 .analogy-card{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin:18px 0;
+  padding:16px 18px;
+  border-radius:15px;
+}
+
+.page-tema-10 .note-box{background:#eef8f3;border-left:5px solid #006847}
+.page-tema-10 .warning-box{background:#fff4e8;border-left:5px solid #e76b00}
+.page-tema-10 .analogy-card{background:#eef5fb;border-left:5px solid #1565c0}
+.page-tema-10 .analogy-icon{font-size:1.8rem}
+
+.page-tema-10 .syntax-box{
+  margin:18px 0;
+  padding:16px 18px;
+  background:#0d2b45;
+  color:#fff;
+  border-radius:14px;
+  overflow:auto;
+}
+
+.page-tema-10 .syntax-box code{
+  color:#fff;
+  font-size:1.05rem;
+}
+
+.page-tema-10 .comparison-strip{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin:18px 0;
+}
+
+.page-tema-10 .comparison-strip article{
+  border:1px solid #dbe5e0;
+  border-radius:16px;
+  background:#fff;
+  padding:18px;
+}
+
+.page-tema-10 .comparison-strip b,
+.page-tema-10 .comparison-strip code,
+.page-tema-10 .comparison-strip span{display:block}
+
+.page-tema-10 .comparison-strip b{color:#0d2b45;font-size:1.05rem}
+.page-tema-10 .comparison-strip code{
+  margin:10px 0;
+  padding:10px;
+  border-radius:9px;
+  background:#eef5fb;
+}
+
+.page-tema-10 .comparison-strip span{color:#5b6470;font-size:.9rem}
+
+.page-tema-10 .practice-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.page-tema-10 .practice-grid article{
+  border:1px solid #dbe5e0;
+  background:#fbfdfc;
+  border-radius:13px;
+  padding:15px 16px;
+}
+
+.page-tema-10 .practice-grid b{color:#006847}
+.page-tema-10 .practice-grid p{margin:5px 0 0}
+
+.page-tema-10 .topic-table{
+  border:1px solid #dbe5e0;
+  overflow:hidden;
+}
+
+.page-tema-10 .topic-table thead th{
+  background:#006847;
+  color:#fff;
+  border-color:#17795d;
+}
+
+.page-tema-10 .topic-table tbody th{
+  background:#f5faf7;
+  color:#0d2b45;
+}
+
+.page-tema-10 .quiz-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+
+.page-tema-10 .quiz-q{
+  border:1px solid #dbe5e0;
+  background:#fff;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.045);
+}
+
+.page-tema-10 .quiz-q h3{
+  color:#0d2b45;
+  font-size:1rem;
+  font-weight:850;
+  margin-bottom:12px;
+}
+
+.page-tema-10 .quiz-q button{
+  display:block;
+  width:100%;
+  text-align:left;
+  border:1px solid #d9e3df;
+  background:#f8fbfa;
+  border-radius:10px;
+  padding:9px 11px;
+  margin:7px 0;
+  color:#1f2937;
+  transition:.18s ease;
+}
+
+.page-tema-10 .quiz-q button:hover{background:#edf7f2;border-color:#8ebba9}
+.page-tema-10 .quiz-q button.is-correct{background:#e6f6ed;border-color:#3aa56d}
+.page-tema-10 .quiz-q button.is-wrong{background:#fff0f0;border-color:#d66767}
+.page-tema-10 .quiz-feedback{min-height:24px;margin-top:9px;font-weight:800}
+.page-tema-10 .final-summary{margin-top:30px}
+
+@media(max-width:991.98px){
+  .page-tema-10 .topic-intro{grid-template-columns:1fr}
+  .page-tema-10 .concept-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .page-tema-10 .file-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .page-tema-10 .file-flow>i{display:none}
+}
+
+@media(max-width:767.98px){
+  .page-tema-10 .two-col,
+  .page-tema-10 .comparison-strip,
+  .page-tema-10 .practice-grid,
+  .page-tema-10 .quiz-grid{grid-template-columns:1fr}
+  .page-tema-10 .file-flow{grid-template-columns:1fr}
+}
+
+@media(max-width:575.98px){
+  .page-tema-10 .concept-grid{grid-template-columns:1fr}
+}

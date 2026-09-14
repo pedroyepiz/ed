@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#006847">
+<title>Programa básico de Colas | Estructuras de Datos</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="../styles/styles.css">
+<link rel="stylesheet" href="../styles/pages/paginas_uniformes.css">
+<link rel="stylesheet" href="../styles/pages/tema_codigo_ide_general.css">
+<link rel="stylesheet" href="../styles/pages/ed_topics.css">
+
+</head>
+<body class="pe-home pe-course-page">
+<div id="site-header"></div>
+<section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-xl-7">
+<div class="topic-number-pill"><i class="bi bi-code-slash"></i> Código base · Colas</div>
+<div class="course-kicker">CÓDIGO BASE EN C/C++</div>
+<h1 class="course-title">Programa básico de Colas</h1>
+<p class="course-subtitle mb-0">Código C/C++ para prácticas con memoria dinámica FIFO</p><div class="hero-line"></div>
+<div class="course-quote"><i class="bi bi-diagram-3-fill"></i><span>“Comprender la estructura es comprender cómo se organiza la solución.”</span></div>
+</div><div class="col-xl-5"><div id="course-info" data-topic="Código base · Colas"></div></div></div></div></section>
+<main class="container-fluid pe-shell page-content-shell"><div class="page-content-card content"><div class="ed-topic-content"><div class="page-programa-pilas">
+<div class="code-label">Archivo de cabecera (.h)</div>
+<section class="code-card code-dark">
+<div class="code-head">
+<div class="file-name">karely_ruiz_v1.h</div>
+<button class="copy-btn" onclick="copiarCodigo('codigoH', this)">Copiar código</button>
+</div>
+<pre><code id="codigoH">//  propietario :  PEDRO NUÑEZ YEPIZ
+// FECHA.  13 DE MARZO 2026 ULTIMA MODF: 20 MARZO  
+//  karely_ruiz.h  V 1.1
+// AGREGO.  FUNCION my_fgets  y my_int
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+#include &lt;dos.h&gt;
+#include &lt;conio.h&gt;
+#define N 15
+#define N2 20
+#define SALTO printf("\n");
+// DEFINICION DE TIPOS DE DATOS
+typedef struct _nom{
+  char nombre[30];
+  char appat[30];
+  char apmat[30];
+}Ts_nom;
+//****
+typedef struct _talum{
+  int status; //0.INACTIVO   1  ACTIVO
+  int matri; // pk   campo llave
+  Ts_nom nombre;
+  int edad; 
+  int sexo; //1.  M  o 2.- H  
+}Ts_alum;
+
+//PROTOTIPOS
+void my_fgets(char string[],int tam);
+int my_int(int ri, int rf, const char msge[]);
+int busq_sec(Ts_alum vect[],int m, int num);
+void burbuja_seleccion (Ts_alum vect[],int m);
+
+//***************************************************
+void my_fgets(char string[],int tam)
+{
+  int i=0 ;
+  fflush(stdin);
+  fgets(string,tam,stdin);
+  while (string[i] != '\0')
+  {
+    i++;
+  }
+  string[i-1]='\0';
+}
+//*********************************************************
+  //  FUNCION QUE SIRVE PARA VALIDAR UN MNUMERO ENTERO,
+//*****************************************************
+int my_int(int ri, int rf, const char msge[])
+{
+  int num;
+  char my_num[30];
+  do{
+    printf ("%s",msge);
+    my_fgets(my_num,30);
+    num = atoi(my_num);
+  }while(num &lt; ri || num &gt; rf);
+  
+  return num;  // REGRESA  EL VALOR YA VALIDADO
+}
+
+//********
+int busq_sec(Ts_alum vect[],int m, int num)
+{
+    for (int i = 0;i &lt; m;i++)
+    {
+        if (num == vect[i].matri)
+        {
+          if (vect[i].status != 0)
+          {     
+            return i; // si lo encontro y esta activo
+          }
+          else
+          {
+            return -2;  //  si lo encontro pero status es 0
+          }
+        }
+    }
+    return -1; // no lo encontro
+}
+
+//****
+void burbuja_seleccion (Ts_alum vect[],int m)
+{
+    int i,j;
+    Ts_alum temp;
+    for (i = 0; i &lt; m-1; i++)
+    {
+      for(j= i+1;j&lt;m;j++)
+      {
+          if (vect[j].matri &lt; vect[i].matri)
+          {
+              temp = vect[j];
+              vect[j]=vect[i];
+              vect[i]=temp;
+          }
+      }
+    }
+
+
+}</code></pre>
+</section>
+<div class="code-label">Archivo principal (.cpp)</div>
+<section class="code-card code-dark">
+<div class="code-head">
+<div class="file-name">cola.cpp</div>
+<button class="copy-btn" onclick="copiarCodigo('codigoCPP', this)">Copiar código</button>
+</div>
+<pre><code id="codigoCPP">#include "karely_ruiz_v1.h"
+
+//****************************************
+// ESTA ES LA ESTRUCTURA PRINCIPAL DE UN NODO
+typedef int Ted; // Tipo Estructura de Datos,  para ser remplazado y facilitar el servivio 
+typedef struct _tnodo{
+    Ted dato;
+    struct _tnodo *sig;
+}sTnodo;
+typedef sTnodo *Tnodo;
+//****************************************************
+
+Tnodo gen_nodo();
+void servicio_basico (Tnodo nodo);
+void PUSH(Tnodo &amp;cola, Tnodo &amp;ultimo, Tnodo &amp;nodo);
+Tnodo POP(Tnodo &amp;cola);
+int letrero();
+void menu ();
+//*********************************************
+int main() 
+{
+    menu();
+    return 0;
+}
+//*********************************
+Tnodo gen_nodo(Ted num)
+{
+    Tnodo nodo=NULL;
+    //int num;
+    //num = rand()% 98;
+    nodo = (Tnodo) malloc(sizeof(sTnodo));
+    if (nodo)
+    {
+        nodo-&gt;dato = num;
+        nodo-&gt;sig = NULL;
+    }    
+   return nodo;
+}
+//*****************************************
+void servicio_basico (Tnodo nodo)
+{
+    //system ("CLS");
+    if (nodo)
+    {
+        printf ("|%3d|-&gt;",nodo-&gt;dato);
+    }
+    else
+    {
+        printf ("...SIN NODOS...");
+    }
+   getch();
+}
+//***************************************
+void PUSH(Tnodo &amp;cola, Tnodo &amp;ultimo, Tnodo &amp;nodo)
+{
+     if (nodo)
+     {
+       if (!cola)
+       {
+          cola = nodo;
+          ultimo = nodo;
+       } 
+       else
+       { 
+          ultimo-&gt;sig = nodo;
+          ultimo = nodo;
+       }
+     }
+     nodo = NULL;
+}
+//******************************************************
+Tnodo POP (Tnodo &amp;cola)
+{
+    Tnodo nodo = NULL;
+    if (cola)
+    {
+        nodo = cola;
+        cola= nodo-&gt;sig;
+    }
+    return nodo;
+}
+//**************************************************
+int letrero()
+{
+    int op;
+    system ("CLS");
+    printf ("c O L A  Memoria Dinamica\n");
+    printf ("1.- PUSH\n");
+    printf ("2.- POP\n");
+    printf ("3.- SALIR\n");
+    op = my_int(1,3, "ESCOGE UNA OPCION ");
+    return op;
+
+}
+//**************************************************
+void menu ()
+{
+    Tnodo nodo=NULL;
+    Tnodo cola = NULL, ultimo = NULL;
+    int num,op;
+    do{
+        op=letrero();
+        switch(op)
+        {
+           case 1:
+            system ("CLS");
+            num=my_int(0,99, "DAME UN NUMERO :");
+            nodo = gen_nodo(num);
+            PUSH(cola, ultimo, nodo);
+            break;
+           case 2:
+            nodo=POP(cola);
+            servicio_basico(nodo);
+            free(nodo);
+            break;
+           case 3:
+            while (cola)
+            {
+                nodo=POP(cola);
+                servicio_basico (nodo);
+                free(nodo);
+            }
+            printf ("\n cola VACIA");
+        }
+
+    }while (op != 3); 
+}
+
+//*****************************************************
+
+</code></pre>
+</section>
+</div></div></div></main>
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script>
+async function copiarCodigo(id, boton) {
+    const texto = document.getElementById(id).textContent;
+    try {
+        await navigator.clipboard.writeText(texto);
+        const original = boton.textContent;
+        boton.textContent = "¡Copiado!";
+        setTimeout(() => boton.textContent = original, 1500);
+    } catch (e) {
+        const area = document.createElement("textarea");
+        area.value = texto;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+        const original = boton.textContent;
+        boton.textContent = "¡Copiado!";
+        setTimeout(() => boton.textContent = original, 1500);
+    }
+}
+</script>
+<script src="../scripts/layout.js" defer></script>
+<script src="../scripts/app.js" defer></script>
+</body></html>

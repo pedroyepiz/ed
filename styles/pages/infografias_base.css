@@ -1,0 +1,393 @@
+/* ================================================================
+   CSS externo extraído del HTML para mantener el contenido limpio.
+   Usado por: infografias_introduccion.html, infografias_tipos_datos.html
+   ================================================================ */
+
+/* ============================================================
+   PÁGINAS DE INFOGRAFÍAS · DISEÑO UNIFORME CON EL INDEX
+   ============================================================ */
+body.pe-home.pe-infografias{
+  background:
+    radial-gradient(circle at 10% 12%, rgba(0,104,71,.045), transparent 25%),
+    linear-gradient(180deg,#f4fbf8 0,#ffffff 34%,#f5faf8 100%);
+}
+
+/* Encabezado institucional fijo */
+body.pe-infografias .institutional-top{
+  position:sticky !important;
+  top:0;
+  z-index:2050;
+  overflow:visible;
+  width:100%;
+  box-shadow:0 4px 16px rgba(0,58,43,.18);
+}
+
+body.pe-infografias .institutional-top .brand-shield{
+  width:104px !important;
+  height:118px !important;
+  min-width:104px !important;
+  object-fit:contain;
+  background:transparent !important;
+  border:0 !important;
+  position:relative;
+  z-index:2060;
+  transform:translateY(16px);
+  filter:drop-shadow(0 5px 9px rgba(0,0,0,.22));
+}
+
+body.pe-infografias .institutional-top .pe-shell > .d-flex{
+  min-height:92px;
+}
+
+body.pe-infografias .brand-motto{
+  font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  font-size:1.9rem !important;
+  font-weight:600 !important;
+  line-height:1.12;
+  text-transform:none !important;
+  color:#fff !important;
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  min-width:330px;
+}
+
+/* Hero igual al index */
+body.pe-infografias .topic-course-hero{
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid #d5e8df;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(255,255,255,.58) 0 18%,transparent 19%),
+    linear-gradient(135deg,#d7eee5 0%,#e5f4ee 33%,#f8fcfa 58%,#d0e9df 79%,#bee0d3 100%);
+}
+
+body.pe-infografias .topic-course-hero::before{
+  content:"";
+  position:absolute;
+  width:720px;
+  height:300px;
+  left:-165px;
+  top:-125px;
+  border-radius:50%;
+  border:38px solid rgba(0,104,71,.08);
+  transform:rotate(-13deg);
+}
+
+body.pe-infografias .topic-course-hero::after{
+  content:"";
+  position:absolute;
+  width:620px;
+  height:250px;
+  right:-125px;
+  bottom:-145px;
+  border-radius:50%;
+  background:rgba(0,104,71,.07);
+  transform:rotate(-16deg);
+}
+
+body.pe-infografias .topic-course-hero .row{
+  position:relative;
+  z-index:1;
+}
+
+body.pe-infografias .topic-course-hero .course-kicker{
+  color:#526d94;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+body.pe-infografias .topic-course-hero .course-title{
+  max-width:980px;
+  font-size:clamp(2.7rem,4.6vw,4.65rem) !important;
+  line-height:.97 !important;
+}
+
+body.pe-infografias .topic-number-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  margin-bottom:.55rem;
+  padding:.42rem .78rem;
+  border:1px solid rgba(0,104,71,.20);
+  border-radius:999px;
+  background:rgba(255,255,255,.66);
+  color:#075b43;
+  font-weight:850;
+  font-size:.86rem;
+  backdrop-filter:blur(5px);
+}
+
+body.pe-infografias .course-info-card{
+  background:linear-gradient(135deg,
+      rgba(224,246,237,.98) 0%,
+      rgba(194,233,217,.97) 48%,
+      rgba(225,247,239,.98) 100%) !important;
+  border:1px solid rgba(0,104,71,.38) !important;
+  box-shadow:0 14px 30px rgba(0,77,54,.15),inset 0 1px 0 rgba(255,255,255,.85) !important;
+}
+
+body.pe-infografias .course-info-card .info-row{
+  background:linear-gradient(90deg,rgba(255,255,255,.10),rgba(0,104,71,.035),rgba(255,255,255,.08));
+}
+
+/* Galería */
+body.pe-infografias .gallery-shell{
+  padding-top:24px;
+  padding-bottom:34px;
+}
+
+body.pe-infografias .gallery-panel{
+  background:#fff;
+  border:1px solid #deebe5;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(7,67,48,.08);
+  padding:clamp(16px,2.4vw,28px);
+}
+
+body.pe-infografias .gallery-intro-modern{
+  border-radius:16px;
+  background:linear-gradient(135deg,#f5fbf8,#e8f5ef);
+  border:1px solid #d2e8dd;
+  padding:18px 20px;
+  margin-bottom:20px;
+}
+
+body.pe-infografias .gallery-intro-modern h2{
+  margin:0 0 8px;
+  color:#075b43;
+  font-weight:900;
+}
+
+body.pe-infografias .gallery-intro-modern p{
+  margin:0;
+  color:#4c6258;
+}
+
+body.pe-infografias .infografia-card-modern{
+  overflow:hidden;
+  border:1px solid #d8e8e0;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 8px 22px rgba(0,72,51,.08);
+}
+
+body.pe-infografias .infografia-preview{
+  background:
+    linear-gradient(135deg,#f4faf7,#edf7f2);
+  padding:16px;
+  text-align:center;
+}
+
+body.pe-infografias .infografia-preview img{
+  width:100%;
+  max-width:980px;
+  height:auto;
+  display:block;
+  margin:auto;
+  border-radius:12px;
+  box-shadow:0 7px 20px rgba(0,0,0,.10);
+  cursor:zoom-in;
+}
+
+body.pe-infografias .infografia-copy{
+  padding:18px 20px 20px;
+}
+
+body.pe-infografias .infografia-copy h3{
+  color:#075b43;
+  font-weight:900;
+  margin:0 0 8px;
+}
+
+body.pe-infografias .ver-btn-modern{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  border:0;
+  border-radius:10px;
+  padding:.7rem 1rem;
+  background:#006847;
+  color:#fff;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+body.pe-infografias .ver-btn-modern:hover{
+  background:#004b35;
+  transform:translateY(-1px);
+}
+
+/* Lightbox independiente */
+.pe-lightbox{
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  display:none;
+  flex-direction:column;
+  background:rgba(4,20,15,.96);
+}
+
+.pe-lightbox.open{display:flex}
+
+.pe-lightbox-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 16px;
+  color:#fff;
+  background:#062f24;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.pe-lightbox-title{
+  font-weight:900;
+}
+
+.pe-lightbox-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.pe-lightbox-actions button{
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:8px;
+  background:#0b5b43;
+  color:#fff;
+  padding:.5rem .72rem;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.pe-lightbox-stage{
+  flex:1;
+  overflow:auto;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:24px;
+}
+
+.pe-lightbox-stage img{
+  max-width:none;
+  width:min(92vw,1100px);
+  height:auto;
+  transform-origin:top center;
+  transition:transform .15s ease;
+}
+
+body.pe-infografias .topic-back-home{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:2100;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:8px 14px 8px 8px;
+  border:2px solid #006847;
+  border-radius:999px;
+  background:#fff;
+  color:#004b35;
+  text-decoration:none;
+  font-weight:800;
+  box-shadow:0 8px 22px rgba(0,0,0,.17);
+  transition:.2s ease;
+}
+
+body.pe-infografias .topic-back-home:hover{
+  color:#004b35;
+  background:#f0faf5;
+  transform:translateY(-2px);
+}
+
+body.pe-infografias .topic-back-home img{
+  width:50px;
+  height:50px;
+  object-fit:contain;
+}
+
+@media (max-width:1199.98px){
+  body.pe-infografias .brand-motto{
+    font-size:1.55rem !important;
+    min-width:280px;
+  }
+
+  body.pe-infografias .institutional-top .brand-shield{
+    width:88px !important;
+    height:102px !important;
+    min-width:88px !important;
+    transform:translateY(13px);
+  }
+
+  body.pe-infografias .institutional-top .pe-shell > .d-flex{
+    min-height:82px;
+  }
+}
+
+@media (max-width:991.98px){
+  body.pe-infografias .topic-course-hero .course-title{
+    font-size:clamp(2.55rem,6.2vw,4rem) !important;
+  }
+}
+
+@media (max-width:767.98px){
+  body.pe-infografias .institutional-top .brand-shield{
+    width:76px !important;
+    height:90px !important;
+    min-width:76px !important;
+    transform:translateY(11px);
+  }
+
+  body.pe-infografias .institutional-top .pe-shell > .d-flex{
+    min-height:74px;
+  }
+
+  body.pe-infografias .topic-course-hero .course-title{
+    font-size:clamp(2.2rem,8.8vw,3.25rem) !important;
+  }
+
+  body.pe-infografias .gallery-shell{
+    padding-top:14px;
+  }
+
+  body.pe-infografias .gallery-panel{
+    padding:14px;
+    border-radius:14px;
+  }
+
+  body.pe-infografias .topic-back-home{
+    right:12px;
+    bottom:12px;
+  }
+
+  body.pe-infografias .topic-back-home img{
+    width:44px;
+    height:44px;
+  }
+}
+
+@media (max-width:430px){
+  body.pe-infografias .institutional-top .brand-shield{
+    width:66px !important;
+    height:78px !important;
+    min-width:66px !important;
+    transform:translateY(9px);
+  }
+
+  body.pe-infografias .institutional-top .pe-shell > .d-flex{
+    min-height:68px;
+  }
+
+  body.pe-infografias .topic-course-hero .course-title{
+    font-size:2.25rem !important;
+  }
+
+  body.pe-infografias .topic-back-home span{display:none}
+  body.pe-infografias .topic-back-home{padding:7px}
+}

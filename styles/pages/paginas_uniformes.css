@@ -1,0 +1,240 @@
+/* ================================================================
+   CSS externo extraído del HTML para mantener el contenido limpio.
+   Usado por: infografias_ciclos.html, infografias_expresiones.html, infografias_funciones.html, infografias_seleccion.html, programa_esqueleto_funciones.html
+   ================================================================ */
+
+/* ============================================================
+   UNIFORMIDAD VISUAL CON EL INDEX · PÁGINAS INTERNAS
+   ============================================================ */
+body.pe-home.pe-course-page{
+  background:
+    radial-gradient(circle at 10% 12%, rgba(0,104,71,.045), transparent 25%),
+    linear-gradient(180deg,#f4fbf8 0,#ffffff 34%,#f5faf8 100%);
+}
+
+body.pe-course-page .institutional-top{
+  position:sticky !important;
+  top:0;
+  z-index:2050;
+  overflow:visible;
+  width:100%;
+  box-shadow:0 4px 16px rgba(0,58,43,.18);
+}
+
+body.pe-course-page .institutional-top .brand-shield{
+  width:104px !important;
+  height:118px !important;
+  min-width:104px !important;
+  object-fit:contain;
+  background:transparent !important;
+  border:0 !important;
+  position:relative;
+  z-index:2060;
+  transform:translateY(16px);
+  filter:drop-shadow(0 5px 9px rgba(0,0,0,.22));
+}
+
+body.pe-course-page .institutional-top .pe-shell > .d-flex{min-height:92px}
+
+body.pe-course-page .brand-motto{
+  font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  font-size:1.9rem !important;
+  font-weight:600 !important;
+  line-height:1.12;
+  text-transform:none !important;
+  color:#fff !important;
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  min-width:330px;
+}
+
+body.pe-course-page .topic-course-hero{
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid #d5e8df;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(255,255,255,.58) 0 18%,transparent 19%),
+    linear-gradient(135deg,#d7eee5 0%,#e5f4ee 33%,#f8fcfa 58%,#d0e9df 79%,#bee0d3 100%);
+}
+
+body.pe-course-page .topic-course-hero::before{
+  content:"";
+  position:absolute;
+  width:720px;height:300px;
+  left:-165px;top:-125px;
+  border-radius:50%;
+  border:38px solid rgba(0,104,71,.08);
+  transform:rotate(-13deg);
+}
+
+body.pe-course-page .topic-course-hero::after{
+  content:"";
+  position:absolute;
+  width:620px;height:250px;
+  right:-125px;bottom:-145px;
+  border-radius:50%;
+  background:rgba(0,104,71,.07);
+  transform:rotate(-16deg);
+}
+
+body.pe-course-page .topic-course-hero .row{position:relative;z-index:1}
+body.pe-course-page .topic-course-hero .course-kicker{
+  color:#526d94;font-weight:900;letter-spacing:.12em
+}
+body.pe-course-page .topic-course-hero .course-title{
+  max-width:980px;
+  font-size:clamp(2.7rem,4.6vw,4.65rem) !important;
+  line-height:.97 !important;
+}
+body.pe-course-page .topic-number-pill{
+  display:inline-flex;align-items:center;gap:.55rem;
+  margin-bottom:.55rem;padding:.42rem .78rem;
+  border:1px solid rgba(0,104,71,.20);border-radius:999px;
+  background:rgba(255,255,255,.66);color:#075b43;
+  font-weight:850;font-size:.86rem;backdrop-filter:blur(5px)
+}
+
+body.pe-course-page .course-info-card{
+  background:linear-gradient(135deg,
+      rgba(224,246,237,.98) 0%,
+      rgba(194,233,217,.97) 48%,
+      rgba(225,247,239,.98) 100%) !important;
+  border:1px solid rgba(0,104,71,.38) !important;
+  box-shadow:0 14px 30px rgba(0,77,54,.15),inset 0 1px 0 rgba(255,255,255,.85) !important;
+}
+
+body.pe-course-page .course-info-card .info-row{
+  background:linear-gradient(90deg,rgba(255,255,255,.10),rgba(0,104,71,.035),rgba(255,255,255,.08));
+}
+
+body.pe-course-page .page-content-shell{padding-top:22px;padding-bottom:32px}
+body.pe-course-page .page-content-card{
+  background:#fff;border:1px solid #deebe5;border-radius:18px;
+  box-shadow:0 10px 30px rgba(7,67,48,.08);
+  padding:clamp(16px,2.4vw,28px);
+}
+body.pe-course-page .content{padding:0;overflow:visible}
+
+body.pe-course-page .topic-nav{
+  padding:12px;border:1px solid #d9e9e2;border-radius:14px;
+  background:linear-gradient(180deg,#fff,#f5fbf8);
+  box-shadow:0 5px 16px rgba(0,70,48,.06);
+}
+body.pe-course-page .section{
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,75,52,.10);
+}
+
+body.pe-course-page .gallery-intro{
+  border-radius:16px;
+  background:linear-gradient(135deg,#f5fbf8,#e8f5ef);
+  border:1px solid #d2e8dd;
+  padding:18px 20px;
+  margin-bottom:18px;
+}
+
+body.pe-course-page .topic-back-home{
+  position:fixed;right:22px;bottom:22px;z-index:2100;
+  display:flex;align-items:center;gap:9px;
+  padding:8px 14px 8px 8px;border:2px solid #006847;border-radius:999px;
+  background:#fff;color:#004b35;text-decoration:none;font-weight:800;
+  box-shadow:0 8px 22px rgba(0,0,0,.17);transition:.2s ease;
+}
+body.pe-course-page .topic-back-home:hover{
+  color:#004b35;background:#f0faf5;transform:translateY(-2px)
+}
+body.pe-course-page .topic-back-home img{
+  width:50px;height:50px;object-fit:contain
+}
+
+/* Ajuste de lightbox para convivir con header fijo */
+body.pe-course-page .infografia-lightbox{z-index:5000}
+
+/* Evitar que las clases heredadas de páginas antiguas reemplacen el layout general */
+body.pe-course-page > .page{display:none !important}
+
+@media (max-width:1199.98px){
+  body.pe-course-page .brand-motto{font-size:1.55rem !important;min-width:280px}
+  body.pe-course-page .institutional-top .brand-shield{
+    width:88px !important;height:102px !important;min-width:88px !important;transform:translateY(13px)
+  }
+  body.pe-course-page .institutional-top .pe-shell > .d-flex{min-height:82px}
+}
+
+@media (max-width:991.98px){
+  body.pe-course-page .topic-course-hero .course-title{font-size:clamp(2.6rem,6.3vw,4rem) !important}
+}
+
+@media (max-width:767.98px){
+  body.pe-course-page .institutional-top .brand-shield{
+    width:76px !important;height:90px !important;min-width:76px !important;transform:translateY(11px)
+  }
+  body.pe-course-page .institutional-top .pe-shell > .d-flex{min-height:74px}
+  body.pe-course-page .topic-course-hero .course-title{font-size:clamp(2.25rem,9vw,3.35rem) !important}
+  body.pe-course-page .page-content-shell{padding-top:14px}
+  body.pe-course-page .page-content-card{border-radius:14px;padding:15px}
+  body.pe-course-page .topic-back-home{right:12px;bottom:12px;padding-right:11px}
+  body.pe-course-page .topic-back-home img{width:44px;height:44px}
+}
+
+@media (max-width:430px){
+  body.pe-course-page .institutional-top .brand-shield{
+    width:66px !important;height:78px !important;min-width:66px !important;transform:translateY(9px)
+  }
+  body.pe-course-page .institutional-top .pe-shell > .d-flex{min-height:68px}
+  body.pe-course-page .topic-course-hero .course-title{font-size:2.3rem !important}
+  body.pe-course-page .topic-back-home span{display:none}
+  body.pe-course-page .topic-back-home{padding:7px}
+}
+
+
+/* =====================================================================
+   UNIFORMIDAD GENERAL · ESTRUCTURAS DE DATOS
+   ===================================================================== */
+body.pe-course-page .page-content-shell{
+  max-width:1480px;
+  margin-inline:auto;
+  padding-left:clamp(18px,3vw,44px);
+  padding-right:clamp(18px,3vw,44px);
+}
+body.pe-course-page .page-content-card.content{
+  padding:clamp(22px,3vw,44px) !important;
+  border-radius:18px;
+}
+body.pe-course-page .page-content-card.content > *:first-child{margin-top:0;}
+body.pe-course-page .page-content-card.content img{max-width:100%;height:auto;}
+body.pe-course-page .page-content-card.content table{max-width:100%;}
+
+/* Código heredado y pseudocódigo: apariencia IDE negra uniforme */
+body.pe-course-page .ed-topic-content .code,
+body.pe-course-page .ed-topic-content .pseudo,
+body.pe-course-page .page-content-card pre:not(.c-code){
+  background:#0d1117 !important;
+  color:#e6edf3 !important;
+  border:1px solid #30363d !important;
+  border-radius:12px !important;
+  padding:18px 20px !important;
+  font-family:Consolas,"Cascadia Code","Courier New",monospace !important;
+  line-height:1.62;
+  overflow-x:auto;
+  white-space:pre;
+  box-shadow:0 8px 20px rgba(0,0,0,.10);
+}
+body.pe-course-page .ed-topic-content .code *,
+body.pe-course-page .ed-topic-content .pseudo *,
+body.pe-course-page .page-content-card pre code{
+  color:inherit;
+  background:transparent !important;
+  font-family:inherit !important;
+}
+
+@media(max-width:767.98px){
+  body.pe-course-page .page-content-shell{padding-left:12px;padding-right:12px;}
+  body.pe-course-page .page-content-card.content{padding:16px !important;}
+  body.pe-course-page .ed-topic-content .code,
+  body.pe-course-page .ed-topic-content .pseudo,
+  body.pe-course-page .page-content-card pre:not(.c-code){font-size:.86rem;padding:15px !important;}
+}

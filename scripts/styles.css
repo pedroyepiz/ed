@@ -3196,7 +3196,7 @@ body.pe-home{
 .pe-home .top-identity{z-index:1}
 
 .pe-home .uabc-brush{
-  font-size:4rem;
+  font-size:2.6rem;
   font-weight:900;
   font-style:italic;
   letter-spacing:-.08em;
@@ -3231,7 +3231,7 @@ body.pe-home{
 }
 .pe-home .somos-uabc strong{
   display:block;
-  font-size:3rem;
+  font-size:1.65rem;
   color:#ffc928;
   letter-spacing:.02em;
 }
@@ -3643,7 +3643,6 @@ body.pe-home{
   border-bottom:7px solid rgba(242,183,5,.85);
   border-radius:50%;
   transform:rotate(-3deg);
-  display:none;
 }
 
 .pe-home .footer-inner{
@@ -3671,7 +3670,7 @@ body.pe-home{
 }
 
 .pe-home .footer-motto{
-  font-size:1.6rem;
+  font-size:1.9rem;
   color:#f6fbf9;
 }
 
@@ -3815,126 +3814,3 @@ body.pe-home #site-footer:empty{
   background:#006847;
 }
 
-
-/* ===== ESTRUCTURAS DE DATOS · ADAPTACIÓN DEL SITIO MAESTRO ===== */
-.pe-home .site-quick-nav{position:relative;z-index:2;align-items:center;gap:8px;margin-left:8px}
-.pe-home .site-quick-nav a{display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border-radius:9px;color:#fff;text-decoration:none;font-weight:750;font-size:.9rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
-.pe-home .site-quick-nav a:hover,.pe-home .site-quick-nav a:focus-visible{background:rgba(255,255,255,.18);outline:2px solid #ffd54f;outline-offset:2px}
-.pe-home .ed-hero-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(210px,.55fr) minmax(330px,.9fr);gap:24px;align-items:center;width:100%}
-.pe-home .ed-structure-visual{min-height:235px;display:flex;align-items:center;justify-content:center;position:relative}
-.pe-home .ed-structure-canvas{width:220px;height:190px;position:relative}
-.pe-home .ed-node{position:absolute;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:white;box-shadow:0 8px 18px rgba(0,0,0,.15);z-index:2}
-.pe-home .ed-node.n1{left:86px;top:5px;background:#087a58}.pe-home .ed-node.n2{left:38px;top:72px;background:#23a66f}.pe-home .ed-node.n3{left:132px;top:72px;background:#f3b332;color:#5c4300}.pe-home .ed-node.n4{left:6px;top:135px;background:#f39a23}.pe-home .ed-node.n5{left:82px;top:135px;background:#39a577}.pe-home .ed-node.n6{left:166px;top:135px;background:#11795a}
-.pe-home .ed-edge{position:absolute;height:5px;background:#173f36;border-radius:99px;transform-origin:left center;z-index:1}.pe-home .e1{width:75px;left:103px;top:50px;transform:rotate(126deg)}.pe-home .e2{width:75px;left:114px;top:50px;transform:rotate(54deg)}.pe-home .e3{width:70px;left:57px;top:112px;transform:rotate(140deg)}.pe-home .e4{width:68px;left:60px;top:112px;transform:rotate(52deg)}.pe-home .e5{width:70px;left:151px;top:112px;transform:rotate(128deg)}.pe-home .e6{width:67px;left:153px;top:112px;transform:rotate(48deg)}
-.pe-home .ed-topic-note{font-size:.88rem;color:#526d94;font-style:italic;margin-top:.4rem}
-.pe-home .course-card.is-pending{opacity:.88}.pe-home .course-card.is-pending .course-btn.topic-btn{background:#e8ecea!important;color:#718079!important;border-color:#d4ddd8!important;cursor:not-allowed}.pe-home .course-card.is-pending .course-btn.infographic-btn{pointer-events:none;opacity:.55}
-.pe-home .resource-card-wide{border:1px solid var(--pe-border);border-radius:16px;background:#fff;box-shadow:var(--pe-shadow);padding:18px}
-.pe-home .resource-card-wide h3{color:#064d3b;font-weight:900}
-@media(max-width:1199.98px){.pe-home .ed-hero-layout{grid-template-columns:1fr 1fr}.pe-home .ed-structure-visual{order:3;grid-column:1/-1;min-height:180px}.pe-home .ed-structure-canvas{transform:scale(.82)}}
-@media(max-width:767.98px){.pe-home .ed-hero-layout{grid-template-columns:1fr}.pe-home .ed-structure-visual{order:2;grid-column:auto}.pe-home .ed-structure-canvas{transform:scale(.72);height:155px}.pe-home .site-quick-nav{display:none!important}}
-
-
-/* =====================================================================
-   ESTRUCTURAS DE DATOS · AJUSTES DE UNIFORMIDAD V3
-   ===================================================================== */
-
-/* Header limpio: sin botones superiores; UABC | FIAD cargado a la derecha */
-.pe-home .top-identity-clean{
-  margin-left:auto;
-  min-width:max-content;
-  justify-content:flex-end;
-}
-.pe-home .top-identity-clean .uabc-brush{
-  display:block !important;
-  font-size:clamp(2rem,3.6vw,3.5rem);
-  line-height:.9;
-  white-space:nowrap;
-}
-.pe-home .top-identity-clean .somos-uabc strong{
-  font-size:clamp(1.45rem,2.5vw,2.45rem);
-  white-space:nowrap;
-}
-.pe-home .site-quick-nav{display:none !important;}
-
-/* El escudo debe conservar transparencia real, sin placas blancas */
-.pe-home .institutional-top .brand-shield,
-.pe-home .institutional-footer img{
-  background:transparent !important;
-  border:0 !important;
-  box-shadow:none !important;
-}
-
-/* La tarjeta Recursos forma parte de la misma rejilla: 3er renglón */
-.pe-home .resource-course-card{height:100%;}
-.pe-home .resource-course-card .course-actions{grid-template-columns:1fr 1.15fr;}
-
-/* Tarjetas pendientes: mantienen la estructura pero no son enlaces activos */
-.pe-home .course-card.is-pending{
-  position:relative;
-  opacity:.92;
-}
-.pe-home .course-card.is-pending:hover,
-.pe-home .course-card.is-pending:focus-visible{
-  transform:translateY(-2px);
-  box-shadow:0 10px 24px rgba(4,71,50,.11);
-}
-.pe-home .unavailable-control{
-  position:relative;
-  cursor:not-allowed !important;
-  pointer-events:auto !important;
-}
-.pe-home .unavailable-control::after,
-.pe-home .course-card.is-pending::after{
-  content:attr(data-unavailable);
-  position:absolute;
-  z-index:3000;
-  left:50%;
-  bottom:calc(100% + 10px);
-  transform:translate(-50%,6px);
-  min-width:150px;
-  max-width:220px;
-  padding:8px 11px;
-  border-radius:7px;
-  background:#1e1f21;
-  color:#fff;
-  font-size:.78rem;
-  font-weight:700;
-  text-align:center;
-  line-height:1.25;
-  opacity:0;
-  visibility:hidden;
-  transition:.16s ease;
-  pointer-events:none;
-  box-shadow:0 7px 18px rgba(0,0,0,.22);
-}
-.pe-home .course-card.is-pending::after{
-  content:attr(data-unavailable-card);
-  bottom:18px;
-  left:50%;
-}
-.pe-home .unavailable-control:hover::after,
-.pe-home .unavailable-control:focus-visible::after,
-.pe-home .course-card.is-pending:hover::after,
-.pe-home .course-card.is-pending:focus-visible::after{
-  opacity:1;
-  visibility:visible;
-  transform:translate(-50%,0);
-}
-.pe-home .unavailable-control:focus-visible,
-.pe-home .course-card.is-pending:focus-visible{
-  outline:3px solid #f2b705;
-  outline-offset:3px;
-}
-
-@media(max-width:767.98px){
-  .pe-home .top-identity-clean{gap:9px !important;}
-  .pe-home .top-identity-clean .uabc-brush{font-size:1.75rem;}
-  .pe-home .top-identity-clean .somos-uabc strong{font-size:1.2rem;}
-  .pe-home .top-identity-clean .brand-divider{height:34px;}
-}
-@media(max-width:520px){
-  .pe-home .brand-motto{display:none !important;}
-  .pe-home .top-identity-clean .uabc-brush{font-size:1.45rem;}
-  .pe-home .top-identity-clean .somos-uabc strong{font-size:1rem;}
-  .pe-home .resource-course-card .course-actions{grid-template-columns:1fr;}
-}

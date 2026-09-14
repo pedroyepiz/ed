@@ -1,0 +1,134 @@
+/* ================================================================
+   TEMA 07 · STRUCTS
+   Ajustes visuales:
+   - Mayor padding lateral para lectura cómoda.
+   - Código con apariencia de IDE oscuro.
+   ================================================================ */
+
+/* ----- Espacio general del contenido ----- */
+.page-tema-07 .tema07-content{
+  padding-left: clamp(24px, 3.2vw, 46px) !important;
+  padding-right: clamp(24px, 3.2vw, 46px) !important;
+}
+
+.page-tema-07 .lesson-section,
+.page-tema-07 .topic-intro{
+  padding-left: clamp(16px, 2vw, 24px);
+  padding-right: clamp(16px, 2vw, 24px);
+}
+
+.page-tema-07 .content p,
+.page-tema-07 .content li{
+  line-height: 1.62;
+}
+
+/* ----- Código: apariencia de editor / IDE ----- */
+.page-tema-07 .code-card.code-dark{
+  margin: 20px 0;
+  overflow: hidden;
+  border: 1px solid #30363d !important;
+  border-radius: 15px !important;
+  background: #0d1117 !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.14);
+}
+
+.page-tema-07 .code-card.code-dark .code-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 16px !important;
+  background: #161b22 !important;
+  border-bottom: 1px solid #30363d !important;
+}
+
+.page-tema-07 .code-card.code-dark .file-name{
+  color: #d8dee9 !important;
+  font-family: Consolas, "Cascadia Code", "Courier New", monospace;
+  font-weight: 700;
+}
+
+.page-tema-07 .code-card.code-dark pre{
+  margin: 0 !important;
+  padding: 24px 28px !important;
+  overflow-x: auto;
+  background: #0d1117 !important;
+  color: #e6edf3 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.page-tema-07 .code-card.code-dark pre code{
+  display: block;
+  background: transparent !important;
+  color: #e6edf3 !important;
+  font-family: Consolas, "Cascadia Code", "Courier New", monospace !important;
+  font-size: .94rem;
+  line-height: 1.68;
+  tab-size: 4;
+}
+
+/* Resaltado básico tipo IDE para spans que existan */
+.page-tema-07 .code-card .tok-key{ color:#ff7b72 !important; }
+.page-tema-07 .code-card .tok-type{ color:#79c0ff !important; }
+.page-tema-07 .code-card .tok-num{ color:#a5d6ff !important; }
+.page-tema-07 .code-card .tok-comment{ color:#8b949e !important; }
+.page-tema-07 .code-card .tok-string{ color:#a5d6ff !important; }
+.page-tema-07 .code-card .tok-fn{ color:#d2a8ff !important; }
+.page-tema-07 .code-card .tok-pre{ color:#ffa657 !important; }
+
+/* Botón copiar */
+.page-tema-07 .code-card .copy-btn{
+  border: 1px solid #376a5a !important;
+  border-radius: 9px;
+  padding: 6px 10px !important;
+  background: #0f5132 !important;
+  color: #fff !important;
+  font-weight: 800;
+}
+
+.page-tema-07 .code-card .copy-btn:hover{
+  background: #137044 !important;
+}
+
+/* Mantener legibles las tarjetas y tablas */
+.page-tema-07 .concept-card,
+.page-tema-07 .quiz-q,
+.page-tema-07 .practice-grid article,
+.page-tema-07 .summary,
+.page-tema-07 .note-box,
+.page-tema-07 .warning-box,
+.page-tema-07 .analogy-card{
+  padding: clamp(16px, 1.8vw, 22px) !important;
+}
+
+.page-tema-07 .topic-table th,
+.page-tema-07 .topic-table td{
+  padding: 12px 14px !important;
+}
+
+/* Código inline dentro de párrafos */
+.page-tema-07 :not(pre) > code{
+  padding: .12em .38em;
+  border-radius: 5px;
+  background: #eef4f1;
+  color: #b42318;
+}
+
+@media (max-width: 767.98px){
+  .page-tema-07 .tema07-content{
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .page-tema-07 .lesson-section,
+  .page-tema-07 .topic-intro{
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .page-tema-07 .code-card.code-dark pre{
+    padding: 18px !important;
+    font-size: .88rem;
+  }
+}

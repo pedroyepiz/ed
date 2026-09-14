@@ -1,0 +1,128 @@
+/* ================================================================
+   TEMA 12 · ARCHIVOS
+   Complementa paginas_uniformes.css + tema_codigo_ide_general.css
+   ================================================================ */
+
+.page-tema-12 .classification-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin-top:20px;
+}
+.page-tema-12 .classification-grid article{
+  border:1px solid #dce8e2;
+  border-radius:15px;
+  padding:20px;
+  background:#fff;
+  box-shadow:0 8px 22px rgba(18,55,43,.06);
+}
+.page-tema-12 .classification-grid h3{
+  color:#075b42;
+  font-size:1.05rem;
+  font-weight:800;
+  margin-bottom:12px;
+}
+.page-tema-12 .classification-grid p{ margin-bottom:7px; }
+
+.page-tema-12 .formula-card{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:14px;
+  margin:20px 0;
+  padding:20px;
+  border:1px solid #cfe1d8;
+  border-left:5px solid #d7a900;
+  border-radius:14px;
+  background:#f7fbf9;
+  font-size:1.05rem;
+}
+.page-tema-12 .formula-card span{ font-weight:800; color:#174b3c; }
+.page-tema-12 .formula-card strong{ font-size:1.5rem; color:#006847; }
+
+.page-tema-12 .three-step{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin:22px 0;
+}
+.page-tema-12 .three-step article{
+  padding:18px;
+  border-radius:14px;
+  border:1px solid #dbe7e1;
+  background:#fff;
+}
+.page-tema-12 .three-step span{
+  display:inline-grid;
+  place-items:center;
+  width:34px;height:34px;
+  border-radius:50%;
+  margin-bottom:9px;
+  background:#006847;
+  color:#fff;
+  font-weight:800;
+}
+.page-tema-12 .three-step b{ display:block; color:#0d513d; }
+.page-tema-12 .three-step p{ margin:5px 0 0; }
+
+.page-tema-12 .index-diagram{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:18px;
+  margin:22px 0;
+}
+.page-tema-12 .index-diagram > i{
+  font-size:2rem;
+  color:#d7a900;
+}
+.page-tema-12 .index-box{
+  min-height:210px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding:20px;
+  border-radius:16px;
+  border:1px solid #bfd9cd;
+  background:linear-gradient(180deg,#f4faf7,#fff);
+}
+.page-tema-12 .index-box strong{
+  color:#006847;
+  font-size:.95rem;
+}
+.page-tema-12 .index-box code,
+.page-tema-12 .index-box span{
+  padding:8px 10px;
+  border-radius:8px;
+  background:#eef5f2;
+  color:#173f34;
+  font-family:Consolas,"Cascadia Code",monospace;
+}
+.page-tema-12 .index-box.data{
+  border-color:#d7c58a;
+  background:linear-gradient(180deg,#fffaf0,#fff);
+}
+.page-tema-12 .subsection-title{
+  margin:28px 0 12px;
+  color:#075b42;
+  font-size:1.16rem;
+  font-weight:800;
+}
+.page-tema-12 .mode-table code,
+.page-tema-12 .function-table code{
+  font-weight:800;
+}
+.page-tema-12 .topic-table{
+  min-width:760px;
+}
+
+@media (max-width:991.98px){
+  .page-tema-12 .classification-grid{ grid-template-columns:1fr; }
+  .page-tema-12 .three-step{ grid-template-columns:1fr; }
+  .page-tema-12 .index-diagram{ grid-template-columns:1fr; }
+  .page-tema-12 .index-diagram > i{
+    transform:rotate(90deg);
+    justify-self:center;
+  }
+}

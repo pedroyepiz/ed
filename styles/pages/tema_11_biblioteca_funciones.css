@@ -1,0 +1,53 @@
+/* TEMA 11 · BIBLIOTECA DE FUNCIONES */
+.page-tema-11 .topic-intro{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:center;margin-bottom:24px}
+.page-tema-11 .section-kicker{color:#006847;font-weight:900;letter-spacing:.08em;font-size:.78rem;margin-bottom:6px}
+.page-tema-11 .topic-intro h2{color:#0d2b45;font-weight:900;margin-bottom:10px}
+.page-tema-11 .concept-badge{min-height:170px;border:1px solid #dbe8e2;border-radius:20px;background:linear-gradient(145deg,#ecf8f3,#fff);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;box-shadow:0 10px 28px rgba(0,83,60,.08)}
+.page-tema-11 .concept-badge i{font-size:3rem;color:#006847}
+.page-tema-11 .concept-badge strong{color:#0d2b45;font-size:1.35rem}
+.page-tema-11 .concept-badge span{color:#5b6470;font-size:.9rem}
+.page-tema-11 .lesson-section{scroll-margin-top:120px;margin-top:30px;padding-top:4px}
+.page-tema-11 .concept-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:18px 0 22px}
+.page-tema-11 .concept-card{border:1px solid #dbe5e0;border-radius:16px;background:#fff;padding:18px;box-shadow:0 7px 20px rgba(0,0,0,.05)}
+.page-tema-11 .concept-card h3{color:#0d2b45;font-weight:850;font-size:1.02rem;margin:8px 0 7px}
+.page-tema-11 .concept-card p{margin:0;font-size:.92rem}
+.page-tema-11 .concept-icon{font-size:2rem;color:#006847;font-weight:900}
+.page-tema-11 .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:18px 0}
+.page-tema-11 .note-box,.page-tema-11 .warning-box,.page-tema-11 .analogy-card{display:flex;gap:14px;align-items:flex-start;margin:18px 0;padding:16px 18px;border-radius:15px}
+.page-tema-11 .note-box{background:#eef8f3;border-left:5px solid #006847}
+.page-tema-11 .warning-box{background:#fff6e7;border-left:5px solid #e9a900}
+.page-tema-11 .analogy-card{background:#eef5fb;border-left:5px solid #1565c0}
+.page-tema-11 .topic-table{border:1px solid #dbe5e0;overflow:hidden}
+.page-tema-11 .topic-table thead th{background:#006847;color:#fff;border-color:#17795d}
+.page-tema-11 .library-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}
+.page-tema-11 .library-card{border:1px solid #dbe5e0;border-radius:16px;background:#fff;padding:18px;box-shadow:0 7px 20px rgba(0,0,0,.045)}
+.page-tema-11 .library-name{font-family:Consolas,"Courier New",monospace;font-weight:900;color:#006847;font-size:1.05rem}
+.page-tema-11 .library-purpose{color:#0d2b45;font-weight:800;margin:5px 0 12px}
+.page-tema-11 .library-card code{display:inline-block;margin:3px 4px 3px 0;padding:4px 7px;border-radius:7px;background:#eef5fb}
+.page-tema-11 .library-note{font-size:.82rem;margin:10px 0 0;color:#7b5d00}
+.page-tema-11 .library-structure{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:18px 0}
+.page-tema-11 .library-structure article{border:1px solid #dbe5e0;border-radius:15px;padding:16px;display:flex;gap:12px;background:#fbfdfc}
+.page-tema-11 .library-structure article>span{width:34px;height:34px;min-width:34px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#006847;color:#fff;font-weight:900}
+.page-tema-11 .library-structure p{margin:4px 0 0;font-size:.88rem}
+.page-tema-11 .practice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.page-tema-11 .practice-grid article{border:1px solid #dbe5e0;background:#fbfdfc;border-radius:13px;padding:15px 16px}
+.page-tema-11 .practice-grid b{color:#006847}
+.page-tema-11 .practice-grid p{margin:5px 0 0}
+.page-tema-11 .flow-strip{display:flex;align-items:center;gap:12px;margin:18px 0}
+.page-tema-11 .flow-strip>div{flex:1;min-height:130px;border:1px solid #dbe5e0;border-radius:15px;background:#fff;padding:15px;text-align:center}
+.page-tema-11 .flow-strip>div span{display:flex;width:34px;height:34px;margin:0 auto 8px;align-items:center;justify-content:center;border-radius:50%;background:#006847;color:#fff;font-weight:900}
+.page-tema-11 .flow-strip b,.page-tema-11 .flow-strip small{display:block}
+.page-tema-11 .flow-strip small{margin-top:5px;color:#5b6470}
+.page-tema-11 .flow-strip>i{color:#006847;font-size:1.5rem}
+.page-tema-11 .quiz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.page-tema-11 .quiz-q{border:1px solid #dbe5e0;background:#fff;border-radius:16px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.045)}
+.page-tema-11 .quiz-q h3{color:#0d2b45;font-size:1rem;font-weight:850;margin-bottom:12px}
+.page-tema-11 .quiz-q button{display:block;width:100%;text-align:left;border:1px solid #d9e3df;background:#f8fbfa;border-radius:10px;padding:9px 11px;margin:7px 0;color:#1f2937;transition:.18s ease}
+.page-tema-11 .quiz-q button:hover{background:#edf7f2;border-color:#8ebba9}
+.page-tema-11 .quiz-q button.is-correct{background:#e6f6ed;border-color:#3aa56d}
+.page-tema-11 .quiz-q button.is-wrong{background:#fff0f0;border-color:#d66767}
+.page-tema-11 .quiz-feedback{min-height:24px;margin-top:9px;font-weight:800}
+.page-tema-11 .final-summary{margin-top:30px}
+@media(max-width:991.98px){.page-tema-11 .topic-intro{grid-template-columns:1fr}.page-tema-11 .concept-grid,.page-tema-11 .library-structure{grid-template-columns:repeat(2,minmax(0,1fr))}.page-tema-11 .library-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.page-tema-11 .flow-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.page-tema-11 .flow-strip>i{display:none}}
+@media(max-width:767.98px){.page-tema-11 .two-col,.page-tema-11 .practice-grid,.page-tema-11 .quiz-grid,.page-tema-11 .library-grid{grid-template-columns:1fr}}
+@media(max-width:575.98px){.page-tema-11 .concept-grid,.page-tema-11 .library-structure,.page-tema-11 .flow-strip{grid-template-columns:1fr}}

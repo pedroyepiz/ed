@@ -1,0 +1,213 @@
+/* ================================================================
+   ESTILO GENERAL PARA PÁGINAS DE TEMAS
+   Programación Estructurada · UABC / FIAD
+
+   OBJETIVO
+   - Código principal en fondo oscuro tipo IDE.
+   - Código corto/sintaxis con buen contraste.
+   - Mayor padding lateral.
+   - Más aire en tarjetas, notas, tablas y quizzes.
+   - Diseño responsivo.
+   ================================================================ */
+
+/* ---------- Contenido general ---------- */
+.pe-course-page .page-content-card.content{
+  padding-left: clamp(24px, 3.2vw, 46px) !important;
+  padding-right: clamp(24px, 3.2vw, 46px) !important;
+}
+
+.pe-course-page .lesson-section,
+.pe-course-page .topic-intro{
+  padding-left: clamp(16px, 2vw, 24px);
+  padding-right: clamp(16px, 2vw, 24px);
+}
+
+.pe-course-page .content p,
+.pe-course-page .content li{
+  line-height: 1.62;
+}
+
+/* ---------- Bloques principales de código tipo IDE ---------- */
+.pe-course-page .code-card.code-dark{
+  margin: 20px 0;
+  overflow: hidden;
+  border: 1px solid #30363d !important;
+  border-radius: 15px !important;
+  background: #0d1117 !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.14);
+}
+
+.pe-course-page .code-card.code-dark .code-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 16px !important;
+  background: #161b22 !important;
+  border-bottom: 1px solid #30363d !important;
+}
+
+.pe-course-page .code-card.code-dark .file-name{
+  color: #d8dee9 !important;
+  font-family: Consolas, "Cascadia Code", "Courier New", monospace;
+  font-weight: 700;
+}
+
+.pe-course-page .code-card.code-dark pre{
+  margin: 0 !important;
+  padding: 24px 28px !important;
+  overflow-x: auto;
+  background: #0d1117 !important;
+  color: #e6edf3 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.pe-course-page .code-card.code-dark pre code{
+  display: block;
+  background: transparent !important;
+  color: #e6edf3 !important;
+  font-family: Consolas, "Cascadia Code", "Courier New", monospace !important;
+  font-size: .94rem;
+  line-height: 1.68;
+  tab-size: 4;
+}
+
+/* Resaltado sintáctico opcional */
+.pe-course-page .code-card .tok-key{ color:#ff7b72 !important; }
+.pe-course-page .code-card .tok-type{ color:#79c0ff !important; }
+.pe-course-page .code-card .tok-num{ color:#a5d6ff !important; }
+.pe-course-page .code-card .tok-comment{ color:#8b949e !important; }
+.pe-course-page .code-card .tok-string{ color:#a5d6ff !important; }
+.pe-course-page .code-card .tok-fn{ color:#d2a8ff !important; }
+.pe-course-page .code-card .tok-pre{ color:#ffa657 !important; }
+
+/* ---------- Botón copiar ---------- */
+.pe-course-page .code-card .copy-btn{
+  border: 1px solid #376a5a !important;
+  border-radius: 9px;
+  padding: 6px 10px !important;
+  background: #0f5132 !important;
+  color: #fff !important;
+  font-weight: 800;
+}
+
+.pe-course-page .code-card .copy-btn:hover{
+  background: #137044 !important;
+}
+
+/* ---------- Código corto dentro de ejemplos/tarjetas ---------- */
+.pe-course-page pre.practice-code,
+.pe-course-page .trace-box pre{
+  margin: 12px 0 0;
+  padding: 16px 18px !important;
+  overflow-x: auto;
+  border: 1px solid #30363d;
+  border-radius: 11px;
+  background: #0d1117 !important;
+  color: #e6edf3 !important;
+}
+
+.pe-course-page pre.practice-code code,
+.pe-course-page .trace-box pre code{
+  background: transparent !important;
+  color: #e6edf3 !important;
+  font-family: Consolas, "Cascadia Code", "Courier New", monospace !important;
+  line-height: 1.6;
+}
+
+/* ---------- Cajas de sintaxis: fondo claro y alto contraste ---------- */
+.pe-course-page .syntax-box{
+  padding: 16px 20px !important;
+  border: 1px solid #cbded5 !important;
+  border-left: 5px solid #f2b705 !important;
+  border-radius: 12px !important;
+  background: #f7fbf9 !important;
+  color: #0d2b45 !important;
+  overflow-x: auto;
+}
+
+.pe-course-page .syntax-box code{
+  display: inline-block;
+  padding: 4px 7px !important;
+  border-radius: 6px !important;
+  background: #e8f1ed !important;
+  color: #0d2b45 !important;
+  font-family: Consolas, "Cascadia Code", "Courier New", monospace !important;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.pe-course-page .exercise-box .syntax-box{
+  margin: 14px 0 !important;
+  background: #f3f8f5 !important;
+}
+
+.pe-course-page .exercise-box .syntax-box code{
+  color: #063b2b !important;
+  background: #e1eee8 !important;
+}
+
+/* ---------- Tarjetas, notas y quizzes ---------- */
+.pe-course-page .concept-card,
+.pe-course-page .quiz-q,
+.pe-course-page .practice-grid article,
+.pe-course-page .type-grid article,
+.pe-course-page .summary,
+.pe-course-page .note-box,
+.pe-course-page .warning-box,
+.pe-course-page .analogy-card,
+.pe-course-page .exercise-box,
+.pe-course-page .pros-card,
+.pe-course-page .cons-card{
+  padding: clamp(16px, 1.8vw, 22px) !important;
+}
+
+/* ---------- Tablas ---------- */
+.pe-course-page .topic-table th,
+.pe-course-page .topic-table td{
+  padding: 12px 14px !important;
+  vertical-align: middle;
+}
+
+/* ---------- Código inline ---------- */
+.pe-course-page :not(pre) > code{
+  padding: .12em .38em;
+  border-radius: 5px;
+  background: #eef4f1;
+  color: #b42318;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 767.98px){
+  .pe-course-page .page-content-card.content{
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .pe-course-page .lesson-section,
+  .pe-course-page .topic-intro{
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .pe-course-page .code-card.code-dark pre,
+  .pe-course-page pre.practice-code,
+  .pe-course-page .trace-box pre{
+    padding: 18px !important;
+    font-size: .88rem;
+  }
+
+  .pe-course-page .syntax-box{
+    padding: 14px 16px !important;
+  }
+
+  .pe-course-page .syntax-box code{
+    font-size: .9rem;
+  }
+
+  .pe-course-page .topic-table th,
+  .pe-course-page .topic-table td{
+    padding: 10px 11px !important;
+  }
+}

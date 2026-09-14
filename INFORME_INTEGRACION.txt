@@ -1,0 +1,32 @@
+INFORME DE INTEGRACIÓN
+
+CREADOS:
+- index.html de Estructuras de Datos
+- Tema 0
+- wrappers uniformes para Listas, Pilas y Colas
+- páginas uniformes de infografías
+- páginas uniformes de código base Pilas y Colas
+- styles/pages/ed_topics.css
+
+REUTILIZADOS DEL SITIO MAESTRO PE:
+- components/header.html (adaptado con navegación)
+- components/footer.html (frase del curso adaptada)
+- scripts/layout.js
+- styles/styles.css
+- styles/pages/paginas_uniformes.css
+- infraestructura de bibliografía y visor PDF
+- página del profesor
+- imágenes institucionales, portadas y semblanza
+
+CONTENIDO ACADÉMICO REUTILIZADO DE ED:
+- Unidad I Listas y subpáginas
+- Unidad II Pilas
+- Unidad III Colas
+- programas de Pilas y Colas
+- infografías de Listas, Pilas y Colas
+
+PENDIENTES SIN INVENTAR CONTENIDO:
+- Tema 4 Árboles
+- Tema 5 Prioridad y Montones
+- Tema 6 Tablas Hash
+- Tema 7 Aplicaciones y ejercicios

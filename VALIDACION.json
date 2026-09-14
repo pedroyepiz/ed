@@ -1,0 +1,10 @@
+{
+  "missing_local_refs": [],
+  "missing_count": 0,
+  "transparent_logo_source": "Programacion Estructurada/images/uabc_logo.png",
+  "header_clean": true,
+  "resource_card_in_course_grid": true,
+  "uniform_internal_pages": true,
+  "ide_code_style": true,
+  "note": "about:blank del visor PDF es intencional y no es una dependencia local."
+}

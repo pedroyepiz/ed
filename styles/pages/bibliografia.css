@@ -1,0 +1,494 @@
+/* ================================================================
+   RECURSOS · BIBLIOGRAFÍA
+   Complementa styles.css + paginas_uniformes.css
+   ================================================================ */
+
+.page-bibliografia .resource-intro{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:24px;
+}
+
+.page-bibliografia .section-kicker{
+  color:#006847;
+  font-weight:900;
+  letter-spacing:.08em;
+  font-size:.78rem;
+  margin-bottom:6px;
+}
+
+.page-bibliografia .resource-intro h2{
+  color:#0d2b45;
+  font-weight:900;
+}
+
+.page-bibliografia .repo-btn{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:12px 17px;
+  border-radius:12px;
+  background:#0d2b45;
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+}
+
+.page-bibliografia .repo-btn:hover{
+  background:#006847;
+  color:#fff;
+}
+
+.page-bibliografia .lesson-section{
+  scroll-margin-top:120px;
+  margin-top:30px;
+}
+
+.page-bibliografia .reference-columns{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+
+.page-bibliografia .reference-group{
+  border:1px solid #dbe5e0;
+  border-radius:18px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.page-bibliografia .reference-group-title{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  padding:13px 16px;
+  background:#006847;
+  color:#fff;
+  font-weight:900;
+  font-size:1.05rem;
+}
+
+.page-bibliografia .reference-card{
+  display:grid;
+  grid-template-columns:48px minmax(0,1fr);
+  gap:13px;
+  padding:17px;
+  border-bottom:1px solid #e4ece8;
+}
+
+.page-bibliografia .reference-card:last-child{border-bottom:0}
+
+.page-bibliografia .reference-number{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#eef8f3;
+  color:#006847;
+  font-weight:900;
+}
+
+.page-bibliografia .reference-card h3{
+  margin:0 0 6px;
+  color:#0d2b45;
+  font-size:1rem;
+  font-weight:900;
+}
+
+.page-bibliografia .reference-card p{
+  margin:0;
+  font-size:.92rem;
+}
+
+.page-bibliografia .reference-meta{
+  display:block;
+  margin-top:6px;
+  color:#6a737d;
+  font-size:.82rem;
+}
+
+.page-bibliografia .library-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin:18px 0;
+}
+
+.page-bibliografia .library-search{
+  flex:1;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  border:1px solid #d3e0da;
+  border-radius:12px;
+  padding:9px 12px;
+  background:#fff;
+}
+
+.page-bibliografia .library-search i{color:#006847}
+.page-bibliografia .library-search input{
+  flex:1;
+  border:0;
+  outline:0;
+  background:transparent;
+}
+
+.page-bibliografia .library-count{
+  padding:10px 14px;
+  border-radius:10px;
+  background:#eef8f3;
+  color:#006847;
+  font-weight:850;
+}
+
+.page-bibliografia .book-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px;
+}
+
+.page-bibliografia .book-card{
+  display:grid;
+  grid-template-columns:64px minmax(0,1fr);
+  gap:14px;
+  border:1px solid #dbe5e0;
+  border-radius:17px;
+  padding:17px;
+  background:#fff;
+  box-shadow:0 7px 20px rgba(0,0,0,.045);
+}
+
+.page-bibliografia .book-card[hidden]{display:none}
+
+.page-bibliografia .book-icon{
+  width:58px;
+  height:68px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff1f0;
+  color:#c62828;
+  font-size:2rem;
+}
+
+.page-bibliografia .book-type{
+  display:block;
+  color:#006847;
+  font-size:.75rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.page-bibliografia .book-content h3{
+  margin:4px 0 4px;
+  color:#0d2b45;
+  font-size:1rem;
+  font-weight:900;
+}
+
+.page-bibliografia .book-content p{
+  margin:0 0 12px;
+  color:#69727c;
+  font-size:.88rem;
+}
+
+.page-bibliografia .book-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.page-bibliografia .book-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  border-radius:9px;
+  padding:8px 10px;
+  text-decoration:none;
+  font-weight:800;
+  font-size:.84rem;
+}
+
+.page-bibliografia .consult-btn{
+  background:#006847;
+  color:#fff;
+}
+
+.page-bibliografia .consult-btn:hover{background:#004d35;color:#fff}
+
+.page-bibliografia .download-btn{
+  background:#eef3f7;
+  color:#0d2b45;
+  border:1px solid #d4e0e8;
+}
+
+.page-bibliografia .download-btn:hover{
+  background:#e3edf3;
+  color:#0d2b45;
+}
+
+.page-bibliografia .empty-results{
+  text-align:center;
+  padding:35px 15px;
+  color:#5c6670;
+}
+
+.page-bibliografia .empty-results i{
+  display:block;
+  font-size:2rem;
+  color:#006847;
+}
+
+.page-bibliografia .empty-results strong,
+.page-bibliografia .empty-results span{display:block}
+
+.page-bibliografia .usage-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+
+.page-bibliografia .usage-grid article{
+  display:flex;
+  gap:12px;
+  border:1px solid #dbe5e0;
+  border-radius:15px;
+  padding:16px;
+  background:#fbfdfc;
+}
+
+.page-bibliografia .usage-grid article>span{
+  width:36px;
+  height:36px;
+  min-width:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#006847;
+  color:#fff;
+  font-weight:900;
+}
+
+.page-bibliografia .usage-grid p{margin:4px 0 0}
+
+.page-bibliografia .warning-box{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin:18px 0;
+  padding:16px 18px;
+  border-radius:15px;
+  background:#fff6e7;
+  border-left:5px solid #e9a900;
+}
+
+.page-bibliografia .warning-box i{font-size:1.5rem}
+
+.page-bibliografia .final-summary{margin-top:30px}
+
+@media(max-width:991.98px){
+  .page-bibliografia .resource-intro{align-items:flex-start;flex-direction:column}
+  .page-bibliografia .book-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:767.98px){
+  .page-bibliografia .reference-columns,
+  .page-bibliografia .usage-grid{grid-template-columns:1fr}
+  .page-bibliografia .library-toolbar{align-items:stretch;flex-direction:column}
+}
+
+@media(max-width:575.98px){
+  .page-bibliografia .book-card{grid-template-columns:1fr}
+  .page-bibliografia .book-icon{width:52px;height:58px}
+}
+
+/* ===== Ajustes para portadas de libros ===== */
+.page-bibliografia .book-card{
+  grid-template-columns:112px minmax(0,1fr);
+  align-items:start;
+}
+
+.page-bibliografia .book-cover{
+  width:96px;
+  min-width:96px;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid #d7e1dc;
+  background:#f8fbfa;
+  box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.page-bibliografia .book-cover img{
+  display:block;
+  width:100%;
+  height:140px;
+  object-fit:cover;
+}
+
+.page-bibliografia .book-content{
+  min-width:0;
+}
+
+.page-bibliografia .book-content p{
+  margin:0 0 10px;
+}
+
+@media(max-width:575.98px){
+  .page-bibliografia .book-card{
+    grid-template-columns:80px minmax(0,1fr);
+    gap:12px;
+  }
+
+  .page-bibliografia .book-cover{
+    width:72px;
+    min-width:72px;
+  }
+
+  .page-bibliografia .book-cover img{
+    height:108px;
+  }
+}
+
+/* ===== Diseño corregido: portada izquierda + contenido derecha ===== */
+
+.page-bibliografia .book-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:18px;
+}
+
+.page-bibliografia .book-card{
+  display:grid;
+  grid-template-columns:118px minmax(0,1fr);
+  gap:18px;
+  align-items:start;
+  min-height:190px;
+  padding:18px;
+  border:1px solid #dbe5e0;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 7px 20px rgba(0,0,0,.05);
+  overflow:hidden;
+}
+
+.page-bibliografia .book-cover{
+  width:118px;
+  min-width:118px;
+  height:168px;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid #d6e1dc;
+  background:#f4f7f5;
+  box-shadow:0 6px 14px rgba(0,0,0,.10);
+  align-self:start;
+}
+
+.page-bibliografia .book-cover img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+}
+
+.page-bibliografia .book-content{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  align-self:stretch;
+  padding-top:2px;
+}
+
+.page-bibliografia .book-type{
+  display:block;
+  margin-bottom:4px;
+  color:#006847;
+  font-size:.72rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.page-bibliografia .book-content h3{
+  margin:0 0 4px;
+  color:#0d2b45;
+  font-size:1.02rem;
+  line-height:1.25;
+  font-weight:900;
+}
+
+.page-bibliografia .book-content p{
+  margin:0 0 12px;
+  color:#69727c;
+  font-size:.88rem;
+  line-height:1.35;
+}
+
+.page-bibliografia .book-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:auto;
+  padding-top:6px;
+}
+
+.page-bibliografia .book-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  min-height:36px;
+  padding:8px 11px;
+  border-radius:9px;
+  text-decoration:none;
+  font-size:.83rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+@media (max-width: 991.98px){
+  .page-bibliografia .book-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width: 575.98px){
+  .page-bibliografia .book-card{
+    grid-template-columns:88px minmax(0,1fr);
+    gap:12px;
+    min-height:142px;
+    padding:13px;
+  }
+
+  .page-bibliografia .book-cover{
+    width:88px;
+    min-width:88px;
+    height:128px;
+  }
+
+  .page-bibliografia .book-content h3{
+    font-size:.95rem;
+  }
+
+  .page-bibliografia .book-content p{
+    font-size:.82rem;
+  }
+
+  .page-bibliografia .book-actions{
+    gap:6px;
+  }
+
+  .page-bibliografia .book-btn{
+    padding:7px 9px;
+    font-size:.78rem;
+  }
+}

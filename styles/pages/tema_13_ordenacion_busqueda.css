@@ -1,0 +1,66 @@
+/* TEMA 13 · MÉTODOS DE ORDENACIÓN Y BÚSQUEDA - versión ampliada */
+.page-tema-13 .page-content-card{padding-left:clamp(20px,3vw,42px);padding-right:clamp(20px,3vw,42px)}
+.page-tema-13 .topic-intro{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:center;margin-bottom:24px}
+.page-tema-13 .section-kicker{color:#006847;font-weight:900;letter-spacing:.08em;font-size:.78rem;margin-bottom:6px}
+.page-tema-13 .topic-intro h2{color:#0d2b45;font-weight:900}
+.page-tema-13 .concept-badge{min-height:170px;border:1px solid #dbe8e2;border-radius:20px;background:linear-gradient(145deg,#ecf8f3,#fff);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.page-tema-13 .concept-badge i{font-size:3rem;color:#006847}
+.page-tema-13 .concept-badge strong{color:#0d2b45;font-size:1.25rem}
+.page-tema-13 .concept-badge span{color:#5b6470;font-size:.9rem}
+.page-tema-13 .lesson-section{scroll-margin-top:120px;margin-top:32px}
+.page-tema-13 .styled-list{padding-left:1.2rem}
+.page-tema-13 .styled-list li{margin-bottom:.45rem}
+.page-tema-13 .concept-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:18px 0}
+.page-tema-13 .concept-card,.page-tema-13 .classification-grid article,.page-tema-13 .metric-grid article,.page-tema-13 .detail-card,.page-tema-13 .anim-card{border:1px solid #dbe5e0;border-radius:16px;background:#fff;padding:18px;box-shadow:0 7px 20px rgba(0,0,0,.045)}
+.page-tema-13 .concept-card h3,.page-tema-13 .classification-grid h3,.page-tema-13 .metric-grid h3,.page-tema-13 .detail-card h3,.page-tema-13 .anim-card h3{color:#0d2b45;font-weight:900;font-size:1.02rem}
+.page-tema-13 .concept-icon{font-size:2rem}
+.page-tema-13 .classification-grid,.page-tema-13 .metric-grid,.page-tema-13 .detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
+.page-tema-13 .classification-grid h3 i,.page-tema-13 .metric-grid h3 i{color:#006847;margin-right:6px}
+.page-tema-13 .classification-grid span{display:block;color:#5b6470;font-size:.88rem}
+.page-tema-13 .complexity-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:18px 0}
+.page-tema-13 .complexity-strip div{border:1px solid #dbe5e0;border-radius:13px;padding:15px 10px;text-align:center;background:#f8fbfa}
+.page-tema-13 .complexity-strip strong{display:block;color:#006847;font-size:1.08rem}
+.page-tema-13 .complexity-strip span{font-size:.82rem;color:#5c6670}
+.page-tema-13 .detail-card p{margin-bottom:.5rem}
+.page-tema-13 .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:18px 0}
+.page-tema-13 .note-box,.page-tema-13 .warning-box{display:flex;gap:14px;align-items:flex-start;margin:18px 0;padding:16px 18px;border-radius:15px}
+.page-tema-13 .note-box{background:#eef8f3;border-left:5px solid #006847}
+.page-tema-13 .warning-box{background:#fff4e8;border-left:5px solid #e76b00}
+.page-tema-13 .topic-table{border:1px solid #dbe5e0;margin-bottom:8px}
+.page-tema-13 .topic-table thead th{background:#006847;color:#fff;border-color:#17795d;white-space:nowrap}
+.page-tema-13 .topic-table tbody tr:nth-child(even){background:#f8fbfa}
+.page-tema-13 .table-note{font-size:.86rem;color:#5d6670}
+.page-tema-13 .code-card.code-dark{border-radius:16px;overflow:hidden;margin:20px 0;background:#0d1117;box-shadow:0 10px 28px rgba(0,0,0,.12)}
+.page-tema-13 .code-dark .code-head{background:#161b22;border-bottom:1px solid #30363d;padding:11px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.page-tema-13 .code-dark .file-name{color:#d8dee9;font-family:Consolas,"Courier New",monospace}
+.page-tema-13 .copy-btn{border:1px solid #376a5a;border-radius:10px;padding:6px 10px;background:#0f5132;color:#fff;font-size:.85rem;font-weight:800}
+.page-tema-13 .code-dark pre{margin:0;padding:26px 28px;background:#0d1117;overflow:auto}
+.page-tema-13 .code-dark code{color:#e6edf3;font-family:Consolas,"Courier New",monospace;font-size:.94rem;line-height:1.7}
+.page-tema-13 .code-dark .tok-key{color:#ff7b72}
+.page-tema-13 .code-dark .tok-type{color:#79c0ff}
+.page-tema-13 .code-dark .tok-num{color:#a5d6ff}
+.page-tema-13 .code-dark .tok-comment{color:#8b949e}
+.page-tema-13 .algorithm-flow{display:flex;align-items:center;gap:10px;margin:18px 0;flex-wrap:wrap}
+.page-tema-13 .algorithm-flow span{padding:11px 14px;border-radius:10px;background:#eef8f3;border:1px solid #cce2d8;color:#0d2b45;font-weight:800}
+.page-tema-13 .algorithm-flow i{color:#006847}
+.page-tema-13 .summary{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:14px;background:#f8fbfa;border:1px solid #dbe5e0;margin-top:18px}
+.page-tema-13 .summary .bulb{font-size:1.25rem}
+.page-tema-13 .animation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:18px 0}
+.page-tema-13 .anim-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+.page-tema-13 .anim-board{margin-top:12px;min-height:74px;border:1px dashed #c5d8cf;border-radius:12px;padding:12px;display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap;background:linear-gradient(180deg,#f7fbf9,#eef7f2)}
+.page-tema-13 .anim-item{min-width:42px;padding:10px 8px;border-radius:10px;text-align:center;font-weight:900;color:#0d2b45;background:#e3efe9;border:1px solid #b7d1c5;transition:transform .22s ease, background-color .22s ease, border-color .22s ease, box-shadow .22s ease}
+.page-tema-13 .anim-item.active{background:#c8f2dc;border-color:#23a56a;transform:translateY(-4px);box-shadow:0 8px 16px rgba(35,165,106,.18)}
+.page-tema-13 .anim-item.sorted{background:#d7ebff;border-color:#5392d9}
+.page-tema-13 .anim-status{margin-top:10px;color:#5b6670;font-size:.92rem;min-height:24px}
+.page-tema-13 .quiz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.page-tema-13 .quiz-q{border:1px solid #dbe5e0;border-radius:16px;background:#fff;padding:18px}
+.page-tema-13 .quiz-q h3{color:#0d2b45;font-size:1rem;font-weight:900}
+.page-tema-13 .quiz-q button{display:block;width:100%;text-align:left;border:1px solid #d9e3df;background:#f8fbfa;border-radius:10px;padding:9px 11px;margin:7px 0}
+.page-tema-13 .quiz-q button.is-correct{background:#e6f6ed;border-color:#3aa56d}
+.page-tema-13 .quiz-q button.is-wrong{background:#fff0f0;border-color:#d66767}
+.page-tema-13 .quiz-feedback{min-height:24px;margin-top:9px;font-weight:800}
+.page-tema-13 .final-summary{margin-top:30px}
+@media(max-width:1199.98px){.page-tema-13 .animation-grid{grid-template-columns:1fr}}
+@media(max-width:991.98px){.page-tema-13 .topic-intro{grid-template-columns:1fr}.page-tema-13 .concept-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.page-tema-13 .detail-grid,.page-tema-13 .classification-grid,.page-tema-13 .metric-grid{grid-template-columns:1fr}.page-tema-13 .complexity-strip{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:767.98px){.page-tema-13 .two-col,.page-tema-13 .quiz-grid{grid-template-columns:1fr}.page-tema-13 .page-content-card{padding-left:18px;padding-right:18px}}
+@media(max-width:575.98px){.page-tema-13 .concept-grid,.page-tema-13 .complexity-strip{grid-template-columns:1fr}.page-tema-13 .code-dark pre{padding:18px}.page-tema-13 .anim-item{min-width:36px}}
