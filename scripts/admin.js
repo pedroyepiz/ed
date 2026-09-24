@@ -1,0 +1,13 @@
+const $=selector=>document.querySelector(selector);
+let rows=[];
+const endpoint=window.ED_API_URL;
+function status(message){$('#status').textContent=message}
+async function api(path,password,payload){if(!endpoint||endpoint.includes('REEMPLAZAR-POR-TU-WORKER'))throw Error('Configura la URL del servicio en scripts/config.js.');const response=await fetch(`${endpoint}${path}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password,...payload})});const json=await response.json().catch(()=>({error:'Respuesta inesperada del servicio.'}));if(!response.ok)throw Error(json.error||`Error HTTP ${response.status}`);return json}
+function draw(){ $('#rows').innerHTML=rows.map(x=>`<tr data-id="${x.id}"><td>${String(x.id).padStart(2,'0')}</td><td><strong>${esc(x.titulo)}</strong><br><small>${esc(x.tema)}</small></td>${['visible','actividad','codigo'].map(key=>`<td><input type="checkbox" data-key="${key}" aria-label="${key} para actividad ${x.id}" ${x[key]?'checked':''}></td>`).join('')}</tr>`).join('')}
+function collect(){document.querySelectorAll('#rows tr').forEach(tr=>{const x=rows.find(r=>r.id===Number(tr.dataset.id));tr.querySelectorAll('input').forEach(input=>x[input.dataset.key]=input.checked)})}
+$('#loginForm').addEventListener('submit',async e=>{e.preventDefault();$('#loginError').textContent='';try{await api('/auth',$('#password').value,{});$('#password').value='';rows=await publicData();draw();$('#login').hidden=true;$('#editor').hidden=false}catch(error){$('#loginError').textContent=error.message}});
+$('#rows').addEventListener('change',()=>status('Hay cambios pendientes de publicar.'));
+$('#publish').onclick=()=>{$('#confirmPassword').value='';$('#confirmError').textContent='';$('#confirm').showModal();$('#confirmPassword').focus()};
+$('#confirm').addEventListener('close',async()=>{if($('#confirm').returnValue!=='approve')return;collect();status('Publicando cambios…');$('#publish').disabled=true;try{const result=await api('/publish',$('#confirmPassword').value,{states:rows.map(x=>({id:x.id,visible:x.visible,actividad:x.actividad,codigo:x.codigo}))});status(result.unchanged?'No hubo cambios que publicar.':`Commit creado: ${result.commit.slice(0,7)}. GitHub Pages actualizará la página cuando termine su despliegue.`)}catch(error){status(`No se publicaron los cambios: ${error.message}`)}finally{$('#confirmPassword').value='';$('#publish').disabled=false}});
+$('#reload').onclick=async()=>{try{rows=await publicData();draw();status('Se cargó la versión publicada.')}catch(error){status(error.message)}};
+$('#logout').onclick=()=>{rows=[];$('#editor').hidden=true;$('#login').hidden=false;status('');$('#password').value=''};
