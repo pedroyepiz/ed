@@ -26,7 +26,13 @@ export default {async fetch(request,env){
   const next=published.map(item=>{const state=states.find(x=>x.id===item.id);if(!state)throw Error('Falta una actividad.');return {...item,visible:state.visible,actividad:state.actividad,codigo:state.codigo}});
   if(JSON.stringify(next)===JSON.stringify(published))return json({commit:'sin cambios',unchanged:true},200,origin);
   const update=await fetch(api,{method:'PUT',headers:{...githubHeaders(env.GITHUB_TOKEN),'Content-Type':'application/json'},body:JSON.stringify({message:'Actualizar disponibilidad de actividades de ED',content:b64Utf8(JSON.stringify(next,null,2)+'\n'),sha:file.sha,branch:BRANCH})});
-  if(!update.ok)return json({error:`GitHub rechazó el commit (HTTP ${update.status}). Revisa permisos, rama y cambios simultáneos.`},update.status===409?409:502,origin);
+  if(!update.ok){
+   const problem=await update.json().catch(()=>({}));
+   const detail=typeof problem.message==='string'?problem.message.slice(0,260):'Sin detalle adicional';
+   const permissions=update.headers.get('X-Accepted-GitHub-Permissions')||'';
+   const hint=update.status===403?'Comprueba que GITHUB_TOKEN pertenece a pedroyepiz/ed y tiene Contents: Read and write.':update.status===409?'Recarga los estados antes de volver a publicar.':'';
+   return json({error:`GitHub rechazó el commit (HTTP ${update.status}): ${detail}. ${hint}`,acceptedPermissions:permissions},update.status===409?409:502,origin);
+  }
   const result=await update.json();return json({commit:result.commit.sha},200,origin);
  }catch{return json({error:'No se pudo completar la publicación. Revisa el estado del servicio.'},502,origin)}
 }};
