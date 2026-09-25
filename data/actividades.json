@@ -5,7 +5,7 @@
     "tema": "Datos, memoria y tipos abstractos",
     "visible": true,
     "actividad": true,
-    "codigo": true
+    "codigo": false
   },
   {
     "id": 2,
@@ -13,14 +13,14 @@
     "tema": "Nodos, enlaces y recorridos",
     "visible": true,
     "actividad": true,
-    "codigo": true
+    "codigo": false
   },
   {
     "id": 3,
     "titulo": "Pilas",
     "tema": "Operaciones PUSH, POP y PEEK",
     "visible": true,
-    "actividad": true,
+    "actividad": false,
     "codigo": false
   },
   {
@@ -28,7 +28,7 @@
     "titulo": "Colas",
     "tema": "Operaciones ENQUEUE y DEQUEUE",
     "visible": true,
-    "actividad": true,
+    "actividad": false,
     "codigo": false
   },
   {
@@ -36,7 +36,7 @@
     "titulo": "Listas circulares y dobles",
     "tema": "Enlaces en ambas direcciones",
     "visible": true,
-    "actividad": true,
+    "actividad": false,
     "codigo": false
   },
   {
