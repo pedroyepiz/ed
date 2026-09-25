@@ -5,7 +5,7 @@
     "tema": "Datos, memoria y tipos abstractos",
     "visible": true,
     "actividad": true,
-    "codigo": false
+    "codigo": true
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "tema": "Nodos, enlaces y recorridos",
     "visible": true,
     "actividad": true,
-    "codigo": false
+    "codigo": true
   },
   {
     "id": 3,
@@ -43,7 +43,7 @@
     "id": 6,
     "titulo": "Árboles binarios",
     "tema": "Nodos, altura y recorridos",
-    "visible": false,
+    "visible": true,
     "actividad": false,
     "codigo": false
   },
@@ -51,7 +51,7 @@
     "id": 7,
     "titulo": "Árbol binario de búsqueda",
     "tema": "Inserción, búsqueda y eliminación",
-    "visible": false,
+    "visible": true,
     "actividad": false,
     "codigo": false
   },
@@ -59,7 +59,7 @@
     "id": 8,
     "titulo": "Montículos",
     "tema": "Prioridades y heap",
-    "visible": false,
+    "visible": true,
     "actividad": false,
     "codigo": false
   },
@@ -67,7 +67,7 @@
     "id": 9,
     "titulo": "Tablas hash",
     "tema": "Funciones hash y colisiones",
-    "visible": false,
+    "visible": true,
     "actividad": false,
     "codigo": false
   },
@@ -75,7 +75,7 @@
     "id": 10,
     "titulo": "Búsqueda y ordenamiento",
     "tema": "Comparación de algoritmos",
-    "visible": false,
+    "visible": true,
     "actividad": false,
     "codigo": false
   },
@@ -83,7 +83,7 @@
     "id": 11,
     "titulo": "Integración de estructuras",
     "tema": "Elegir la estructura adecuada",
-    "visible": false,
+    "visible": true,
     "actividad": false,
     "codigo": false
   },
@@ -91,7 +91,7 @@
     "id": 12,
     "titulo": "Proyecto integrador",
     "tema": "Aplicación completa en C/C++",
-    "visible": false,
+    "visible": true,
     "actividad": false,
     "codigo": false
   }
