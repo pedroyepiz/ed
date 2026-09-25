@@ -20,7 +20,7 @@
     "titulo": "Pilas",
     "tema": "Operaciones PUSH, POP y PEEK",
     "visible": true,
-    "actividad": false,
+    "actividad": true,
     "codigo": false
   },
   {
@@ -28,7 +28,7 @@
     "titulo": "Colas",
     "tema": "Operaciones ENQUEUE y DEQUEUE",
     "visible": true,
-    "actividad": false,
+    "actividad": true,
     "codigo": false
   },
   {
