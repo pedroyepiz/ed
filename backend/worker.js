@@ -15,14 +15,14 @@ export default {async fetch(request,env){
  const path=new URL(request.url).pathname;if(path==='/auth')return json({ok:true},200,origin);
  if(path!=='/publish')return json({error:'Ruta desconocida.'},404,origin);
  const states=input.states;
- if(!Array.isArray(states)||states.length!==12||new Set(states.map(x=>x.id)).size!==12||states.some(x=>!Number.isInteger(x.id)||x.id<1||x.id>12||['visible','actividad','codigo'].some(k=>typeof x[k]!=='boolean')))return json({error:'Se requieren 12 actividades con tres estados válidos.'},400,origin);
+ if(!Array.isArray(states)||states.length!==15||new Set(states.map(x=>x.id)).size!==15||states.some(x=>!Number.isInteger(x.id)||x.id<1||x.id>15||['visible','actividad','codigo'].some(k=>typeof x[k]!=='boolean')))return json({error:'Se requieren 15 actividades con tres estados válidos.'},400,origin);
  const api=`https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`;
  try{
   const current=await fetch(`${api}?ref=${BRANCH}`,{headers:githubHeaders(env.GITHUB_TOKEN)});
   if(!current.ok)return json({error:`GitHub no permitió leer el archivo (HTTP ${current.status}).`},502,origin);
   const file=await current.json();const source=await fetch(file.download_url,{headers:githubHeaders(env.GITHUB_TOKEN)});
   if(!source.ok)return json({error:'No se pudo leer el JSON actual.'},502,origin);
-  const published=await source.json();if(!Array.isArray(published)||published.length!==12)return json({error:'El JSON publicado no contiene las 12 actividades esperadas.'},409,origin);
+  const published=await source.json();if(!Array.isArray(published)||published.length!==15)return json({error:'El JSON publicado no contiene las 15 actividades esperadas.'},409,origin);
   const next=published.map(item=>{const state=states.find(x=>x.id===item.id);if(!state)throw Error('Falta una actividad.');return {...item,visible:state.visible,actividad:state.actividad,codigo:state.codigo}});
   if(JSON.stringify(next)===JSON.stringify(published))return json({commit:'sin cambios',unchanged:true},200,origin);
   const update=await fetch(api,{method:'PUT',headers:{...githubHeaders(env.GITHUB_TOKEN),'Content-Type':'application/json'},body:JSON.stringify({message:'Actualizar disponibilidad de actividades de ED',content:b64Utf8(JSON.stringify(next,null,2)+'\n'),sha:file.sha,branch:BRANCH})});
