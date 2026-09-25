@@ -46,34 +46,84 @@
     "tema_06_hash.html"
   ];
 
+  const iconPaths = {
+    home: "M3 10.5 12 3l9 7.5M5.5 9.5V21h13V9.5M9 21v-7h6v7",
+    previous: "M19 12H5m0 0 6-6m-6 6 6 6",
+    next: "M5 12h14m0 0-6-6m6 6-6 6"
+  };
+
+  function icon(name) {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("focusable", "false");
+    svg.classList.add("ed-nav-icon");
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", iconPaths[name]);
+    svg.append(path);
+    return svg;
+  }
+
+  function link(label, url, iconName, className = "") {
+    const anchor = document.createElement("a");
+    anchor.href = new URL(url, siteRoot).href;
+    anchor.className = className;
+    anchor.append(icon(iconName), document.createTextNode(label));
+    return anchor;
+  }
+
   function initNavigation() {
     const file = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html");
     const inPages = window.location.pathname.includes("/pages/");
-    // Actividades ya incluye su navegación discreta; el índice y Admin no la necesitan.
-    if (!inPages && ["index.html", "actividades.html", "admin.html"].includes(file)) return;
-    const header = document.querySelector("#site-header");
-    const nav = document.createElement("nav");
-    nav.className = "ed-inline-nav";
-    nav.setAttribute("aria-label", "Navegación del curso");
-    const link = (label, url, icon = "") => {
-      const a = document.createElement("a");
-      a.href = new URL(url, siteRoot).href;
-      if (icon) {
-        const symbol = document.createElement("span");
-        symbol.setAttribute("aria-hidden", "true");
-        symbol.textContent = icon;
-        a.append(symbol, " ");
-      }
-      a.append(label);
-      return a;
+    if (file === "index.html" || file === "admin.html") return;
+
+    // Actividades muestra su propio enlace de Inicio dentro de la tarjeta.
+    if (file !== "actividades.html") {
+      const top = document.createElement("nav");
+      top.className = "ed-inline-nav ed-home-return";
+      top.setAttribute("aria-label", "Volver al inicio del curso");
+      top.append(link("Inicio del curso", "index.html", "home"));
+      const header = document.querySelector("#site-header");
+      if (header) header.insertAdjacentElement("afterend", top);
+      else document.body.prepend(top);
+    }
+
+    const bottom = document.createElement("nav");
+    bottom.className = "ed-page-navigation";
+    bottom.setAttribute("aria-label", "Continuar navegando el curso");
+    const footer = document.querySelector("#site-footer");
+    if (footer) footer.insertAdjacentElement("beforebegin", bottom);
+    else document.body.append(bottom);
+
+    const setButtons = (previous, next) => {
+      bottom.replaceChildren();
+      if (previous) bottom.append(link("Anterior", previous, "previous", "ed-page-button"));
+      else bottom.append(document.createElement("span"));
+      bottom.append(link("Inicio", "index.html", "home", "ed-page-button ed-page-home"));
+      if (next) bottom.append(link("Siguiente", next, "next", "ed-page-button"));
+      else bottom.append(document.createElement("span"));
     };
-    const current = topicFiles.indexOf(file);
-    if (current > 0) nav.append(link("Tema anterior", `pages/${topicFiles[current - 1]}`, "←"));
-    nav.append(link("Inicio", "index.html", "⌂"));
-    if (file !== "bibliografia.html" && current !== topicFiles.length - 1) nav.append(link("Actividades", "actividades.html", "☑"));
-    if (current !== -1) nav.append(link(current < topicFiles.length - 1 ? "Tema siguiente" : "Actividades", current < topicFiles.length - 1 ? `pages/${topicFiles[current + 1]}` : "actividades.html", "→"));
-    if (header) header.insertAdjacentElement("afterend", nav);
-    else document.body.prepend(nav);
+
+    const index = inPages ? topicFiles.indexOf(file) : -1;
+    if (index >= 0) {
+      setButtons(index > 0 ? `pages/${topicFiles[index - 1]}` : null,
+        index < topicFiles.length - 1 ? `pages/${topicFiles[index + 1]}` : "actividades.html");
+    } else if (file === "actividades.html") {
+      setButtons(`pages/${topicFiles[topicFiles.length - 1]}`, null);
+    } else if (file === "detalle.html" && typeof publicData === "function") {
+      setButtons("actividades.html", null);
+      publicData().then(rows => {
+        const id = Number(new URLSearchParams(window.location.search).get("id"));
+        const available = rows.filter(row => row.visible && (row.actividad || row.codigo)).sort((a, b) => a.id - b.id);
+        const position = available.findIndex(row => row.id === id);
+        if (position === -1) return;
+        setButtons(position > 0 ? `detalle.html?id=${available[position - 1].id}` : "actividades.html",
+          position < available.length - 1 ? `detalle.html?id=${available[position + 1].id}` : null);
+      }).catch(error => console.error("No fue posible crear la secuencia de actividades", error));
+    } else {
+      // Los recursos independientes conservan Inicio, con acceso al índice en la parte superior.
+      setButtons(null, null);
+    }
   }
 
   async function initMasterLayout() {

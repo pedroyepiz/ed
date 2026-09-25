@@ -1,7 +1,7 @@
 SITIO ESTRUCTURAS DE DATOS · UABC FIAD · CLAVE 40007
 
 1. Abra la carpeta completa en VS Code y use Live Server para cargar los componentes maestros.
-2. El índice ofrece siete temas numerados 0–6. Navegación discreta arriba de las páginas de contenido, con Inicio, Actividades y anterior/siguiente cuando corresponde. La página Actividades conserva su fila original.
+2. El índice ofrece siete temas numerados 0–6. Cada página de contenido ofrece una casita discreta arriba para regresar a Inicio y botones verdes Anterior / Inicio / Siguiente al final. Las actividades enlazan solo ejercicios disponibles.
 3. Los temas 4 (Árboles), 5 (Prioridad y Montones) y 6 (Tablas Hash) tienen páginas con la misma estructura pedagógica.
 4. Las 15 actividades se administran desde admin.html y sus estados se guardan en data/actividades.json.
 5. Bibliografía, infografías y el ejemplo de lista simple en C son recursos públicos del sitio.

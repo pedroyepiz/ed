@@ -3963,3 +3963,17 @@ body.pe-home.pe-course-page #site-header .institutional-top{position:relative!im
 .ed-inline-nav a:hover,.ed-inline-nav a:focus-visible{text-decoration:underline!important;outline:2px solid #e8bb4e;outline-offset:2px}
 .ed-inline-nav a span{font-size:17px;line-height:1}
 @media(max-width:600px){.ed-inline-nav{gap:8px 14px;padding:10px 16px}.ed-inline-nav a{font-size:12px}}
+
+/* Regreso discreto y botones de continuación al final del contenido. */
+.ed-home-return{border-bottom:1px solid #d6e9df;background:#fff;padding-top:9px;padding-bottom:9px}
+.ed-nav-icon{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ed-home-return a{display:inline-flex;gap:6px;align-items:center;color:#075039!important;font-size:13px;font-weight:750}
+.ed-home-return .ed-nav-icon{width:15px;height:15px}
+.ed-page-navigation{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;max-width:1320px;margin:24px auto 32px;padding:14px 20px;border:1px solid #cfe3d8;border-radius:12px;background:#f8fffb;box-shadow:0 3px 12px #123b2812}
+.ed-page-navigation > :last-child{justify-self:end}
+.ed-page-navigation > :first-child{justify-self:start}
+.ed-page-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:10px 18px;border:1px solid #075a41;border-radius:9px;background:#075a41;color:#fff!important;font:750 14px/1.25 system-ui,sans-serif;text-decoration:none!important;box-shadow:0 4px 9px #064b3729;transition:transform .15s ease,background .15s ease,box-shadow .15s ease}
+.ed-page-button:hover,.ed-page-button:focus-visible{background:#087653;color:#fff!important;transform:translateY(-2px);box-shadow:0 7px 13px #064b3738;outline:2px solid #e8bb4e;outline-offset:2px}
+.ed-page-home{background:#f0f9f4;color:#07543f!important;border-color:#a8d2bd}
+.ed-page-home:hover,.ed-page-home:focus-visible{background:#e1f4e9;color:#07543f!important}
+@media(max-width:600px){.ed-page-navigation{gap:5px;margin:18px 12px 25px;padding:10px 8px}.ed-page-button{font-size:12px;min-height:44px;padding:8px 9px;gap:4px}.ed-page-button .ed-nav-icon{width:15px;height:15px}}
