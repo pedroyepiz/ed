@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="../styles/pages/tema_codigo_ide_general.css">
 <link rel="stylesheet" href="../styles/pages/ed_topics.css">
 
-</head>
+<meta name="description" content="Listas enlazadas | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz."><link rel="stylesheet" href="../styles/pages/nuevos_temas.css"></head>
 <body class="pe-home pe-course-page">
 <div id="site-header"></div>
 <section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-xl-7">
@@ -34,7 +34,7 @@
 <p>Una lista enlazada es una estructura de datos dinámica. A diferencia de un arreglo, sus elementos no tienen que estar almacenados en posiciones consecutivas de memoria. Cada nodo contiene información y uno o más enlaces que permiten localizar otros nodos.</p>
 <div class="two">
 <div><div class="key"><b>NODO</b><br/>dato<br/>siguiente</div><p>El campo <b>dato</b> almacena la información y <b>siguiente</b> guarda la referencia al próximo nodo.</p></div>
-<div class="diagram"><b>REPRESENTACIÓN BÁSICA DEL NODO</b><br/><br/><div class="node"><div class="d">12</div><div class="n">○</div></div><div class="arr"></div><span><b>siguiente</b></span></div>
+<div class="diagram" role="group" aria-label="Diagrama de lista enlazada: los nodos contienen datos y referencias al siguiente nodo."><b>REPRESENTACIÓN BÁSICA DEL NODO</b><br/><br/><div class="node"><div class="d">12</div><div class="n">○</div></div><div class="arr"></div><span><b>siguiente</b></span></div>
 </div>
 <h3 style="color:var(--uabc-dark)">Estructura básica en C</h3>
 <div class="code">struct nodo {
@@ -44,7 +44,7 @@
 <div class="note">Las operaciones posteriores se estudian mediante <b>pseudocódigo</b>, no con implementación completa en C.</div>
 <div class="section">6 · 1.1.1 LISTAS ENLAZADAS SENCILLAS</div>
 <p>En una lista sencilla, cada nodo contiene un enlace hacia el nodo siguiente. El primer nodo se denomina normalmente <b>CABEZA</b>. El último nodo apunta a <b>NULL</b>.</p>
-<div class="diagram"><b>CABEZA →</b>  <div class="node"><div class="d">10</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">25</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">40</div><div class="n">○</div></div><div class="arr"></div><div class="null">NULL</div></div>
+<div class="diagram" role="group" aria-label="Diagrama de lista enlazada: los nodos contienen datos y referencias al siguiente nodo."><b>CABEZA →</b>  <div class="node"><div class="d">10</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">25</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">40</div><div class="n">○</div></div><div class="arr"></div><div class="null">NULL</div></div>
 <div class="two" style="margin-top:14px">
 <div class="op"><h4>Insertar al inicio</h4><div class="pseudo">ALGORITMO Insertar_Inicio
 
@@ -98,7 +98,7 @@ FIN ALGORITMO</div></div>
 <div class="diagram" style="margin-top:14px"><b>EJEMPLO DE ELIMINACIÓN</b><p><b>Antes:</b> 10 → 20 → 30 → 40 → NULL</p><p style="color:#c62828"><b>Eliminar:</b> 20</p><p><b>Después:</b> 10 → 30 → 40 → NULL</p></div>
 <div class="section">7 · 1.1.2 LISTAS ENLAZADAS DOBLES</div>
 <p>Una lista doblemente enlazada contiene dos enlaces en cada nodo: uno al nodo anterior y otro al nodo siguiente. Esto permite desplazarse en ambos sentidos.</p>
-<div class="diagram"><div class="null">NULL</div> ⇄ <div class="node double"><div class="p">○</div><div class="d">10</div><div class="n">○</div></div> ⇄ <div class="node double"><div class="p">○</div><div class="d">20</div><div class="n">○</div></div> ⇄ <div class="node double"><div class="p">○</div><div class="d">30</div><div class="n">○</div></div> ⇄ <div class="null">NULL</div></div>
+<div class="diagram" role="group" aria-label="Diagrama de lista enlazada: los nodos contienen datos y referencias al siguiente nodo."><div class="null">NULL</div> ⇄ <div class="node double"><div class="p">○</div><div class="d">10</div><div class="n">○</div></div> ⇄ <div class="node double"><div class="p">○</div><div class="d">20</div><div class="n">○</div></div> ⇄ <div class="node double"><div class="p">○</div><div class="d">30</div><div class="n">○</div></div> ⇄ <div class="null">NULL</div></div>
 <h3 style="color:var(--uabc-dark)">Estructura básica en C</h3>
 <div class="code">struct nodo {
     int dato;
@@ -127,7 +127,7 @@ FIN ALGORITMO</div></div>
 </div>
 <div class="section">8 · 1.1.3 LISTAS ENLAZADAS CIRCULARES</div>
 <p>En una lista circular, el último nodo vuelve a enlazarse con el primero. No existe un <b>NULL</b> natural que marque el final.</p>
-<div class="diagram"><div class="node"><div class="d">10</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">20</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">30</div><div class="n">↻</div></div><div style="margin-top:10px;color:var(--uabc-dark);font-weight:800">El último nodo regresa al primero</div></div>
+<div class="diagram" role="group" aria-label="Diagrama de lista enlazada: los nodos contienen datos y referencias al siguiente nodo."><div class="node"><div class="d">10</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">20</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">30</div><div class="n">↻</div></div><div style="margin-top:10px;color:var(--uabc-dark);font-weight:800">El último nodo regresa al primero</div></div>
 <h3 style="color:var(--uabc-dark)">Estructura básica en C</h3>
 <div class="code">struct nodo {
     int dato;
@@ -148,12 +148,12 @@ FIN ALGORITMO</div></div>
 <div class="note"><b>Aplicaciones:</b> turnos de jugadores, procesos atendidos cíclicamente, planificación, listas de reproducción repetitivas y administración de recursos por turnos.</div>
 <div class="section">9 · 1.2 IMPLEMENTACIÓN Y APLICACIONES</div>
 <p>Las listas enlazadas son apropiadas cuando la cantidad de elementos puede cambiar durante la ejecución. No es necesario definir previamente el número exacto de registros.</p>
-<div class="diagram"><b>ALUMNOS →</b>  <div class="node"><div class="d">Ana</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Luis</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Carlos</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">María</div><div class="n">○</div></div><div class="arr"></div><div class="null">NULL</div></div>
+<div class="diagram" role="group" aria-label="Diagrama de lista enlazada: los nodos contienen datos y referencias al siguiente nodo."><b>ALUMNOS →</b>  <div class="node"><div class="d">Ana</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Luis</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Carlos</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">María</div><div class="n">○</div></div><div class="arr"></div><div class="null">NULL</div></div>
 <table><tr><th>Aplicación</th><th>Ejemplo</th></tr><tr><td>Registro dinámico</td><td>Estudiantes que se agregan conforme llegan.</td></tr><tr><td>Catálogos</td><td>Productos que pueden insertarse o eliminarse.</td></tr><tr><td>Agenda de contactos</td><td>Registros enlazados de tamaño variable.</td></tr><tr><td>Procesos e historiales</td><td>Secuencias dinámicas de tareas o eventos.</td></tr><tr><td>Otras estructuras</td><td>Base para pilas, colas y otras estructuras dinámicas.</td></tr></table>
 <div class="section">10 · 1.3 SOLUCIÓN DE PROBLEMAS</div>
 <h3 style="color:var(--uabc-dark)">Problema propuesto · Lista de estudiantes</h3>
 <p>Una institución necesita mantener temporalmente una lista de números de matrícula. Debe permitir registrar, mostrar, buscar y eliminar matrículas.</p>
-<div class="diagram"><b>CABEZA →</b>  <div class="node"><div class="d">12501</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">12508</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">12515</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">12522</div><div class="n">○</div></div><div class="arr"></div><div class="null">NULL</div></div>
+<div class="diagram" role="group" aria-label="Diagrama de lista enlazada: los nodos contienen datos y referencias al siguiente nodo."><b>CABEZA →</b>  <div class="node"><div class="d">12501</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">12508</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">12515</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">12522</div><div class="n">○</div></div><div class="arr"></div><div class="null">NULL</div></div>
 <div class="pseudo">INICIO
 
 Crear una lista vacía
@@ -232,10 +232,10 @@ FIN</div>
 </div>
 </section>
 <div class="summary"><div class="bulb">💡</div><div><b>IDEA CLAVE</b><br/>En una lista enlazada, lo importante no es únicamente dónde se encuentra almacenado un dato, sino <b>qué nodo conoce la dirección del siguiente elemento</b>.</div></div>
-</div></div></div></main>
+</div></div></div><section class="ed-list-demo" aria-labelledby="demo-title"><h2 id="demo-title">Simulación: inserción y eliminación en una lista</h2><p>Escribe un entero y observa cómo cambia la secuencia de nodos. El primer nodo se llama cabeza y el último apunta a NULL.</p><div class="ed-list-controls"><label for="demo-valor">Valor entero</label><input id="demo-valor" type="number" inputmode="numeric" min="-999" max="999" value="10"><button type="button" data-list-action="inicio">Insertar al inicio</button><button type="button" data-list-action="final">Insertar al final</button><button type="button" data-list-action="eliminar">Eliminar primero</button><button type="button" data-list-action="limpiar">Limpiar</button></div><div id="demo-lista" class="ed-list-visual" aria-label="Contenido de la lista"></div><p id="demo-estado" role="status" aria-live="polite"></p><p><a href="programa_listas.html">Ver ejemplo completo en C</a> · <a href="../codigo/lista_simple.c" download>Descargar código</a></p></section><nav class="topic-sequence-nav" aria-label="Secuencia de temas"><a href="tema_00_introduccion.html">← Tema anterior</a><a href="../index.html">Todos los temas</a><a href="tema_02_pilas.html">Tema siguiente →</a></nav></main>
 <div id="site-footer"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-<script src="../scripts/layout.js" defer></script>
+<script src="../scripts/listas-demo.js" defer></script><script src="../scripts/layout.js" defer></script>
 <script src="../scripts/app.js" defer></script>
 </body></html>

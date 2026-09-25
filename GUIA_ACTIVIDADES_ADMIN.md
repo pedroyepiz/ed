@@ -1,6 +1,6 @@
 # Estructuras de Datos: actividades y publicación desde cualquier computadora
 
-Se partió del repositorio público `https://github.com/pedroyepiz/ed` (rama `main`). El `index.html` y los temas existentes se conservan; se añadió una tarjeta de Actividades. Las páginas nuevas están en la raíz: `actividades.html`, `detalle.html`, `admin.html`. El archivo `data/actividades.json` contiene los estados de 12 actividades. El panel publica directamente en GitHub mediante un servicio Cloudflare Worker; **no necesita descargar un archivo ni hacer push manual** después de su configuración inicial.
+Se partió del repositorio público `https://github.com/pedroyepiz/ed` (rama `main`). El `index.html` y los temas existentes se conservan; se añadió una tarjeta de Actividades. Las páginas nuevas están en la raíz: `actividades.html`, `detalle.html`, `admin.html`. El archivo `data/actividades.json` contiene los estados de 15 actividades. El panel publica directamente en GitHub mediante un servicio Cloudflare Worker; **no necesita descargar un archivo ni hacer push manual** después de su configuración inicial.
 
 ## Estructura relevante
 
@@ -35,7 +35,7 @@ Para probar el HTML local antes de publicar, abre toda la carpeta en VS Code con
 
 El panel solicita la contraseña de nuevo al pulsar Publicar. El Worker comprueba la clave y obtiene la versión actual del archivo en GitHub; solo cambia esas tres banderas por actividad y crea el commit sobre `main`. Si otra persona modificó el JSON mientras publicabas, GitHub puede rechazar el cambio y deberás recargar la versión publicada.
 
-## Completar las 12 actividades
+## Completar las 15 actividades
 
 Los doce títulos en `data/actividades.json` y los textos de `scripts/detalle.js` son **material de muestra**. Sustituye los enunciados y programas por tu contenido definitivo antes de liberarlos. Los archivos del repositorio público, incluido `detalle.js`, pueden verse aunque el botón aparezca bloqueado: la casilla controla la presentación, **no protege respuestas confidenciales**. Si quieres reservar las soluciones hasta su liberación, habrá que guardar esos archivos en otro servicio o agregarlos al repositorio únicamente cuando se publiquen.
 

@@ -1,21 +1,11 @@
-SITIO ESTRUCTURAS DE DATOS · CLAVE 40007
+SITIO ESTRUCTURAS DE DATOS · UABC FIAD · CLAVE 40007
 
-1. Abra index.html para visualizar la portada.
-2. Para componentes maestros (header/footer/course-info) use VS Code + Live Server o publique con GitHub Pages.
-3. En GitHub Pages publique la carpeta completa sin cambiar las rutas.
-4. Temas completos: Tema 0 Introducción, Tema 1 Listas, Tema 2 Pilas y Tema 3 Colas.
-5. Pendientes: Tema 4 Árboles, Tema 5 Prioridad y Montones, Tema 6 Tablas Hash y Tema 7 Aplicaciones/Ejercicios.
-6. Infografías disponibles: Listas, Pilas y Colas.
-7. Código base disponible: Pilas y Colas.
-8. Recursos compartidos: components/, styles/, scripts/, images/.
+1. Abra la carpeta completa en VS Code y use Live Server para cargar los componentes maestros.
+2. El índice ofrece siete temas numerados 0–6. El antiguo Tema 7 se sustituyó por la sección Actividades.
+3. Los temas 4 (Árboles), 5 (Prioridad y Montones) y 6 (Tablas Hash) tienen páginas con la misma estructura pedagógica.
+4. Las 15 actividades se administran desde admin.html y sus estados se guardan en data/actividades.json.
+5. Bibliografía, infografías y el ejemplo de lista simple en C son recursos públicos del sitio.
+6. La navegación global reside en components/header.html; estilos en styles/styles.css.
+7. El Worker de backend/worker.js publica cambios de actividades mediante GitHub; sus secretos se configuran en Cloudflare.
 
-La portada y páginas internas reutilizan el diseño maestro de Programación Estructurada para conservar uniformidad visual y técnica.
-
-
-ACTUALIZACIÓN DE DISEÑO
-- Header simplificado: sin botones superiores; UABC | FIAD alineado a la derecha.
-- Escudo UABC con transparencia real.
-- Bibliografía integrada como tarjeta de recursos en el tercer renglón del índice.
-- Botones no disponibles deshabilitados con aviso emergente “Aún no disponible”.
-- Páginas internas uniformadas con paginas_uniformes.css.
-- Código y pseudocódigo normalizados a estilo IDE oscuro.
+Antes de sustituir archivos en su repositorio local, haga Fetch/Pull origin en GitHub Desktop y termine cualquier merge pendiente. Luego copie este paquete, revise los cambios, haga commit y push. No incluya la carpeta backend/.wrangler/ en el commit.

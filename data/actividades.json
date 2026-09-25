@@ -4,16 +4,16 @@
     "titulo": "🧩 Introducción a TAD (Tipos Abstractos de Datos)",
     "tema": "Concepto, operaciones y abstracción.",
     "visible": true,
-    "actividad": false,
-    "codigo": false
+    "actividad": true,
+    "codigo": true
   },
   {
     "id": 2,
     "titulo": "🥞 Pilas (Estáticas y Dinámicas)",
     "tema": "Implementación y operaciones PUSH y POP.",
     "visible": true,
-    "actividad": false,
-    "codigo": false
+    "actividad": true,
+    "codigo": true
   },
   {
     "id": 3,
