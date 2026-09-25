@@ -29,12 +29,8 @@
       }
     } catch (error) {
       console.error(`No fue posible cargar ${name}.html`, error);
-      target.innerHTML = `
-        <div class="container-fluid pe-shell py-2">
-          <div class="alert alert-warning mb-0">
-            No fue posible cargar ${name}.html. Usa Live Server o GitHub Pages.
-          </div>
-        </div>`;
+      // El sitio conserva el contenido y el menú aun cuando falle una plantilla.
+      target.replaceChildren();
     }
   }
 
@@ -50,13 +46,51 @@
     "tema_06_hash.html"
   ];
 
-  async function initNavigation() {
+  function initNavigation() {
     const footer = document.querySelector("#site-footer");
     const dock = document.createElement("div");
     dock.id = "site-navigation";
     if (footer) footer.insertAdjacentElement("afterend", dock);
     else document.body.append(dock);
-    await loadComponent("#site-navigation", "navigation");
+    const menuLinks = [
+      ["home", "⌂", "Inicio", "index.html"],
+      ["topics", "▦", "Temas", "index.html#temas"],
+      ["activities", "☑", "Actividades", "actividades.html"],
+      ["bibliography", "▤", "Bibliografía", "pages/bibliografia.html"]
+    ];
+    const renderLink = ([key, icon, label, url]) => {
+      const link = document.createElement("a");
+      link.className = "ed-nav-button";
+      link.dataset.nav = key;
+      link.href = new URL(url, siteRoot).href;
+      link.innerHTML = `<span aria-hidden="true">${icon}</span> ${label}`;
+      return link;
+    };
+    const navElement = document.createElement("nav");
+    navElement.className = "ed-bottom-nav";
+    navElement.setAttribute("aria-label", "Navegación del curso");
+    const inner = document.createElement("div");
+    inner.className = "ed-bottom-inner";
+    const primary = document.createElement("div");
+    primary.className = "ed-bottom-primary";
+    primary.append(...menuLinks.map(renderLink));
+    const sequence = document.createElement("div");
+    sequence.className = "ed-bottom-sequence";
+    sequence.dataset.sequence = "";
+    const toggle = document.createElement("button");
+    toggle.className = "ed-nav-toggle";
+    toggle.type = "button";
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-controls", "ed-mobile-menu");
+    toggle.innerHTML = '<span aria-hidden="true">☰</span> Menú';
+    inner.append(primary, sequence, toggle);
+    const menu = document.createElement("div");
+    menu.className = "ed-mobile-menu";
+    menu.id = "ed-mobile-menu";
+    menu.hidden = true;
+    menu.append(...menuLinks.map(renderLink));
+    navElement.append(inner, menu);
+    dock.append(navElement);
     const nav = dock.querySelector(".ed-bottom-nav");
     if (!nav) return;
 
@@ -70,7 +104,6 @@
 
     const index = isPage ? topicFiles.indexOf(file) : -1;
     if (index !== -1) {
-      const sequence = nav.querySelector("[data-sequence]");
       const previous = index > 0 ? new URL(`pages/${topicFiles[index - 1]}`, siteRoot).href : new URL("index.html#temas", siteRoot).href;
       const next = index < topicFiles.length - 1 ? new URL(`pages/${topicFiles[index + 1]}`, siteRoot).href : new URL("actividades.html", siteRoot).href;
       const previousLabel = index > 0 ? "← Anterior" : "← Temas";
@@ -86,8 +119,6 @@
       sequence.append(prevLink, nextLink);
     }
 
-    const toggle = nav.querySelector(".ed-nav-toggle");
-    const menu = nav.querySelector("#ed-mobile-menu");
     const closeMenu = () => { menu.hidden = true; toggle.setAttribute("aria-expanded", "false"); };
     toggle.addEventListener("click", () => {
       const open = menu.hidden;
@@ -100,16 +131,17 @@
     document.addEventListener("click", event => {
       if (!nav.contains(event.target)) closeMenu();
     });
-    window.matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
+    const desktop = window.matchMedia("(min-width: 761px)");
+    if (desktop.addEventListener) desktop.addEventListener("change", closeMenu);
   }
 
   async function initMasterLayout() {
+    initNavigation();
     await Promise.all([
       loadComponent("#site-header", "header"),
       loadComponent("#site-footer", "footer"),
       loadComponent("#course-info", "course-info")
     ]);
-    await initNavigation();
     updateYear();
     document.dispatchEvent(new CustomEvent("masterlayout:ready", {
       detail: { siteRoot: siteRoot.href }
