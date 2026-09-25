@@ -3982,3 +3982,24 @@ body:has(.ed-bottom-nav){padding-bottom:calc(88px + env(safe-area-inset-bottom, 
   .ed-mobile-menu .ed-nav-button{white-space:normal;min-height:52px;text-align:center}
 }
 @media(max-width:390px){.ed-bottom-nav .ed-sequence-button{font-size:11px;padding:7px}.ed-bottom-sequence{gap:4px}.ed-bottom-nav .ed-nav-toggle{padding:7px 9px}}
+
+/* Menú principal bajo el encabezado; controles de secuencia fijos en el pie. */
+body.pe-home #site-header{position:relative!important;top:auto!important}
+body:has(.ed-bottom-nav){padding-bottom:0}
+#site-navigation{position:sticky;top:0;z-index:2040}
+.ed-bottom-nav{position:relative;top:auto;bottom:auto;z-index:auto;border-top:0;border-bottom:3px solid #e8bb4e;box-shadow:0 5px 18px #092d2530}
+.ed-bottom-inner{justify-content:center}
+.ed-bottom-primary{justify-content:center}
+.ed-sequence-dock:empty,.ed-sequence-dock:has(.ed-bottom-sequence:empty){display:none}
+body:has(.ed-sequence-dock .ed-sequence-button){padding-bottom:calc(79px + env(safe-area-inset-bottom,0px))}
+.ed-sequence-dock{position:fixed;bottom:0;left:0;right:0;z-index:2055;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:#064b37;border-top:3px solid #e8bb4e;box-shadow:0 -5px 16px #092d2530}
+.ed-sequence-dock .ed-bottom-sequence{display:flex;max-width:1320px;margin:auto;justify-content:space-between;gap:12px}
+.ed-sequence-dock .ed-sequence-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 16px;border-radius:9px;background:#fff;color:#075039!important;text-decoration:none!important;font:700 14px/1.3 system-ui,sans-serif}
+.ed-sequence-dock .ed-next-button{background:#e8bb4e;color:#173626!important}
+.ed-sequence-dock .ed-sequence-button:hover,.ed-sequence-dock .ed-sequence-button:focus-visible{outline:3px solid #f4ca66;outline-offset:2px}
+@media(max-width:760px){
+  body:has(.ed-bottom-nav){padding-bottom:0}
+  .ed-bottom-inner{justify-content:flex-end}
+  .ed-bottom-nav .ed-nav-toggle{margin-left:0}
+  .ed-mobile-menu:not([hidden]){top:100%;bottom:auto;border-top:0;border-bottom:2px solid #e8bb4e;box-shadow:0 8px 24px #092d2540}
+}

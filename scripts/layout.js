@@ -50,11 +50,11 @@
     const footer = document.querySelector("#site-footer");
     const dock = document.createElement("div");
     dock.id = "site-navigation";
-    if (footer) footer.insertAdjacentElement("afterend", dock);
-    else document.body.append(dock);
+    const header = document.querySelector("#site-header");
+    if (header) header.insertAdjacentElement("afterend", dock);
+    else document.body.prepend(dock);
     const menuLinks = [
       ["home", "⌂", "Inicio", "index.html"],
-      ["topics", "▦", "Temas", "index.html#temas"],
       ["activities", "☑", "Actividades", "actividades.html"],
       ["bibliography", "▤", "Bibliografía", "pages/bibliografia.html"]
     ];
@@ -83,7 +83,7 @@
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-controls", "ed-mobile-menu");
     toggle.innerHTML = '<span aria-hidden="true">☰</span> Menú';
-    inner.append(primary, sequence, toggle);
+    inner.append(primary, toggle);
     const menu = document.createElement("div");
     menu.className = "ed-mobile-menu";
     menu.id = "ed-mobile-menu";
@@ -91,6 +91,12 @@
     menu.append(...menuLinks.map(renderLink));
     navElement.append(inner, menu);
     dock.append(navElement);
+    const sequenceDock = document.createElement("nav");
+    sequenceDock.className = "ed-sequence-dock";
+    sequenceDock.setAttribute("aria-label", "Navegación entre temas");
+    sequenceDock.append(sequence);
+    if (footer) footer.insertAdjacentElement("afterend", sequenceDock);
+    else document.body.append(sequenceDock);
     const nav = dock.querySelector(".ed-bottom-nav");
     if (!nav) return;
 
@@ -99,14 +105,14 @@
     const isPage = path.includes("/pages/");
     const selected = file === "actividades.html" || file === "detalle.html" ? "activities"
       : file === "bibliografia.html" ? "bibliography"
-      : isPage ? "topics" : "home";
+      : "home";
     nav.querySelectorAll(`[data-nav="${selected}"]`).forEach(link => link.setAttribute("aria-current", "page"));
 
     const index = isPage ? topicFiles.indexOf(file) : -1;
     if (index !== -1) {
       const previous = index > 0 ? new URL(`pages/${topicFiles[index - 1]}`, siteRoot).href : new URL("index.html#temas", siteRoot).href;
       const next = index < topicFiles.length - 1 ? new URL(`pages/${topicFiles[index + 1]}`, siteRoot).href : new URL("actividades.html", siteRoot).href;
-      const previousLabel = index > 0 ? "← Anterior" : "← Temas";
+      const previousLabel = index > 0 ? "← Anterior" : "← Inicio";
       const nextLabel = index < topicFiles.length - 1 ? "Siguiente →" : "Actividades →";
       const prevLink = document.createElement("a");
       prevLink.className = "ed-nav-button ed-sequence-button";
