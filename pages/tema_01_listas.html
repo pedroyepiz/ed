@@ -12,16 +12,79 @@
 <link rel="stylesheet" href="../styles/pages/tema_codigo_ide_general.css">
 <link rel="stylesheet" href="../styles/pages/ed_topics.css">
 
-<meta name="description" content="Listas enlazadas | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz."><link rel="stylesheet" href="../styles/pages/nuevos_temas.css"></head>
+<meta name="description" content="Listas enlazadas | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz."><link rel="stylesheet" href="../styles/pages/nuevos_temas.css">
+<style>
+  .listas-hero-visual{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    min-width:0;
+  }
+
+  .listas-hero-image{
+    display:block;
+    width:100%;
+    max-width:440px;
+    height:auto;
+    object-fit:contain;
+    border-radius:14px;
+  }
+
+  @media (max-width:1199.98px){
+    .listas-hero-image{
+      max-width:400px;
+    }
+  }
+
+  @media (max-width:767.98px){
+    .listas-hero-visual{
+      margin-inline:auto;
+    }
+
+    .listas-hero-image{
+      max-width:360px;
+    }
+  }
+
+  @media (max-width:575.98px){
+    .listas-hero-image{
+      max-width:100%;
+      border-radius:10px;
+    }
+  }
+</style>
+
+</head>
 <body class="pe-home pe-course-page">
 <div id="site-header"></div>
-<section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-xl-7">
-<div class="topic-number-pill"><i class="bi bi-link-45deg"></i> Tema 1 · Listas enlazadas</div>
-<div class="course-kicker">ESTRUCTURAS DE DATOS</div>
-<h1 class="course-title">Listas enlazadas</h1>
-<p class="course-subtitle mb-0">Nodos, enlaces, inserción, eliminación, recorridos y aplicaciones</p><div class="hero-line"></div>
-<div class="course-quote"><i class="bi bi-diagram-3-fill"></i><span>“Comprender la estructura es comprender cómo se organiza la solución.”</span></div>
-</div><div class="col-xl-5"><div id="course-info" data-topic="Tema 1 · Listas enlazadas"></div></div></div></div></section>
+<section class="topic-course-hero">
+<div class="container-fluid pe-shell">
+  <div class="row g-4 align-items-center py-4 py-xl-5">
+    <div class="col-12 col-xl-5">
+      <div class="topic-number-pill"><i class="bi bi-link-45deg"></i> Tema 1 · Listas enlazadas</div>
+      <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
+      <h1 class="course-title">Listas enlazadas</h1>
+      <p class="course-subtitle mb-0">Nodos, enlaces, inserción, eliminación, recorridos y aplicaciones</p>
+      <div class="hero-line"></div>
+      <div class="course-quote"><i class="bi bi-diagram-3-fill"></i><span>“Comprender la estructura es comprender cómo se organiza la solución.”</span></div>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="listas-hero-visual">
+        <img
+          src="../images/listas.webp"
+          class="listas-hero-image"
+          alt="Ilustración de listas simples, dobles, circulares y doblemente circulares">
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-4">
+      <div id="course-info" data-topic="Tema 1 · Listas enlazadas"></div>
+    </div>
+  </div>
+</div>
+</section>
 <main class="container-fluid pe-shell page-content-shell"><div class="page-content-card content"><div class="ed-topic-content"><div class="page-listas">
 <div class="note"><b>Competencia:</b> Desarrollar un programa de procesamiento de información, aplicando los conceptos de listas enlazadas, con el propósito de dar solución a un problema específico pertinente, con una actitud analítica y creativa.<br/><br/><b>Duración:</b> 6 horas</div>
 <section class="grid4">
