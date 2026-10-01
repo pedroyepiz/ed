@@ -12,17 +12,28 @@
 <link rel="stylesheet" href="../styles/pages/tema_codigo_ide_general.css">
 <link rel="stylesheet" href="../styles/pages/ed_topics.css">
 
-<meta name="description" content="Colas (Queue) | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz."></head>
-<body class="pe-home pe-course-page">
+<meta name="description" content="Colas (Queue) | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz."><link rel="stylesheet" href="../styles/pages/pilas_colas_interactivo.css">
+</head>
+<body class="pe-home pe-course-page pe-uniform-page ed-topic-interactive">
 <div id="site-header"></div>
-<section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-xl-7">
+<section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-12 col-xl-5">
 <div class="topic-number-pill"><i class="bi bi-people-fill"></i> Tema 3 · Colas</div>
 <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
 <h1 class="course-title">Colas (Queue)</h1>
 <p class="course-subtitle mb-0">Estructuras FIFO, colas estáticas y dinámicas, ENQUEUE, DEQUEUE y aplicaciones</p><div class="hero-line"></div>
 <div class="course-quote"><i class="bi bi-diagram-3-fill"></i><span>“Comprender la estructura es comprender cómo se organiza la solución.”</span></div>
-</div><div class="col-xl-5"><div id="course-info" data-topic="Tema 3 · Colas"></div></div></div></div></section>
+</div>
+<div class="col-12 col-md-6 col-xl-3">
+  <div class="topic-hero-visual">
+    <img src="../images/colas.webp"
+         class="img-fluid rounded-4 shadow-sm w-100"
+         width="887" height="443"
+         alt="Cola FIFO: encolar por el final y desencolar por el frente; primero en entrar, primero en salir." decoding="async">
+  </div>
+</div>
+<div class="col-12 col-md-6 col-xl-4"><div id="course-info" data-topic="Tema 3 · Colas"></div></div></div></div><div class="container-fluid pe-shell pb-4"><nav class="topic-nav ed-topic-local" aria-label="Contenido del tema"><a href="#tema-seccion-1">5 · DOS FORMAS DE IMPLEMENTAR UNA COLA</a><a href="#tema-seccion-2">6 · COLA ESTÁTICA · ARREGLO</a><a href="#tema-seccion-3">7 · COLA DINÁMICA · NODOS Y PUNTEROS</a><a href="#tema-seccion-4">8 · ASÍ FUNCIONA UNA COLA DINÁMICA</a><a href="#tema-seccion-5">9 · CARACTERÍSTICAS IMPORTANTES</a><a href="#tema-seccion-6">10 · APLICACIONES EN COMPUTACIÓN</a><a href="#simulador-static">Simulador estático</a><a href="#simulador-dynamic">Simulador dinámico</a><a href="#quiz">Quiz</a><a href="#resumen">Resumen</a></nav></div></section>
 <main class="container-fluid pe-shell page-content-shell"><div class="page-content-card content"><div class="ed-topic-content"><div class="page-colas">
+<div class="d-flex justify-content-end mb-2"><a class="text-decoration-none" href="../index.html" aria-label="Ir al inicio" title="Inicio">🏠</a></div>
 <section class="grid4">
 <article class="card green">
 <h3>1 · ¿QUÉ ES?</h3>
@@ -70,16 +81,16 @@
 </div>
 </article>
 </section>
-<div class="section-title">5 · DOS FORMAS DE IMPLEMENTAR UNA COLA</div>
+<div class="section-title" id="tema-seccion-1">5 · DOS FORMAS DE IMPLEMENTAR UNA COLA</div>
 <table class="compare">
 <tr><th>Característica</th><th>Cola estática</th><th>Cola dinámica</th></tr>
 <tr><td>Estructura</td><td>Arreglo</td><td>Nodos enlazados</td></tr>
 <tr><td>Memoria</td><td>Reservada previamente</td><td>Se solicita conforme se necesita</td></tr>
 <tr><td>Tamaño</td><td>Fijo o limitado</td><td>Flexible</td></tr>
 <tr><td>Control</td><td>Índices <b>front</b> y <b>rear</b></td><td>Punteros <b>frente</b> y <b>final</b></td></tr>
-<tr><td>Principio</td><td colspan="2" style="text-align:center"><b>FIFO — First In, First Out</b></td></tr>
+<tr><td>Principio</td><td colspan="2" class="pc-detail-1"><b>FIFO — First In, First Out</b></td></tr>
 </table>
-<div class="section-title">6 · COLA ESTÁTICA · ARREGLO</div>
+<div class="section-title" id="tema-seccion-2">6 · COLA ESTÁTICA · ARREGLO</div>
 <div class="note"><b>Analogía:</b> una sala con un número fijo de lugares. Cuando todos están ocupados, no puede entrar otra persona hasta que se libere un espacio.</div>
 <div class="diagram" role="group" aria-label="Diagrama de cola: los elementos entran al final y salen por el frente.">
 <div class="queue-row">
@@ -125,7 +136,7 @@
 </div>
 </div>
 </div>
-<div class="two-col" style="margin-top:14px">
+<div class="pc-detail-6 two-col">
 <div class="op">
 <h4>ENQUEUE · Insertar</h4>
 <ol>
@@ -161,11 +172,11 @@ SINO
 FIN SI</div>
 </div>
 </div>
-<div class="section-title">7 · COLA DINÁMICA · NODOS Y PUNTEROS</div>
+<div class="section-title" id="tema-seccion-3">7 · COLA DINÁMICA · NODOS Y PUNTEROS</div>
 <div class="note"><b>Analogía:</b> una fila que puede crecer. Cada persona sabe quién está inmediatamente después de ella; no es necesario reservar todos los lugares desde el inicio.</div>
 <div class="two-col">
 <div>
-<h3 style="color:var(--uabc-dark);margin-top:0">Nodo básico</h3>
+<h3 class="pc-detail-7">Nodo básico</h3>
 <div class="structure">
 <b>NODO</b><br/>
               dato : entero<br/>
@@ -178,8 +189,8 @@ FIN SI</div>
 </ul>
 </div>
 <div class="diagram" role="group" aria-label="Diagrama de cola: los elementos entran al final y salen por el frente.">
-<div style="text-align:center;font-weight:800;color:var(--uabc-dark)">REPRESENTACIÓN DEL NODO</div>
-<div style="display:flex;justify-content:center;align-items:center;margin-top:22px">
+<div class="pc-detail-8">REPRESENTACIÓN DEL NODO</div>
+<div class="pc-detail-9">
 <span class="pointer-label">dato</span>
 <div class="node"><div class="data">12</div><div class="next">○</div></div>
 <div class="arrow"></div>
@@ -187,11 +198,11 @@ FIN SI</div>
 </div>
 </div>
 </div>
-<div class="section-title">8 · ASÍ FUNCIONA UNA COLA DINÁMICA</div>
+<div class="section-title" id="tema-seccion-4">8 · ASÍ FUNCIONA UNA COLA DINÁMICA</div>
 <div class="diagram" role="group" aria-label="Diagrama de cola: los elementos entran al final y salen por el frente.">
-<div style="text-align:center;margin-bottom:10px">
-<b style="color:var(--uabc-dark)">FRENTE</b> entra en contacto con el primer nodo ·
-        <b style="color:var(--uabc-dark)">FINAL</b> apunta al último
+<div class="pc-detail-10">
+<b class="pc-detail-11">FRENTE</b> entra en contacto con el primer nodo ·
+        <b class="pc-detail-11">FINAL</b> apunta al último
     </div>
 <div class="nodes">
 <span class="pointer-label">FRENTE →</span>
@@ -205,7 +216,7 @@ FIN SI</div>
 <span class="pointer-label">← FINAL</span>
 </div>
 </div>
-<div class="two-col" style="margin-top:14px">
+<div class="pc-detail-6 two-col">
 <div class="op">
 <h4>ENQUEUE · Cola dinámica</h4>
 <ol>
@@ -251,7 +262,7 @@ SINO
 FIN SI</div>
 </div>
 </div>
-<div class="section-title">9 · CARACTERÍSTICAS IMPORTANTES</div>
+<div class="section-title" id="tema-seccion-5">9 · CARACTERÍSTICAS IMPORTANTES</div>
 <div class="grid4">
 <article class="card green">
 <h3>MEMORIA</h3>
@@ -279,7 +290,7 @@ FIN SI</div>
 </div>
 </article>
 </div>
-<div class="section-title">10 · APLICACIONES EN COMPUTACIÓN</div>
+<div class="section-title" id="tema-seccion-6">10 · APLICACIONES EN COMPUTACIÓN</div>
 <table>
 <tr><th>Aplicación</th><th>Uso de la cola</th></tr>
 <tr><td>Impresoras</td><td>Los trabajos esperan su turno para imprimirse.</td></tr>
@@ -289,7 +300,14 @@ FIN SI</div>
 <tr><td>Algoritmos</td><td>BFS utiliza una cola para recorrer grafos por niveles.</td></tr>
 <tr><td>Simulación</td><td>Modela bancos, hospitales, tráfico, llamadas y sistemas de turnos.</td></tr>
 </table>
-<div class="summary">
+<section class="ed-lab" id="simulador-static" data-pc-lab="colas" data-mode="static"><h2>Simulador · Cola estática</h2><p>Arreglo de capacidad fija: 5 elementos. Cola circular: los índices se reutilizan al retirar elementos.</p><div class="ed-lab-controls"><label for="valor-static">Valor entero</label><input id="valor-static" type="number" min="-999" max="999" step="1"><button type="button" data-pc-action="add">Encolar</button><button type="button" data-pc-action="remove">Desencolar</button><button type="button" data-pc-action="peek">Consultar frente</button><button type="button" data-pc-action="clear">Limpiar</button></div><p data-pc-pointers aria-live="polite"></p><div class="pc-track" data-pc-track aria-label="Representación de la estructura"></div><p data-pc-status role="status" aria-live="polite"></p></section><section class="ed-lab" id="simulador-dynamic" data-pc-lab="colas" data-mode="dynamic"><h2>Simulador · Cola dinámica</h2><p>Nodos enlazados creados y liberados al insertar y retirar. El límite de ocho nodos es visual; la estructura real depende de la memoria disponible.</p><div class="ed-lab-controls"><label for="valor-dynamic">Valor entero</label><input id="valor-dynamic" type="number" min="-999" max="999" step="1"><button type="button" data-pc-action="add">Encolar</button><button type="button" data-pc-action="remove">Desencolar</button><button type="button" data-pc-action="peek">Consultar frente</button><button type="button" data-pc-action="clear">Limpiar</button></div><p data-pc-pointers aria-live="polite"></p><div class="pc-track" data-pc-track aria-label="Representación de la estructura"></div><p data-pc-status role="status" aria-live="polite"></p></section><section class="ed-lab ed-quiz" id="quiz" data-ed-quiz><h2>Quiz · Colas estáticas y dinámicas</h2><p>Cuatro preguntas de opción múltiple y tres de código en C. Se asumen incluidos los encabezados necesarios.</p><p class="ed-score" data-ed-score aria-live="polite">0 / 7</p><h3>Parte A · Opción múltiple</h3><fieldset data-ed-question data-correct="1" data-explanation="La pila usa LIFO; la cola usa FIFO."><legend>1. ¿Qué regla sigue esta estructura?</legend><label><input type="radio" name="pc-q1" value="0"> LIFO: último en entrar, primero en salir.</label><label><input type="radio" name="pc-q1" value="1"> FIFO: primero en entrar, primero en salir.</label><label><input type="radio" name="pc-q1" value="2"> Siempre se retira el menor.</label><p class="ed-feedback" aria-live="polite"></p></fieldset><fieldset data-ed-question data-correct="0" data-explanation="El arreglo tiene una capacidad definida y debe comprobarse antes de insertar."><legend>2. ¿Qué limita una implementación estática?</legend><label><input type="radio" name="pc-q2" value="0"> La capacidad del arreglo.</label><label><input type="radio" name="pc-q2" value="1"> El valor de cada dato.</label><label><input type="radio" name="pc-q2" value="2"> La cantidad de punteros NULL.</label><p class="ed-feedback" aria-live="polite"></p></fieldset><fieldset data-ed-question data-correct="1" data-explanation="Los enlaces y el dato se obtienen antes de liberar el nodo."><legend>3. ¿Qué debe hacerse al retirar un nodo dinámico?</legend><label><input type="radio" name="pc-q3" value="0"> Perder su dirección sin liberar.</label><label><input type="radio" name="pc-q3" value="1"> Guardar lo necesario, actualizar enlaces y liberar el nodo.</label><label><input type="radio" name="pc-q3" value="2"> Leer sus campos después de free.</label><p class="ed-feedback" aria-live="polite"></p></fieldset><fieldset data-ed-question data-correct="0" data-explanation="En una pila tope es NULL; en una cola frente y final son NULL."><legend>4. ¿Qué indica una estructura dinámica vacía?</legend><label><input type="radio" name="pc-q4" value="0"> El puntero de entrada es NULL.</label><label><input type="radio" name="pc-q4" value="1"> El dato del nodo es cero.</label><label><input type="radio" name="pc-q4" value="2"> La dirección siempre es uno.</label><p class="ed-feedback" aria-live="polite"></p></fieldset><h3>Parte B · Analiza el código</h3><article class="ed-code-question" data-ed-question data-correct="correcto" data-explanation="Avanza de forma circular y registra el nuevo elemento."><h4>5. Fragmento de código</h4><p>Cola circular estática: CAP &gt; 0, 0 ≤ final &lt; CAP, cantidad &lt; CAP; arreglo cola de CAP posiciones. final es el próximo índice libre.</p><pre><code>cola[final] = valor;
+final = (final + 1) % CAP;
+cantidad++;</code></pre><button type="button" data-ed-answer="correcto" aria-pressed="false">Está correcto</button><button type="button" data-ed-answer="error" aria-pressed="false">Tiene un error</button><p class="ed-feedback" aria-live="polite"></p></article><article class="ed-code-question" data-ed-question data-correct="error" data-explanation="Debe asignar final = NULL al quedar vacía; de otro modo final queda colgante."><h4>6. Fragmento de código</h4><p>Cola dinámica de un nodo: frente == final y ambos son válidos.</p><pre><code>struct nodo *tmp = frente;
+frente = frente-&gt;siguiente;
+free(tmp);</code></pre><button type="button" data-ed-answer="correcto" aria-pressed="false">Está correcto</button><button type="button" data-ed-answer="error" aria-pressed="false">Tiene un error</button><p class="ed-feedback" aria-live="polite"></p></article><article class="ed-code-question" data-ed-question data-correct="correcto" data-explanation="Enlaza al final y atiende el caso vacío."><h4>7. Fragmento de código</h4><p>Encolar: nuevo está reservado con su dato asignado; cola válida, vacía o no.</p><pre><code>nuevo-&gt;siguiente = NULL;
+if (final != NULL) final-&gt;siguiente = nuevo;
+else frente = nuevo;
+final = nuevo;</code></pre><button type="button" data-ed-answer="correcto" aria-pressed="false">Está correcto</button><button type="button" data-ed-answer="error" aria-pressed="false">Tiene un error</button><p class="ed-feedback" aria-live="polite"></p></article><button type="button" data-ed-evaluate>Analizar respuestas</button><button type="button" data-ed-reset>Reiniciar quiz</button><p data-ed-result role="status" aria-live="polite"></p></section><div class="summary" id="resumen">
 <div class="bulb">💡</div>
 <div>
 <b>EN RESUMEN</b><br/>
@@ -301,36 +319,20 @@ FIN SI</div>
 <div class="summary">
 <div class="bulb">💡</div>
 <div>
-<b>CODIGO EN C </b><br/>
-<div class="card-foot">
-<a class="btn" href="programa_colas.html">Abrir Codigo completo en C / C++</a>
+<b>CÓDIGO EN C</b><br/>
+<div class="card-foot d-flex flex-wrap gap-3 mt-3">
+  <a class="btn btn-success bg-success text-white rounded-3 px-4 py-3 fw-bold" href="programa_colas.html">
+    <i class="bi bi-code-slash" aria-hidden="true"></i> Ver código completo de colas en C / C++
+  </a>
 </div>
 </div>
 </div>
-</div></div></div></main>
+</div></div></div>
+</main>
 <div id="site-footer"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script>
-async function copiarCodigo(id, boton) {
-    const texto = document.getElementById(id).textContent;
-    try {
-        await navigator.clipboard.writeText(texto);
-        const original = boton.textContent;
-        boton.textContent = "¡Copiado!";
-        setTimeout(() => boton.textContent = original, 1500);
-    } catch (e) {
-        const area = document.createElement("textarea");
-        area.value = texto;
-        document.body.appendChild(area);
-        area.select();
-        document.execCommand("copy");
-        area.remove();
-        const original = boton.textContent;
-        boton.textContent = "¡Copiado!";
-        setTimeout(() => boton.textContent = original, 1500);
-    }
-}
-</script>
+
 <script src="../scripts/layout.js" defer></script>
 
+<script src="../scripts/pilas_colas_interactivo.js" defer></script>
 </body></html>

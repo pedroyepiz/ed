@@ -12,17 +12,28 @@
 <link rel="stylesheet" href="../styles/pages/tema_codigo_ide_general.css">
 <link rel="stylesheet" href="../styles/pages/ed_topics.css">
 
-<meta name="description" content="Pilas (Stack) | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz."></head>
-<body class="pe-home pe-course-page">
+<meta name="description" content="Pilas (Stack) | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz."><link rel="stylesheet" href="../styles/pages/pilas_colas_interactivo.css">
+</head>
+<body class="pe-home pe-course-page pe-uniform-page ed-topic-interactive">
 <div id="site-header"></div>
-<section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-xl-7">
+<section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-12 col-xl-5">
 <div class="topic-number-pill"><i class="bi bi-layers-fill"></i> Tema 2 · Pilas</div>
 <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
 <h1 class="course-title">Pilas (Stack)</h1>
 <p class="course-subtitle mb-0">Estructuras LIFO, pilas estáticas y dinámicas, PUSH, POP y aplicaciones</p><div class="hero-line"></div>
 <div class="course-quote"><i class="bi bi-diagram-3-fill"></i><span>“Comprender la estructura es comprender cómo se organiza la solución.”</span></div>
-</div><div class="col-xl-5"><div id="course-info" data-topic="Tema 2 · Pilas"></div></div></div></div></section>
+</div>
+<div class="col-12 col-md-6 col-xl-3">
+  <div class="topic-hero-visual">
+    <img src="../images/pilas.webp"
+         class="img-fluid rounded-4 shadow-sm w-100"
+         width="887" height="443"
+         alt="Pila LIFO: PUSH y POP en el tope; último en entrar, primero en salir." decoding="async">
+  </div>
+</div>
+<div class="col-12 col-md-6 col-xl-4"><div id="course-info" data-topic="Tema 2 · Pilas"></div></div></div></div><div class="container-fluid pe-shell pb-4"><nav class="topic-nav ed-topic-local" aria-label="Contenido del tema"><a href="#tema-seccion-1">5 · DOS FORMAS DE IMPLEMENTAR UNA PILA</a><a href="#tema-seccion-2">6 · PILA ESTÁTICA · ARREGLO</a><a href="#tema-seccion-3">7 · PILA DINÁMICA · NODOS Y PUNTEROS</a><a href="#tema-seccion-4">8 · ASÍ FUNCIONA UNA PILA DINÁMICA</a><a href="#tema-seccion-5">9 · CARACTERÍSTICAS IMPORTANTES</a><a href="#tema-seccion-6">10 · APLICACIONES EN COMPUTACIÓN</a><a href="#simulador-static">Simulador estático</a><a href="#simulador-dynamic">Simulador dinámico</a><a href="#quiz">Quiz</a><a href="#resumen">Resumen</a></nav></div></section>
 <main class="container-fluid pe-shell page-content-shell"><div class="page-content-card content"><div class="ed-topic-content"><div class="page-pilas">
+<div class="d-flex justify-content-end mb-2"><a class="text-decoration-none" href="../index.html" aria-label="Ir al inicio" title="Inicio">🏠</a></div>
 <div class="note">
 <b>Competencia:</b>
     Elaborar un programa de procesamiento de información, aplicando los conceptos de pilas,
@@ -81,16 +92,16 @@
 </div>
 </article>
 </section>
-<div class="section-title">5 · DOS FORMAS DE IMPLEMENTAR UNA PILA</div>
+<div class="section-title" id="tema-seccion-1">5 · DOS FORMAS DE IMPLEMENTAR UNA PILA</div>
 <table class="compare">
 <tr><th>Característica</th><th>Pila estática</th><th>Pila dinámica</th></tr>
 <tr><td>Estructura</td><td>Arreglo</td><td>Nodos enlazados</td></tr>
 <tr><td>Memoria</td><td>Reservada previamente</td><td>Se solicita conforme se necesita</td></tr>
 <tr><td>Tamaño</td><td>Fijo o limitado</td><td>Flexible</td></tr>
 <tr><td>Control</td><td>Índice <b>tope</b></td><td>Puntero <b>tope</b></td></tr>
-<tr><td>Principio</td><td colspan="2" style="text-align:center"><b>LIFO — Last In, First Out</b></td></tr>
+<tr><td>Principio</td><td colspan="2" class="pc-detail-1"><b>LIFO — Last In, First Out</b></td></tr>
 </table>
-<div class="section-title">6 · PILA ESTÁTICA · ARREGLO</div>
+<div class="section-title" id="tema-seccion-2">6 · PILA ESTÁTICA · ARREGLO</div>
 <div class="note"><b>Analogía:</b> como una pila de platos. Solo puedes agregar o quitar platos por la parte superior.</div>
 <div class="diagram" role="group" aria-label="Diagrama de pila: el último elemento insertado es el primero que se retira.">
 <div class="stack-row">
@@ -98,10 +109,10 @@
 <div class="step-title">PILA VACÍA</div>
 <div class="small">tope = -1</div>
 <div class="stack-box">
-<div class="empty-dash" style="bottom:32px"></div>
-<div class="empty-dash" style="bottom:62px"></div>
-<div class="empty-dash" style="bottom:92px"></div>
-<div class="empty-dash" style="bottom:122px"></div>
+<div class="pc-detail-2 empty-dash"></div>
+<div class="pc-detail-3 empty-dash"></div>
+<div class="pc-detail-4 empty-dash"></div>
+<div class="pc-detail-5 empty-dash"></div>
 </div>
 <div class="top-label">TOPE</div>
 <div class="top-val">-1</div>
@@ -111,9 +122,9 @@
 <div class="small">se inserta 10</div>
 <div class="stack-box">
 <div class="level l1">10</div>
-<div class="empty-dash" style="bottom:32px"></div>
-<div class="empty-dash" style="bottom:62px"></div>
-<div class="empty-dash" style="bottom:92px"></div>
+<div class="pc-detail-2 empty-dash"></div>
+<div class="pc-detail-3 empty-dash"></div>
+<div class="pc-detail-4 empty-dash"></div>
 </div>
 <div class="top-label">TOPE</div>
 <div class="top-val">0</div>
@@ -124,8 +135,8 @@
 <div class="stack-box">
 <div class="level l2">20</div>
 <div class="level l1">10</div>
-<div class="empty-dash" style="bottom:62px"></div>
-<div class="empty-dash" style="bottom:92px"></div>
+<div class="pc-detail-3 empty-dash"></div>
+<div class="pc-detail-4 empty-dash"></div>
 </div>
 <div class="top-label">TOPE</div>
 <div class="top-val">1</div>
@@ -137,7 +148,7 @@
 <div class="level l3">30</div>
 <div class="level l2">20</div>
 <div class="level l1">10</div>
-<div class="empty-dash" style="bottom:92px"></div>
+<div class="pc-detail-4 empty-dash"></div>
 </div>
 <div class="top-label">TOPE</div>
 <div class="top-val">2</div>
@@ -148,8 +159,8 @@
 <div class="stack-box">
 <div class="level l2">20</div>
 <div class="level l1">10</div>
-<div class="empty-dash" style="bottom:62px"></div>
-<div class="empty-dash" style="bottom:92px"></div>
+<div class="pc-detail-3 empty-dash"></div>
+<div class="pc-detail-4 empty-dash"></div>
 </div>
 <div class="top-label">TOPE</div>
 <div class="top-val">1</div>
@@ -159,16 +170,16 @@
 <div class="small">sale 20</div>
 <div class="stack-box">
 <div class="level l1">10</div>
-<div class="empty-dash" style="bottom:32px"></div>
-<div class="empty-dash" style="bottom:62px"></div>
-<div class="empty-dash" style="bottom:92px"></div>
+<div class="pc-detail-2 empty-dash"></div>
+<div class="pc-detail-3 empty-dash"></div>
+<div class="pc-detail-4 empty-dash"></div>
 </div>
 <div class="top-label">TOPE</div>
 <div class="top-val">0</div>
 </div>
 </div>
 </div>
-<div class="two-col" style="margin-top:14px">
+<div class="pc-detail-6 two-col">
 <div class="op">
 <h4>PUSH · Insertar</h4>
 <ol>
@@ -203,11 +214,11 @@ SINO
 FIN SI</div>
 </div>
 </div>
-<div class="section-title">7 · PILA DINÁMICA · NODOS Y PUNTEROS</div>
+<div class="section-title" id="tema-seccion-3">7 · PILA DINÁMICA · NODOS Y PUNTEROS</div>
 <div class="note"><b>Analogía:</b> una torre de platos que puede crecer o reducirse según sea necesario. Cada nuevo plato se coloca arriba del anterior.</div>
 <div class="two-col">
 <div>
-<h3 style="color:var(--uabc-dark);margin-top:0">Nodo básico</h3>
+<h3 class="pc-detail-7">Nodo básico</h3>
 <div class="structure">
 <b>NODO</b><br/>
               dato : entero<br/>
@@ -221,8 +232,8 @@ FIN SI</div>
 </div>
 </div>
 <div class="diagram" role="group" aria-label="Diagrama de pila: el último elemento insertado es el primero que se retira.">
-<div style="text-align:center;font-weight:800;color:var(--uabc-dark)">REPRESENTACIÓN DEL NODO</div>
-<div style="display:flex;justify-content:center;align-items:center;margin-top:22px">
+<div class="pc-detail-8">REPRESENTACIÓN DEL NODO</div>
+<div class="pc-detail-9">
 <span class="pointer-label">dato</span>
 <div class="node"><div class="data">12</div><div class="next">○</div></div>
 <div class="arrow"></div>
@@ -230,10 +241,10 @@ FIN SI</div>
 </div>
 </div>
 </div>
-<div class="section-title">8 · ASÍ FUNCIONA UNA PILA DINÁMICA</div>
+<div class="section-title" id="tema-seccion-4">8 · ASÍ FUNCIONA UNA PILA DINÁMICA</div>
 <div class="diagram" role="group" aria-label="Diagrama de pila: el último elemento insertado es el primero que se retira.">
-<div style="text-align:center;margin-bottom:10px">
-<b style="color:var(--uabc-dark)">TOPE</b> apunta al primer nodo de la pila
+<div class="pc-detail-10">
+<b class="pc-detail-11">TOPE</b> apunta al primer nodo de la pila
     </div>
 <div class="nodes">
 <span class="pointer-label">TOPE →</span>
@@ -246,7 +257,7 @@ FIN SI</div>
 <div class="null">NULL</div>
 </div>
 </div>
-<div class="two-col" style="margin-top:14px">
+<div class="pc-detail-6 two-col">
 <div class="op">
 <h4>PUSH · Pila dinámica</h4>
 <ol>
@@ -279,7 +290,7 @@ SINO
 FIN SI</div>
 </div>
 </div>
-<div class="section-title">9 · CARACTERÍSTICAS IMPORTANTES</div>
+<div class="section-title" id="tema-seccion-5">9 · CARACTERÍSTICAS IMPORTANTES</div>
 <div class="grid4">
 <article class="card green">
 <h3>MEMORIA</h3>
@@ -307,7 +318,7 @@ FIN SI</div>
 </div>
 </article>
 </div>
-<div class="section-title">10 · APLICACIONES EN COMPUTACIÓN</div>
+<div class="section-title" id="tema-seccion-6">10 · APLICACIONES EN COMPUTACIÓN</div>
 <table>
 <tr><th>Aplicación</th><th>Uso de la pila</th></tr>
 <tr><td>Llamadas a funciones</td><td>La pila de llamadas guarda parámetros, direcciones de retorno y variables locales.</td></tr>
@@ -317,7 +328,12 @@ FIN SI</div>
 <tr><td>Backtracking</td><td>Ayuda a retroceder en laberintos, rompecabezas o búsquedas.</td></tr>
 <tr><td>Compiladores</td><td>Se usa en análisis sintáctico y procesamiento de expresiones.</td></tr>
 </table>
-<div class="summary">
+<section class="ed-lab" id="simulador-static" data-pc-lab="pilas" data-mode="static"><h2>Simulador · Pila estática</h2><p>Arreglo de capacidad fija: 5 elementos. TOPE es el índice del último elemento.</p><div class="ed-lab-controls"><label for="valor-static">Valor entero</label><input id="valor-static" type="number" min="-999" max="999" step="1"><button type="button" data-pc-action="add">PUSH · Apilar</button><button type="button" data-pc-action="remove">POP · Desapilar</button><button type="button" data-pc-action="peek">Consultar tope</button><button type="button" data-pc-action="clear">Limpiar</button></div><p data-pc-pointers aria-live="polite"></p><div class="pc-track" data-pc-track aria-label="Representación de la estructura"></div><p data-pc-status role="status" aria-live="polite"></p></section><section class="ed-lab" id="simulador-dynamic" data-pc-lab="pilas" data-mode="dynamic"><h2>Simulador · Pila dinámica</h2><p>Nodos enlazados creados y liberados al insertar y retirar. El límite de ocho nodos es visual; la estructura real depende de la memoria disponible.</p><div class="ed-lab-controls"><label for="valor-dynamic">Valor entero</label><input id="valor-dynamic" type="number" min="-999" max="999" step="1"><button type="button" data-pc-action="add">PUSH · Apilar</button><button type="button" data-pc-action="remove">POP · Desapilar</button><button type="button" data-pc-action="peek">Consultar tope</button><button type="button" data-pc-action="clear">Limpiar</button></div><p data-pc-pointers aria-live="polite"></p><div class="pc-track" data-pc-track aria-label="Representación de la estructura"></div><p data-pc-status role="status" aria-live="polite"></p></section><section class="ed-lab ed-quiz" id="quiz" data-ed-quiz><h2>Quiz · Pilas estáticas y dinámicas</h2><p>Cuatro preguntas de opción múltiple y tres de código en C. Se asumen incluidos los encabezados necesarios.</p><p class="ed-score" data-ed-score aria-live="polite">0 / 7</p><h3>Parte A · Opción múltiple</h3><fieldset data-ed-question data-correct="0" data-explanation="La pila usa LIFO; la cola usa FIFO."><legend>1. ¿Qué regla sigue esta estructura?</legend><label><input type="radio" name="pc-q1" value="0"> LIFO: último en entrar, primero en salir.</label><label><input type="radio" name="pc-q1" value="1"> FIFO: primero en entrar, primero en salir.</label><label><input type="radio" name="pc-q1" value="2"> Siempre se retira el menor.</label><p class="ed-feedback" aria-live="polite"></p></fieldset><fieldset data-ed-question data-correct="0" data-explanation="El arreglo tiene una capacidad definida y debe comprobarse antes de insertar."><legend>2. ¿Qué limita una implementación estática?</legend><label><input type="radio" name="pc-q2" value="0"> La capacidad del arreglo.</label><label><input type="radio" name="pc-q2" value="1"> El valor de cada dato.</label><label><input type="radio" name="pc-q2" value="2"> La cantidad de punteros NULL.</label><p class="ed-feedback" aria-live="polite"></p></fieldset><fieldset data-ed-question data-correct="1" data-explanation="Los enlaces y el dato se obtienen antes de liberar el nodo."><legend>3. ¿Qué debe hacerse al retirar un nodo dinámico?</legend><label><input type="radio" name="pc-q3" value="0"> Perder su dirección sin liberar.</label><label><input type="radio" name="pc-q3" value="1"> Guardar lo necesario, actualizar enlaces y liberar el nodo.</label><label><input type="radio" name="pc-q3" value="2"> Leer sus campos después de free.</label><p class="ed-feedback" aria-live="polite"></p></fieldset><fieldset data-ed-question data-correct="0" data-explanation="En una pila tope es NULL; en una cola frente y final son NULL."><legend>4. ¿Qué indica una estructura dinámica vacía?</legend><label><input type="radio" name="pc-q4" value="0"> El puntero de entrada es NULL.</label><label><input type="radio" name="pc-q4" value="1"> El dato del nodo es cero.</label><label><input type="radio" name="pc-q4" value="2"> La dirección siempre es uno.</label><p class="ed-feedback" aria-live="polite"></p></fieldset><h3>Parte B · Analiza el código</h3><article class="ed-code-question" data-ed-question data-correct="correcto" data-explanation="Comprueba espacio antes de incrementar el índice."><h4>5. Fragmento de código</h4><p>Pila estática: arreglo pila de CAP posiciones, -1 ≤ tope &lt; CAP; valor es entero.</p><pre><code>if (tope &lt; CAP - 1) {
+    pila[++tope] = valor;
+}</code></pre><button type="button" data-ed-answer="correcto" aria-pressed="false">Está correcto</button><button type="button" data-ed-answer="error" aria-pressed="false">Tiene un error</button><p class="ed-feedback" aria-live="polite"></p></article><article class="ed-code-question" data-ed-question data-correct="error" data-explanation="Accede al nodo después de liberarlo."><h4>6. Fragmento de código</h4><p>Pila dinámica no vacía: tope es válido.</p><pre><code>struct nodo *tmp = tope;
+free(tmp);
+tope = tmp-&gt;siguiente;</code></pre><button type="button" data-ed-answer="correcto" aria-pressed="false">Está correcto</button><button type="button" data-ed-answer="error" aria-pressed="false">Tiene un error</button><p class="ed-feedback" aria-live="polite"></p></article><article class="ed-code-question" data-ed-question data-correct="correcto" data-explanation="Inserta al inicio, que representa el tope."><h4>7. Fragmento de código</h4><p>Pila dinámica: nuevo está reservado e inicializado; tope es NULL o válido.</p><pre><code>nuevo-&gt;siguiente = tope;
+tope = nuevo;</code></pre><button type="button" data-ed-answer="correcto" aria-pressed="false">Está correcto</button><button type="button" data-ed-answer="error" aria-pressed="false">Tiene un error</button><p class="ed-feedback" aria-live="polite"></p></article><button type="button" data-ed-evaluate>Analizar respuestas</button><button type="button" data-ed-reset>Reiniciar quiz</button><p data-ed-result role="status" aria-live="polite"></p></section><div class="summary" id="resumen">
 <div class="bulb">💡</div>
 <div>
 <b>EN RESUMEN</b><br/>
@@ -330,36 +346,20 @@ FIN SI</div>
 <div class="summary">
 <div class="bulb">💡</div>
 <div>
-<b>CODIGO EN C </b><br/>
-<div class="card-foot">
-<a class="btn" href="programa_pilas.html">Abrir Codigo completo en C / C++</a>
+<b>CÓDIGO EN C</b><br/>
+<div class="card-foot d-flex flex-wrap gap-3 mt-3">
+  <a class="btn btn-success bg-success text-white rounded-3 px-4 py-3 fw-bold" href="programa_pilas.html">
+    <i class="bi bi-code-slash" aria-hidden="true"></i> Ver código completo de pilas en C / C++
+  </a>
 </div>
 </div>
 </div>
-</div></div></div></main>
+</div></div></div>
+</main>
 <div id="site-footer"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script>
-async function copiarCodigo(id, boton) {
-    const texto = document.getElementById(id).textContent;
-    try {
-        await navigator.clipboard.writeText(texto);
-        const original = boton.textContent;
-        boton.textContent = "¡Copiado!";
-        setTimeout(() => boton.textContent = original, 1500);
-    } catch (e) {
-        const area = document.createElement("textarea");
-        area.value = texto;
-        document.body.appendChild(area);
-        area.select();
-        document.execCommand("copy");
-        area.remove();
-        const original = boton.textContent;
-        boton.textContent = "¡Copiado!";
-        setTimeout(() => boton.textContent = original, 1500);
-    }
-}
-</script>
+
 <script src="../scripts/layout.js" defer></script>
 
+<script src="../scripts/pilas_colas_interactivo.js" defer></script>
 </body></html>
