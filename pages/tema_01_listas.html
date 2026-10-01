@@ -13,56 +13,14 @@
 <link rel="stylesheet" href="../styles/pages/ed_topics.css">
 
 <meta name="description" content="Listas enlazadas | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz."><link rel="stylesheet" href="../styles/pages/nuevos_temas.css">
-<style>
-  .listas-hero-visual{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:100%;
-    min-width:0;
-  }
-
-  .listas-hero-image{
-    display:block;
-    width:100%;
-    max-width:440px;
-    height:auto;
-    object-fit:contain;
-    border-radius:14px;
-  }
-
-  @media (max-width:1199.98px){
-    .listas-hero-image{
-      max-width:400px;
-    }
-  }
-
-  @media (max-width:767.98px){
-    .listas-hero-visual{
-      margin-inline:auto;
-    }
-
-    .listas-hero-image{
-      max-width:360px;
-    }
-  }
-
-  @media (max-width:575.98px){
-    .listas-hero-image{
-      max-width:100%;
-      border-radius:10px;
-    }
-  }
-</style>
-
 </head>
-<body class="pe-home pe-course-page">
+<body class="pe-home pe-course-page pe-uniform-page">
 <div id="site-header"></div>
 <section class="topic-course-hero">
 <div class="container-fluid pe-shell">
   <div class="row g-4 align-items-center py-4 py-xl-5">
     <div class="col-12 col-xl-5">
-      <div class="topic-number-pill"><i class="bi bi-link-45deg"></i> Tema 1 · Listas enlazadas</div>
+      <div class="topic-number-pill"><i class="bi bi-link-45deg"></i> UNIDAD I · Listas enlazadas</div>
       <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
       <h1 class="course-title">Listas enlazadas</h1>
       <p class="course-subtitle mb-0">Nodos, enlaces, inserción, eliminación, recorridos y aplicaciones</p>
@@ -80,35 +38,48 @@
     </div>
 
     <div class="col-12 col-md-6 col-xl-4">
-      <div id="course-info" data-topic="Tema 1 · Listas enlazadas"></div>
+      <div id="course-info" data-topic="Unidad I · Listas enlazadas"></div>
     </div>
   </div>
 </div>
 </section>
 <main class="container-fluid pe-shell page-content-shell"><div class="page-content-card content"><div class="ed-topic-content"><div class="page-listas">
 <div class="note"><b>Competencia:</b> Desarrollar un programa de procesamiento de información, aplicando los conceptos de listas enlazadas, con el propósito de dar solución a un problema específico pertinente, con una actitud analítica y creativa.<br/><br/><b>Duración:</b> 6 horas</div>
+<nav class="topic-nav" aria-label="Contenido de la Unidad I">
+  <a href="#u1-1">1.1 Definición</a>
+  <a href="#u1-1-1">1.1.1 Listas sencillas</a>
+  <a href="#u1-1-2">1.1.2 Listas dobles</a>
+  <a href="#u1-1-3">1.1.3 Listas circulares</a>
+  <a href="#u1-doble-circular">Listas dobles circulares</a>
+  <a href="#u1-punteros">Punteros y memoria dinámica</a>
+  <a href="#u1-quiz">Quiz</a>
+  <a href="#u1-2">1.2 Implementación</a>
+  <a href="#u1-3">1.3 Solución de problemas</a>
+  <a href="#u1-resumen">Resumen</a>
+</nav>
 <section class="grid4">
-<article class="card green"><h3>1 · ¿QUÉ ES?</h3><div class="body"><div class="icon">🔗</div><p>Una <b>lista enlazada</b> es una estructura dinámica formada por <b>nodos</b>.</p><div class="key">Los nodos no necesitan ocupar posiciones consecutivas de memoria.</div></div></article>
-<article class="card blue"><h3>2 · ¿PARA QUÉ SIRVE?</h3><div class="body"><div class="icon">🎯</div><ul><li>Almacenar datos variables.</li><li>Insertar y eliminar elementos.</li><li>Construir pilas y colas.</li><li>Administrar registros dinámicos.</li></ul></div></article>
-<article class="card purple"><h3>3 · ¿CÓMO FUNCIONA?</h3><div class="body"><div class="icon">⚙️</div><ul><li>Cada nodo guarda un dato.</li><li>Los enlaces conectan nodos.</li><li>La lista se recorre siguiendo enlaces.</li><li>El tamaño cambia en ejecución.</li></ul></div></article>
-<article class="card orange"><h3>4 · USOS EN COMPUTACIÓN</h3><div class="body"><div class="icon">🖥️</div><ul><li>Agendas y catálogos.</li><li>Procesos e historiales.</li><li>Sistemas de turnos.</li><li>Otras estructuras dinámicas.</li></ul></div></article>
+<article class="card green"><h3>¿QUÉ ES?</h3><div class="body"><div class="icon">🔗</div><p>Una <b>lista enlazada</b> es una estructura dinámica formada por <b>nodos</b>.</p><div class="key">Los nodos no necesitan ocupar posiciones consecutivas de memoria.</div></div></article>
+<article class="card blue"><h3>¿PARA QUÉ SIRVE?</h3><div class="body"><div class="icon">🎯</div><ul><li>Almacenar datos variables.</li><li>Insertar y eliminar elementos.</li><li>Construir pilas y colas.</li><li>Administrar registros dinámicos.</li></ul></div></article>
+<article class="card purple"><h3>¿CÓMO FUNCIONA?</h3><div class="body"><div class="icon">⚙️</div><ul><li>Cada nodo guarda un dato.</li><li>Los enlaces conectan nodos.</li><li>La lista se recorre siguiendo enlaces.</li><li>El tamaño cambia en ejecución.</li></ul></div></article>
+<article class="card orange"><h3>USOS EN COMPUTACIÓN</h3><div class="body"><div class="icon">🖥️</div><ul><li>Agendas y catálogos.</li><li>Procesos e historiales.</li><li>Sistemas de turnos.</li><li>Otras estructuras dinámicas.</li></ul></div></article>
 </section>
-<div class="section">5 · 1.1 DEFINICIÓN · EL NODO</div>
+<div class="section" id="u1-1">1.1 · DEFINICIÓN · EL NODO</div>
 <p>Una lista enlazada es una estructura de datos dinámica. A diferencia de un arreglo, sus elementos no tienen que estar almacenados en posiciones consecutivas de memoria. Cada nodo contiene información y uno o más enlaces que permiten localizar otros nodos.</p>
 <div class="two">
 <div><div class="key"><b>NODO</b><br/>dato<br/>siguiente</div><p>El campo <b>dato</b> almacena la información y <b>siguiente</b> guarda la referencia al próximo nodo.</p></div>
 <div class="diagram" role="group" aria-label="Diagrama de lista enlazada: los nodos contienen datos y referencias al siguiente nodo."><b>REPRESENTACIÓN BÁSICA DEL NODO</b><br/><br/><div class="node"><div class="d">12</div><div class="n">○</div></div><div class="arr"></div><span><b>siguiente</b></span></div>
 </div>
-<h3 style="color:var(--uabc-dark)">Estructura básica en C</h3>
+<h3 class="ed-subheading">Estructura básica en C</h3>
 <div class="code">struct nodo {
     int dato;
     struct nodo *siguiente;
 };</div>
 <div class="note">Las operaciones posteriores se estudian mediante <b>pseudocódigo</b>, no con implementación completa en C.</div>
-<div class="section">6 · 1.1.1 LISTAS ENLAZADAS SENCILLAS</div>
+<div class="section" id="u1-1-1">1.1.1 · LISTAS ENLAZADAS SENCILLAS</div>
+<p><a class="tema-btn" href="tema_01_listas_simples.html">Ver tema: listas simples →</a></p>
 <p>En una lista sencilla, cada nodo contiene un enlace hacia el nodo siguiente. El primer nodo se denomina normalmente <b>CABEZA</b>. El último nodo apunta a <b>NULL</b>.</p>
 <div class="diagram" role="group" aria-label="Diagrama de lista enlazada: los nodos contienen datos y referencias al siguiente nodo."><b>CABEZA →</b>  <div class="node"><div class="d">10</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">25</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">40</div><div class="n">○</div></div><div class="arr"></div><div class="null">NULL</div></div>
-<div class="two" style="margin-top:14px">
+<div class="two mt-section-sm">
 <div class="op"><h4>Insertar al inicio</h4><div class="pseudo">ALGORITMO Insertar_Inicio
 
 Crear NUEVO nodo
@@ -135,7 +106,7 @@ FIN SI
 
 FIN ALGORITMO</div></div>
 </div>
-<div class="two" style="margin-top:14px">
+<div class="two mt-section-sm">
 <div class="op"><h4>Recorrido</h4><div class="pseudo">ALGORITMO Recorrer_Lista
 
 AUXILIAR ← CABEZA
@@ -158,11 +129,12 @@ FIN SI
 
 FIN ALGORITMO</div></div>
 </div>
-<div class="diagram" style="margin-top:14px"><b>EJEMPLO DE ELIMINACIÓN</b><p><b>Antes:</b> 10 → 20 → 30 → 40 → NULL</p><p style="color:#c62828"><b>Eliminar:</b> 20</p><p><b>Después:</b> 10 → 30 → 40 → NULL</p></div>
-<div class="section">7 · 1.1.2 LISTAS ENLAZADAS DOBLES</div>
+<div class="diagram mt-section-sm"><b>EJEMPLO DE ELIMINACIÓN</b><p><b>Antes:</b> 10 → 20 → 30 → 40 → NULL</p><p class="text-danger-strong"><b>Eliminar:</b> 20</p><p><b>Después:</b> 10 → 30 → 40 → NULL</p></div>
+<div class="section" id="u1-1-2">1.1.2 · LISTAS ENLAZADAS DOBLES</div>
+<p><a class="tema-btn" href="tema_01_listas_dobles.html">Ver tema: listas dobles →</a></p>
 <p>Una lista doblemente enlazada contiene dos enlaces en cada nodo: uno al nodo anterior y otro al nodo siguiente. Esto permite desplazarse en ambos sentidos.</p>
 <div class="diagram" role="group" aria-label="Diagrama de lista enlazada: los nodos contienen datos y referencias al siguiente nodo."><div class="null">NULL</div> ⇄ <div class="node double"><div class="p">○</div><div class="d">10</div><div class="n">○</div></div> ⇄ <div class="node double"><div class="p">○</div><div class="d">20</div><div class="n">○</div></div> ⇄ <div class="node double"><div class="p">○</div><div class="d">30</div><div class="n">○</div></div> ⇄ <div class="null">NULL</div></div>
-<h3 style="color:var(--uabc-dark)">Estructura básica en C</h3>
+<h3 class="ed-subheading">Estructura básica en C</h3>
 <div class="code">struct nodo {
     int dato;
     struct nodo *anterior;
@@ -188,10 +160,11 @@ FIN MIENTRAS
 
 FIN ALGORITMO</div></div>
 </div>
-<div class="section">8 · 1.1.3 LISTAS ENLAZADAS CIRCULARES</div>
+<div class="section" id="u1-1-3">1.1.3 · LISTAS ENLAZADAS CIRCULARES</div>
+<p><a class="tema-btn" href="tema_01_listas_circulares.html">Ver tema: listas circulares →</a></p>
 <p>En una lista circular, el último nodo vuelve a enlazarse con el primero. No existe un <b>NULL</b> natural que marque el final.</p>
-<div class="diagram" role="group" aria-label="Diagrama de lista enlazada: los nodos contienen datos y referencias al siguiente nodo."><div class="node"><div class="d">10</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">20</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">30</div><div class="n">↻</div></div><div style="margin-top:10px;color:var(--uabc-dark);font-weight:800">El último nodo regresa al primero</div></div>
-<h3 style="color:var(--uabc-dark)">Estructura básica en C</h3>
+<div class="diagram" role="group" aria-label="Diagrama de lista enlazada: los nodos contienen datos y referencias al siguiente nodo."><div class="node"><div class="d">10</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">20</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">30</div><div class="n">↻</div></div><div class="circular-return-note">El último nodo regresa al primero</div></div>
+<h3 class="ed-subheading">Estructura básica en C</h3>
 <div class="code">struct nodo {
     int dato;
     struct nodo *siguiente;
@@ -209,12 +182,67 @@ FIN SI
 
 FIN ALGORITMO</div></div>
 <div class="note"><b>Aplicaciones:</b> turnos de jugadores, procesos atendidos cíclicamente, planificación, listas de reproducción repetitivas y administración de recursos por turnos.</div>
-<div class="section">9 · 1.2 IMPLEMENTACIÓN Y APLICACIONES</div>
+<div class="section" id="u1-doble-circular">LISTAS DOBLEMENTE CIRCULARES</div>
+<p>Cada nodo tiene <b>anterior</b> y <b>siguiente</b>. En una lista no vacía, el siguiente del último apunta al primero y el anterior del primero apunta al último. Puedes recorrerla en ambos sentidos. Si hay un solo nodo, ambos enlaces apuntan a ese mismo nodo.</p>
+<p><a class="tema-btn" href="tema_01_listas_dobles_circulares.html">Ver tema: listas dobles circulares →</a></p>
+<div class="note"><b>Condición de parada:</b> comprueba primero que la lista no esté vacía y termina el recorrido cuando regreses al nodo inicial. Esperar a encontrar NULL en una lista circular no vacía produce un ciclo infinito.</div>
+<section aria-labelledby="u1-punteros">
+<div class="section" id="u1-punteros">PUNTEROS Y MEMORIA DINÁMICA EN LAS LISTAS</div>
+<p>Un <b>puntero</b> es una variable que guarda una dirección de memoria. En las estructuras de datos enlazadas permite localizar nodos sin exigir que estén juntos en memoria. En una lista simple, <code>siguiente</code> guarda la dirección del próximo nodo; en una doble también existe <code>anterior</code>.</p>
+<table><tr><th>Expresión en C</th><th>Significado</th></tr>
+<tr><td><code>struct nodo *p;</code></td><td>Declara un puntero a un nodo; no crea ni reserva el nodo.</td></tr>
+<tr><td><code>&amp;variable</code></td><td>Obtiene la dirección de una variable.</td></tr>
+<tr><td><code>*p</code></td><td>Accede al objeto al que apunta p, si el puntero es válido.</td></tr>
+<tr><td><code>p-&gt;dato</code></td><td>Accede al campo dato del nodo apuntado; equivale a <code>(*p).dato</code>.</td></tr>
+<tr><td><code>NULL</code></td><td>Indica que el puntero no apunta a un objeto. No debes desreferenciarlo.</td></tr></table>
+<h3 class="ed-subheading">1. Reservar memoria: malloc</h3>
+<p>La memoria dinámica se solicita durante la ejecución. <code>malloc</code>, declarada en <code>&lt;stdlib.h&gt;</code>, reserva bytes y devuelve un puntero. Puede fallar y devolver <code>NULL</code>; además, no inicializa los campos del nodo.</p>
+<pre class="memoria-code"><code>#include &lt;stdlib.h&gt;
+
+struct nodo {
+    int dato;
+    struct nodo *siguiente;
+};
+
+/* Dentro de una función: insertar al inicio de una lista simple. */
+struct nodo *cabeza = NULL;
+struct nodo *nuevo = malloc(sizeof *nuevo);
+
+if (nuevo != NULL) {
+    nuevo-&gt;dato = 25;
+    nuevo-&gt;siguiente = cabeza;
+    cabeza = nuevo;
+} else {
+    /* Informar que no fue posible reservar memoria. */
+}</code></pre>
+<div class="note"><b>Conectar no significa copiar:</b> <code>nuevo-&gt;siguiente = cabeza;</code> copia una dirección. <code>cabeza = nuevo;</code> cambia el punto de entrada a la lista. El nodo permanece en la memoria reservada hasta que se libere.</div>
+<h3 class="ed-subheading">2. Recorrer sin perder la cabeza</h3>
+<p>Usa un puntero auxiliar. Si avanzas directamente <code>cabeza</code>, puedes perder la referencia a los primeros nodos y dejar memoria sin liberar.</p>
+<pre class="memoria-code"><code>struct nodo *auxiliar = cabeza;
+while (auxiliar != NULL) {
+    /* Procesar auxiliar-&gt;dato. */
+    auxiliar = auxiliar-&gt;siguiente;
+}</code></pre>
+<h3 class="ed-subheading">3. Desenlazar y liberar: free</h3>
+<p>Eliminar un nodo requiere <b>ajustar los enlaces y liberar su memoria</b>. Guarda los enlaces necesarios antes de llamar a <code>free</code>. Este ejemplo elimina el primero de una lista simple:</p>
+<pre class="memoria-code"><code>if (cabeza != NULL) {
+    struct nodo *eliminado = cabeza;
+    cabeza = cabeza-&gt;siguiente;
+    free(eliminado);
+    eliminado = NULL;
+}</code></pre>
+<p>Para vaciar una lista simple lineal, repite esa operación hasta que <code>cabeza</code> sea <code>NULL</code>. En una lista doble, al quitar el primero también debes actualizar el enlace anterior del nuevo primero y, si queda vacía, el puntero al último. En una circular debes mantener el cierre del ciclo y tratar por separado el caso de un solo nodo.</p>
+<h3 class="ed-subheading">4. Errores que debes evitar</h3>
+<ul><li><b>Fuga de memoria:</b> perder el último enlace a un nodo sin liberarlo.</li><li><b>Puntero colgante:</b> conservar una dirección cuya memoria ya se liberó. Asignar NULL a un puntero no actualiza otras variables que guardan esa misma dirección.</li><li><b>Acceso inválido:</b> usar <code>p-&gt;dato</code> cuando p es NULL, no está inicializado o apunta a memoria liberada.</li><li><b>Doble liberación:</b> llamar a free dos veces sobre el mismo bloque.</li><li><b>Enlaces incompletos:</b> cambiar solo un enlace en una lista doble o romper el cierre de una circular.</li></ul>
+<div class="key"><b>Secuencia segura:</b> reservar → comprobar → inicializar → enlazar → utilizar → desenlazar → liberar. En C, usa malloc/free; no mezcles esta pareja con new/delete de C++.</div>
+</section>
+
+<div class="section" id="u1-2">1.2 · IMPLEMENTACIÓN Y APLICACIONES</div>
 <p>Las listas enlazadas son apropiadas cuando la cantidad de elementos puede cambiar durante la ejecución. No es necesario definir previamente el número exacto de registros.</p>
 <div class="diagram" role="group" aria-label="Diagrama de lista enlazada: los nodos contienen datos y referencias al siguiente nodo."><b>ALUMNOS →</b>  <div class="node"><div class="d">Ana</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Luis</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Carlos</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">María</div><div class="n">○</div></div><div class="arr"></div><div class="null">NULL</div></div>
 <table><tr><th>Aplicación</th><th>Ejemplo</th></tr><tr><td>Registro dinámico</td><td>Estudiantes que se agregan conforme llegan.</td></tr><tr><td>Catálogos</td><td>Productos que pueden insertarse o eliminarse.</td></tr><tr><td>Agenda de contactos</td><td>Registros enlazados de tamaño variable.</td></tr><tr><td>Procesos e historiales</td><td>Secuencias dinámicas de tareas o eventos.</td></tr><tr><td>Otras estructuras</td><td>Base para pilas, colas y otras estructuras dinámicas.</td></tr></table>
-<div class="section">10 · 1.3 SOLUCIÓN DE PROBLEMAS</div>
-<h3 style="color:var(--uabc-dark)">Problema propuesto · Lista de estudiantes</h3>
+<div class="section" id="u1-3">1.3 · SOLUCIÓN DE PROBLEMAS</div>
+<h3 class="ed-subheading">Problema propuesto · Lista de estudiantes</h3>
 <p>Una institución necesita mantener temporalmente una lista de números de matrícula. Debe permitir registrar, mostrar, buscar y eliminar matrículas.</p>
 <div class="diagram" role="group" aria-label="Diagrama de lista enlazada: los nodos contienen datos y referencias al siguiente nodo."><b>CABEZA →</b>  <div class="node"><div class="d">12501</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">12508</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">12515</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">12522</div><div class="n">○</div></div><div class="arr"></div><div class="null">NULL</div></div>
 <div class="pseudo">INICIO
@@ -254,7 +282,8 @@ REPETIR
 HASTA seleccionar Salir
 
 FIN</div>
-<div class="section">11 · RESUMEN DE LA UNIDAD</div>
+<section class="listas-quiz" id="u1-quiz" aria-labelledby="listas-quiz-title"><h2 id="listas-quiz-title">Quiz · Listas, punteros y memoria dinámica</h2><p>Responde las siete preguntas y pulsa <b>Evaluar respuestas</b>. Puedes cambiar tus respuestas y volver a evaluar.</p><p class="quiz-total" id="listas-quiz-score" aria-live="polite">0 / 7</p><fieldset data-correct="0" data-explanation="El enlace guarda una dirección; no copia el nodo."><legend>1. ¿Qué almacena el puntero siguiente de un nodo?</legend><label><input type="radio" name="listas-q1" value="0">La dirección del próximo nodo.</label><label><input type="radio" name="listas-q1" value="1">La cantidad total de nodos.</label><label><input type="radio" name="listas-q1" value="2">Una copia de todos los datos.</label><div class="feedback" aria-live="polite"></div></fieldset><fieldset data-correct="1" data-explanation="La lista doble permite recorrer en ambos sentidos gracias a sus dos enlaces."><legend>2. ¿Qué distingue a una lista doble de una simple?</legend><label><input type="radio" name="listas-q2" value="0">Sus nodos siempre ocupan memoria consecutiva.</label><label><input type="radio" name="listas-q2" value="1">Cada nodo tiene enlaces anterior y siguiente.</label><label><input type="radio" name="listas-q2" value="2">Nunca requiere liberar memoria.</label><div class="feedback" aria-live="polite"></div></fieldset><fieldset data-correct="2" data-explanation="Ese enlace cierra el ciclo. El recorrido termina al regresar al inicio."><legend>3. En una lista circular simple no vacía, ¿a dónde apunta el siguiente del último nodo?</legend><label><input type="radio" name="listas-q3" value="0">A NULL.</label><label><input type="radio" name="listas-q3" value="1">A un nodo vacío.</label><label><input type="radio" name="listas-q3" value="2">Al primer nodo.</label><div class="feedback" aria-live="polite"></div></fieldset><fieldset data-correct="0" data-explanation="malloc puede devolver NULL y no inicializa los campos; debes comprobar e inicializar."><legend>4. ¿Qué debes comprobar inmediatamente después de malloc?</legend><label><input type="radio" name="listas-q4" value="0">Que el puntero devuelto no sea NULL.</label><label><input type="radio" name="listas-q4" value="1">Que todos los campos ya estén inicializados.</label><label><input type="radio" name="listas-q4" value="2">Que la lista tenga exactamente diez nodos.</label><div class="feedback" aria-live="polite"></div></fieldset><fieldset data-correct="1" data-explanation="El operador -&gt; permite acceder a un miembro de una estructura mediante un puntero."><legend>5. ¿Qué hace la expresión p-&gt;dato, si p apunta a un nodo válido?</legend><label><input type="radio" name="listas-q5" value="0">Reserva memoria para otro nodo.</label><label><input type="radio" name="listas-q5" value="1">Accede al campo dato del nodo apuntado.</label><label><input type="radio" name="listas-q5" value="2">Obtiene el número de enlaces de la lista.</label><div class="feedback" aria-live="polite"></div></fieldset><fieldset data-correct="2" data-explanation="Después de free no debes leer el nodo eliminado; sus vecinos deben quedar conectados."><legend>6. ¿Cuál es el orden seguro para eliminar un nodo?</legend><label><input type="radio" name="listas-q6" value="0">Liberarlo y después leer sus enlaces.</label><label><input type="radio" name="listas-q6" value="1">Borrar solo el dato y conservar el nodo.</label><label><input type="radio" name="listas-q6" value="2">Guardar los enlaces necesarios, ajustar la lista y liberar el nodo.</label><div class="feedback" aria-live="polite"></div></fieldset><fieldset data-correct="0" data-explanation="La memoria sigue reservada, pero ya no tienes una referencia para acceder a ella y liberarla."><legend>7. ¿Qué sucede si pierdes la última referencia a un nodo reservado y nunca lo liberas?</legend><label><input type="radio" name="listas-q7" value="0">Se produce una fuga de memoria.</label><label><input type="radio" name="listas-q7" value="1">C libera automáticamente el nodo.</label><label><input type="radio" name="listas-q7" value="2">El nodo se convierte en NULL.</label><div class="feedback" aria-live="polite"></div></fieldset><button type="button" id="listas-quiz-evaluate">Evaluar respuestas</button><button type="button" id="listas-quiz-reset">Reiniciar quiz</button><p id="listas-quiz-result" role="status" aria-live="polite"></p></section>
+<div class="section" id="u1-resumen">RESUMEN DE LA UNIDAD I</div>
 <table><tr><th>Tipo de lista</th><th>Enlaces por nodo</th><th>Recorrido</th><th>Final</th></tr><tr><td><b>Sencilla</b></td><td>1</td><td>Hacia adelante</td><td>NULL</td></tr><tr><td><b>Doble</b></td><td>2</td><td>Adelante y atrás</td><td>NULL</td></tr><tr><td><b>Circular</b></td><td>1 o 2</td><td>Cíclico</td><td>Regresa al inicio</td></tr></table>
 <div class="key"><b>Conceptos que el estudiante debe dominar:</b><ul><li>Qué es un nodo y cuál es el papel de los punteros.</li><li>Diferencias entre lista sencilla, doble y circular.</li><li>Representación gráfica de una lista enlazada.</li><li>Inserción, búsqueda, recorrido y eliminación.</li><li>Uso de pseudocódigo para expresar algoritmos.</li><li>Selección del tipo de lista apropiado para un problema.</li><li>Relación entre listas enlazadas y memoria dinámica en C.</li></ul></div>
 <section aria-labelledby="titulo-tipos-listas" class="listas-nav-panel">
@@ -295,7 +324,17 @@ FIN</div>
 </div>
 </section>
 <div class="summary"><div class="bulb">💡</div><div><b>IDEA CLAVE</b><br/>En una lista enlazada, lo importante no es únicamente dónde se encuentra almacenado un dato, sino <b>qué nodo conoce la dirección del siguiente elemento</b>.</div></div>
-</div></div></div><section class="ed-list-demo" aria-labelledby="demo-title"><h2 id="demo-title">Simulación: inserción y eliminación en una lista</h2><p>Escribe un entero y observa cómo cambia la secuencia de nodos. El primer nodo se llama cabeza y el último apunta a NULL.</p><div class="ed-list-controls"><label for="demo-valor">Valor entero</label><input id="demo-valor" type="number" inputmode="numeric" min="-999" max="999" value="10"><button type="button" data-list-action="inicio">Insertar al inicio</button><button type="button" data-list-action="final">Insertar al final</button><button type="button" data-list-action="eliminar">Eliminar primero</button><button type="button" data-list-action="limpiar">Limpiar</button></div><div id="demo-lista" class="ed-list-visual" aria-label="Contenido de la lista"></div><p id="demo-estado" role="status" aria-live="polite"></p><p><a href="programa_listas.html">Ver ejemplo completo en C</a> · <a href="../codigo/lista_simple.c" download>Descargar código</a></p></section></main>
+</div></div></div><section class="ed-list-demo" aria-labelledby="demo-title"><h2 id="demo-title">Simulación: inserción y eliminación en una lista</h2><p>Escribe un entero y observa cómo cambia la secuencia de nodos. El primer nodo se llama cabeza y el último apunta a NULL.</p><div class="ed-list-controls"><label for="demo-valor">Valor entero</label><input id="demo-valor" type="number" inputmode="numeric" min="-999" max="999" value="10"><button type="button" data-list-action="inicio">Insertar al inicio</button><button type="button" data-list-action="final">Insertar al final</button><button type="button" data-list-action="eliminar">Eliminar primero</button><button type="button" data-list-action="limpiar">Limpiar</button></div><div id="demo-lista" class="ed-list-visual" aria-label="Contenido de la lista"></div><p id="demo-estado" role="status" aria-live="polite"></p><div class="demo-resource-actions" aria-label="Recursos de código de listas">
+  <a class="demo-resource-btn" href="programa_listas.html">
+    <i class="bi bi-code-slash" aria-hidden="true"></i>
+    Ver ejemplo completo en C
+  </a>
+  <a class="demo-resource-btn demo-resource-btn-secondary" href="../codigo/lista_simple.c" download>
+    <i class="bi bi-download" aria-hidden="true"></i>
+    Descargar código en C
+  </a>
+</div></section>
+</main>
 <div id="site-footer"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 

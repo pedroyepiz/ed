@@ -238,3 +238,187 @@ body.pe-course-page .page-content-card pre code{
   body.pe-course-page .ed-topic-content .pseudo,
   body.pe-course-page .page-content-card pre:not(.c-code){font-size:.86rem;padding:15px !important;}
 }
+
+/* =====================================================================
+   COMPONENTES COMPARTIDOS · PÁGINAS INTERNAS / LISTAS
+   Todo el estilo se mantiene externo al HTML.
+   ===================================================================== */
+
+/* Imagen responsive del hero de Listas */
+body.pe-course-page .listas-hero-visual{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  min-width:0;
+}
+
+body.pe-course-page .listas-hero-image{
+  display:block;
+  width:100%;
+  max-width:440px;
+  height:auto;
+  object-fit:contain;
+  border-radius:14px;
+}
+
+/* Menú interno uniforme tipo chips */
+body.pe-course-page.pe-uniform-page .topic-nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.55rem;
+  align-items:center;
+  margin:0 0 24px;
+  padding:10px 12px;
+  background:#f7fcf9;
+  border:1px solid #cfe6dc;
+  border-radius:12px;
+  box-shadow:0 3px 12px rgba(0,70,45,.05);
+}
+
+body.pe-course-page.pe-uniform-page .topic-nav a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  padding:.48rem .8rem;
+  border:1px solid #c9ded5;
+  border-radius:999px;
+  background:#fff;
+  color:#005b40;
+  text-decoration:none;
+  font-weight:800;
+  font-size:.9rem;
+  line-height:1.1;
+  box-shadow:0 2px 7px rgba(0,70,45,.06);
+  transition:background-color .15s ease,border-color .15s ease,color .15s ease,transform .15s ease,box-shadow .15s ease;
+}
+
+body.pe-course-page.pe-uniform-page .topic-nav a:hover,
+body.pe-course-page.pe-uniform-page .topic-nav a:focus-visible{
+  background:#006847;
+  border-color:#006847;
+  color:#fff;
+  transform:translateY(-1px);
+  box-shadow:0 5px 12px rgba(0,104,71,.16);
+  outline:none;
+}
+
+html{scroll-behavior:smooth;}
+body.pe-course-page.pe-uniform-page [id]{scroll-margin-top:110px;}
+
+/* Clases que reemplazan antiguos style= embebidos */
+body.pe-course-page .ed-subheading{
+  color:var(--uabc-dark,#004b35);
+}
+
+body.pe-course-page .mt-section-sm{
+  margin-top:14px;
+}
+
+body.pe-course-page .circular-return-note{
+  margin-top:10px;
+  color:var(--uabc-dark,#004b35);
+  font-weight:800;
+}
+
+body.pe-course-page .text-danger-strong{
+  color:#c62828;
+}
+
+@media (max-width:1199.98px){
+  body.pe-course-page .listas-hero-image{max-width:400px;}
+}
+
+@media (max-width:767.98px){
+  body.pe-course-page .listas-hero-visual{margin-inline:auto;}
+  body.pe-course-page .listas-hero-image{max-width:360px;}
+}
+
+@media (max-width:575.98px){
+  body.pe-course-page .listas-hero-image{
+    max-width:100%;
+    border-radius:10px;
+  }
+  body.pe-course-page.pe-uniform-page .topic-nav{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  body.pe-course-page.pe-uniform-page .topic-nav a{
+    width:100%;
+    white-space:normal;
+    text-align:center;
+  }
+}
+
+@media (max-width:420px){
+  body.pe-course-page.pe-uniform-page .topic-nav{grid-template-columns:1fr;}
+}
+
+/* =====================================================================
+   RECURSOS DE CÓDIGO · SIMULADORES
+   ===================================================================== */
+body.pe-course-page .demo-resource-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.75rem;
+  align-items:center;
+  margin-top:1rem;
+}
+
+body.pe-course-page .demo-resource-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  min-height:42px;
+  padding:.72rem 1rem;
+  border:1px solid #006847;
+  border-radius:10px;
+  background:#006847;
+  color:#fff !important;
+  text-decoration:none !important;
+  font-weight:800;
+  line-height:1.1;
+  box-shadow:0 4px 10px rgba(0,104,71,.14);
+  transition:
+    background-color .15s ease,
+    border-color .15s ease,
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+body.pe-course-page .demo-resource-btn:hover,
+body.pe-course-page .demo-resource-btn:focus-visible{
+  background:#004b35;
+  border-color:#004b35;
+  color:#fff !important;
+  transform:translateY(-1px);
+  box-shadow:0 7px 14px rgba(0,75,53,.18);
+  outline:none;
+}
+
+body.pe-course-page .demo-resource-btn-secondary{
+  background:#fff;
+  color:#006847 !important;
+  border:2px solid #006847;
+}
+
+body.pe-course-page .demo-resource-btn-secondary:hover,
+body.pe-course-page .demo-resource-btn-secondary:focus-visible{
+  background:#eaf5f0;
+  color:#004b35 !important;
+  border-color:#004b35;
+}
+
+@media (max-width:575.98px){
+  body.pe-course-page .demo-resource-actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  body.pe-course-page .demo-resource-btn{
+    width:100%;
+  }
+}
+

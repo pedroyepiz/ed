@@ -12,39 +12,40 @@
 <link rel="stylesheet" href="../styles/pages/tema_codigo_ide_general.css">
 <link rel="stylesheet" href="../styles/pages/ed_topics.css">
 
-<meta name="description" content="Listas circulares | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz."></head>
-<body class="pe-home pe-course-page">
+<meta name="description" content="Listas circulares | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz."><link rel="stylesheet" href="../styles/pages/nuevos_temas.css">
+</head>
+<body class="pe-home pe-course-page listas-series pe-uniform-page">
 <div id="site-header"></div>
-<section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-xl-7">
+<section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-12 col-xl-5">
 <div class="topic-number-pill"><i class="bi bi-arrow-repeat"></i> Tema 1 · Listas circulares</div>
 <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
 <h1 class="course-title">Listas circulares</h1>
 <p class="course-subtitle mb-0">El último nodo vuelve al primero y permite recorridos continuos</p><div class="hero-line"></div>
 <div class="course-quote"><i class="bi bi-diagram-3-fill"></i><span>“Comprender la estructura es comprender cómo se organiza la solución.”</span></div>
-</div><div class="col-xl-5"><div id="course-info" data-topic="Tema 1 · Listas circulares"></div></div></div></div></section>
-<main class="container-fluid pe-shell page-content-shell"><div class="page-content-card content"><div class="ed-topic-content"><div class="page-listas-circulares">
+</div><div class="col-12 col-md-6 col-xl-3"><div class="listas-hero-visual"><img src="../images/listas_circulares.webp" width="887" height="443" alt="Representación de listas circulares"></div></div><div class="col-12 col-md-6 col-xl-4"><div id="course-info" data-topic="Tema 1 · Listas circulares"></div></div></div></div></section>
+<main class="container-fluid pe-shell page-content-shell"><div class="page-content-card content"><div class="ed-topic-content"><div class="page-listas-circulares"><section class="unit-jump-menu"><nav class="topic-nav listas-dobles-topic-nav" aria-label="Contenido del tema"><a href="#lista-seccion-1">5 · REPRESENTACIÓN BÁSICA</a><a href="#lista-seccion-2">6 · ANALOGÍA VISUAL · RULETA DE CASINO</a><a href="#lista-seccion-3">7 · RECORRIDO CIRCULAR</a><a href="#lista-seccion-4">8 · INSERCIÓN</a><a href="#lista-seccion-5">9 · USOS EN COMPUTACIÓN</a><a href="#lista-seccion-6">10 · EJEMPLO · RULETA DE TURNOS</a><a href="#lista-seccion-7">11 · CUIDADOS IMPORTANTES</a><a href="#simulador">Simulador</a><a href="#quiz">Quiz</a><a href="#lista-resumen">Resumen</a></nav></section>
 <section class="grid4">
 <article class="card green"><h3>1 · ¿QUÉ ES?</h3><div class="body"><div class="icon">🔄</div><p>Lista enlazada donde el último nodo vuelve a enlazarse con el primero.</p><div class="key">No existe un NULL natural al final.</div></div></article>
 <article class="card blue"><h3>2 · ¿PARA QUÉ SIRVE?</h3><div class="body"><div class="icon">🎯</div><ul><li>Procesos repetitivos.</li><li>Turnos cíclicos.</li><li>Recorridos continuos.</li><li>Recursos rotativos.</li></ul></div></article>
 <article class="card purple"><h3>3 · ¿CÓMO FUNCIONA?</h3><div class="body"><div class="icon">⚙️</div><ul><li>Se parte de CABEZA.</li><li>Cada nodo apunta al siguiente.</li><li>El último vuelve a CABEZA.</li></ul></div></article>
 <article class="card orange"><h3>4 · USOS</h3><div class="body"><div class="icon">🖥️</div><ul><li>Round Robin.</li><li>Turnos de jugadores.</li><li>Playlists.</li><li>Buffers circulares.</li></ul></div></article>
 </section>
-<div class="section">5 · REPRESENTACIÓN BÁSICA</div>
-<div class="diagram"><div class="nodes"><b style="margin-right:10px;color:var(--uabc-dark)">CABEZA →</b><div class="node"><div class="d">10</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">20</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">30</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">40</div><div class="n">○</div></div><div class="loop"></div></div></div>
-<div class="two" style="margin-top:14px">
-<div><h3 style="color:var(--uabc-dark)">Nodo básico</h3><div class="key"><b>NODO</b><br/>dato<br/>siguiente</div><p>La diferencia con una lista sencilla está en cómo se conecta el último nodo.</p></div>
-<div><h3 style="color:var(--uabc-dark)">Estructura base en C</h3><div class="code">struct nodo {
+<div class="section" id="lista-seccion-1">5 · REPRESENTACIÓN BÁSICA</div>
+<div class="diagram"><div class="nodes"><b class="listas-detail-2">CABEZA →</b><div class="node"><div class="d">10</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">20</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">30</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">40</div><div class="n">○</div></div><div class="loop"></div></div></div>
+<div class="listas-detail-4 two">
+<div><h3 class="listas-detail-3">Nodo básico</h3><div class="key"><b>NODO</b><br/>dato<br/>siguiente</div><p>La diferencia con una lista sencilla está en cómo se conecta el último nodo.</p></div>
+<div><h3 class="listas-detail-3">Estructura base en C</h3><div class="code">struct nodo {
     int dato;
     struct nodo *siguiente;
 };</div></div>
 </div>
-<div class="section">6 · ANALOGÍA VISUAL · RULETA DE CASINO</div>
+<div class="section" id="lista-seccion-2">6 · ANALOGÍA VISUAL · RULETA DE CASINO</div>
 <div class="roulette-wrap">
-<div class="roulette"><div class="arrowpin"></div><div class="slot" style="transform:rotate(0deg) translateY(-108px) rotate(-0deg)">0</div><div class="slot" style="transform:rotate(30deg) translateY(-108px) rotate(-30deg)">32</div><div class="slot" style="transform:rotate(60deg) translateY(-108px) rotate(-60deg)">15</div><div class="slot" style="transform:rotate(90deg) translateY(-108px) rotate(-90deg)">19</div><div class="slot" style="transform:rotate(120deg) translateY(-108px) rotate(-120deg)">4</div><div class="slot" style="transform:rotate(150deg) translateY(-108px) rotate(-150deg)">21</div><div class="slot" style="transform:rotate(180deg) translateY(-108px) rotate(-180deg)">2</div><div class="slot" style="transform:rotate(210deg) translateY(-108px) rotate(-210deg)">25</div><div class="slot" style="transform:rotate(240deg) translateY(-108px) rotate(-240deg)">17</div><div class="slot" style="transform:rotate(270deg) translateY(-108px) rotate(-270deg)">34</div><div class="slot" style="transform:rotate(300deg) translateY(-108px) rotate(-300deg)">6</div><div class="slot" style="transform:rotate(330deg) translateY(-108px) rotate(-330deg)">27</div></div>
+<div class="roulette"><div class="arrowpin"></div><div class="listas-detail-5 slot">0</div><div class="listas-detail-6 slot">32</div><div class="listas-detail-7 slot">15</div><div class="listas-detail-8 slot">19</div><div class="listas-detail-9 slot">4</div><div class="listas-detail-10 slot">21</div><div class="listas-detail-11 slot">2</div><div class="listas-detail-12 slot">25</div><div class="listas-detail-13 slot">17</div><div class="listas-detail-14 slot">34</div><div class="listas-detail-15 slot">6</div><div class="listas-detail-16 slot">27</div></div>
 <div><div class="note"><b>Analogía:</b> una ruleta de casino es un excelente ejemplo visual. Los números están distribuidos alrededor de un círculo. Después de recorrer todos los espacios, el siguiente vuelve a ser el primero.</div>
 <div class="key"><b>Correspondencia:</b><br/>Número de la ruleta → nodo<br/>Siguiente casilla → enlace siguiente<br/>Vuelta completa → recorrido circular<br/>Regreso al primer número → regreso a CABEZA</div></div>
 </div>
-<div class="section">7 · RECORRIDO CIRCULAR</div>
+<div class="section" id="lista-seccion-3">7 · RECORRIDO CIRCULAR</div>
 <div class="op"><div class="pseudo">ALGORITMO Recorrer_Circular
 
 SI la lista no está vacía
@@ -57,7 +58,7 @@ SI la lista no está vacía
 FIN SI
 
 FIN ALGORITMO</div></div>
-<div class="section">8 · INSERCIÓN</div>
+<div class="section" id="lista-seccion-4">8 · INSERCIÓN</div>
 <div class="two">
 <div class="op"><h3>Insertar al inicio</h3><div class="pseudo">ALGORITMO Insertar_Inicio_Circular
 
@@ -87,28 +88,42 @@ SINO
     NUEVO.siguiente ← CABEZA
 FIN SI</div></div>
 </div>
-<div class="section">9 · USOS EN COMPUTACIÓN</div>
+<div class="section" id="lista-seccion-5">9 · USOS EN COMPUTACIÓN</div>
 <table><tr><th>Aplicación</th><th>Uso</th></tr>
 <tr><td><b>Round Robin</b></td><td>Los procesos reciben tiempo de CPU por turnos y después del último se regresa al primero.</td></tr>
 <tr><td><b>Turnos de jugadores</b></td><td>Después del último jugador vuelve a iniciar el primero.</td></tr>
 <tr><td><b>Listas de reproducción</b></td><td>La última canción puede enlazarse nuevamente con la primera.</td></tr>
 <tr><td><b>Buffers circulares</b></td><td>Al alcanzar el final lógico, se reutiliza el inicio.</td></tr>
 <tr><td><b>Simulaciones</b></td><td>Representan ciclos que se repiten continuamente.</td></tr></table>
-<div class="section">10 · EJEMPLO · RULETA DE TURNOS</div>
-<div class="diagram"><div class="nodes"><b style="margin-right:10px;color:var(--uabc-dark)">TURNO →</b><div class="node"><div class="d">Ana</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Luis</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Carlos</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">María</div><div class="n">○</div></div><div class="loop"></div></div></div>
+<div class="section" id="lista-seccion-6">10 · EJEMPLO · RULETA DE TURNOS</div>
+<div class="diagram"><div class="nodes"><b class="listas-detail-2">TURNO →</b><div class="node"><div class="d">Ana</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Luis</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">Carlos</div><div class="n">○</div></div><div class="arr"></div><div class="node"><div class="d">María</div><div class="n">○</div></div><div class="loop"></div></div></div>
 <p>Después de María, el siguiente turno vuelve a Ana. Ese comportamiento representa exactamente una lista circular.</p>
-<div class="section">11 · CUIDADOS IMPORTANTES</div>
+<div class="section" id="lista-seccion-7">11 · CUIDADOS IMPORTANTES</div>
 <div class="grid4">
 <article class="card green"><h3>RECORRIDO</h3><div class="body">No debes esperar encontrar NULL. El recorrido termina cuando vuelves al nodo inicial.</div></article>
 <article class="card blue"><h3>LISTA VACÍA</h3><div class="body">Verifica siempre si CABEZA es nula antes de recorrer.</div></article>
 <article class="card purple"><h3>ENLACES</h3><div class="body">Al insertar o eliminar, conserva el enlace entre el último nodo y CABEZA.</div></article>
 <article class="card orange"><h3>BUCLES</h3><div class="body">Una condición incorrecta puede provocar un ciclo infinito.</div></article>
 </div>
-<div class="summary"><div class="bulb">💡</div><div><b>EN RESUMEN</b><br/>Una lista circular es una estructura donde el último nodo regresa al primero. Es ideal para procesos repetitivos, sistemas por turnos y recorridos cíclicos. La <b>ruleta de casino</b> ayuda a visualizar que no existe un final definitivo: después de una vuelta, el recorrido comienza nuevamente.</div></div>
-</div></div></div></main>
+<section class="ed-lab" id="simulador" data-ed-list="circulares" aria-labelledby="lab-title">
+<h2 id="lab-title">Simulador · Listas circulares</h2><p>Ingresa enteros de -999 a 999 sin repetir. Selecciona un nodo para recorrer la estructura. Máximo ocho nodos para mantener la representación legible.</p>
+<div class="ed-lab-controls"><label for="lab-value">Valor entero</label><input id="lab-value" type="number" min="-999" max="999" step="1" placeholder="Ej. 25">
+<button type="button" data-ed-action="start">Agregar al inicio</button><button type="button" data-ed-action="end">Agregar al final</button><button type="button" data-ed-action="remove">Eliminar valor</button><button type="button" data-ed-action="search">Buscar</button><button type="button" data-ed-action="clear">Limpiar</button></div>
+<div class="ed-lab-controls"><button type="button" data-ed-action="next">Siguiente →</button></div>
+<p data-ed-current aria-live="polite"></p><div class="ed-lab-track" data-ed-track aria-label="Nodos de la estructura"></div><p data-ed-cycle></p><p data-ed-status role="status" aria-live="polite"></p></section><section class="ed-lab ed-quiz" id="quiz" data-ed-quiz aria-labelledby="quiz-title"><h2 id="quiz-title">Quiz · Listas circulares</h2><p>Responde cuatro preguntas de opción múltiple y analiza tres fragmentos de C. Se asumen incluidos los encabezados necesarios.</p><p class="ed-score" data-ed-score aria-live="polite">0 / 7</p><h3>Parte A · Opción múltiple</h3><fieldset data-ed-question data-correct="0" data-explanation="El enlace contiene una referencia al próximo nodo."><legend>1. ¿Qué guarda el enlace siguiente?</legend><label><input type="radio" name="ed-q1" value="0"> La dirección del próximo nodo.</label><label><input type="radio" name="ed-q1" value="1"> Todos los datos de la lista.</label><label><input type="radio" name="ed-q1" value="2"> El número de nodos.</label><p class="ed-feedback" aria-live="polite"></p></fieldset><fieldset data-ed-question data-correct="1" data-explanation="En una circular se termina al volver al nodo de inicio."><legend>2. ¿Cómo se identifica el final del recorrido?</legend><label><input type="radio" name="ed-q2" value="0"> Siempre al encontrar NULL.</label><label><input type="radio" name="ed-q2" value="1"> Al regresar al nodo inicial, si la lista no está vacía.</label><label><input type="radio" name="ed-q2" value="2"> Después de dos nodos.</label><p class="ed-feedback" aria-live="polite"></p></fieldset><fieldset data-ed-question data-correct="0" data-explanation="Un nodo simple tiene un enlace siguiente, aunque la lista sea circular."><legend>3. ¿Cuántos enlaces a otros nodos tiene un nodo de esta lista simple?</legend><label><input type="radio" name="ed-q3" value="0"> Uno: siguiente.</label><label><input type="radio" name="ed-q3" value="1"> Dos: anterior y siguiente.</label><label><input type="radio" name="ed-q3" value="2"> Ninguno.</label><p class="ed-feedback" aria-live="polite"></p></fieldset><fieldset data-ed-question data-correct="1" data-explanation="La reserva puede fallar; después se inicializan los campos."><legend>4. ¿Qué debes comprobar después de malloc?</legend><label><input type="radio" name="ed-q4" value="0"> Que el dato ya esté inicializado.</label><label><input type="radio" name="ed-q4" value="1"> Que el puntero no sea NULL.</label><label><input type="radio" name="ed-q4" value="2"> Que free se haya ejecutado.</label><p class="ed-feedback" aria-live="polite"></p></fieldset><h3>Parte B · Análisis de código</h3><article class="ed-code-question" data-ed-question data-correct="correcto" data-explanation="El único nodo apunta a sí mismo."><h4>5. Analiza el fragmento</h4><p>Crear una lista circular simple de un nodo: nuevo ya está reservado.</p><pre><code>nuevo-&gt;siguiente = nuevo;
+cabeza = nuevo;</code></pre><button type="button" data-ed-answer="correcto" aria-pressed="false">Está correcto</button><button type="button" data-ed-answer="error" aria-pressed="false">Tiene un error</button><p class="ed-feedback" aria-live="polite"></p></article><article class="ed-code-question" data-ed-question data-correct="error" data-explanation="Nunca llega a NULL: debe detenerse al regresar a cabeza."><h4>6. Analiza el fragmento</h4><p>Recorrer: cabeza apunta a una lista circular simple no vacía.</p><pre><code>struct nodo *aux = cabeza;
+while (aux != NULL) {
+    printf(&quot;%d &quot;, aux-&gt;dato);
+    aux = aux-&gt;siguiente;
+}</code></pre><button type="button" data-ed-answer="correcto" aria-pressed="false">Está correcto</button><button type="button" data-ed-answer="error" aria-pressed="false">Tiene un error</button><p class="ed-feedback" aria-live="polite"></p></article><article class="ed-code-question" data-ed-question data-correct="correcto" data-explanation="Mantiene el cierre del ciclo y actualiza el último nodo."><h4>7. Analiza el fragmento</h4><p>Insertar al final: primero y ultimo forman una circular no vacía; nuevo está reservado.</p><pre><code>nuevo-&gt;siguiente = primero;
+ultimo-&gt;siguiente = nuevo;
+ultimo = nuevo;</code></pre><button type="button" data-ed-answer="correcto" aria-pressed="false">Está correcto</button><button type="button" data-ed-answer="error" aria-pressed="false">Tiene un error</button><p class="ed-feedback" aria-live="polite"></p></article><button type="button" data-ed-evaluate>Analizar respuestas</button><button type="button" data-ed-reset>Reiniciar quiz</button><p data-ed-result role="status" aria-live="polite"></p></section><div class="summary" id="lista-resumen"><div class="bulb">💡</div><div><b>EN RESUMEN</b><br/>Una lista circular es una estructura donde el último nodo regresa al primero. Es ideal para procesos repetitivos, sistemas por turnos y recorridos cíclicos. La <b>ruleta de casino</b> ayuda a visualizar que no existe un final definitivo: después de una vuelta, el recorrido comienza nuevamente.</div></div>
+</div></div></div><nav class="listas-series-nav" aria-label="Navegación entre temas de listas"><a href="tema_01_listas_simples.html">← Anterior</a><a href="tema_01_listas.html">⌂ Inicio</a><a href="tema_01_listas_dobles.html">Siguiente →</a></nav>
+</main>
 <div id="site-footer"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 <script src="../scripts/layout.js" defer></script>
 
+<script src="../scripts/listas-demo.js" defer></script>
 </body></html>

@@ -11,34 +11,62 @@
 <link rel="stylesheet" href="../styles/pages/paginas_uniformes.css">
 <link rel="stylesheet" href="../styles/pages/tema_codigo_ide_general.css">
 <link rel="stylesheet" href="../styles/pages/ed_topics.css">
+<link rel="stylesheet" href="../styles/pages/listas_dobles_interactivo.css?v=2">
 
 <meta name="description" content="Listas doblemente enlazadas | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz."></head>
-<body class="pe-home pe-course-page">
+<body class="pe-home pe-course-page pe-uniform-page">
 <div id="site-header"></div>
-<section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-xl-7">
+<section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-12 col-xl-5">
 <div class="topic-number-pill"><i class="bi bi-arrow-left-right"></i> Tema 1 · Listas dobles</div>
 <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
 <h1 class="course-title">Listas doblemente enlazadas</h1>
 <p class="course-subtitle mb-0">Nodos con enlaces anterior y siguiente</p><div class="hero-line"></div>
 <div class="course-quote"><i class="bi bi-diagram-3-fill"></i><span>“Comprender la estructura es comprender cómo se organiza la solución.”</span></div>
-</div><div class="col-xl-5"><div id="course-info" data-topic="Tema 1 · Listas dobles"></div></div></div></div></section>
+</div>
+<div class="col-12 col-md-6 col-xl-3">
+  <div class="listas-hero-visual">
+    <img src="../images/listas_dobles.webp"
+         class="img-fluid rounded-4 shadow-sm w-100"
+         width="887" height="443"
+         alt="Lista doblemente enlazada con nodos, enlaces anterior y siguiente y extremos NULL">
+  </div>
+</div>
+<div class="col-12 col-md-6 col-xl-4"><div id="course-info" data-topic="Tema 1 · Listas dobles"></div></div></div></div></section>
 <main class="container-fluid pe-shell page-content-shell"><div class="page-content-card content"><div class="ed-topic-content"><div class="page-listas-dobles">
+<section class="unit-jump-menu" aria-labelledby="menu-unidad-doble">
+  <div class="unit-jump-title" id="menu-unidad-doble">
+    <i class="bi bi-compass"></i>
+    Navegación de la página
+  </div>
+  <nav class="topic-nav listas-dobles-topic-nav" aria-label="Contenido de listas doblemente enlazadas">
+    <a href="#doble-estructura">Estructura</a>
+    <a href="#doble-representacion">Representación</a>
+    <a href="#doble-analogia">Analogía</a>
+    <a href="#doble-adelante">Recorrido →</a>
+    <a href="#doble-atras">Recorrido ←</a>
+    <a href="#doble-insercion">Inserción</a>
+    <a href="#doble-eliminacion">Eliminación</a>
+    <a href="#simulador-lista-doble">Simulador</a>
+    <a href="#quiz-lista-doble">Quiz</a>
+    <a href="#doble-resumen">Resumen</a>
+  </nav>
+</section>
 <section class="grid4">
 <article class="card green"><h3>1 · ¿QUÉ ES?</h3><div class="body"><div class="icon">↔️</div><p>Una <b>lista doble</b> es una estructura dinámica en la que cada nodo tiene dos enlaces.</p><div class="key"><b>anterior</b> ← nodo → <b>siguiente</b></div></div></article>
 <article class="card blue"><h3>2 · ¿PARA QUÉ SIRVE?</h3><div class="body"><div class="icon">🎯</div><ul><li>Recorrer en ambos sentidos.</li><li>Retroceder y avanzar.</li><li>Facilitar ciertas eliminaciones.</li><li>Modelar historiales.</li></ul></div></article>
 <article class="card purple"><h3>3 · ¿CÓMO FUNCIONA?</h3><div class="body"><div class="icon">⚙️</div><ul><li>Cada nodo conoce al anterior.</li><li>Cada nodo conoce al siguiente.</li><li>PRIMERO marca el inicio.</li><li>ULTIMO marca el final.</li></ul></div></article>
 <article class="card orange"><h3>4 · USOS</h3><div class="body"><div class="icon">🖥️</div><ul><li>Historial del navegador.</li><li>Undo / Redo.</li><li>Reproductores.</li><li>Galerías de imágenes.</li></ul></div></article>
 </section>
-<div class="section">5 · ESTRUCTURA DEL NODO</div>
+<div class="section" id="doble-estructura">5 · ESTRUCTURA DEL NODO</div>
 <div class="two">
 <div><div class="key"><b>NODO DOBLE</b><br/><br/>anterior · dato · siguiente</div><p>El puntero <b>anterior</b> permite regresar; el puntero <b>siguiente</b> permite avanzar.</p></div>
-<div><h3 style="color:var(--uabc-dark)">Estructura básica en C</h3><div class="code">struct nodo {
+<div><h3 class="uabc-subtitle">Estructura básica en C</h3><div class="code">struct nodo {
     int dato;
     struct nodo *anterior;
     struct nodo *siguiente;
 };</div></div>
 </div>
-<div class="section">6 · REPRESENTACIÓN GRÁFICA</div>
+<div class="section" id="doble-representacion">6 · REPRESENTACIÓN GRÁFICA</div>
 <div class="diagram">
 NULL ⇄
 <div class="node"><div class="prev">○</div><div class="data">10</div><div class="next">○</div></div>
@@ -49,14 +77,14 @@ NULL ⇄
 ⇄ NULL
 </div>
 <div class="note"><b>Idea clave:</b> en una lista doble puedes desplazarte de izquierda a derecha y también regresar de derecha a izquierda.</div>
-<div class="section">7 · ANALOGÍA · NAVEGADOR WEB</div>
+<div class="section" id="doble-analogia">7 · ANALOGÍA · NAVEGADOR WEB</div>
 <div class="browser">
 <div class="bar"><div class="nav">←</div><div class="nav">→</div><div class="addr">https://ejemplo.com/pagina-actual</div></div>
-<div class="browser-body"><h3 style="color:var(--uabc-dark)">Historial de navegación</h3><span class="chip">Página A</span> ⇄ <span class="chip">Página B</span> ⇄ <span class="chip">Página C</span> ⇄ <span class="chip">Página D</span></div>
+<div class="browser-body"><h3 class="uabc-subtitle">Historial de navegación</h3><span class="chip">Página A</span> ⇄ <span class="chip">Página B</span> ⇄ <span class="chip">Página C</span> ⇄ <span class="chip">Página D</span></div>
 </div>
 <div class="note"><b>Analogía:</b> el botón <b>← Anterior</b> del navegador permite regresar a la página previa y el botón <b>→ Siguiente</b> permite volver a avanzar. Es el mismo principio conceptual de una lista doble.</div>
 <table><tr><th>Navegador</th><th>Lista doble</th></tr><tr><td>Página actual</td><td>Nodo actual</td></tr><tr><td>← Anterior</td><td>Puntero anterior</td></tr><tr><td>→ Siguiente</td><td>Puntero siguiente</td></tr><tr><td>Historial</td><td>Nodos enlazados</td></tr></table>
-<div class="section">8 · RECORRIDO HACIA ADELANTE</div>
+<div class="section" id="doble-adelante">8 · RECORRIDO HACIA ADELANTE</div>
 <div class="op"><div class="pseudo">ALGORITMO Recorrer_Adelante
 
 AUXILIAR ← PRIMERO
@@ -67,7 +95,7 @@ MIENTRAS AUXILIAR no sea NULL
 FIN MIENTRAS
 
 FIN ALGORITMO</div></div>
-<div class="section">9 · RECORRIDO HACIA ATRÁS</div>
+<div class="section" id="doble-atras">9 · RECORRIDO HACIA ATRÁS</div>
 <div class="op"><div class="pseudo">ALGORITMO Recorrer_Atras
 
 AUXILIAR ← ULTIMO
@@ -78,7 +106,7 @@ MIENTRAS AUXILIAR no sea NULL
 FIN MIENTRAS
 
 FIN ALGORITMO</div></div>
-<div class="section">10 · INSERCIÓN</div>
+<div class="section" id="doble-insercion">10 · INSERCIÓN</div>
 <div class="two">
 <div class="op"><h3>Insertar al inicio</h3><div class="pseudo">ALGORITMO Insertar_Inicio_Doble
 
@@ -109,9 +137,9 @@ FIN SI
 
 ULTIMO ← NUEVO</div></div>
 </div>
-<div class="section">11 · ELIMINACIÓN</div>
-<div class="diagram"><b>ANTES:</b> 10 ⇄ 20 ⇄ 30 ⇄ 40<br/><br/><span style="color:var(--red);font-weight:800">Eliminar 30</span><br/><br/><b>DESPUÉS:</b> 10 ⇄ 20 ⇄ 40</div>
-<div class="op" style="margin-top:14px"><div class="pseudo">ALGORITMO Eliminar_Doble
+<div class="section" id="doble-eliminacion">11 · ELIMINACIÓN</div>
+<div class="diagram"><b>ANTES:</b> 10 ⇄ 20 ⇄ 30 ⇄ 40<br/><br/><span class="delete-emphasis">Eliminar 30</span><br/><br/><b>DESPUÉS:</b> 10 ⇄ 20 ⇄ 40</div>
+<div class="op spacing-top"><div class="pseudo">ALGORITMO Eliminar_Doble
 
 Buscar NODO
 
@@ -130,22 +158,201 @@ SI NODO existe
 
     Liberar NODO
 FIN SI</div></div>
-<div class="section">12 · VENTAJAS Y DESVENTAJAS</div>
+<section class="double-list-lab" id="simulador-lista-doble" aria-labelledby="simulador-doble-titulo">
+  <div class="interactive-section-head">
+    <div>
+      <span class="interactive-kicker">PRÁCTICA INTERACTIVA</span>
+      <h2 id="simulador-doble-titulo">Simulador de lista doblemente enlazada</h2>
+      <p>
+        Agrega y elimina valores sin repetirlos. Selecciona un nodo y utiliza
+        <b>Anterior</b> o <b>Siguiente</b> para recorrer la lista en ambos sentidos.
+      </p>
+    </div>
+    <div class="interactive-badge">↔ Navegación bidireccional</div>
+  </div>
+
+  <div class="double-list-controls">
+    <div class="double-input-group">
+      <label for="double-value">Valor entero</label>
+      <input id="double-value" type="number" inputmode="numeric" min="-999" max="999" placeholder="Ej. 25">
+    </div>
+
+    <button type="button" class="double-action primary" data-double-action="add-start">
+      <i class="bi bi-arrow-bar-left" aria-hidden="true"></i>
+      Agregar al inicio
+    </button>
+    <button type="button" class="double-action primary" data-double-action="add-end">
+      <i class="bi bi-arrow-bar-right" aria-hidden="true"></i>
+      Agregar al final
+    </button>
+    <button type="button" class="double-action danger" data-double-action="remove">
+      <i class="bi bi-trash3" aria-hidden="true"></i>
+      Eliminar valor
+    </button>
+    <button type="button" class="double-action ghost" data-double-action="clear">
+      <i class="bi bi-eraser" aria-hidden="true"></i>
+      Limpiar
+    </button>
+  </div>
+
+  <div class="double-list-navigation" aria-label="Recorrido de la lista">
+    <button type="button" class="double-nav-btn" data-double-action="prev">
+      <i class="bi bi-arrow-left"></i>
+      Anterior
+    </button>
+    <div class="double-current" id="double-current" aria-live="polite">Nodo actual: ninguno</div>
+    <button type="button" class="double-nav-btn" data-double-action="next">
+      Siguiente
+      <i class="bi bi-arrow-right"></i>
+    </button>
+  </div>
+
+  <div class="double-list-viewport" tabindex="0" aria-label="Lista doble simulada">
+    <div class="double-list-track" id="double-list-track"></div>
+  </div>
+
+  <div class="double-list-status" id="double-list-status" role="status" aria-live="polite">
+    Agrega un valor para iniciar la simulación.
+  </div>
+
+  <div class="double-list-rules">
+    <span><i class="bi bi-check-circle-fill"></i> No acepta valores repetidos</span>
+    <span><i class="bi bi-arrow-left-right"></i> Recorre anterior / siguiente</span>
+    <span><i class="bi bi-diagram-3-fill"></i> Muestra PRIMERO y ÚLTIMO</span>
+  </div>
+</section>
+<div class="section" id="doble-ventajas">12 · VENTAJAS Y DESVENTAJAS</div>
 <table><tr><th>Ventajas</th><th>Desventajas</th></tr><tr><td>Recorrido en ambos sentidos.</td><td>Usa más memoria por nodo.</td></tr><tr><td>Facilita regresar al elemento previo.</td><td>Hay más enlaces que mantener.</td></tr><tr><td>Útil para navegación e historiales.</td><td>Su implementación es más compleja.</td></tr></table>
-<div class="section">13 · APLICACIONES EN COMPUTACIÓN</div>
+<div class="section" id="doble-aplicaciones">13 · APLICACIONES EN COMPUTACIÓN</div>
 <table><tr><th>Aplicación</th><th>Ejemplo</th></tr><tr><td><b>Navegadores</b></td><td>Anterior y siguiente entre páginas.</td></tr><tr><td><b>Undo / Redo</b></td><td>Moverse entre estados previos y posteriores.</td></tr><tr><td><b>Reproductores</b></td><td>Canción anterior o siguiente.</td></tr><tr><td><b>Galerías</b></td><td>Imagen previa o siguiente.</td></tr><tr><td><b>Historiales</b></td><td>Recorrer eventos hacia adelante o atrás.</td></tr></table>
-<div class="section">14 · CUIDADOS IMPORTANTES</div>
+<div class="section" id="doble-cuidados">14 · CUIDADOS IMPORTANTES</div>
 <section class="grid4">
 <article class="card green"><h3>PRIMERO</h3><div class="body">El primer nodo debe tener <b>anterior = NULL</b>.</div></article>
 <article class="card blue"><h3>ULTIMO</h3><div class="body">El último nodo debe tener <b>siguiente = NULL</b>.</div></article>
 <article class="card purple"><h3>DOS ENLACES</h3><div class="body">Revisa siempre anterior y siguiente al insertar o eliminar.</div></article>
 <article class="card orange"><h3>MEMORIA</h3><div class="body">Libera la memoria del nodo cuando sea eliminado.</div></article>
 </section>
+<div id="doble-resumen"></div>
+<section class="double-quiz" id="quiz-lista-doble" aria-labelledby="quiz-doble-titulo">
+  <div class="interactive-section-head">
+    <div>
+      <span class="interactive-kicker">COMPRUEBA TU COMPRENSIÓN</span>
+      <h2 id="quiz-doble-titulo">Quiz de análisis · Listas dobles</h2>
+      <p>
+        Primero responde cuatro preguntas de opción múltiple. Después analiza
+        tres fragmentos de código y decide si son correctos o contienen un error.
+      </p>
+    </div>
+    <div class="quiz-score" id="double-quiz-score">0 / 7</div>
+  </div>
+
+  <div class="quiz-block">
+    <h3>Parte A · Opción múltiple</h3>
+
+    <fieldset class="quiz-question" data-question="mc1" data-correct="b">
+      <legend>1. ¿Qué condición debe cumplir el primer nodo de una lista doble?</legend>
+      <label><input type="radio" name="mc1" value="a"> Su puntero siguiente debe ser NULL.</label>
+      <label><input type="radio" name="mc1" value="b"> Su puntero anterior debe ser NULL.</label>
+      <label><input type="radio" name="mc1" value="c"> Ambos punteros deben apuntarse a sí mismo.</label>
+      <div class="quiz-feedback"></div>
+    </fieldset>
+
+    <fieldset class="quiz-question" data-question="mc2" data-correct="c">
+      <legend>2. Si eliminas un nodo que está en medio de la lista, ¿qué debes actualizar?</legend>
+      <label><input type="radio" name="mc2" value="a"> Solo el puntero siguiente del nodo anterior.</label>
+      <label><input type="radio" name="mc2" value="b"> Solo el puntero anterior del nodo siguiente.</label>
+      <label><input type="radio" name="mc2" value="c"> Ambos enlaces: anterior.siguiente y siguiente.anterior.</label>
+      <div class="quiz-feedback"></div>
+    </fieldset>
+
+    <fieldset class="quiz-question" data-question="mc3" data-correct="a">
+      <legend>3. ¿Cuál es una ventaja directa de la lista doble frente a la sencilla?</legend>
+      <label><input type="radio" name="mc3" value="a"> Permite recorrer los nodos en ambos sentidos.</label>
+      <label><input type="radio" name="mc3" value="b"> Nunca necesita memoria dinámica.</label>
+      <label><input type="radio" name="mc3" value="c"> Siempre usa menos memoria.</label>
+      <div class="quiz-feedback"></div>
+    </fieldset>
+
+    <fieldset class="quiz-question" data-question="mc4" data-correct="b">
+      <legend>4. Si la lista estaba vacía y agregas el primer nodo, ¿qué debe ocurrir?</legend>
+      <label><input type="radio" name="mc4" value="a"> Solo PRIMERO apunta al nuevo nodo.</label>
+      <label><input type="radio" name="mc4" value="b"> PRIMERO y ULTIMO deben apuntar al nuevo nodo.</label>
+      <label><input type="radio" name="mc4" value="c"> El nuevo nodo debe apuntar a un segundo nodo vacío.</label>
+      <div class="quiz-feedback"></div>
+    </fieldset>
+  </div>
+
+  <div class="quiz-block">
+    <h3>Parte B · Analiza el código</h3>
+
+    <article class="code-analysis-question"
+             data-code-question="code1"
+             data-correct="error"
+             data-explanation="Falta actualizar PRIMERO->anterior = NUEVO antes de cambiar PRIMERO.">
+      <h4>5. Colgar un nodo al inicio</h4>
+      <pre><code>NUEVO->anterior = NULL;
+NUEVO->siguiente = PRIMERO;
+PRIMERO = NUEVO;</code></pre>
+      <div class="code-answer-buttons">
+        <button type="button" data-code-answer="correcto">Está correcto</button>
+        <button type="button" data-code-answer="error">Tiene un error</button>
+      </div>
+      <div class="quiz-feedback"></div>
+    </article>
+
+    <article class="code-analysis-question"
+             data-code-question="code2"
+             data-correct="correcto"
+             data-explanation="Para un nodo intermedio, ambos vecinos quedan enlazados correctamente antes de liberar el nodo.">
+      <h4>6. Eliminar un nodo intermedio</h4>
+      <pre><code>NODO->anterior->siguiente = NODO->siguiente;
+NODO->siguiente->anterior = NODO->anterior;
+free(NODO);</code></pre>
+      <div class="code-answer-buttons">
+        <button type="button" data-code-answer="correcto">Está correcto</button>
+        <button type="button" data-code-answer="error">Tiene un error</button>
+      </div>
+      <div class="quiz-feedback"></div>
+    </article>
+
+    <article class="code-analysis-question"
+             data-code-question="code3"
+             data-correct="error"
+             data-explanation="Al insertar al final también falta NUEVO->siguiente = NULL y mover ULTIMO = NUEVO.">
+      <h4>7. Colgar un nodo al final</h4>
+      <pre><code>NUEVO->anterior = ULTIMO;
+ULTIMO->siguiente = NUEVO;</code></pre>
+      <div class="code-answer-buttons">
+        <button type="button" data-code-answer="correcto">Está correcto</button>
+        <button type="button" data-code-answer="error">Tiene un error</button>
+      </div>
+      <div class="quiz-feedback"></div>
+    </article>
+  </div>
+
+  <div class="quiz-actions">
+    <button type="button" class="quiz-analyze-btn" id="analyze-double-quiz">
+      <i class="bi bi-check2-circle"></i>
+      Analizar respuestas
+    </button>
+    <button type="button" class="quiz-reset-btn" id="reset-double-quiz">
+      Reiniciar quiz
+    </button>
+  </div>
+
+  <div class="quiz-result" id="double-quiz-result" role="status" aria-live="polite"></div>
+</section>
 <div class="summary"><div class="bulb">💡</div><div><b>EN RESUMEN</b><br/>Una lista doble permite recorrer los datos en <b>ambos sentidos</b>. Su mejor analogía es el historial de un navegador: puedes ir hacia atrás con <b>Anterior</b> y volver hacia adelante con <b>Siguiente</b>.</div></div>
-</div></div></div></main>
+</div></div></div><nav class="d-flex flex-wrap justify-content-center gap-3 my-4" aria-label="Navegación entre temas de listas">
+  <a class="btn btn-success" href="tema_01_listas_circulares.html" rel="prev">← Anterior</a>
+  <a class="btn btn-success" href="tema_01_listas.html"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>
+  <a class="btn btn-success" href="tema_01_listas_dobles_circulares.html" rel="next">Siguiente →</a>
+</nav>
+</main>
 <div id="site-footer"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 <script src="../scripts/layout.js" defer></script>
+<script src="../scripts/listas_dobles_interactivo.js?v=2" defer></script>
 
 </body></html>
