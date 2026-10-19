@@ -1,0 +1,76 @@
+{
+  "topics": [
+    {
+      "slug": "pilas",
+      "title": "Pilas",
+      "presentacion": null,
+      "videos": []
+    },
+    {
+      "slug": "colas",
+      "title": "Colas",
+      "presentacion": null,
+      "videos": []
+    },
+    {
+      "slug": "listas",
+      "title": "Listas",
+      "presentacion": null,
+      "videos": []
+    },
+    {
+      "slug": "listas-simples",
+      "title": "Listas simples",
+      "presentacion": null,
+      "videos": []
+    },
+    {
+      "slug": "listas-dobles",
+      "title": "Listas dobles",
+      "presentacion": null,
+      "videos": []
+    },
+    {
+      "slug": "listas-circulares",
+      "title": "Listas circulares",
+      "presentacion": null,
+      "videos": []
+    },
+    {
+      "slug": "listas-dobles-circulares",
+      "title": "Listas dobles circulares",
+      "presentacion": null,
+      "videos": []
+    },
+    {
+      "slug": "hash-encadenamiento",
+      "title": "Tabla hash por encadenamiento",
+      "presentacion": null,
+      "videos": []
+    },
+    {
+      "slug": "hash-djb2",
+      "title": "Tabla hash · DJB2",
+      "presentacion": null,
+      "videos": []
+    },
+    {
+      "slug": "arboles-abb",
+      "title": "Árboles ABB",
+      "presentacion": null,
+      "videos": []
+    },
+    {
+      "slug": "arboles-avl",
+      "title": "Árboles AVL",
+      "presentacion": null,
+      "videos": []
+    },
+    {
+      "slug": "monticulos",
+      "title": "Montículos",
+      "presentacion": null,
+      "videos": []
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "pages": [
+    {
+      "file": "actividades.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 2
+    },
+    {
+      "file": "admin.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 2
+    },
+    {
+      "file": "detalle.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 2
+    },
+    {
+      "file": "index.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/bibliografia.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/infografias_colas.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/infografias_listas.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/infografias_pilas.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/presentaciones_videos.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/profe_yepiz.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/programa_colas.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/programa_listas.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/programa_pilas.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/tema_00_introduccion.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/tema_01_listas.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/tema_01_listas_circulares.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/tema_01_listas_dobles.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/tema_01_listas_dobles_circulares.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/tema_01_listas_simples.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/tema_02_pilas.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/tema_03_colas.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/tema_04_arboles.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/tema_05_monticulos.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/tema_06_hash.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    },
+    {
+      "file": "pages/visor_pdf.html",
+      "style_blocks": 0,
+      "inline_styles": 0,
+      "css_calls": 2,
+      "js_calls": 1
+    }
+  ],
+  "broken_local_refs": []
+}

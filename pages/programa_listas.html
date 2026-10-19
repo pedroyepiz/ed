@@ -1,4 +1,5 @@
-<!doctype html><html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#006847"><meta name="description" content="Ejemplo completo de lista enlazada simple en C: inserción, eliminación y liberación de memoria. Curso Estructuras de Datos, UABC FIAD."><title>Lista simple en C | Estructuras de Datos</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="../styles/styles.css"><link rel="stylesheet" href="../styles/pages/paginas_uniformes.css"><link rel="stylesheet" href="../styles/pages/nuevos_temas.css"></head><body class="pe-home pe-course-page"><div id="site-header"></div><section class="topic-course-hero"><div class="container-fluid pe-shell py-4"><div class="topic-number-pill">Ejemplo de código · Tema 1</div><h1 class="course-title">Lista enlazada simple en C</h1><p class="course-subtitle">Inserción al final, eliminación al inicio y liberación de memoria</p></div></section><main class="container-fluid pe-shell page-content-shell"><article class="page-content-card ed-new-topic"><p>Este programa muestra cómo administrar nodos dinámicos. Compílalo con <code>gcc -std=c11 -Wall -Wextra lista_simple.c -o lista_simple</code>. Si utilizas Visual Studio, agrega el archivo a un proyecto de C.</p><p><a class="ed-topic-cta" href="../codigo/lista_simple.c" download>Descargar lista_simple.c</a></p><pre><code>/* Ejemplo didáctico: lista enlazada simple en C. */
+<!DOCTYPE html>
+<html lang="es-MX"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#006847" name="theme-color"/><meta content="Ejemplo completo de lista enlazada simple en C: inserción, eliminación y liberación de memoria. Curso Estructuras de Datos, UABC FIAD." name="description"/><title>Lista simple en C | Estructuras de Datos</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/><link href="../styles/site.css" rel="stylesheet"/></head><body class="pe-home pe-course-page pe-uniform-page"><div id="site-header"></div><section class="topic-course-hero"><div class="container-fluid pe-shell py-4"><div class="topic-number-pill">Ejemplo de código · Tema 1</div><h1 class="course-title">Lista enlazada simple en C</h1><p class="course-subtitle">Inserción al final, eliminación al inicio y liberación de memoria</p></div></section><main class="container-fluid pe-shell page-content-shell"><article class="page-content-card ed-new-topic"><p>Este programa muestra cómo administrar nodos dinámicos. Compílalo con <code>gcc -std=c11 -Wall -Wextra lista_simple.c -o lista_simple</code>. Si utilizas Visual Studio, agrega el archivo a un proyecto de C.</p><p><a class="ed-topic-cta" download="" href="../codigo/lista_simple.c">Descargar lista_simple.c</a></p><pre><code>/* Ejemplo didáctico: lista enlazada simple en C. */
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
@@ -33,10 +34,10 @@ int eliminar_primero(Nodo **cabeza, int *valor) {
 
 void imprimir(const Nodo *actual) {
     while (actual != NULL) {
-        printf(&quot;[%d] -&gt; &quot;, actual-&gt;dato);
+        printf("[%d] -&gt; ", actual-&gt;dato);
         actual = actual-&gt;siguiente;
     }
-    puts(&quot;NULL&quot;);
+    puts("NULL");
 }
 
 void liberar(Nodo **cabeza) {
@@ -49,7 +50,7 @@ int main(void) {
     int valores[] = {10, 25, 40};
     for (size_t i = 0; i &lt; sizeof valores / sizeof valores[0]; ++i) {
         if (!insertar_final(&amp;cabeza, valores[i])) {
-            fputs(&quot;No hay memoria suficiente.\n&quot;, stderr);
+            fputs("No hay memoria suficiente.\n", stderr);
             liberar(&amp;cabeza);
             return EXIT_FAILURE;
         }
@@ -57,9 +58,9 @@ int main(void) {
     imprimir(cabeza);
     int primero;
     if (eliminar_primero(&amp;cabeza, &amp;primero))
-        printf(&quot;Eliminado: %d\n&quot;, primero);
+        printf("Eliminado: %d\n", primero);
     imprimir(cabeza);
     liberar(&amp;cabeza);
     return EXIT_SUCCESS;
 }
-</code></pre></article></main><div id="site-footer"></div><script src="../scripts/layout.js" defer></script></body></html>
+</code></pre></article></main><div id="site-footer"></div><script defer="" src="../scripts/site.js"></script></body></html>
