@@ -20,8 +20,8 @@
     "titulo": "🎟️ Colas (Estáticas y Dinámicas)",
     "tema": "Implementación y operaciones ENQUEUE y DEQUEUE.",
     "visible": true,
-    "actividad": false,
-    "codigo": false
+    "actividad": true,
+    "codigo": true
   },
   {
     "id": 4,
