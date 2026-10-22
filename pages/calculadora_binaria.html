@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006847">
+  <meta name="description" content="Calculadora binaria interactiva para practicar bits, suma, resta, operaciones lógicas y desplazamientos.">
+  <title>Calculadora binaria | Estructuras de Datos</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles/site.css">
+  <link rel="stylesheet" href="../styles/calculadora_binaria.css">
+</head>
+
+<body class="pe-home pe-course-page pe-uniform-page">
+
+  <div id="site-header"></div>
+
+  <section class="topic-course-hero">
+    <div class="container-fluid pe-shell">
+      <div class="row g-4 align-items-center py-4 py-xl-5">
+        <div class="col-xl-7">
+          <div class="topic-number-pill">
+            LABORATORIO INTERACTIVO · NÚMEROS BINARIOS
+          </div>
+
+          <div class="course-kicker">
+            ESTRUCTURAS DE DATOS
+          </div>
+
+          <h1 class="course-title">
+            Calculadora binaria
+          </h1>
+
+          <p class="course-subtitle mb-0">
+            Comprende los bits manipulándolos directamente
+          </p>
+
+          <div class="hero-line"></div>
+
+          <div class="course-quote">
+            <span aria-hidden="true" class="ui-icon">💡</span>
+            <span>Cambia un bit y observa inmediatamente qué número representa.</span>
+          </div>
+        </div>
+
+        <div class="col-xl-5">
+          <div
+            id="course-info"
+            data-topic="Laboratorio · Calculadora binaria">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container-fluid pe-shell page-content-shell">
+    <article class="page-content-card content ed-new-topic">
+
+      <div class="note">
+        <b>Objetivo:</b>
+        practicar la representación binaria, la suma, resta y operaciones lógicas bit a bit,
+        así como comprender visualmente qué ocurre al desplazar bits a la izquierda o a la derecha.
+      </div>
+
+      <nav class="ed-topic-local" aria-label="Secciones de la calculadora binaria">
+        <a href="#calculadora">Calculadora</a>
+        <a href="#explicacion-operacion">Explicación</a>
+        <a href="#desplazamientos">Desplazamientos</a>
+        <a href="#explicacion-desplazamiento">Paso a paso</a>
+      </nav>
+
+      <section id="calculadora" class="binary-section">
+        <div class="binary-section-head">
+          <div>
+            <span class="binary-eyebrow">SIMULADOR 1</span>
+            <h2>Calculadora de números binarios</h2>
+            <p>
+              Haz clic sobre cualquier bit para cambiarlo entre <b>0</b> y <b>1</b>.
+              Los valores decimal y binario se actualizan automáticamente.
+            </p>
+          </div>
+        </div>
+
+        <div class="binary-board" aria-label="Calculadora binaria de 12 bits">
+
+          <div class="binary-place-values" aria-hidden="true">
+            <span>2048</span>
+            <span>1024</span>
+            <span>512</span>
+            <span>256</span>
+            <span>128</span>
+            <span>64</span>
+            <span>32</span>
+            <span>16</span>
+            <span>8</span>
+            <span>4</span>
+            <span>2</span>
+            <span>1</span>
+          </div>
+
+          <div class="binary-number-row">
+            <div class="binary-row-label">
+              <strong>Número 1</strong>
+              <small>A</small>
+            </div>
+
+            <div
+              class="binary-bit-grid"
+              id="binary-a-bits"
+              data-binary-group="a"
+              aria-label="Bits del número 1">
+            </div>
+
+            <div class="binary-decimal-box">
+              <span>Decimal</span>
+              <strong id="binary-a-decimal">0</strong>
+            </div>
+          </div>
+
+          <div class="binary-number-row">
+            <div class="binary-row-label">
+              <strong>Número 2</strong>
+              <small>B</small>
+            </div>
+
+            <div
+              class="binary-bit-grid"
+              id="binary-b-bits"
+              data-binary-group="b"
+              aria-label="Bits del número 2">
+            </div>
+
+            <div class="binary-decimal-box">
+              <span>Decimal</span>
+              <strong id="binary-b-decimal">0</strong>
+            </div>
+          </div>
+
+          <div class="binary-operation-line" aria-hidden="true"></div>
+
+          <div class="binary-number-row binary-result-row">
+            <div class="binary-row-label">
+              <strong>Resultado</strong>
+              <small id="binary-operation-name">—</small>
+            </div>
+
+            <div
+              class="binary-bit-grid result"
+              id="binary-result-bits"
+              aria-label="Bits del resultado">
+            </div>
+
+            <div class="binary-decimal-box result">
+              <span>Decimal</span>
+              <strong id="binary-result-decimal">0</strong>
+            </div>
+          </div>
+
+          <div class="binary-text-values">
+            <div>
+              <span>A</span>
+              <code id="binary-a-text">000000000000</code>
+            </div>
+
+            <div>
+              <span>B</span>
+              <code id="binary-b-text">000000000000</code>
+            </div>
+
+            <div>
+              <span>Resultado</span>
+              <code id="binary-result-text">000000000000</code>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="binary-actions" aria-label="Operaciones binarias">
+          <button type="button" data-binary-operation="sum">Suma</button>
+          <button type="button" data-binary-operation="sub">Resta</button>
+          <button type="button" data-binary-operation="and">AND</button>
+          <button type="button" data-binary-operation="or">OR</button>
+          <button type="button" data-binary-operation="xor">XOR</button>
+          <button type="button" data-binary-operation="not-a">NOT A</button>
+          <button type="button" class="secondary" data-binary-clear>Limpiar</button>
+        </div>
+      </section>
+
+      <section id="explicacion-operacion" class="binary-section">
+        <div class="binary-section-head">
+          <div>
+            <span class="binary-eyebrow">EXPLICACIÓN</span>
+            <h2>¿Cómo se realizó la operación?</h2>
+            <p>
+              En suma y resta se muestra el acarreo o préstamo sobre cada columna,
+              tal como se resolvería manualmente.
+            </p>
+          </div>
+        </div>
+
+        <div class="binary-workspace" aria-live="polite">
+          <div class="binary-work-carry">
+            <span class="binary-work-label" id="binary-work-top-label">
+              Acarreo / préstamo
+            </span>
+
+            <div
+              class="binary-bit-grid carry"
+              id="binary-carry-bits"
+              aria-label="Acarreos o préstamos de la operación">
+            </div>
+          </div>
+
+          <div
+            id="binary-operation-explanation"
+            class="binary-explanation-box">
+            Selecciona una operación para mostrar el desarrollo paso a paso.
+          </div>
+        </div>
+      </section>
+
+      <section id="desplazamientos" class="binary-section">
+        <div class="binary-section-head">
+          <div>
+            <span class="binary-eyebrow">SIMULADOR 2</span>
+            <h2>Desplazamiento de una cadena de 23 bits</h2>
+            <p>
+              Puedes capturar un número decimal o modificar directamente cualquiera de los 23 bits.
+              Después indica cuántas posiciones deseas recorrer.
+            </p>
+          </div>
+        </div>
+
+        <div class="shift-panel">
+
+          <div class="shift-source-controls">
+            <div class="shift-input-field">
+              <label for="shift-decimal-input">Número decimal</label>
+              <input
+                id="shift-decimal-input"
+                type="number"
+                min="0"
+                max="8388607"
+                value="5">
+            </div>
+
+            <button type="button" id="shift-load-decimal">
+              Convertir a 23 bits
+            </button>
+
+            <div class="shift-input-field compact">
+              <label for="shift-count-input">Bits a recorrer</label>
+              <input
+                id="shift-count-input"
+                type="number"
+                min="0"
+                max="22"
+                value="5">
+            </div>
+          </div>
+
+          <div class="shift-row-card">
+            <div class="shift-row-heading">
+              <strong>Cadena original</strong>
+              <span>
+                Decimal:
+                <b id="shift-source-decimal">5</b>
+              </span>
+            </div>
+
+            <div
+              class="shift-bit-grid"
+              id="shift-source-bits"
+              aria-label="Cadena original de 23 bits">
+            </div>
+
+            <code id="shift-source-text">00000000000000000000101</code>
+          </div>
+
+          <div class="shift-actions">
+            <button type="button" data-shift-direction="left">
+              << Desplazar izquierda
+            </button>
+
+            <button type="button" data-shift-direction="right">
+              Desplazar derecha >>
+            </button>
+
+            <button type="button" class="secondary" data-shift-clear>
+              Limpiar
+            </button>
+          </div>
+
+          <div class="shift-movement-box">
+            <div class="shift-movement-label">
+              Bits que salen de la cadena
+            </div>
+            <div id="shift-lost-bits" class="shift-lost-bits">—</div>
+          </div>
+
+          <div class="shift-row-card result">
+            <div class="shift-row-heading">
+              <strong>Cadena después del desplazamiento</strong>
+              <span>
+                Decimal:
+                <b id="shift-result-decimal">5</b>
+              </span>
+            </div>
+
+            <div
+              class="shift-bit-grid result"
+              id="shift-result-bits"
+              aria-label="Resultado del desplazamiento">
+            </div>
+
+            <code id="shift-result-text">00000000000000000000101</code>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="explicacion-desplazamiento" class="binary-section">
+        <div class="binary-section-head">
+          <div>
+            <span class="binary-eyebrow">ANÁLISIS</span>
+            <h2>Explicación del desplazamiento</h2>
+          </div>
+        </div>
+
+        <div
+          id="shift-explanation"
+          class="binary-explanation-box"
+          aria-live="polite">
+          Realiza un desplazamiento para ver qué bits se movieron,
+          cuáles se perdieron y qué nuevo número se formó.
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../scripts/site.js" defer></script>
+  <script src="../scripts/calculadora_binaria.js" defer></script>
+</body>
+</html>
