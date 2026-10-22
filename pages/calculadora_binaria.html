@@ -88,6 +88,10 @@
         <div class="binary-board" aria-label="Calculadora binaria de 12 bits">
 
           <div class="binary-place-values" aria-hidden="true">
+            <span>32768</span>
+            <span>16384</span>
+            <span>8192</span>
+            <span>4096</span>
             <span>2048</span>
             <span>1024</span>
             <span>512</span>
@@ -163,17 +167,17 @@
           <div class="binary-text-values">
             <div>
               <span>A</span>
-              <code id="binary-a-text">000000000000</code>
+              <code id="binary-a-text">0000000000000000</code>
             </div>
 
             <div>
               <span>B</span>
-              <code id="binary-b-text">000000000000</code>
+              <code id="binary-b-text">0000000000000000</code>
             </div>
 
             <div>
               <span>Resultado</span>
-              <code id="binary-result-text">000000000000</code>
+              <code id="binary-result-text">0000000000000000</code>
             </div>
           </div>
 
@@ -185,6 +189,8 @@
           <button type="button" data-binary-operation="and">AND</button>
           <button type="button" data-binary-operation="or">OR</button>
           <button type="button" data-binary-operation="xor">XOR</button>
+          <button type="button" data-binary-operation="mul">Multiplicación</button>
+          <button type="button" data-binary-operation="div">División</button>
           <button type="button" data-binary-operation="not-a">NOT A</button>
           <button type="button" class="secondary" data-binary-clear>Limpiar</button>
         </div>
@@ -196,8 +202,7 @@
             <span class="binary-eyebrow">EXPLICACIÓN</span>
             <h2>¿Cómo se realizó la operación?</h2>
             <p>
-              En suma y resta se muestra el acarreo o préstamo sobre cada columna,
-              tal como se resolvería manualmente.
+              En suma y resta se muestra la operación vertical, el acarreo o préstamo sobre cada columna y el desarrollo paso a paso.
             </p>
           </div>
         </div>
@@ -219,6 +224,13 @@
             id="binary-operation-explanation"
             class="binary-explanation-box">
             Selecciona una operación para mostrar el desarrollo paso a paso.
+          </div>
+
+          <div
+            id="binary-long-operation"
+            class="binary-long-operation"
+            aria-live="polite"
+            hidden>
           </div>
         </div>
       </section>
@@ -278,7 +290,7 @@
               aria-label="Cadena original de 23 bits">
             </div>
 
-            <code id="shift-source-text">00000000000000000000101</code>
+            <code id="shift-source-text">000000000000000000000000101</code>
           </div>
 
           <div class="shift-actions">
@@ -317,7 +329,7 @@
               aria-label="Resultado del desplazamiento">
             </div>
 
-            <code id="shift-result-text">00000000000000000000101</code>
+            <code id="shift-result-text">000000000000000000000000101</code>
           </div>
 
         </div>

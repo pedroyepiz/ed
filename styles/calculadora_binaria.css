@@ -47,7 +47,7 @@
 
 .binary-place-values{
   display:grid;
-  grid-template-columns:96px repeat(12,minmax(44px,1fr)) 96px;
+  grid-template-columns:96px repeat(16,minmax(38px,1fr)) 96px;
   gap:.38rem;
   margin-bottom:5px;
   color:#6d7a75;
@@ -63,7 +63,7 @@
 
 .binary-number-row{
   display:grid;
-  grid-template-columns:96px minmax(640px,1fr) 96px;
+  grid-template-columns:96px minmax(760px,1fr) 96px;
   gap:.7rem;
   align-items:center;
   margin-bottom:12px;
@@ -88,7 +88,7 @@
 
 .binary-bit-grid{
   display:grid;
-  grid-template-columns:repeat(12,minmax(44px,1fr));
+  grid-template-columns:repeat(16,minmax(38px,1fr));
   gap:.38rem;
 }
 
@@ -427,7 +427,7 @@
 
   .binary-place-values,
   .binary-number-row{
-    min-width:900px;
+    min-width:1080px;
   }
 }
 
@@ -463,5 +463,253 @@
 
   .shift-actions button{
     width:100%;
+  }
+}
+
+
+/* =========================================================
+   DESARROLLO GRÁFICO · MULTIPLICACIÓN Y DIVISIÓN
+   ========================================================= */
+
+.binary-long-operation{
+  margin-top:18px;
+  padding:18px;
+  border:1px solid #cfe3da;
+  border-radius:12px;
+  background:#fbfefd;
+}
+
+.binary-long-operation[hidden]{
+  display:none;
+}
+
+.binary-long-title{
+  margin-bottom:12px;
+  color:#004b35;
+  font-weight:900;
+}
+
+.binary-long-scroll{
+  overflow-x:auto;
+  padding-bottom:6px;
+}
+
+.binary-long-grid{
+  min-width:760px;
+  display:grid;
+  gap:4px;
+  font-family:Consolas,"Cascadia Code","Courier New",monospace;
+}
+
+.binary-long-line{
+  display:grid;
+  grid-template-columns:130px 1fr;
+  gap:12px;
+  align-items:center;
+}
+
+.binary-long-label{
+  color:#61716b;
+  font-family:inherit;
+  font-size:.8rem;
+  font-weight:800;
+  text-align:right;
+}
+
+.binary-long-bits{
+  display:grid;
+  grid-template-columns:repeat(32,24px);
+  gap:2px;
+  justify-content:start;
+}
+
+.binary-long-bits.bits-16{
+  grid-template-columns:repeat(16,24px);
+}
+
+.binary-long-cell{
+  min-height:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #d2e4dc;
+  border-radius:4px;
+  background:#fff;
+  color:#24483d;
+  font-size:.78rem;
+  font-weight:900;
+}
+
+.binary-long-cell.one{
+  background:#e7f5ef;
+  color:#006847;
+}
+
+.binary-long-cell.zero{
+  color:#7d8984;
+}
+
+.binary-long-cell.accent{
+  border-color:#d8b64f;
+  background:#fff8dd;
+  color:#7a5a00;
+}
+
+.binary-long-separator{
+  height:2px;
+  margin:5px 0 5px 142px;
+  background:#9ebbb0;
+}
+
+.binary-long-note{
+  margin-top:12px;
+  color:#53665f;
+  font-size:.9rem;
+}
+
+.binary-division-table{
+  width:100%;
+  min-width:720px;
+  margin-top:12px;
+  border-collapse:collapse;
+}
+
+.binary-division-table th,
+.binary-division-table td{
+  padding:.55rem .65rem;
+  border:1px solid #d5e5de;
+  text-align:center;
+  vertical-align:middle;
+}
+
+.binary-division-table th{
+  background:#eaf5f0;
+  color:#004b35;
+  font-weight:900;
+}
+
+.binary-division-table code{
+  color:#004b35;
+  font-weight:900;
+}
+
+@media (max-width:767.98px){
+  .binary-long-line{
+    grid-template-columns:100px 1fr;
+  }
+
+  .binary-long-separator{
+    margin-left:112px;
+  }
+}
+
+
+/* =========================================================
+   SUMA Y RESTA · DESARROLLO VERTICAL DINÁMICO
+   ========================================================= */
+
+.binary-arithmetic-board{
+  min-width:760px;
+  display:grid;
+  gap:5px;
+  font-family:Consolas,"Cascadia Code","Courier New",monospace;
+}
+
+.binary-arithmetic-row{
+  display:grid;
+  grid-template-columns:120px 32px repeat(16,28px);
+  gap:3px;
+  align-items:center;
+}
+
+.binary-arithmetic-label{
+  color:#61716b;
+  font-size:.78rem;
+  font-weight:800;
+  text-align:right;
+  padding-right:6px;
+}
+
+.binary-arithmetic-symbol{
+  color:#004b35;
+  font-size:1.15rem;
+  font-weight:900;
+  text-align:center;
+}
+
+.binary-arithmetic-cell{
+  min-height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #d2e4dc;
+  border-radius:5px;
+  background:#fff;
+  color:#24483d;
+  font-size:.82rem;
+  font-weight:900;
+}
+
+.binary-arithmetic-cell.one{
+  background:#e7f5ef;
+  color:#006847;
+}
+
+.binary-arithmetic-cell.zero{
+  color:#7c8984;
+}
+
+.binary-arithmetic-cell.carry{
+  border-color:#d8b64f;
+  background:#fff7d9;
+  color:#8a6500;
+}
+
+.binary-arithmetic-cell.active{
+  border-color:#006847;
+  box-shadow:0 0 0 2px rgba(0,104,71,.08);
+}
+
+.binary-arithmetic-line{
+  height:2px;
+  margin:3px 0 3px 155px;
+  background:#8eada1;
+}
+
+.binary-arithmetic-caption{
+  margin-top:12px;
+  color:#52645d;
+  font-size:.9rem;
+}
+
+.binary-step-cards{
+  display:grid;
+  gap:.6rem;
+  margin-top:14px;
+}
+
+.binary-step-card{
+  padding:11px 13px;
+  border:1px solid #d5e6df;
+  border-radius:9px;
+  background:#fff;
+}
+
+.binary-step-card strong{
+  color:#004b35;
+}
+
+.binary-step-card .movement{
+  color:#8a6500;
+  font-weight:900;
+}
+
+@media (max-width:767.98px){
+  .binary-arithmetic-row{
+    grid-template-columns:95px 28px repeat(16,26px);
+  }
+
+  .binary-arithmetic-line{
+    margin-left:126px;
   }
 }

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const CALC_BITS = 12;
+  const CALC_BITS = 16;
   const SHIFT_BITS = 23;
   const SHIFT_MAX = (2 ** SHIFT_BITS) - 1;
 
@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
     operationName: document.getElementById("binary-operation-name"),
     carryBits: document.getElementById("binary-carry-bits"),
     carryLabel: document.getElementById("binary-work-top-label"),
-    explanation: document.getElementById("binary-operation-explanation")
+    explanation: document.getElementById("binary-operation-explanation"),
+    longOperation: document.getElementById("binary-long-operation")
   };
 
   function renderEditableBits(group) {
@@ -148,25 +149,16 @@ document.addEventListener("DOMContentLoaded", () => {
     calcElements.explanation.innerHTML = `
       <p>
         La suma binaria se realiza de <b>derecha a izquierda</b>.
-        Cuando una columna suma 2 o 3 se escribe el bit correspondiente
-        y se genera un acarreo de 1 hacia la columna de la izquierda.
+        Cada columna produce un bit de resultado y, cuando corresponde,
+        un acarreo que pasa a la columna siguiente.
       </p>
-      <ol>
-        ${steps.map(step => `
-          <li>
-            Bit ${step.position}:
-            ${step.a} + ${step.b} + acarreo ${step.incoming}
-            = ${step.total}.
-            Se escribe <b>${step.result}</b>
-            y el acarreo que continúa es <b>${step.carry}</b>.
-          </li>`).join("")}
-      </ol>
       ${carry ? `
         <p>
           <b>Desbordamiento:</b>
           quedó un acarreo final fuera de los ${CALC_BITS} bits.
         </p>` : ""}`;
 
+    renderLongAddition(result, carryTop, steps);
     return result;
   }
 
@@ -210,29 +202,387 @@ document.addEventListener("DOMContentLoaded", () => {
 
     calcElements.explanation.innerHTML = `
       <p>
-        La resta binaria también se realiza de <b>derecha a izquierda</b>.
-        Cuando el bit superior no alcanza, se solicita un préstamo.
-        En binario, pedir prestado equivale a sumar <b>10₂</b> a esa columna.
-      </p>
-      <ol>
+        La resta binaria se realiza de <b>derecha a izquierda</b>.
+        Cuando el bit de A no alcanza, se solicita un préstamo a la columna de la izquierda.
+      </p>`;
+
+    renderLongSubtraction(result, borrowTop, steps);
+    return result;
+  }
+
+
+  function bitCells(text, widthClass = "") {
+    return `
+      <div class="binary-long-bits ${widthClass}">
+        ${text.split("").map(bit => `
+          <span class="binary-long-cell ${bit === "1" ? "one" : "zero"}">${bit}</span>
+        `).join("")}
+      </div>`;
+  }
+
+
+  function arithmeticCells(bits, special = []) {
+    return bits.map((bit, index) => {
+      const extra = special[index] ? ` ${special[index]}` : "";
+      const base = bit === "1" ? "one" : "zero";
+      return `<span class="binary-arithmetic-cell ${base}${extra}">${bit}</span>`;
+    }).join("");
+  }
+
+  function renderLongAddition(result, carryTop, steps) {
+    const aText = asText(calcState.a);
+    const bText = asText(calcState.b);
+    const resultText = asText(result);
+
+    const carryText = carryTop.map(value => value === null ? "" : String(value));
+    const carryClasses = carryTop.map(value => value === 1 ? "carry" : "");
+
+    calcElements.longOperation.hidden = false;
+    calcElements.longOperation.innerHTML = `
+      <div class="binary-long-title">Suma binaria vertical</div>
+
+      <div class="binary-long-scroll">
+        <div class="binary-arithmetic-board">
+
+          <div class="binary-arithmetic-row">
+            <div class="binary-arithmetic-label">Acarreo</div>
+            <div class="binary-arithmetic-symbol"></div>
+            ${carryText.map((value, index) =>
+              `<span class="binary-arithmetic-cell ${carryClasses[index]}">${value}</span>`
+            ).join("")}
+          </div>
+
+          <div class="binary-arithmetic-row">
+            <div class="binary-arithmetic-label">A</div>
+            <div class="binary-arithmetic-symbol"></div>
+            ${arithmeticCells(aText.split(""))}
+          </div>
+
+          <div class="binary-arithmetic-row">
+            <div class="binary-arithmetic-label">B</div>
+            <div class="binary-arithmetic-symbol">+</div>
+            ${arithmeticCells(bText.split(""))}
+          </div>
+
+          <div class="binary-arithmetic-line"></div>
+
+          <div class="binary-arithmetic-row">
+            <div class="binary-arithmetic-label">Resultado</div>
+            <div class="binary-arithmetic-symbol"></div>
+            ${arithmeticCells(resultText.split(""))}
+          </div>
+        </div>
+      </div>
+
+      <div class="binary-step-cards">
         ${steps.map(step => `
-          <li>
-            Bit ${step.position}:
+          <div class="binary-step-card">
+            <strong>Columna ${step.position}:</strong>
+            ${step.a} + ${step.b} + acarreo ${step.incoming}
+            = ${step.total}.
+            Se escribe <b>${step.result}</b>.
+            <span class="movement">
+              ${step.carry
+                ? "Se envía acarreo 1 a la columna de la izquierda."
+                : "No se genera acarreo."}
+            </span>
+          </div>
+        `).join("")}
+      </div>
+
+      <div class="binary-arithmetic-caption">
+        La operación se resuelve desde el bit menos significativo hacia la izquierda.
+      </div>`;
+  }
+
+  function renderLongSubtraction(result, borrowTop, steps) {
+    const aText = asText(calcState.a);
+    const bText = asText(calcState.b);
+    const resultText = asText(result);
+
+    const borrowText = borrowTop.map(value => value === null ? "" : String(value));
+    const borrowClasses = borrowTop.map(value => value === 1 ? "carry" : "");
+
+    calcElements.longOperation.hidden = false;
+    calcElements.longOperation.innerHTML = `
+      <div class="binary-long-title">Resta binaria vertical</div>
+
+      <div class="binary-long-scroll">
+        <div class="binary-arithmetic-board">
+
+          <div class="binary-arithmetic-row">
+            <div class="binary-arithmetic-label">Préstamo</div>
+            <div class="binary-arithmetic-symbol"></div>
+            ${borrowText.map((value, index) =>
+              `<span class="binary-arithmetic-cell ${borrowClasses[index]}">${value}</span>`
+            ).join("")}
+          </div>
+
+          <div class="binary-arithmetic-row">
+            <div class="binary-arithmetic-label">A</div>
+            <div class="binary-arithmetic-symbol"></div>
+            ${arithmeticCells(aText.split(""))}
+          </div>
+
+          <div class="binary-arithmetic-row">
+            <div class="binary-arithmetic-label">B</div>
+            <div class="binary-arithmetic-symbol">−</div>
+            ${arithmeticCells(bText.split(""))}
+          </div>
+
+          <div class="binary-arithmetic-line"></div>
+
+          <div class="binary-arithmetic-row">
+            <div class="binary-arithmetic-label">Resultado</div>
+            <div class="binary-arithmetic-symbol"></div>
+            ${arithmeticCells(resultText.split(""))}
+          </div>
+        </div>
+      </div>
+
+      <div class="binary-step-cards">
+        ${steps.map(step => `
+          <div class="binary-step-card">
+            <strong>Columna ${step.position}:</strong>
             A=${step.originalA},
             B=${step.b},
             préstamo entrante=${step.incomingBorrow}.
-            Se trabaja con ${step.adjustedA}.
-            Resultado=<b>${step.result}</b>.
-            Préstamo siguiente=<b>${step.borrow}</b>.
-          </li>`).join("")}
+            ${
+              step.borrow
+                ? `Como no alcanza, se toma prestado: el bit actual se trata como ${step.adjustedA}.`
+                : `No es necesario pedir prestado.`
+            }
+            Se escribe <b>${step.result}</b>.
+            <span class="movement">
+              ${step.borrow
+                ? "El préstamo continúa hacia la columna de la izquierda."
+                : "No continúa préstamo."}
+            </span>
+          </div>
+        `).join("")}
+      </div>
+
+      <div class="binary-arithmetic-caption">
+        En binario, pedir prestado equivale a sumar 10₂ en la columna actual.
+      </div>`;
+  }
+
+  function renderLongMultiplication() {
+    const aValue = toDecimal(calcState.a);
+    const bValue = toDecimal(calcState.b);
+    const product = aValue * bValue;
+
+    const aText = asText(calcState.a);
+    const bText = asText(calcState.b);
+    const productText = product.toString(2).padStart(32, "0").slice(-32);
+
+    const partials = [];
+    for (let shift = 0; shift < CALC_BITS; shift++) {
+      const multiplierBit = calcState.b[CALC_BITS - 1 - shift];
+      if (multiplierBit === 1) {
+        const partialValue = aValue * (2 ** shift);
+        partials.push({
+          shift,
+          bit: 1,
+          text: partialValue.toString(2).padStart(32, "0").slice(-32)
+        });
+      } else {
+        partials.push({
+          shift,
+          bit: 0,
+          text: "0".repeat(32)
+        });
+      }
+    }
+
+    calcElements.longOperation.hidden = false;
+    calcElements.longOperation.innerHTML = `
+      <div class="binary-long-title">Multiplicación binaria por productos parciales</div>
+      <div class="binary-long-scroll">
+        <div class="binary-long-grid">
+          <div class="binary-long-line">
+            <div class="binary-long-label">A (${aValue})</div>
+            ${bitCells(aText.padStart(32, "0"))}
+          </div>
+          <div class="binary-long-line">
+            <div class="binary-long-label">B (${bValue})</div>
+            ${bitCells(bText.padStart(32, "0"))}
+          </div>
+          <div class="binary-long-separator"></div>
+          ${partials.map(row => `
+            <div class="binary-long-line">
+              <div class="binary-long-label">
+                bit ${row.shift} de B = ${row.bit}
+              </div>
+              ${bitCells(row.text)}
+            </div>
+          `).join("")}
+          <div class="binary-long-separator"></div>
+          <div class="binary-long-line">
+            <div class="binary-long-label">Producto</div>
+            ${bitCells(productText)}
+          </div>
+        </div>
+      </div>
+      <div class="binary-long-note">
+        Cada bit 1 del multiplicador genera una copia de A desplazada a la izquierda.
+        Después se suman todos los productos parciales.
+        Producto decimal completo: <b>${product}</b>.
+        La fila Resultado de la calculadora conserva los 16 bits inferiores.
+      </div>`;
+  }
+
+  function doMultiplication() {
+    const aValue = toDecimal(calcState.a);
+    const bValue = toDecimal(calcState.b);
+    const product = aValue * bValue;
+    const result = toBits(product, CALC_BITS);
+
+    renderCarry(Array(CALC_BITS).fill(null), "Productos parciales");
+
+    calcElements.explanation.innerHTML = `
+      <p>
+        La multiplicación binaria funciona como la multiplicación decimal,
+        pero cada dígito del multiplicador solo puede ser <b>0</b> o <b>1</b>.
+      </p>
+      <ol>
+        <li>Se revisa B desde el bit menos significativo hacia la izquierda.</li>
+        <li>Si el bit de B es 1, se toma A y se desplaza según la posición de ese bit.</li>
+        <li>Si el bit de B es 0, el producto parcial de esa fila es 0.</li>
+        <li>Finalmente se suman todos los productos parciales.</li>
       </ol>`;
 
+    renderLongMultiplication();
     return result;
+  }
+
+  function renderLongDivision(dividend, divisor, quotient, remainder, steps) {
+    const dividendText = dividend.toString(2).padStart(16, "0");
+    const divisorText = divisor.toString(2).padStart(16, "0");
+    const quotientText = quotient.toString(2).padStart(16, "0");
+
+    calcElements.longOperation.hidden = false;
+    calcElements.longOperation.innerHTML = `
+      <div class="binary-long-title">División binaria paso a paso</div>
+
+      <div class="binary-long-scroll">
+        <div class="binary-long-grid">
+          <div class="binary-long-line">
+            <div class="binary-long-label">Dividendo</div>
+            ${bitCells(dividendText, "bits-16")}
+          </div>
+
+          <div class="binary-long-line">
+            <div class="binary-long-label">Divisor</div>
+            ${bitCells(divisorText, "bits-16")}
+          </div>
+
+          <div class="binary-long-separator"></div>
+
+          <div class="binary-long-line">
+            <div class="binary-long-label">Cociente</div>
+            ${bitCells(quotientText, "bits-16")}
+          </div>
+        </div>
+
+        <table class="binary-division-table">
+          <thead>
+            <tr>
+              <th>Paso</th>
+              <th>Bit que baja</th>
+              <th>Residuo antes</th>
+              <th>¿Cabe divisor?</th>
+              <th>Bit cociente</th>
+              <th>Residuo después</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${steps.map(step => `
+              <tr>
+                <td>${step.step}</td>
+                <td>${step.bit}</td>
+                <td><code>${step.beforeBinary}</code> (${step.before})</td>
+                <td>${step.fits ? "Sí" : "No"}</td>
+                <td><b>${step.qbit}</b></td>
+                <td><code>${step.afterBinary}</code> (${step.after})</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="binary-long-note">
+        Resultado: <b>${dividend} ÷ ${divisor} = ${quotient}</b>
+        con residuo <b>${remainder}</b>.
+      </div>`;
+  }
+
+  function doDivision() {
+    const dividend = toDecimal(calcState.a);
+    const divisor = toDecimal(calcState.b);
+
+    renderCarry(Array(CALC_BITS).fill(null), "División larga");
+
+    if (divisor === 0) {
+      calcElements.explanation.innerHTML = `
+        <p><b>No se puede dividir entre cero.</b></p>
+        <p>Cambia el Número 2 para que sea distinto de 0.</p>`;
+      calcElements.longOperation.hidden = true;
+      return Array(CALC_BITS).fill(0);
+    }
+
+    let remainder = 0;
+    let quotient = 0;
+    const steps = [];
+
+    for (let index = 0; index < CALC_BITS; index++) {
+      const bit = calcState.a[index];
+      remainder = (remainder * 2) + bit;
+      const before = remainder;
+      const fits = remainder >= divisor;
+      let qbit = 0;
+
+      if (fits) {
+        remainder -= divisor;
+        qbit = 1;
+      }
+
+      quotient = (quotient * 2) + qbit;
+
+      steps.push({
+        step: index + 1,
+        bit,
+        before,
+        after: remainder,
+        fits,
+        qbit,
+        beforeBinary: before.toString(2),
+        afterBinary: remainder.toString(2)
+      });
+    }
+
+    calcElements.explanation.innerHTML = `
+      <p>
+        La división binaria se resuelve de izquierda a derecha, de forma semejante
+        a una división larga:
+      </p>
+      <ol>
+        <li>Se baja un bit del dividendo.</li>
+        <li>Se compara el residuo parcial con el divisor.</li>
+        <li>Si el divisor cabe, se escribe 1 en el cociente y se resta.</li>
+        <li>Si no cabe, se escribe 0 y se baja el siguiente bit.</li>
+      </ol>`;
+
+    renderLongDivision(dividend, divisor, quotient, remainder, steps);
+    return toBits(quotient, CALC_BITS);
   }
 
   function executeOperation(operation) {
     let result = Array(CALC_BITS).fill(0);
     let name = "";
+
+    calcElements.longOperation.hidden = true;
+    calcElements.longOperation.innerHTML = "";
 
     if (operation === "sum") {
       name = "A + B";
@@ -263,6 +613,16 @@ document.addEventListener("DOMContentLoaded", () => {
       result = calcState.a.map((bit, index) => bit ^ calcState.b[index]);
       renderCarry(Array(CALC_BITS).fill(null), "Sin acarreo");
       explainLogical("XOR", "XOR", result);
+    }
+
+    if (operation === "mul") {
+      name = "A × B";
+      result = doMultiplication();
+    }
+
+    if (operation === "div") {
+      name = "A ÷ B";
+      result = doDivision();
     }
 
     if (operation === "not-a") {
@@ -318,6 +678,8 @@ document.addEventListener("DOMContentLoaded", () => {
       calcElements.operationName.textContent = "—";
       calcElements.explanation.textContent =
         "Selecciona una operación para mostrar el desarrollo paso a paso.";
+      calcElements.longOperation.hidden = true;
+      calcElements.longOperation.innerHTML = "";
       return;
     }
 
