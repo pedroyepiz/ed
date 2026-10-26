@@ -1,6 +1,479 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006847">
+  <meta name="description" content="Unidad VI de Tablas Hash: definición, función hash, factor de ocupación, colisiones, encadenamiento, sondeo lineal, cuadrático, DJB2, rehashing y archivos binarios.">
+  <title>Unidad VI · Tablas Hash | Estructuras de Datos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/site.css">
+  <link rel="stylesheet" href="../styles/hash_interactivo.css">
+</head>
+<body class="pe-home pe-course-page pe-uniform-page">
 
-<html lang="es-MX"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#006847" name="theme-color"/><meta content="Funciones hash, colisiones e índices para registros." name="description"/><title>Tema 6 · Tablas Hash | Estructuras de Datos</title><link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/><link href="../styles/site.css" rel="stylesheet"/></head><body class="pe-home pe-course-page pe-uniform-page"><div id="site-header"></div><section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-xl-7"><div class="topic-number-pill">UNIDAD VI · Tablas Hash</div><div class="course-kicker">ESTRUCTURAS DE DATOS</div><h1 class="course-title">Tablas Hash</h1><p class="course-subtitle mb-0">Claves, funciones hash, colisiones e índices</p><div class="hero-line"></div><div class="course-quote"><span aria-hidden="true" class="ui-icon">💡</span><span>Una clave bien organizada puede conducir directamente al dato buscado.</span></div></div><div class="col-xl-5"><div data-topic="Unidad VI · Tablas Hash" id="course-info"></div></div></div></div></section><main class="container-fluid pe-shell page-content-shell"><article class="page-content-card content ed-new-topic"><div class="note"><b>Competencia:</b> Implementar un programa de procesamiento de información, aplicando los conceptos de tablas hash, con el propósito de dar solución a un problema específico pertinente, con una actitud analítica, proactiva y responsable.<br/><br/><b>Duración:</b> 6 horas</div><nav aria-label="Secciones de este tema" class="ed-topic-local"><a href="#definicion">6.1 Definición</a><a href="#implementacion">6.2 Implementación y aplicaciones</a><a href="#problema">6.3 Solución de problemas</a><a href="#resumen">Resumen</a></nav><section id="definicion"><h2>6.1 · Definición</h2><p>Una <strong>tabla hash</strong> utiliza una función que transforma una clave en una posición de almacenamiento. La meta es localizar un dato a partir de su clave sin recorrer toda la colección.</p><div class="ed-key">Dos claves pueden generar la misma posición: eso se llama <strong>colisión</strong> y requiere una estrategia de resolución.</div></section><section id="para-que"><h2>2 · ¿Para qué sirve?</h2><div class="ed-feature-grid"><div><strong>Diccionarios</strong><p>Asociar una clave con un valor.</p></div><div><strong>Búsqueda</strong><p>Consultar registros por identificador.</p></div><div><strong>Índices</strong><p>Conectar claves con referencias a registros de un archivo.</p></div></div></section><section id="como"><h2>3 · ¿Cómo funciona?</h2><p>Para una tabla de siete posiciones, utiliza como ejemplo <code>h(clave) = clave % 7</code>. Las claves 10 y 17 van inicialmente a la posición 3; por eso existe una colisión.</p><div aria-label="Ejemplo: h de 10 igual 3; h de 17 igual 3; ambas claves colisionan en la posición 3." class="ed-hash-row" role="group"><span>10 % 7 = 3</span><span>17 % 7 = 3</span><span>Colisión en 3</span></div><p><strong>Encadenamiento:</strong> cada posición guarda una lista de claves. <strong>Direccionamiento abierto:</strong> busca otra posición siguiendo una regla, por ejemplo sondeo lineal.</p></section><section id="implementacion"><h2>6.2 · Implementación y aplicaciones</h2><pre><code>// Ejemplo educativo para claves enteras no negativas:
-size_t indice(unsigned clave, size_t capacidad) {
-    return clave % capacidad;
-}</code></pre><p>El <strong>factor de carga</strong> es elementos / posiciones. En condiciones favorables, buscar o insertar suele acercarse a O(1) promedio; con muchas colisiones puede empeorar. Una función de ejemplo como módulo no es una función hash criptográfica.</p></section><section id="problema"><h2>6.3 · Solución de problemas</h2><p>Con siete posiciones, calcula el índice de 10, 17, 24, 31 y 12. Resuelve las colisiones mediante encadenamiento y luego con sondeo lineal. Compara cuántas posiciones se revisan al buscar 31.</p><p><a class="ed-topic-cta" href="../actividades.html">Consultar la actividad de tablas hash</a></p></section><section id="resumen"><h2>6 · Resumen</h2><p>Una buena tabla hash combina función de dispersión, capacidad adecuada y una estrategia de colisiones. Para archivos indexados, el índice debe guardar una referencia fiable al registro y actualizarse cuando cambie el archivo.</p></section></article></main><div id="site-footer"></div><script defer="" src="../scripts/site.js"></script></body></html>
+<div id="site-header"></div>
+
+<section class="topic-course-hero hash-topic-hero">
+  <div class="container-fluid pe-shell">
+    <div class="row g-4 align-items-center py-4 py-xl-5">
+
+      <div class="col-12 col-xl-5">
+        <div class="topic-number-pill">UNIDAD VI · Tablas Hash</div>
+
+        <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
+
+        <h1 class="course-title">Tablas Hash</h1>
+
+        <p class="course-subtitle mb-0">
+          Claves, funciones Hash, colisiones y acceso eficiente a la información
+        </p>
+
+        <div class="hero-line"></div>
+
+        <div class="course-quote">
+          <span aria-hidden="true" class="ui-icon">🔗</span>
+          <span>“Una buena función Hash convierte una clave en acceso rápido.”</span>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="hash-hero-visual">
+          <img
+            src="../images/tabla_hash_encadenamiento_presentacion.webp"
+            class="hash-hero-image"
+            alt="Tabla Hash de 13 posiciones con encadenamiento para resolver colisiones"
+            decoding="async">
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-4">
+        <div
+          id="course-info"
+          data-topic="UNIDAD VI · Tablas Hash">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="hash-topic-menu-wrap">
+  <div class="container-fluid pe-shell">
+    <nav class="ed-topic-local" aria-label="Secciones de la Unidad VI">
+  <a href="#panorama-hash">Panorama</a>
+  <a href="#eficiencia-hash">Eficiencia</a>
+  <a href="#aplicaciones-reales">Aplicaciones</a>
+  <a href="#definicion">6.1 Definición</a>
+  <a href="#funcion-hash">Función hash</a>
+  <a href="#factor">Factor de ocupación</a>
+  <a href="#colisiones">Colisiones</a>
+  <a href="#encadenamiento">Encadenamiento</a>
+  <a href="#lineal">Lineal</a>
+  <a href="#cuadratico">Cuadrático</a>
+  <a href="#djb2">DJB2</a>
+  <a href="#rehashing">Rehashing</a>
+  <a href="#archivos">Archivos binarios</a>
+  <a href="#simulador-hash">Simulador</a>
+  <a href="#quiz-hash">Quiz</a>
+  <a href="#resumen">Resumen</a>
+</nav>
+  </div>
+</section>
+
+
+<main class="container-fluid pe-shell page-content-shell">
+<article class="page-content-card content ed-new-topic">
+
+<div class="note">
+  <b>Competencia:</b>
+  Implementar un programa de procesamiento de información, aplicando los conceptos de tablas hash,
+  con el propósito de dar solución a un problema específico pertinente, con una actitud analítica,
+  proactiva y responsable.
+  <br><br><b>Duración:</b> 6 horas
+</div>
+
+
+
+<section id="panorama-hash" class="hash-section hash-overview">
+  <div class="section-heading">
+    <span class="ui-icon" aria-hidden="true">🧭</span>
+    <h2>Panorama general · ¿En qué consiste una tabla Hash?</h2>
+  </div>
+
+  <p>
+    Una <b>tabla Hash</b> es una estructura diseñada para localizar información rápidamente.
+    En lugar de recorrer todos los elementos uno por uno, toma una <b>clave</b>, la procesa
+    mediante una <b>función hash</b> y obtiene directamente un índice de la tabla.
+    Cuando dos claves producen el mismo índice aparece una <b>colisión</b>, que puede resolverse
+    mediante encadenamiento, sondeo lineal o sondeo cuadrático.
+  </p>
+
+  <div class="hash-process-flow" aria-label="Proceso básico de una tabla hash">
+    <div><b>1</b><span>Clave</span><small>300123</small></div>
+    <span class="hash-process-arrow">→</span>
+    <div><b>2</b><span>Función Hash</span><small>h(k)</small></div>
+    <span class="hash-process-arrow">→</span>
+    <div><b>3</b><span>Índice</span><small>posición</small></div>
+    <span class="hash-process-arrow">→</span>
+    <div><b>4</b><span>Dato</span><small>registro</small></div>
+  </div>
+<div class="hash-concept-grid">
+    <article class="hash-concept-card theme-green">
+      <h3>Clave</h3>
+      <p>Dato que identifica al elemento: matrícula, número de cuenta, código, nombre o cadena.</p>
+    </article>
+
+    <article class="hash-concept-card theme-blue">
+      <h3>Función Hash</h3>
+      <p>Transforma la clave en un valor numérico que después se convierte en un índice.</p>
+    </article>
+
+    <article class="hash-concept-card theme-purple">
+      <h3>Índice</h3>
+      <p>Posición de la tabla donde se intenta almacenar o localizar el elemento.</p>
+    </article>
+
+    <article class="hash-concept-card theme-orange">
+      <h3>Colisión</h3>
+      <p>Ocurre cuando dos claves diferentes producen el mismo índice y requieren una estrategia de resolución.</p>
+    </article>
+  </div>
+</section>
+
+<section id="eficiencia-hash" class="hash-section">
+  <div class="section-heading">
+    <span class="ui-icon" aria-hidden="true">⚡</span>
+    <h2>Eficiencia de las tablas Hash</h2>
+  </div>
+
+  <p>
+    Su principal atractivo es que la búsqueda, inserción y eliminación pueden realizarse en
+    <b>tiempo promedio O(1)</b>. Esto significa que, con una buena función hash y una tabla
+    correctamente dimensionada, el tiempo de acceso no crece de forma importante aunque aumente
+    la cantidad de registros.
+  </p>
+
+  <div class="hash-efficiency-table-wrap">
+    <table class="hash-efficiency-table">
+      <thead>
+        <tr>
+          <th>Operación</th>
+          <th>Caso promedio</th>
+          <th>Peor caso</th>
+          <th>¿Qué provoca el peor caso?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Búsqueda</td>
+          <td><strong>O(1)</strong></td>
+          <td><strong>O(n)</strong></td>
+          <td>Muchas claves terminan en la misma zona o cadena.</td>
+        </tr>
+        <tr>
+          <td>Inserción</td>
+          <td><strong>O(1)</strong></td>
+          <td><strong>O(n)</strong></td>
+          <td>La tabla está muy ocupada o existen demasiadas colisiones.</td>
+        </tr>
+        <tr>
+          <td>Eliminación</td>
+          <td><strong>O(1)</strong></td>
+          <td><strong>O(n)</strong></td>
+          <td>Se requiere recorrer una cadena o una secuencia extensa de sondeo.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="hash-figure hash-support-image">
+    <img
+      src="../images/tabla_hash_eficiencia.webp"
+      alt="Comparación de eficiencia promedio y peor caso en tablas hash"
+      loading="lazy"
+      decoding="async">
+    <figcaption>
+      El O(1) promedio supone una distribución razonablemente uniforme de las claves.
+      Una función hash deficiente puede acercar el comportamiento al peor caso O(n).
+    </figcaption>
+  </figure>
+</section>
+
+<section id="aplicaciones-reales" class="hash-section">
+  <div class="section-heading">
+    <span class="ui-icon" aria-hidden="true">🌐</span>
+    <h2>Aplicaciones en la vida real</h2>
+  </div>
+
+  <div class="hash-concept-grid">
+    <article class="hash-concept-card theme-green">
+      <h3>Lenguajes de programación</h3>
+      <p>Diccionarios, mapas y conjuntos utilizan tablas hash para localizar claves rápidamente.</p>
+    </article>
+
+    <article class="hash-concept-card theme-blue">
+      <h3>Caché y memoria</h3>
+      <p>Permiten recuperar datos frecuentes sin volver a realizar búsquedas o cálculos costosos.</p>
+    </article>
+
+    <article class="hash-concept-card theme-purple">
+      <h3>Bases de datos</h3>
+      <p>Los índices hash pueden acelerar búsquedas exactas de claves en grandes colecciones de registros.</p>
+    </article>
+
+    <article class="hash-concept-card theme-orange">
+      <h3>Compiladores</h3>
+      <p>Las tablas de símbolos relacionan identificadores con información como tipo, dirección o alcance.</p>
+    </article>
+  </div>
+
+  <figure class="hash-figure hash-support-image">
+    <img
+      src="../images/tabla_hash_aplicaciones_reales.webp"
+      alt="Aplicaciones de tablas hash en lenguajes, caché, bases de datos y compiladores"
+      loading="lazy"
+      decoding="async">
+    <figcaption>
+      Las tablas Hash forman parte de muchas tecnologías cotidianas aunque normalmente funcionen de manera invisible.
+    </figcaption>
+  </figure>
+</section>
+
+<section id="definicion" class="hash-section">
+  <div class="section-heading"><span class="ui-icon" aria-hidden="true">1️⃣</span><h2>6.1 · ¿Qué es una tabla Hash?</h2></div>
+  <div class="hash-concept-grid">
+    <article class="hash-concept-card theme-green"><h3>¿Qué es?</h3><p>Una tabla hash almacena elementos en posiciones calculadas a partir de una <b>clave</b>. La posición se obtiene mediante una <b>función hash</b>.</p></article>
+    <article class="hash-concept-card theme-blue"><h3>¿Para qué sirve?</h3><p>Permite insertar, buscar y eliminar información con tiempos promedio cercanos a <b>O(1)</b> cuando la distribución de claves es adecuada.</p></article>
+    <article class="hash-concept-card theme-purple"><h3>Conceptos básicos</h3><ul><li>Clave</li><li>Índice</li><li>Función hash</li><li>Colisión</li><li>Factor de ocupación</li><li>Rehashing</li></ul></article>
+    <article class="hash-concept-card theme-orange"><h3>Usos</h3><ul><li>Diccionarios y mapas.</li><li>Índices de archivos.</li><li>Cachés.</li><li>Tablas de símbolos.</li><li>Búsquedas rápidas.</li></ul></article>
+  </div>
+  <figure class="hash-figure">
+    <img src="../images/Tabla hash con encadenamiento numérico.png" alt="Ejemplo de tabla hash con encadenamiento numérico" loading="lazy" decoding="async">
+    <figcaption>Una clave se transforma en un índice y se almacena en la posición correspondiente.</figcaption>
+  </figure>
+</section>
+
+<section id="funcion-hash" class="hash-section">
+  <div class="section-heading"><span class="ui-icon" aria-hidden="true">🔑</span><h2>¿Qué es una función Hash?</h2></div>
+  <p>Una función hash recibe una clave y produce un número entero que se usa para calcular una posición dentro de la tabla. La meta es distribuir las claves de forma uniforme.</p>
+  <div class="hash-two-column">
+    <div>
+      <h3>Clave numérica</h3>
+      <p>Una técnica sencilla consiste en aplicar módulo con el tamaño de la tabla.</p>
+      <pre><code>ALGORITMO Hash_Numerico
+    ENTRADA: clave, tamañoTabla
+
+    indice ← clave MOD tamañoTabla
+
+    RETORNAR indice
+FIN ALGORITMO</code></pre>
+      <div class="hash-example"><b>Ejemplo:</b><br>clave = 1234<br>tamaño = 13<br>índice = 1234 MOD 13 = 12</div>
+    </div>
+    <figure class="hash-figure compact">
+      <img src="../images/Tabla hash con encadenamiento numérico.png" alt="Generación de índice hash con clave numérica" loading="lazy" decoding="async">
+    </figure>
+  </div>
+</section>
+
+<section id="factor" class="hash-section">
+  <div class="section-heading"><span class="ui-icon" aria-hidden="true">📊</span><h2>Factor de ocupación Hash</h2></div>
+  <p>El factor de ocupación o <b>factor de carga</b> indica qué tan llena está la tabla.</p>
+  <div class="hash-formula">α = elementos almacenados / tamaño de la tabla</div>
+  <div class="hash-concept-grid">
+    <article class="hash-concept-card theme-green"><h3>α bajo</h3><p>Hay pocas colisiones, aunque puede desperdiciarse memoria.</p></article>
+    <article class="hash-concept-card theme-orange"><h3>α alto</h3><p>Aumentan las colisiones y disminuye el rendimiento.</p></article>
+    <article class="hash-concept-card theme-blue"><h3>Direccionamiento abierto</h3><p>Suele ser conveniente mantener α por debajo de 0.7.</p></article>
+    <article class="hash-concept-card theme-purple"><h3>Encadenamiento</h3><p>Puede soportar α mayor que 1 porque cada posición puede contener una lista.</p></article>
+  </div>
+</section>
+
+<section id="colisiones" class="hash-section">
+  <div class="section-heading"><span class="ui-icon" aria-hidden="true">💥</span><h2>Colisiones</h2></div>
+  <p>Existe una colisión cuando dos claves distintas generan el mismo índice.</p>
+  <div class="hash-example">25 MOD 10 = 5<br>35 MOD 10 = 5<br>Ambas claves desean ocupar la posición 5.</div>
+  <figure class="hash-figure">
+    <img src="../images/Tabla Hash_Encadenamiento de Colisiones.png" alt="Ejemplo de colisiones en una tabla hash" loading="lazy" decoding="async">
+    <figcaption>Las colisiones son normales; el diseño debe incluir una estrategia para resolverlas.</figcaption>
+  </figure>
+</section>
+
+<section id="encadenamiento" class="hash-section">
+  <div class="section-heading"><span class="ui-icon" aria-hidden="true">🔗</span><h2>Encadenamiento para manejo de colisiones</h2></div>
+  <p>Cada posición de la tabla guarda una lista enlazada. Si varias claves caen en el mismo índice, se agregan a esa lista.</p>
+  <div class="hash-two-column">
+    <pre><code>ALGORITMO Insertar_Encadenamiento
+    indice ← Hash(clave)
+
+    Crear NUEVO nodo
+    NUEVO.clave ← clave
+
+    NUEVO.siguiente ← tabla[indice]
+    tabla[indice] ← NUEVO
+FIN ALGORITMO</code></pre>
+    <figure class="hash-figure compact">
+      <img src="../images/Tabla hash con listas enlazadas.png" alt="Tabla hash con listas enlazadas para resolver colisiones" loading="lazy" decoding="async">
+    </figure>
+  </div>
+</section>
+
+<section id="lineal" class="hash-section">
+  <div class="section-heading"><span class="ui-icon" aria-hidden="true">➡️</span><h2>Sondeo lineal</h2></div>
+  <p>Si la posición calculada está ocupada, se revisa la siguiente posición y se continúa hasta encontrar un espacio libre.</p>
+  <pre><code>ALGORITMO Insertar_Lineal
+    indice ← Hash(clave)
+    intento ← 0
+
+    MIENTRAS tabla[indice] esté ocupada
+        intento ← intento + 1
+        indice ← (Hash(clave) + intento) MOD tamañoTabla
+    FIN MIENTRAS
+
+    tabla[indice] ← clave
+FIN ALGORITMO</code></pre>
+  <figure class="hash-figure">
+    <img src="../images/Tabla hash_sondeo lineal explicado.png" alt="Ejemplo explicado de sondeo lineal" loading="lazy" decoding="async">
+  </figure>
+</section>
+
+<section id="cuadratico" class="hash-section">
+  <div class="section-heading"><span class="ui-icon" aria-hidden="true">↗️</span><h2>Sondeo cuadrático</h2></div>
+  <p>En lugar de revisar posiciones consecutivas, se generan saltos cuadrados: 1², 2², 3²...</p>
+  <pre><code>ALGORITMO Insertar_Cuadratico
+    indiceBase ← Hash(clave)
+    i ← 0
+
+    MIENTRAS exista colisión
+        indice ← (indiceBase + i * i) MOD tamañoTabla
+        i ← i + 1
+    FIN MIENTRAS
+
+    tabla[indice] ← clave
+FIN ALGORITMO</code></pre>
+  <div class="hash-example">Si h(k)=4 y hay colisión:<br>4 + 1² → 5<br>4 + 2² → 8<br>4 + 3² → 13 MOD tamaño</div>
+</section>
+
+<section id="djb2" class="hash-section">
+  <div class="section-heading"><span class="ui-icon" aria-hidden="true">🔤</span><h2>DJB2 · Hash para claves alfanuméricas</h2></div>
+  <p>DJB2 procesa una cadena carácter por carácter. Parte de 5381 y en cada paso multiplica el hash acumulado por 33 y suma el código del carácter.</p>
+  <pre><code>ALGORITMO Hash_DJB2
+    hash ← 5381
+
+    PARA cada caracter EN cadena
+        hash ← hash * 33 + codigo(caracter)
+    FIN PARA
+
+    indice ← hash MOD tamañoTabla
+
+    RETORNAR indice
+FIN ALGORITMO</code></pre>
+  <div class="hash-example">Equivalencia eficiente:<br>hash * 33 = (hash &lt;&lt; 5) + hash</div>
+  <figure class="hash-figure">
+    <img src="../images/Tabla Hash DJB2 con Claves Alfanuméricas.png" alt="Tabla hash DJB2 con claves alfanuméricas" loading="lazy" decoding="async">
+  </figure>
+</section>
+
+<section id="rehashing" class="hash-section">
+  <div class="section-heading"><span class="ui-icon" aria-hidden="true">♻️</span><h2>Rehashing</h2></div>
+  <p>Cuando la tabla alcanza un factor de ocupación elevado, se crea una tabla mayor y se vuelven a calcular los índices.</p>
+  <pre><code>ALGORITMO Rehashing
+    SI factorOcupacion &gt; LIMITE
+        Crear nuevaTabla con mayor tamaño
+
+        PARA cada elemento DE tablaAnterior
+            nuevoIndice ← Hash(elemento.clave) MOD nuevoTamaño
+            Insertar elemento en nuevaTabla
+        FIN PARA
+
+        tabla ← nuevaTabla
+    FIN SI
+FIN ALGORITMO</code></pre>
+  <div class="note"><b>Importante:</b> como cambió el tamaño de la tabla, cada índice debe calcularse nuevamente.</div>
+</section>
+
+<section id="archivos" class="hash-section">
+  <div class="section-heading"><span class="ui-icon" aria-hidden="true">💾</span><h2>Aplicación: archivos binarios indexados con Hash</h2></div>
+  <p>La tabla hash puede funcionar como índice rápido para localizar registros almacenados en un archivo binario. En lugar de guardar todo el registro, puede guardar la posición física donde se encuentra.</p>
+  <div class="hash-two-column">
+    <div>
+      <h3>Crear índice</h3>
+      <pre><code>REGISTRO Alumno
+    matricula
+    nombre
+    carrera
+FIN REGISTRO
+
+indice ← Hash(matricula)
+
+tablaHash[indice].clave ← matricula
+tablaHash[indice].posicion ← posicionEnArchivo</code></pre>
+    </div>
+    <div>
+      <h3>Buscar registro</h3>
+      <pre><code>indice ← Hash(matricula)
+
+posicion ← BuscarEnTabla(indice, matricula)
+
+SI posicion existe
+    Mover archivo a posicion
+    Leer registro
+FIN SI</code></pre>
+    </div>
+  </div>
+  <div class="hash-flow"><span>Clave</span><span>→</span><span>Hash</span><span>→</span><span>Índice</span><span>→</span><span>Posición del archivo</span><span>→</span><span>Registro</span></div>
+</section>
+
+<section id="simulador-hash" class="hash-section">
+  <div class="section-heading"><span class="ui-icon" aria-hidden="true">🧪</span><h2>Simulador de tabla Hash</h2></div>
+  <p>Inserta claves numéricas o alfanuméricas y observa cómo se calcula el índice, cómo aparece una colisión y cómo se resuelve.</p>
+  <div class="hash-simulator" data-hash-simulator>
+    <div class="hash-simulator-controls">
+      <div><label for="hash-key">Clave</label><input id="hash-key" type="text" placeholder="Ej. 25 o UABC"></div>
+      <div><label for="hash-method">Método</label>
+        <select id="hash-method">
+          <option value="chain">Encadenamiento</option>
+          <option value="linear">Sondeo lineal</option>
+          <option value="quadratic">Sondeo cuadrático</option>
+        </select>
+      </div>
+      <button type="button" id="hash-insert">Insertar</button>
+      <button type="button" id="hash-clear" class="secondary">Limpiar</button>
+    </div>
+    <div class="hash-simulator-info" aria-live="polite">
+      <div><span>Hash calculado</span><strong id="hash-value">—</strong></div>
+      <div><span>Índice inicial</span><strong id="hash-index">—</strong></div>
+      <div><span>Factor de ocupación</span><strong id="hash-load">0.00</strong></div>
+    </div>
+    <div class="hash-table-visual" id="hash-table-visual" aria-label="Representación de la tabla hash"></div>
+    <div class="hash-animation-log" id="hash-animation-log" aria-live="polite">Inserta una clave para iniciar la simulación.</div>
+  </div>
+</section>
+
+<section id="quiz-hash" class="hash-section">
+  <div class="section-heading"><span class="ui-icon" aria-hidden="true">🧠</span><h2>Cuestionario · Tablas Hash</h2></div>
+  <div class="hash-quiz" data-hash-quiz>
+    <fieldset class="hash-question" data-correct="b"><legend>1. ¿Cuál es el propósito principal de una función hash?</legend><label><input type="radio" name="q1" value="a"> Ordenar los registros alfabéticamente.</label><label><input type="radio" name="q1" value="b"> Transformar una clave en un índice.</label><label><input type="radio" name="q1" value="c"> Comprimir el archivo.</label><div class="hash-feedback"></div></fieldset>
+    <fieldset class="hash-question" data-correct="c"><legend>2. ¿Cuándo existe una colisión?</legend><label><input type="radio" name="q2" value="a"> Cuando la tabla está vacía.</label><label><input type="radio" name="q2" value="b"> Cuando la clave es alfanumérica.</label><label><input type="radio" name="q2" value="c"> Cuando dos claves generan el mismo índice.</label><div class="hash-feedback"></div></fieldset>
+    <fieldset class="hash-question" data-correct="a"><legend>3. En encadenamiento, ¿qué se almacena normalmente en cada posición?</legend><label><input type="radio" name="q3" value="a"> Una lista enlazada.</label><label><input type="radio" name="q3" value="b"> Una pila obligatoriamente.</label><label><input type="radio" name="q3" value="c"> Una matriz cuadrada.</label><div class="hash-feedback"></div></fieldset>
+    <fieldset class="hash-question" data-correct="b"><legend>4. En sondeo lineal, ¿qué ocurre después de una colisión?</legend><label><input type="radio" name="q4" value="a"> Se elimina la clave.</label><label><input type="radio" name="q4" value="b"> Se prueban posiciones consecutivas.</label><label><input type="radio" name="q4" value="c"> Se duplica siempre el tamaño de la tabla.</label><div class="hash-feedback"></div></fieldset>
+    <fieldset class="hash-question" data-correct="c"><legend>5. ¿Qué representa el factor de ocupación α?</legend><label><input type="radio" name="q5" value="a"> El número de colisiones.</label><label><input type="radio" name="q5" value="b"> La longitud de la clave.</label><label><input type="radio" name="q5" value="c"> Elementos almacenados / tamaño de la tabla.</label><div class="hash-feedback"></div></fieldset>
+    <fieldset class="hash-question" data-correct="a"><legend>6. ¿Cuál es la idea central de DJB2?</legend><label><input type="radio" name="q6" value="a"> Multiplicar el hash acumulado por 33 y sumar el carácter.</label><label><input type="radio" name="q6" value="b"> Dividir siempre entre 2.</label><label><input type="radio" name="q6" value="c"> Ordenar la cadena antes de procesarla.</label><div class="hash-feedback"></div></fieldset>
+    <fieldset class="hash-question" data-correct="b"><legend>7. ¿Por qué se realiza rehashing?</legend><label><input type="radio" name="q7" value="a"> Para convertir claves numéricas en texto.</label><label><input type="radio" name="q7" value="b"> Para reducir colisiones cuando la tabla está demasiado ocupada.</label><label><input type="radio" name="q7" value="c"> Para borrar los registros antiguos.</label><div class="hash-feedback"></div></fieldset>
+    <fieldset class="hash-question" data-correct="c"><legend>8. ¿Cómo puede ayudar una tabla hash en un archivo binario?</legend><label><input type="radio" name="q8" value="a"> Dibujando el contenido del archivo.</label><label><input type="radio" name="q8" value="b"> Eliminando la necesidad de guardar datos.</label><label><input type="radio" name="q8" value="c"> Guardando una posición que permita localizar rápidamente un registro.</label><div class="hash-feedback"></div></fieldset>
+    <div class="hash-quiz-actions"><button type="button" id="hash-quiz-analyze">Analizar respuestas</button><button type="button" id="hash-quiz-reset" class="secondary">Reiniciar</button></div>
+    <div id="hash-quiz-result" class="hash-quiz-result" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="resumen" class="hash-section">
+  <div class="summary"><div class="bulb">💡</div><div><b>EN RESUMEN</b><br>Una tabla hash transforma una clave en un índice para acceder rápidamente a la información. El rendimiento depende de una buena función hash, de un factor de ocupación controlado y de una estrategia adecuada para resolver colisiones.</div></div>
+</section>
+
+</article>
+</main>
+
+<div id="site-footer"></div>
+<script src="../scripts/site.js" defer></script>
+<script src="../scripts/hash_interactivo.js" defer></script>
+</body>
+</html>

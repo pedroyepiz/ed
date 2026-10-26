@@ -1,0 +1,317 @@
+/* =========================================================
+   UNIDAD VI · TABLAS HASH
+   ========================================================= */
+
+.hash-section{margin:0 0 34px}
+.hash-section + .hash-section{padding-top:26px;border-top:1px solid #dce9e3}
+.hash-concept-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:18px 0}
+.hash-concept-card{padding:18px;border:1px solid #d3e5dd;border-radius:14px;background:#fff;box-shadow:0 5px 15px rgba(0,75,53,.05)}
+.hash-concept-card h3{margin:0 0 .55rem;color:#004b35;font-size:1.02rem;font-weight:900}
+.hash-concept-card p,.hash-concept-card ul{margin:0}
+.hash-concept-card.theme-green{border-top:5px solid #006847}
+.hash-concept-card.theme-blue{border-top:5px solid #2878a8}
+.hash-concept-card.theme-purple{border-top:5px solid #7048a8}
+.hash-concept-card.theme-orange{border-top:5px solid #d67b1f}
+
+.hash-two-column{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start}
+.hash-figure{margin:20px 0;padding:12px;border:1px solid #d5e6df;border-radius:14px;background:#fff;text-align:center}
+.hash-figure.compact{margin:0}
+.hash-figure img{display:block;width:100%;max-width:900px;height:auto;margin-inline:auto;border-radius:10px}
+.hash-figure figcaption{margin-top:10px;color:#64746e;font-size:.88rem}
+
+.hash-formula{margin:16px 0;padding:18px;border:1px solid #bcd9cd;border-radius:12px;background:#eef8f4;color:#004b35;text-align:center;font-family:Consolas,"Cascadia Code","Courier New",monospace;font-size:1.1rem;font-weight:900}
+.hash-example{margin:16px 0;padding:14px 16px;border-left:5px solid #d4a017;border-radius:10px;background:#fff9e8}
+.hash-flow{display:flex;flex-wrap:wrap;gap:.55rem;align-items:center;justify-content:center;margin:20px 0;padding:18px;border:1px solid #d3e5dd;border-radius:12px;background:#f8fcfa;font-weight:850}
+.hash-flow span:nth-child(odd){padding:.55rem .75rem;border:1px solid #bcd9cd;border-radius:8px;background:#fff;color:#004b35}
+
+.hash-simulator{padding:20px;border:1px solid #cfe2da;border-radius:16px;background:linear-gradient(180deg,#fff,#f4faf7)}
+.hash-simulator-controls{display:flex;flex-wrap:wrap;gap:.75rem;align-items:end}
+.hash-simulator-controls>div{display:grid;gap:.3rem}
+.hash-simulator-controls label{color:#355248;font-size:.82rem;font-weight:900}
+.hash-simulator-controls input,.hash-simulator-controls select{min-height:42px;padding:.55rem .7rem;border:1px solid #a9cdbf;border-radius:9px;background:#fff}
+.hash-simulator-controls button,.hash-quiz-actions button{min-height:42px;padding:.65rem 1rem;border:1px solid #006847;border-radius:9px;background:#006847;color:#fff;font-weight:900}
+.hash-simulator-controls .secondary,.hash-quiz-actions .secondary{background:#fff;color:#006847}
+
+.hash-simulator-info{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:16px 0}
+.hash-simulator-info>div{padding:12px;border:1px solid #d6e6df;border-radius:10px;background:#fff}
+.hash-simulator-info span{display:block;color:#728079;font-size:.78rem;font-weight:800}
+.hash-simulator-info strong{display:block;margin-top:.2rem;color:#004b35;font-size:1.15rem}
+
+.hash-table-visual{display:grid;gap:.45rem}
+.hash-slot{display:grid;grid-template-columns:70px 1fr;align-items:center;gap:.6rem}
+.hash-slot-index{padding:.55rem;border-radius:8px;background:#004b35;color:#fff;text-align:center;font-weight:900}
+.hash-slot-content{min-height:44px;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;padding:.45rem;border:1px solid #cfe1d9;border-radius:8px;background:#fff}
+.hash-node{padding:.42rem .6rem;border:1px solid #8fc3ad;border-radius:999px;background:#eaf5f0;color:#004b35;font-weight:850}
+.hash-slot.active .hash-slot-content{border-color:#d4a017;background:#fff9e8;box-shadow:0 0 0 3px rgba(212,160,23,.11)}
+.hash-animation-log{margin-top:14px;padding:12px 14px;border-left:4px solid #006847;border-radius:8px;background:#eef8f4;color:#294b40}
+
+.hash-question{margin:0 0 14px;padding:16px;border:1px solid #d5e6df;border-radius:12px;background:#fff}
+.hash-question legend{float:none;width:auto;margin:0 0 10px;color:#173c31;font-size:1rem;font-weight:900}
+.hash-question label{display:block;margin:.38rem 0;padding:.5rem .65rem;border-radius:8px;cursor:pointer}
+.hash-question label:hover{background:#f2faf6}
+.hash-feedback{margin-top:8px;min-height:1.1em;font-weight:800}
+.hash-feedback.ok{color:#087443}
+.hash-feedback.bad{color:#b42318}
+.hash-quiz-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:18px}
+.hash-quiz-result{margin-top:14px;color:#173c31;font-weight:900}
+
+@media(max-width:991.98px){
+  .hash-concept-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hash-two-column{grid-template-columns:1fr}
+}
+@media(max-width:767.98px){
+  .hash-simulator-info{grid-template-columns:1fr}
+}
+@media(max-width:575.98px){
+  .hash-concept-grid{grid-template-columns:1fr}
+  .hash-simulator-controls{display:grid;grid-template-columns:1fr}
+  .hash-simulator-controls input,.hash-simulator-controls select,.hash-simulator-controls button{width:100%}
+  .hash-slot{grid-template-columns:55px 1fr}
+}
+
+
+/* =========================================================
+   PRESENTACIÓN INICIAL · PANORAMA, EFICIENCIA Y APLICACIONES
+   ========================================================= */
+
+.hash-overview > p,
+#eficiencia-hash > p{
+  max-width:1050px;
+}
+
+.hash-opening-image{
+  max-width:860px;
+  margin:24px auto;
+}
+
+.hash-opening-image img{
+  max-width:760px;
+}
+
+.hash-support-image{
+  max-width:820px;
+  margin:22px auto;
+}
+
+.hash-support-image img{
+  max-width:760px;
+}
+
+.hash-process-flow{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:.65rem;
+  margin:20px 0;
+  padding:18px;
+  border:1px solid #cfe3da;
+  border-radius:14px;
+  background:#f6fbf9;
+}
+
+.hash-process-flow > div{
+  min-width:140px;
+  display:grid;
+  gap:.15rem;
+  justify-items:center;
+  padding:12px 14px;
+  border:1px solid #bddbce;
+  border-radius:11px;
+  background:#fff;
+}
+
+.hash-process-flow > div b{
+  width:28px;
+  height:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  background:#006847;
+  color:#fff;
+}
+
+.hash-process-flow > div span{
+  color:#004b35;
+  font-weight:900;
+}
+
+.hash-process-flow > div small{
+  color:#718078;
+}
+
+.hash-process-arrow{
+  color:#006847;
+  font-size:1.4rem;
+  font-weight:900;
+}
+
+.hash-efficiency-table-wrap{
+  overflow-x:auto;
+  margin:18px 0;
+}
+
+.hash-efficiency-table{
+  width:100%;
+  min-width:760px;
+  border-collapse:collapse;
+  background:#fff;
+}
+
+.hash-efficiency-table th,
+.hash-efficiency-table td{
+  padding:.8rem .9rem;
+  border:1px solid #d0e1da;
+  vertical-align:middle;
+}
+
+.hash-efficiency-table th{
+  background:#004b35;
+  color:#fff;
+  text-align:center;
+}
+
+.hash-efficiency-table td:nth-child(2){
+  color:#087443;
+  text-align:center;
+}
+
+.hash-efficiency-table td:nth-child(3){
+  color:#b34a21;
+  text-align:center;
+}
+
+.hash-efficiency-table td strong{
+  font-size:1.1rem;
+}
+
+@media(max-width:767.98px){
+  .hash-process-flow{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .hash-process-arrow{
+    transform:rotate(90deg);
+    text-align:center;
+  }
+}
+
+
+/* =========================================================
+   HERO UNIDAD VI · MISMO PATRÓN VISUAL QUE PILAS
+   ========================================================= */
+
+.hash-topic-hero .course-title{
+  margin-bottom:.35rem;
+}
+
+.hash-hero-visual{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+}
+
+.hash-hero-image{
+  display:block;
+  width:100%;
+  max-width:360px;
+  height:auto;
+  object-fit:contain;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,75,53,.08);
+}
+
+.hash-topic-menu-wrap{
+  margin-top:-4px;
+  margin-bottom:22px;
+}
+
+.hash-topic-menu-wrap .ed-topic-local{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  align-items:center;
+  padding:10px 12px;
+  border:1px solid #d5e6df;
+  border-radius:12px;
+  background:rgba(255,255,255,.88);
+  box-shadow:0 4px 12px rgba(0,70,45,.05);
+}
+
+.hash-topic-menu-wrap .ed-topic-local a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:.55rem .9rem;
+  border:1px solid #c9ded5;
+  border-radius:999px;
+  background:#fff;
+  color:#005b40;
+  text-decoration:none;
+  font-weight:850;
+  line-height:1;
+  box-shadow:0 2px 7px rgba(0,70,45,.05);
+  transition:.15s ease;
+}
+
+.hash-topic-menu-wrap .ed-topic-local a:hover,
+.hash-topic-menu-wrap .ed-topic-local a:focus-visible{
+  background:#006847;
+  border-color:#006847;
+  color:#fff;
+  transform:translateY(-1px);
+  outline:none;
+}
+
+/* La imagen principal ahora vive exclusivamente en el hero */
+.hash-opening-image{
+  display:none;
+}
+
+@media(max-width:1199.98px){
+  .hash-hero-image{
+    max-width:330px;
+  }
+}
+
+@media(max-width:767.98px){
+  .hash-hero-visual{
+    margin-inline:auto;
+  }
+
+  .hash-hero-image{
+    max-width:320px;
+  }
+
+  .hash-topic-menu-wrap .ed-topic-local{
+    justify-content:flex-start;
+  }
+}
+
+@media(max-width:575.98px){
+  .hash-hero-image{
+    max-width:100%;
+    border-radius:10px;
+  }
+
+  .hash-topic-menu-wrap .ed-topic-local{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hash-topic-menu-wrap .ed-topic-local a{
+    width:100%;
+    text-align:center;
+  }
+}
+
+@media(max-width:420px){
+  .hash-topic-menu-wrap .ed-topic-local{
+    grid-template-columns:1fr;
+  }
+}
