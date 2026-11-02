@@ -4,34 +4,355 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#006847">
-  <title>Recursos de Montículos | Estructuras de Datos</title>
+  <meta name="description" content="Recursos de Montículos: simuladores animados de cola con prioridad y heap binario.">
+  <title>Recursos · Montículos | Estructuras de Datos</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../styles/site.css">
+  <link rel="stylesheet" href="../styles/monticulos_interactivo.css">
 </head>
+
 <body class="pe-home pe-course-page pe-uniform-page">
+
   <div id="site-header"></div>
-  <section class="topic-course-hero">
+
+  <section class="topic-course-hero heap-topic-hero">
     <div class="container-fluid pe-shell">
       <div class="row g-4 align-items-center py-4 py-xl-5">
-        <div class="col-xl-7">
+
+        <div class="col-12 col-xl-5">
           <div class="topic-number-pill">TEMA 5 · Recursos</div>
           <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
+
           <h1 class="course-title">Recursos de Montículos</h1>
-          <p class="course-subtitle mb-0">Videos, presentaciones y simuladores de montículos.</p>
+
+          <p class="course-subtitle mb-0">
+            Colas con prioridad y montículos binarios paso a paso
+          </p>
+
           <div class="hero-line"></div>
-          <div class="course-quote"><span class="ui-icon" aria-hidden="true">⚡</span><span>Esta ruta ya está reservada para mantener estable la navegación del sitio.</span></div>
+
+          <div class="course-quote">
+            <span aria-hidden="true" class="ui-icon">⚡</span>
+            <span>La prioridad decide quién sale primero; el heap permite encontrarlo con eficiencia.</span>
+          </div>
         </div>
-        <div class="col-xl-5"><div id="course-info" data-topic="TEMA 5 · Recursos"></div></div>
+
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="heap-hero-visual" aria-label="Representación de un montículo máximo">
+            <div class="heap-hero-node heap-hero-root">90</div>
+            <div class="heap-hero-row">
+              <div class="heap-hero-node">70</div>
+              <div class="heap-hero-node">80</div>
+            </div>
+            <div class="heap-hero-row heap-hero-row-small">
+              <div class="heap-hero-node">20</div>
+              <div class="heap-hero-node">60</div>
+              <div class="heap-hero-node">50</div>
+              <div class="heap-hero-node">40</div>
+            </div>
+            <div class="heap-hero-caption">MAX-HEAP</div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <div id="course-info" data-topic="TEMA 5 · Recursos de Montículos"></div>
+        </div>
+
       </div>
     </div>
   </section>
+
+  <section class="heap-topic-menu-wrap">
+    <div class="container-fluid pe-shell">
+      <nav class="ed-topic-local" aria-label="Recursos de Montículos">
+        <a href="#concepto-prioridad">Idea clave</a>
+        <a href="#simulador-prioridad">Cola con prioridad</a>
+        <a href="#simulador-heap">Montículo / Heap</a>
+        <a href="tema_05_monticulos.html">Volver al tema</a>
+      </nav>
+    </div>
+  </section>
+
   <main class="container-fluid pe-shell page-content-shell">
-    <article class="page-content-card content">
-      <div class="note"><b>Contenido en preparación:</b> esta página ya forma parte de la navegación definitiva. Más adelante se sustituirá únicamente el contenido sin cambiar el enlace.</div>
-      <p><a class="course-btn topic-btn" href="presentaciones_videos.html"><span>Volver a Recursos</span><span class="ui-icon" aria-hidden="true">→</span></a></p>
+    <article class="page-content-card content ed-new-topic">
+
+      <div class="note">
+        <b>Recursos del Tema 5:</b>
+        esta página está pensada para observar las operaciones lentamente.
+        Modifica la velocidad o activa <b>Paso a paso</b> antes de ejecutar una operación.
+      </div>
+
+      <section id="concepto-prioridad" class="heap-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">💡</span>
+          <h2>Primero: ¿cola con prioridad o montículo?</h2>
+        </div>
+
+        <div class="heap-concept-grid">
+          <article class="heap-concept-card">
+            <span class="heap-concept-icon" aria-hidden="true">🎫</span>
+            <h3>Cola con prioridad</h3>
+            <p>
+              Es una estructura donde cada elemento tiene una <b>prioridad</b>.
+              El elemento con mayor prioridad se atiende antes, aunque haya llegado después.
+            </p>
+          </article>
+
+          <article class="heap-concept-card">
+            <span class="heap-concept-icon" aria-hidden="true">⚡</span>
+            <h3>Montículo (Heap)</h3>
+            <p>
+              Es un árbol binario completo que mantiene el elemento de mayor o menor prioridad
+              en la raíz. Por eso resulta muy útil para implementar colas con prioridad.
+            </p>
+          </article>
+
+          <article class="heap-concept-card">
+            <span class="heap-concept-icon" aria-hidden="true">🧠</span>
+            <h3>Idea para recordar</h3>
+            <p>
+              <b>Cola con prioridad</b> describe qué debe ocurrir.
+              <b>Heap</b> describe una manera eficiente de organizar los datos para lograrlo.
+            </p>
+          </article>
+        </div>
+
+        <div class="heap-comparison-strip">
+          <div><strong>Insertar en heap</strong><span>O(log n)</span></div>
+          <div><strong>Consultar raíz</strong><span>O(1)</span></div>
+          <div><strong>Extraer raíz</strong><span>O(log n)</span></div>
+          <div><strong>Representación</strong><span>Árbol + arreglo</span></div>
+        </div>
+      </section>
+
+      <section id="simulador-prioridad" class="heap-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🎫</span>
+          <h2>Simulador animado · Cola con prioridad</h2>
+        </div>
+
+        <p>
+          Cada elemento tiene un <b>valor</b> y una <b>prioridad</b>.
+          En este simulador, un número de prioridad mayor significa que debe atenderse antes.
+          Si dos elementos tienen la misma prioridad, se conserva el orden de llegada.
+        </p>
+
+        <div class="priority-simulator" data-priority-simulator>
+
+          <div class="heap-controls">
+            <div>
+              <label for="priority-value">Valor</label>
+              <input id="priority-value" type="text" maxlength="12" placeholder="Ej. A">
+            </div>
+
+            <div>
+              <label for="priority-level">Prioridad</label>
+              <input id="priority-level" type="number" min="1" max="99" value="5">
+            </div>
+
+            <button type="button" data-priority-action="enqueue">Agregar</button>
+            <button type="button" data-priority-action="dequeue">Atender</button>
+            <button type="button" data-priority-action="peek" class="secondary">Consultar primero</button>
+            <button type="button" data-priority-action="example" class="secondary">Cargar ejemplo</button>
+            <button type="button" data-priority-action="clear" class="secondary">Limpiar</button>
+          </div>
+
+          <div class="heap-playback-controls" data-playback-controls="priority">
+            <label for="priority-speed">
+              Tiempo por paso
+              <input id="priority-speed" type="range" min="250" max="5000" step="250" value="2500">
+            </label>
+
+            <span class="heap-speed-scale">Rápido · 0.25 s</span>
+            <span id="priority-speed-label" class="heap-speed-label">2.50 s / paso</span>
+            <span class="heap-speed-scale">Lento · 5.00 s</span>
+
+            <button type="button" data-playback-action="pause" data-playback-target="priority">Pausar</button>
+            <button type="button" data-playback-action="step" data-playback-target="priority">Paso a paso</button>
+          </div>
+
+          <div class="priority-state-grid">
+            <div>
+              <span>Elementos</span>
+              <strong id="priority-count">0</strong>
+            </div>
+            <div>
+              <span>Siguiente en salir</span>
+              <strong id="priority-next">—</strong>
+            </div>
+            <div>
+              <span>Regla</span>
+              <strong>Mayor prioridad</strong>
+            </div>
+          </div>
+
+          <div class="heap-simulator-layout">
+            <div>
+              <div class="priority-visual-wrap">
+                <div class="priority-direction">
+                  <span>SALIDA</span>
+                  <span aria-hidden="true">←</span>
+                  <span>ORDEN DE ATENCIÓN</span>
+                  <span aria-hidden="true">←</span>
+                  <span>ENTRADA</span>
+                </div>
+                <div id="priority-visual" class="priority-visual" aria-label="Cola con prioridad simulada"></div>
+              </div>
+            </div>
+
+            <aside class="heap-step-panel">
+              <h3>¿Qué está ocurriendo?</h3>
+              <ol id="priority-steps" class="heap-step-list">
+                <li>Agrega un elemento para comenzar.</li>
+              </ol>
+            </aside>
+          </div>
+
+          <div id="priority-status" class="heap-status" aria-live="polite">
+            Cola con prioridad vacía.
+          </div>
+        </div>
+
+        <div class="note heap-observation">
+          <b>Observa:</b>
+          la posición de salida depende de la prioridad, no únicamente del orden de llegada.
+          Cuando dos prioridades son iguales, el que llegó primero conserva preferencia.
+        </div>
+      </section>
+
+      <section id="simulador-heap" class="heap-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">⚡</span>
+          <h2>Simulador animado · Montículo binario (Heap)</h2>
+        </div>
+
+        <p>
+          Inserta valores y observa cómo primero se agregan en la <b>última posición del arreglo</b>
+          y después suben comparándose con su padre. Al extraer la raíz, el último elemento ocupa
+          temporalmente su lugar y luego baja hasta recuperar la propiedad del heap.
+        </p>
+
+        <div class="heap-simulator" data-heap-simulator>
+
+          <div class="heap-controls">
+            <div>
+              <label for="heap-value">Valor entero</label>
+              <input id="heap-value" type="number" min="-999" max="999" placeholder="Ej. 70">
+            </div>
+
+            <div>
+              <label for="heap-type">Tipo</label>
+              <select id="heap-type">
+                <option value="max">Max-Heap · mayor arriba</option>
+                <option value="min">Min-Heap · menor arriba</option>
+              </select>
+            </div>
+
+            <button type="button" data-heap-action="insert">Insertar</button>
+            <button type="button" data-heap-action="extract">Extraer raíz</button>
+            <button type="button" data-heap-action="peek" class="secondary">Consultar raíz</button>
+            <button type="button" data-heap-action="example" class="secondary">Cargar ejemplo</button>
+            <button type="button" data-heap-action="clear" class="secondary">Limpiar</button>
+          </div>
+
+          <div class="heap-playback-controls" data-playback-controls="heap">
+            <label for="heap-speed">
+              Tiempo por paso
+              <input id="heap-speed" type="range" min="250" max="5000" step="250" value="2500">
+            </label>
+
+            <span class="heap-speed-scale">Rápido · 0.25 s</span>
+            <span id="heap-speed-label" class="heap-speed-label">2.50 s / paso</span>
+            <span class="heap-speed-scale">Lento · 5.00 s</span>
+
+            <button type="button" data-playback-action="pause" data-playback-target="heap">Pausar</button>
+            <button type="button" data-playback-action="step" data-playback-target="heap">Paso a paso</button>
+          </div>
+
+          <div class="heap-state-grid">
+            <div>
+              <span>Tipo</span>
+              <strong id="heap-type-label">MAX-HEAP</strong>
+            </div>
+            <div>
+              <span>Raíz</span>
+              <strong id="heap-root-value">—</strong>
+            </div>
+            <div>
+              <span>Elementos</span>
+              <strong id="heap-count">0</strong>
+            </div>
+            <div>
+              <span>Altura aprox.</span>
+              <strong id="heap-height">0</strong>
+            </div>
+          </div>
+
+          <div class="heap-simulator-layout">
+            <div>
+              <div class="heap-tree-wrap">
+                <div class="heap-view-title">
+                  <span>🌳 Árbol binario completo</span>
+                  <span id="heap-property-text">Padre ≥ hijos</span>
+                </div>
+                <svg
+                  id="heap-canvas"
+                  class="heap-canvas"
+                  viewBox="0 0 1000 520"
+                  role="img"
+                  aria-label="Montículo binario simulado">
+                </svg>
+              </div>
+
+              <div class="heap-array-wrap">
+                <div class="heap-view-title">
+                  <span>🧱 El mismo heap dentro de un arreglo</span>
+                  <span>hijo izq = 2i+1 · hijo der = 2i+2</span>
+                </div>
+                <div id="heap-array" class="heap-array" aria-label="Representación del heap en arreglo"></div>
+              </div>
+            </div>
+
+            <aside class="heap-step-panel">
+              <h3>Heapify paso a paso</h3>
+              <ol id="heap-steps" class="heap-step-list">
+                <li>Inserta un valor para comenzar.</li>
+              </ol>
+            </aside>
+          </div>
+
+          <div id="heap-status" class="heap-status" aria-live="polite">
+            Montículo vacío.
+          </div>
+        </div>
+
+        <div class="note heap-observation">
+          <b>Observa:</b>
+          un heap <b>no es un ABB</b>. Solo exige que cada padre cumpla la propiedad respecto de sus hijos.
+          El arreglo conserva la forma de árbol binario completo sin guardar punteros.
+        </div>
+      </section>
+
+      <section class="heap-section">
+        <div class="summary">
+          <div class="bulb">💡</div>
+          <div>
+            <b>MONTÍCULOS · IDEA CLAVE</b><br>
+            En un <strong>Max-Heap</strong> el mayor valor permanece en la raíz.
+            En un <strong>Min-Heap</strong> permanece el menor.
+            Al insertar se aplica <strong>subir (sift-up)</strong> y al extraer se aplica
+            <strong>bajar (sift-down)</strong>.
+          </div>
+        </div>
+      </section>
+
     </article>
   </main>
+
   <div id="site-footer"></div>
+
   <script src="../scripts/site.js" defer></script>
+  <script src="../scripts/monticulos_interactivo.js" defer></script>
 </body>
 </html>
