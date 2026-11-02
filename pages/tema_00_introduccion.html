@@ -1,46 +1,662 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="es-MX">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="#006847" name="theme-color"/>
-<title>Tema 0 · Introducción | Estructuras de Datos</title>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006847">
+  <meta name="description" content="Tema 0 · Introducción a las Estructuras de Datos. Importancia, clasificación, aplicaciones y eficiencia.">
+  <title>Tema 0 · Introducción | Estructuras de Datos</title>
 
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles/site.css">
+</head>
 
-
-
-
-<meta content="Tema 0 · Introducción | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz." name="description"/><link href="../styles/site.css" rel="stylesheet"/></head>
 <body class="pe-home pe-course-page pe-uniform-page">
-<div id="site-header"></div>
-<section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-xl-7">
-<div class="topic-number-pill"><span aria-hidden="true" class="ui-icon">☰</span> Tema 0 · Introducción</div>
-<div class="course-kicker">ESTRUCTURAS DE DATOS</div>
-<h1 class="course-title">Introducción a las Estructuras de Datos</h1>
-<p class="course-subtitle mb-0">Organización, memoria, abstracción y relación entre algoritmos y estructuras</p><div class="hero-line"></div>
-<div class="course-quote"><span aria-hidden="true" class="ui-icon">🔗</span><span>“Comprender la estructura es comprender cómo se organiza la solución.”</span></div>
-</div><div class="col-xl-5"><div data-topic="Tema 0 · Introducción" id="course-info"></div></div></div></div></section>
-<main class="container-fluid pe-shell page-content-shell"><div class="page-content-card content"><div class="ed-topic-content"><div class="page-listas">
-<nav aria-label="Navegación del tema" class="topic-nav"><a href="#que-son">¿Qué son?</a><a href="#clasificacion">Clasificación</a><a href="#memoria">Memoria</a><a href="#aplicaciones">Aplicaciones</a></nav>
-<div class="section" id="que-son">1 · ¿QUÉ ES UNA ESTRUCTURA DE DATOS?</div>
-<section class="grid4">
-<article class="card green"><h3>Organización</h3><div class="body"><div class="icon">🧩</div><p>Una estructura de datos define una forma de organizar información para facilitar su almacenamiento, acceso y modificación.</p></div></article>
-<article class="card blue"><h3>Algoritmos</h3><div class="body"><div class="icon">⚙️</div><p>La elección de una estructura influye directamente en la eficiencia y claridad del algoritmo que la utiliza.</p></div></article>
-<article class="card purple"><h3>Memoria</h3><div class="body"><div class="icon">🧠</div><p>Las estructuras pueden reservar memoria de forma fija o solicitarla dinámicamente durante la ejecución.</p></div></article>
-<article class="card orange"><h3>Abstracción</h3><div class="body"><div class="icon">🔎</div><p>Permiten pensar en operaciones y relaciones sin depender de todos los detalles internos de implementación.</p></div></article>
-</section>
-<div class="section" id="clasificacion">2 · ESTRUCTURAS ESTÁTICAS Y DINÁMICAS</div>
-<div class="two"><div class="key"><b>Estáticas</b><br/>Reservan un tamaño previamente definido. Un arreglo es el ejemplo más común.</div><div class="key"><b>Dinámicas</b><br/>Crecen o disminuyen durante la ejecución. Las listas enlazadas son el punto de partida del curso.</div></div>
-<div class="section" id="memoria">3 · RELACIÓN ENTRE ESTRUCTURAS Y MEMORIA</div>
-<div class="note"><b>Idea clave:</b> en Estructuras de Datos no basta con guardar información; también importa cómo se enlaza, cómo se localiza y cuánto cuesta cada operación.</div>
-<div aria-label="Diagrama introductorio: tres nodos con datos 10, 20 y 30 enlazados; el último apunta a NULL." class="diagram" role="group"><div class="intro-flex-wide"><div class="node"><div class="data">10</div><div class="next">○</div></div><div class="arr"></div><div class="node"><div class="data">20</div><div class="next">○</div></div><div class="arr"></div><div class="node"><div class="data">30</div><div class="next">○</div></div><div class="null">NULL</div></div></div>
-<div class="section" id="aplicaciones">4 · ¿DÓNDE SE UTILIZAN?</div>
-<section class="grid4"><article class="card green"><h3>Sistemas</h3><div class="body"><p>Administración de memoria, procesos, archivos y recursos.</p></div></article><article class="card blue"><h3>Aplicaciones</h3><div class="body"><p>Historiales, navegación, catálogos, turnos y procesamiento de solicitudes.</p></div></article><article class="card purple"><h3>Algoritmos</h3><div class="body"><p>Búsqueda, recorridos, evaluación de expresiones y optimización.</p></div></article><article class="card orange"><h3>Modelado</h3><div class="body"><p>Relaciones lineales, jerárquicas y asociativas entre datos.</p></div></article></section>
-<div class="summary"><div class="bulb">💡</div><div><b>EN RESUMEN</b><br/>El curso estudia cómo elegir y construir estructuras adecuadas para resolver problemas con orden, eficiencia y claridad.</div></div>
-</div></div></div></main>
-<div id="site-footer"></div>
 
+  <div id="site-header"></div>
 
-<script defer="" src="../scripts/site.js"></script></body></html>
+  <section class="topic-course-hero">
+    <div class="container-fluid pe-shell">
+      <div class="row g-4 align-items-center py-4 py-xl-5">
+
+        <div class="col-xl-7">
+          <div class="topic-number-pill">
+            <span aria-hidden="true" class="ui-icon">☰</span>
+            Tema 0 · Introducción
+          </div>
+
+          <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
+
+          <h1 class="course-title">Introducción a las Estructuras de Datos</h1>
+
+          <p class="course-subtitle mb-0">
+            Organización, memoria, abstracción, eficiencia y relación entre algoritmos y estructuras
+          </p>
+
+          <div class="hero-line"></div>
+
+          <div class="course-quote">
+            <span aria-hidden="true" class="ui-icon">🧠</span>
+            <span>“Elegir cómo organizar los datos determina cómo podremos buscarlos, modificarlos y procesarlos.”</span>
+          </div>
+        </div>
+
+        <div class="col-xl-5">
+          <div
+            id="course-info"
+            data-topic="Tema 0 · Introducción">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main class="container-fluid pe-shell page-content-shell">
+    <article class="page-content-card content">
+
+      <nav class="topic-nav" aria-label="Navegación del tema">
+        <a href="#que-son">¿Qué son?</a>
+        <a href="#importancia">Importancia</a>
+        <a href="#clasificacion">Clasificación</a>
+        <a href="#panorama">Panorama visual</a>
+        <a href="#matriz">Matriz del curso</a>
+        <a href="#eficiencia">Eficiencia</a>
+        <a href="#aplicaciones">Aplicaciones</a>
+        <a href="#resumen">Resumen</a>
+      </nav>
+
+      <section id="que-son" class="mb-5">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🧩</span>
+          <h2>1 · ¿Qué es una estructura de datos?</h2>
+        </div>
+
+        <p class="lead">
+          Una <strong>estructura de datos</strong> es una forma organizada de almacenar y relacionar información
+          para que un programa pueda <strong>consultarla, recorrerla, insertarla, modificarla y eliminarla</strong>
+          de manera controlada y eficiente.
+        </p>
+
+        <div class="row g-3 mt-1">
+          <div class="col-12 col-md-6 col-xl-3">
+            <article class="card h-100 border-success-subtle shadow-sm">
+              <div class="card-body">
+                <div class="fs-2 mb-2" aria-hidden="true">🗂️</div>
+                <h3 class="h5 text-success-emphasis">Organización</h3>
+                <p class="mb-0">
+                  Define cómo se acomodan los datos y qué relaciones existen entre ellos.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3">
+            <article class="card h-100 border-primary-subtle shadow-sm">
+              <div class="card-body">
+                <div class="fs-2 mb-2" aria-hidden="true">⚙️</div>
+                <h3 class="h5 text-primary-emphasis">Operaciones</h3>
+                <p class="mb-0">
+                  Determina cómo buscar, insertar, eliminar, recorrer y actualizar información.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3">
+            <article class="card h-100 border-warning-subtle shadow-sm">
+              <div class="card-body">
+                <div class="fs-2 mb-2" aria-hidden="true">⏱️</div>
+                <h3 class="h5 text-warning-emphasis">Eficiencia</h3>
+                <p class="mb-0">
+                  Una buena elección puede reducir tiempo de ejecución y uso innecesario de memoria.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3">
+            <article class="card h-100 border-info-subtle shadow-sm">
+              <div class="card-body">
+                <div class="fs-2 mb-2" aria-hidden="true">🧠</div>
+                <h3 class="h5 text-info-emphasis">Abstracción</h3>
+                <p class="mb-0">
+                  Permite trabajar con operaciones y comportamiento sin depender de todos los detalles internos.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="note mt-3">
+          <b>Idea central:</b>
+          un algoritmo indica <em>qué hacer</em>; la estructura de datos determina
+          <em>cómo estarán organizados los datos sobre los que trabaja</em>.
+        </div>
+      </section>
+
+      <section id="importancia" class="mb-5">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🎯</span>
+          <h2>2 · Importancia en las Ciencias Computacionales</h2>
+        </div>
+
+        <p>
+          Las estructuras de datos son fundamentales porque conectan tres áreas esenciales:
+          <strong>algoritmos, memoria y diseño de software</strong>. La misma información puede resolverse
+          de formas muy distintas dependiendo de cómo se organice.
+        </p>
+
+        <div class="row g-3">
+          <div class="col-12 col-lg-6">
+            <div class="p-3 h-100 border rounded-4 bg-light">
+              <h3 class="h5">¿Por qué son importantes?</h3>
+              <ul class="mb-0">
+                <li>Permiten diseñar algoritmos más rápidos y escalables.</li>
+                <li>Reducen recorridos y búsquedas innecesarias.</li>
+                <li>Ayudan a administrar memoria y recursos del sistema.</li>
+                <li>Representan relaciones lineales, jerárquicas y asociativas.</li>
+                <li>Son base de sistemas operativos, compiladores, bases de datos, redes y aplicaciones.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <div class="p-3 h-100 border rounded-4 bg-light">
+              <h3 class="h5">Elegir la estructura adecuada</h3>
+              <p>
+                No existe una estructura “mejor” para todos los problemas. La elección depende de
+                qué operación será más frecuente:
+              </p>
+              <ul class="mb-0">
+                <li><b>Acceso directo:</b> arreglos.</li>
+                <li><b>Inserción/eliminación flexible:</b> listas.</li>
+                <li><b>Último en entrar, primero en salir:</b> pilas.</li>
+                <li><b>Primero en entrar, primero en salir:</b> colas.</li>
+                <li><b>Búsqueda ordenada:</b> árboles.</li>
+                <li><b>Prioridad:</b> montículos.</li>
+                <li><b>Acceso por clave:</b> tablas Hash.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="clasificacion" class="mb-5">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🧭</span>
+          <h2>3 · Clasificación de las estructuras de datos</h2>
+        </div>
+
+        <h3 class="h5 mt-3">3.1 · Según la forma de reservar memoria</h3>
+
+        <div class="row g-3">
+          <div class="col-12 col-lg-6">
+            <article class="card h-100 border-primary-subtle shadow-sm">
+              <div class="card-body">
+                <h4 class="h5 text-primary-emphasis">📦 Estructuras estáticas</h4>
+                <p>
+                  Su tamaño se define previamente y normalmente permanece fijo durante la ejecución.
+                </p>
+                <p class="mb-0">
+                  <b>Ejemplo:</b> un arreglo de 100 enteros reserva espacio para esos 100 elementos desde su creación.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <article class="card h-100 border-success-subtle shadow-sm">
+              <div class="card-body">
+                <h4 class="h5 text-success-emphasis">🔗 Estructuras dinámicas</h4>
+                <p>
+                  Pueden crecer o disminuir durante la ejecución mediante nodos y referencias.
+                </p>
+                <p class="mb-0">
+                  <b>Ejemplos:</b> listas enlazadas, árboles y muchas implementaciones de pilas y colas.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="note mt-3">
+          <b>Importante:</b>
+          algunas estructuras pueden implementarse de ambas formas. Una pila, por ejemplo,
+          puede construirse con un arreglo estático o con nodos dinámicos.
+        </div>
+
+        <h3 class="h5 mt-4">3.2 · Según la relación entre los datos</h3>
+
+        <div class="row g-3">
+          <div class="col-12 col-md-4">
+            <article class="card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="fs-2 mb-2" aria-hidden="true">➡️</div>
+                <h4 class="h5">Lineales</h4>
+                <p class="mb-0">
+                  Los elementos siguen una secuencia. Ejemplos: listas, pilas y colas.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <article class="card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="fs-2 mb-2" aria-hidden="true">🌳</div>
+                <h4 class="h5">Jerárquicas</h4>
+                <p class="mb-0">
+                  Los elementos forman niveles y relaciones padre-hijo. Ejemplos: ABB, AVL y montículos.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <article class="card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="fs-2 mb-2" aria-hidden="true">#️⃣</div>
+                <h4 class="h5">Asociativas / por clave</h4>
+                <p class="mb-0">
+                  Una función transforma una clave en una posición de almacenamiento. Ejemplo: tablas Hash.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="panorama" class="mb-5">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🖼️</span>
+          <h2>4 · Panorama visual del curso</h2>
+        </div>
+
+        <p>
+          Estas imágenes permiten reconocer rápidamente cómo cambia la organización de los datos
+          entre estructuras lineales, jerárquicas y asociativas.
+        </p>
+
+        <div class="row g-4">
+
+          <div class="col-12 col-lg-6">
+            <figure class="m-0 p-2 border rounded-4 bg-white shadow-sm h-100">
+              <img
+                class="img-fluid rounded-3 w-100"
+                src="../images/introduccion/intro_listas.webp"
+                alt="Comparación visual de listas simples, dobles y circulares"
+                loading="lazy"
+                decoding="async">
+              <figcaption class="small text-body-secondary p-2">
+                <b>Listas:</b> estructuras lineales dinámicas formadas por nodos enlazados.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <figure class="m-0 p-2 border rounded-4 bg-white shadow-sm h-100">
+              <img
+                class="img-fluid rounded-3 w-100"
+                src="../images/introduccion/intro_lista_simple.webp"
+                alt="Ejemplo de lista simple con nodos 10, 20 y 30"
+                loading="lazy"
+                decoding="async">
+              <figcaption class="small text-body-secondary p-2">
+                <b>Lista simple:</b> cada nodo almacena un dato y un enlace hacia el siguiente.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <figure class="m-0 p-2 border rounded-4 bg-white shadow-sm h-100">
+              <img
+                class="img-fluid rounded-3 w-100"
+                src="../images/introduccion/intro_nodo_arbol.webp"
+                alt="Estructura de un nodo de árbol binario"
+                loading="lazy"
+                decoding="async">
+              <figcaption class="small text-body-secondary p-2">
+                <b>Árbol:</b> cada nodo puede mantener referencias hacia hijos y formar una jerarquía.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <figure class="m-0 p-2 border rounded-4 bg-white shadow-sm h-100">
+              <img
+                class="img-fluid rounded-3 w-100"
+                src="../images/introduccion/intro_arbol_inorden.webp"
+                alt="Recorrido in-orden de un árbol binario"
+                loading="lazy"
+                decoding="async">
+              <figcaption class="small text-body-secondary p-2">
+                <b>Recorridos:</b> una estructura jerárquica requiere estrategias para visitar sus nodos.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <figure class="m-0 p-2 border rounded-4 bg-white shadow-sm h-100">
+              <img
+                class="img-fluid rounded-3 w-100"
+                src="../images/introduccion/intro_hash_numerico.webp"
+                alt="Tabla Hash con claves numéricas y encadenamiento"
+                loading="lazy"
+                decoding="async">
+              <figcaption class="small text-body-secondary p-2">
+                <b>Hash numérico:</b> una clave se transforma en un índice; las colisiones deben resolverse.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <figure class="m-0 p-2 border rounded-4 bg-white shadow-sm h-100">
+              <img
+                class="img-fluid rounded-3 w-100"
+                src="../images/introduccion/intro_hash_djb2.webp"
+                alt="Tabla Hash con DJB2 para claves alfanuméricas"
+                loading="lazy"
+                decoding="async">
+              <figcaption class="small text-body-secondary p-2">
+                <b>DJB2:</b> una cadena alfanumérica se convierte en un valor Hash antes de aplicar el módulo.
+              </figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="matriz" class="mb-5">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🧮</span>
+          <h2>5 · Matriz de estructuras que estudiaremos</h2>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-middle">
+            <thead class="table-success">
+              <tr>
+                <th scope="col">Estructura</th>
+                <th scope="col">Organización</th>
+                <th scope="col">Memoria habitual</th>
+                <th scope="col">Principio / propiedad</th>
+                <th scope="col">Ventaja principal</th>
+                <th scope="col">Tema</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Arreglo / vector</th>
+                <td>Lineal</td>
+                <td>Estática o contigua</td>
+                <td>Índice</td>
+                <td>Acceso directo</td>
+                <td>Base del curso</td>
+              </tr>
+              <tr>
+                <th scope="row">Lista enlazada</th>
+                <td>Lineal</td>
+                <td>Dinámica</td>
+                <td>Nodos + enlaces</td>
+                <td>Inserción y eliminación flexible</td>
+                <td>Tema 1</td>
+              </tr>
+              <tr>
+                <th scope="row">Pila</th>
+                <td>Lineal</td>
+                <td>Estática o dinámica</td>
+                <td>LIFO</td>
+                <td>PUSH / POP en un extremo</td>
+                <td>Tema 2</td>
+              </tr>
+              <tr>
+                <th scope="row">Cola</th>
+                <td>Lineal</td>
+                <td>Estática o dinámica</td>
+                <td>FIFO</td>
+                <td>Procesamiento por orden de llegada</td>
+                <td>Tema 3</td>
+              </tr>
+              <tr>
+                <th scope="row">ABB</th>
+                <td>Jerárquica</td>
+                <td>Dinámica</td>
+                <td>Izq &lt; nodo &lt; der</td>
+                <td>Búsqueda ordenada</td>
+                <td>Tema 4</td>
+              </tr>
+              <tr>
+                <th scope="row">AVL</th>
+                <td>Jerárquica</td>
+                <td>Dinámica</td>
+                <td>ABB auto-balanceado</td>
+                <td>Mantiene altura logarítmica</td>
+                <td>Tema 4</td>
+              </tr>
+              <tr>
+                <th scope="row">Montículo / Heap</th>
+                <td>Jerárquica</td>
+                <td>Comúnmente arreglo</td>
+                <td>Propiedad de prioridad</td>
+                <td>Acceso rápido al mínimo o máximo</td>
+                <td>Tema 5</td>
+              </tr>
+              <tr>
+                <th scope="row">Tabla Hash</th>
+                <td>Asociativa</td>
+                <td>Tabla + estrategia de colisión</td>
+                <td>Clave → Hash → índice</td>
+                <td>Acceso promedio muy rápido</td>
+                <td>Tema 6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note">
+          <b>Observa:</b>
+          la clasificación conceptual y la forma física de almacenamiento no siempre son iguales.
+          Un montículo, por ejemplo, se comporta como árbol pero normalmente se almacena dentro de un arreglo.
+        </div>
+      </section>
+
+      <section id="eficiencia" class="mb-5">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">⚡</span>
+          <h2>6 · Comparación general de eficiencia</h2>
+        </div>
+
+        <p>
+          La notación <b>O( )</b> permite comparar cómo crece el costo de una operación cuando aumenta
+          la cantidad de datos. Los valores siguientes representan comportamientos típicos.
+        </p>
+
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped align-middle text-center">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Estructura</th>
+                <th scope="col">Acceso / consulta</th>
+                <th scope="col">Búsqueda</th>
+                <th scope="col">Inserción</th>
+                <th scope="col">Eliminación</th>
+                <th scope="col">Comentario</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Arreglo</th>
+                <td><b>O(1)</b></td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+                <td class="text-start">Acceso por índice muy rápido; insertar puede requerir desplazamientos.</td>
+              </tr>
+              <tr>
+                <th scope="row">Lista enlazada</th>
+                <td>O(n)</td>
+                <td>O(n)</td>
+                <td><b>O(1)*</b></td>
+                <td><b>O(1)*</b></td>
+                <td class="text-start">*Si ya se conoce el nodo o la posición de enlace.</td>
+              </tr>
+              <tr>
+                <th scope="row">Pila</th>
+                <td><b>O(1)</b> en TOPE</td>
+                <td>O(n)</td>
+                <td><b>O(1)</b></td>
+                <td><b>O(1)</b></td>
+                <td class="text-start">PUSH y POP trabajan en un único extremo.</td>
+              </tr>
+              <tr>
+                <th scope="row">Cola</th>
+                <td><b>O(1)</b> en frente</td>
+                <td>O(n)</td>
+                <td><b>O(1)</b></td>
+                <td><b>O(1)</b></td>
+                <td class="text-start">ENQUEUE y DEQUEUE son constantes con implementación adecuada.</td>
+              </tr>
+              <tr>
+                <th scope="row">ABB</th>
+                <td>—</td>
+                <td>O(log n) prom.<br>O(n) peor</td>
+                <td>O(log n) prom.<br>O(n) peor</td>
+                <td>O(log n) prom.<br>O(n) peor</td>
+                <td class="text-start">Puede degenerarse si pierde equilibrio.</td>
+              </tr>
+              <tr>
+                <th scope="row">AVL</th>
+                <td>—</td>
+                <td><b>O(log n)</b></td>
+                <td><b>O(log n)</b></td>
+                <td><b>O(log n)</b></td>
+                <td class="text-start">Mantiene el equilibrio mediante rotaciones.</td>
+              </tr>
+              <tr>
+                <th scope="row">Montículo</th>
+                <td><b>O(1)</b> raíz</td>
+                <td>O(n)</td>
+                <td>O(log n)</td>
+                <td>O(log n) raíz</td>
+                <td class="text-start">Especializado en prioridad, no en búsqueda arbitraria.</td>
+              </tr>
+              <tr>
+                <th scope="row">Tabla Hash</th>
+                <td>—</td>
+                <td><b>O(1) prom.</b><br>O(n) peor</td>
+                <td><b>O(1) prom.</b><br>O(n) peor</td>
+                <td><b>O(1) prom.</b><br>O(n) peor</td>
+                <td class="text-start">Depende de una buena función Hash y del manejo de colisiones.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note">
+          <b>Lectura correcta:</b>
+          una tabla Hash puede ser extremadamente rápida en promedio, pero no significa que siempre sea O(1).
+          Del mismo modo, un ABB puede caer a O(n) si degenera; por eso posteriormente estudiaremos AVL.
+        </div>
+
+        <figure class="m-0 mt-4 p-2 border rounded-4 bg-white shadow-sm">
+          <img
+            class="img-fluid rounded-3 w-100"
+            src="../images/introduccion/intro_hash_cuadratico.webp"
+            alt="Manejo de colisiones mediante sondeo cuadrático"
+            loading="lazy"
+            decoding="async">
+          <figcaption class="small text-body-secondary p-2">
+            Las colisiones muestran por qué la eficiencia real de una Tabla Hash también depende
+            de la estrategia utilizada para encontrar otra posición disponible.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="aplicaciones" class="mb-5">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🌐</span>
+          <h2>7 · ¿Dónde se utilizan?</h2>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-md-6 col-xl-3">
+            <article class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="h5">🖥️ Sistemas operativos</h3>
+                <p class="mb-0">
+                  Procesos, memoria, colas de planificación, archivos y administración de recursos.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3">
+            <article class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="h5">🗄️ Bases de datos</h3>
+                <p class="mb-0">
+                  Índices, árboles de búsqueda, tablas Hash y estructuras para recuperar registros rápidamente.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3">
+            <article class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="h5">🧱 Compiladores</h3>
+                <p class="mb-0">
+                  Árboles sintácticos, pilas, tablas de símbolos y procesamiento de expresiones.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3">
+            <article class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="h5">🌐 Redes y servicios</h3>
+                <p class="mb-0">
+                  Colas de paquetes, cachés, tablas de búsqueda y estructuras de prioridad.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="resumen" class="mb-4">
+        <div class="summary">
+          <div class="bulb">💡</div>
+          <div>
+            <b>EN RESUMEN</b><br>
+            El objetivo del curso no es memorizar estructuras aisladas, sino aprender a
+            <strong>elegir la estructura adecuada según el problema, las operaciones necesarias
+            y el costo esperado en tiempo y memoria</strong>.
+          </div>
+        </div>
+      </section>
+
+      <nav class="page-navigation" aria-label="Navegación entre temas">
+        <a class="page-nav-btn home" href="../index.html">
+          <span aria-hidden="true" class="ui-icon">⌂</span>
+          <span>Inicio</span>
+        </a>
+
+        <a class="page-nav-btn next" href="tema_01_listas.html">
+          <span>Siguiente · Listas</span>
+          <span aria-hidden="true" class="ui-icon">→</span>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../scripts/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+[
+  {
+    "source": "Árbol binario colorido con nodos brillantes(1).png",
+    "dest": "arbol_portada.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 70176
+  },
+  {
+    "source": "árbol binario de búsqueda conceptos.png",
+    "dest": "abb_conceptos.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 134846
+  },
+  {
+    "source": "Infografía del árbol binario de búsqueda(1).png",
+    "dest": "abb_niveles_altura_grado.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 143116
+  },
+  {
+    "source": "El Dilema de la Eficiencia Lineal(1).png",
+    "dest": "arbol_eficiencia.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 131874
+  },
+  {
+    "source": "¿Dónde Viven los Árboles_.png",
+    "dest": "arbol_aplicaciones.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 160090
+  },
+  {
+    "source": "Recorridos Recursivos de Árboles(1).png",
+    "dest": "recorridos_resumen.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 138072
+  },
+  {
+    "source": "Infografía del recorrido preorden 天天彩票app(1).png",
+    "dest": "recorrido_preorden.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 105190
+  },
+  {
+    "source": "Infografía del recorrido inorden de un árbol binario(1).png",
+    "dest": "recorrido_inorden.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 108332
+  },
+  {
+    "source": "Infografía del recorrido post-orden en árbol binario(1).png",
+    "dest": "recorrido_postorden.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 110250
+  },
+  {
+    "source": "Infografía Colorida de Árboles AVL(1).png",
+    "dest": "avl_conceptos.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 169624
+  },
+  {
+    "source": "Matriz de Balanceo de Árboles AVL(1).png",
+    "dest": "avl_matriz_balanceo.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 132582
+  },
+  {
+    "source": "Infografía_ Rotación derecha en árboles AVL.png",
+    "dest": "avl_rotacion_derecha_ll.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 148626
+  },
+  {
+    "source": "Infografía educativa_ rotación izquierda AVL RR.png",
+    "dest": "avl_rotacion_izquierda_rr.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 165284
+  },
+  {
+    "source": "Infografía_ Rotación doble AVL (LR).png",
+    "dest": "avl_rotacion_doble_lr.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 198836
+  },
+  {
+    "source": "Rotación AVL RL Paso a Paso(1).png",
+    "dest": "avl_rotacion_doble_rl.webp",
+    "size": [
+      1400,
+      933
+    ],
+    "bytes": 181418
+  }
+]

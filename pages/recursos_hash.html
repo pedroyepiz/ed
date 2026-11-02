@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006847">
+  <meta name="description" content="Recursos de Tablas Hash: videos, documentos PDF y simulador interactivo paso a paso.">
+  <title>Recursos · Tablas Hash | Estructuras de Datos</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/site.css">
+  <link rel="stylesheet" href="../styles/hash_interactivo.css">
+</head>
+
+<body class="pe-home pe-course-page pe-uniform-page">
+
+  <div id="site-header"></div>
+
+  <section class="topic-course-hero hash-topic-hero">
+    <div class="container-fluid pe-shell">
+      <div class="row g-4 align-items-center py-4 py-xl-5">
+
+        <div class="col-12 col-xl-5">
+          <div class="topic-number-pill">UNIDAD VI · Recursos</div>
+          <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
+
+          <h1 class="course-title">Recursos de Tablas Hash</h1>
+
+          <p class="course-subtitle mb-0">
+            Videos, material visual y simulación paso a paso
+          </p>
+
+          <div class="hero-line"></div>
+
+          <div class="course-quote">
+            <span aria-hidden="true" class="ui-icon">#️⃣</span>
+            <span>Transforma la clave, calcula el índice y observa cómo se resuelven las colisiones.</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="hash-hero-visual">
+            <img
+              src="../images/tabla_hash_encadenamiento_presentacion.webp"
+              class="hash-hero-image"
+              alt="Tabla Hash con encadenamiento"
+              decoding="async">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <div
+            id="course-info"
+            data-topic="UNIDAD VI · Recursos de Tablas Hash">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="hash-topic-menu-wrap">
+    <div class="container-fluid pe-shell">
+      <nav class="ed-topic-local" aria-label="Recursos de Tablas Hash">
+        <a href="#videos-hash">Videos</a>
+        <a href="#documentos-hash">Documentos PDF</a>
+        <a href="#simulador-hash">Simulador Hash</a>
+        <a href="tema_06_hash.html">Volver al tema</a>
+      </nav>
+    </div>
+  </section>
+
+  <main class="container-fluid pe-shell page-content-shell">
+    <article class="page-content-card content ed-new-topic">
+
+      <div class="note">
+        <b>Recursos de la Unidad VI:</b>
+        utiliza los videos para comprender el mecanismo general de las tablas Hash y DJB2,
+        consulta los documentos visuales y después experimenta con el simulador paso a paso.
+      </div>
+
+      <section id="videos-hash" class="hash-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🎬</span>
+          <h2>Videos de apoyo · Tablas Hash</h2>
+        </div>
+
+        <p>
+          Los videos están alojados en Google Drive y se reproducen dentro de esta página
+          para que el alumno no tenga que salir del sitio.
+        </p>
+
+        <div class="hash-video-grid">
+
+          <article class="hash-resource-card">
+            <h3>Cómo funcionan las Tablas Hash</h3>
+            <iframe
+              class="hash-resource-video"
+              src="https://drive.google.com/file/d/10R6fb3-mfmm1M2FQLUEuJdMh7h3K8pWn/preview"
+              title="Video: Cómo funcionan las Tablas Hash"
+              loading="lazy"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+            </iframe>
+            <p>
+              Introducción al mecanismo de clave, función Hash, índice y almacenamiento.
+            </p>
+          </article>
+
+          <article class="hash-resource-card">
+            <h3>Cómo encuentran datos al instante</h3>
+            <iframe
+              class="hash-resource-video"
+              src="https://drive.google.com/file/d/1oAJoXVTmyZ0XiaQBBrDIVAf31i30p66z/preview"
+              title="Video: Cómo encuentran datos al instante las Tablas Hash"
+              loading="lazy"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+            </iframe>
+            <p>
+              Explicación visual de por qué una buena distribución permite acceso promedio O(1).
+            </p>
+          </article>
+
+          <article class="hash-resource-card">
+            <h3>El motor secreto · DJB2</h3>
+            <iframe
+              class="hash-resource-video"
+              src="https://drive.google.com/file/d/1-Q3XzDJ4o_oZW6jFABNv8Z41sZ40UFzw/preview"
+              title="Video: El Motor Secreto DJB2"
+              loading="lazy"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+            </iframe>
+            <p>
+              Procesamiento de cadenas, semilla 5381, multiplicación por 33, bit shifting y módulo.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="documentos-hash" class="hash-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">📚</span>
+          <h2>Material visual · PDF</h2>
+        </div>
+
+        <p>
+          Consulta los documentos directamente desde esta página. Los archivos están alojados
+          en Google Drive y se muestran embebidos para que el alumno no salga del sitio.
+        </p>
+
+        <div class="hash-pdf-grid">
+
+          <article class="hash-resource-card hash-pdf-card">
+            <div class="hash-pdf-heading">
+              <div class="hash-document-icon" aria-hidden="true">#️⃣</div>
+              <div>
+                <span class="hash-resource-kicker">UNIDAD VI</span>
+                <h3>Tablas Hash</h3>
+              </div>
+            </div>
+
+            <iframe
+              class="hash-resource-pdf"
+              src="https://drive.google.com/file/d/1fb-IFt4G3If3rfcxOs0MUEECI5mZj2Qr/preview"
+              title="PDF: Tablas Hash"
+              loading="lazy"
+              allow="autoplay"
+              allowfullscreen>
+            </iframe>
+
+            <p>
+              Funcionamiento, eficiencia, factor de ocupación, colisiones, encadenamiento
+              y estrategias de direccionamiento abierto.
+            </p>
+
+            <a
+              class="hash-resource-button secondary-link"
+              href="https://drive.google.com/file/d/1fb-IFt4G3If3rfcxOs0MUEECI5mZj2Qr/view"
+              target="_blank"
+              rel="noopener">
+              Abrir en Google Drive
+            </a>
+          </article>
+
+          <article class="hash-resource-card hash-pdf-card">
+            <div class="hash-pdf-heading">
+              <div class="hash-document-icon" aria-hidden="true">33</div>
+              <div>
+                <span class="hash-resource-kicker">FUNCIÓN HASH</span>
+                <h3>El algoritmo DJB2</h3>
+              </div>
+            </div>
+
+            <iframe
+              class="hash-resource-pdf"
+              src="https://drive.google.com/file/d/1mXvvt5rBeMPN3y3GD4SfMqORjWZab98u/preview"
+              title="PDF: El algoritmo DJB2"
+              loading="lazy"
+              allow="autoplay"
+              allowfullscreen>
+            </iframe>
+
+            <p>
+              Semilla 5381, multiplicador 33, desplazamiento de bits,
+              procesamiento de cadenas y cálculo final del índice mediante módulo.
+            </p>
+
+            <a
+              class="hash-resource-button secondary-link"
+              href="https://drive.google.com/file/d/1mXvvt5rBeMPN3y3GD4SfMqORjWZab98u/view"
+              target="_blank"
+              rel="noopener">
+              Abrir en Google Drive
+            </a>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="simulador-hash" class="hash-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🧪</span>
+          <h2>Simulador animado de Tabla Hash</h2>
+        </div>
+
+        <p>
+          Inserta una clave numérica o alfanumérica. El simulador muestra lentamente cómo se obtiene
+          el hash, cómo se calcula el módulo y qué ocurre cuando aparece una colisión.
+        </p>
+
+        <div class="hash-simulator" data-hash-simulator>
+
+          <div class="hash-simulator-controls">
+            <div>
+              <label for="hash-key">Clave</label>
+              <input
+                id="hash-key"
+                type="text"
+                autocomplete="off"
+                placeholder="Ej. 300123 o UABC">
+            </div>
+
+            <div>
+              <label for="hash-method">Manejo de colisión</label>
+              <select id="hash-method">
+                <option value="chain">Encadenamiento</option>
+                <option value="linear">Sondeo lineal</option>
+                <option value="quadratic">Sondeo cuadrático</option>
+              </select>
+            </div>
+
+            <button type="button" id="hash-insert">Insertar</button>
+            <button type="button" id="hash-example" class="secondary">Cargar ejemplo</button>
+            <button type="button" id="hash-clear" class="secondary">Limpiar</button>
+          </div>
+
+          <div class="hash-playback-controls">
+            <label for="hash-speed">
+              Tiempo por paso
+              <input
+                id="hash-speed"
+                type="range"
+                min="250"
+                max="5000"
+                step="250"
+                value="2000">
+            </label>
+
+            <span class="hash-speed-scale">Rápido · 0.25 s</span>
+            <span id="hash-speed-label" class="hash-speed-label">2.00 s / paso</span>
+            <span class="hash-speed-scale">Lento · 5.00 s</span>
+
+            <button type="button" id="hash-pause">Pausar</button>
+            <button type="button" id="hash-step">Paso a paso</button>
+          </div>
+
+          <div class="hash-simulator-info" aria-live="polite">
+            <div>
+              <span>Tipo de clave</span>
+              <strong id="hash-key-type">—</strong>
+            </div>
+
+            <div>
+              <span>Hash calculado</span>
+              <strong id="hash-value">—</strong>
+            </div>
+
+            <div>
+              <span>Índice inicial</span>
+              <strong id="hash-index">—</strong>
+            </div>
+
+            <div>
+              <span>Factor de ocupación</span>
+              <strong id="hash-load">0.00</strong>
+            </div>
+          </div>
+
+          <div class="hash-live-calculation">
+            <span>Cálculo actual</span>
+            <strong id="hash-live-formula">
+              Inserta una clave para iniciar.
+            </strong>
+          </div>
+
+          <div class="hash-simulator-layout">
+            <div>
+              <div
+                class="hash-table-visual"
+                id="hash-table-visual"
+                aria-label="Representación de la tabla Hash">
+              </div>
+            </div>
+
+            <aside class="hash-step-panel">
+              <h3>Proceso paso a paso</h3>
+              <ol id="hash-step-list" class="hash-step-list">
+                <li>Escribe una clave y presiona Insertar.</li>
+              </ol>
+            </aside>
+          </div>
+
+          <div
+            class="hash-animation-log"
+            id="hash-animation-log"
+            aria-live="polite">
+            Tabla Hash de 13 posiciones lista.
+          </div>
+
+        </div>
+
+        <div class="note hash-observation">
+          <b>Observa:</b>
+          para claves numéricas se utiliza la clave como valor Hash y después se aplica
+          <code>hash MOD 13</code>. Para texto se utiliza DJB2 y al final se aplica el mismo módulo
+          para obtener una posición entre 0 y 12.
+        </div>
+      </section>
+
+      <section class="hash-section">
+        <div class="summary">
+          <div class="bulb">💡</div>
+          <div>
+            <b>RECURSOS DE TABLAS HASH</b><br>
+            Revisa primero el mecanismo general, después observa DJB2 y finalmente experimenta
+            con encadenamiento, sondeo lineal y sondeo cuadrático en el simulador.
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../scripts/site.js" defer></script>
+  <script src="../scripts/hash_interactivo.js" defer></script>
+</body>
+</html>

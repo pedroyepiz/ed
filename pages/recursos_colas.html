@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006847">
+  <meta name="description" content="Recursos de Colas: video, PDF y simuladores animados de colas estáticas y dinámicas.">
+  <title>Recursos · Colas | Estructuras de Datos</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/site.css">
+  <link rel="stylesheet" href="../styles/colas_interactivo.css">
+</head>
+
+<body class="pe-home pe-course-page pe-uniform-page">
+
+  <div id="site-header"></div>
+
+  <section class="topic-course-hero queue-topic-hero">
+    <div class="container-fluid pe-shell">
+      <div class="row g-4 align-items-center py-4 py-xl-5">
+
+        <div class="col-12 col-xl-5">
+          <div class="topic-number-pill">TEMA 3 · Recursos</div>
+          <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
+
+          <h1 class="course-title">Recursos de Colas</h1>
+
+          <p class="course-subtitle mb-0">
+            Video, material visual y simuladores interactivos de colas estáticas y dinámicas
+          </p>
+
+          <div class="hero-line"></div>
+
+          <div class="course-quote">
+            <span aria-hidden="true" class="ui-icon">🎟️</span>
+            <span>FIFO: el primero que entra es el primero que sale.</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="queue-hero-visual">
+            <img
+              src="../images/colas_portada.webp"
+              class="queue-hero-image"
+              alt="Secuencia visual de operaciones ENQUEUE y DEQUEUE en una cola"
+              decoding="async">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <div
+            id="course-info"
+            data-topic="TEMA 3 · Recursos de Colas">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="queue-topic-menu-wrap">
+    <div class="container-fluid pe-shell">
+      <nav class="ed-topic-local" aria-label="Recursos de Colas">
+        <a href="#material-colas">Video y PDF</a>
+        <a href="#simulador-estatica">Cola estática</a>
+        <a href="#simulador-dinamica">Cola dinámica</a>
+        <a href="tema_03_colas.html">Volver al tema</a>
+      </nav>
+    </div>
+  </section>
+
+  <main class="container-fluid pe-shell page-content-shell">
+    <article class="page-content-card content ed-new-topic">
+
+      <div class="note">
+        <b>Recursos del Tema 3:</b>
+        utiliza primero el video y el material visual para repasar el principio FIFO.
+        Después experimenta con las dos implementaciones y observa paso a paso qué ocurre con
+        <b>front</b> y <b>rear</b> al encolar y desencolar.
+      </div>
+
+      <section id="material-colas" class="queue-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🎬</span>
+          <h2>Material de apoyo · Colas</h2>
+        </div>
+
+        <p>
+          El video y el PDF están alojados en Google Drive y se muestran embebidos dentro de la página.
+        </p>
+
+        <div class="queue-resource-grid">
+
+          <article class="queue-resource-card">
+            <div class="queue-resource-heading">
+              <span aria-hidden="true">🎬</span>
+              <div>
+                <span class="queue-resource-kicker">VIDEO</span>
+                <h3>Unidad III · Colas (Queues)</h3>
+              </div>
+            </div>
+
+            <iframe
+              class="queue-resource-media"
+              src="https://drive.google.com/file/d/1dp9D2qYXMBIXes1y5ySH84XRxRTSQTvn/preview"
+              title="Video: Unidad III · Colas"
+              loading="lazy"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+            </iframe>
+
+            <p>
+              Repaso del principio FIFO, ENQUEUE, DEQUEUE y diferencias entre memoria estática y dinámica.
+            </p>
+          </article>
+
+          <article class="queue-resource-card">
+            <div class="queue-resource-heading">
+              <span aria-hidden="true">📘</span>
+              <div>
+                <span class="queue-resource-kicker">PDF</span>
+                <h3>Arquitectura de Colas FIFO</h3>
+              </div>
+            </div>
+
+            <iframe
+              class="queue-resource-pdf"
+              src="https://drive.google.com/file/d/1xSjR_T_BNqSXrV8s6CG_PnDUj_xIlB31/preview"
+              title="PDF: Arquitectura de Colas FIFO"
+              loading="lazy"
+              allow="autoplay"
+              allowfullscreen>
+            </iframe>
+
+            <a
+              class="queue-resource-link"
+              href="https://drive.google.com/file/d/1xSjR_T_BNqSXrV8s6CG_PnDUj_xIlB31/view"
+              target="_blank"
+              rel="noopener">
+              Abrir PDF en Google Drive
+            </a>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="simulador-estatica" class="queue-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🧪</span>
+          <h2>Simulador animado · Cola estática</h2>
+        </div>
+
+        <p>
+          La cola estática usa un arreglo de tamaño fijo. <b>rear</b> indica dónde está el último elemento
+          y <b>front</b> indica qué elemento debe salir primero. El simulador utiliza una cola lineal
+          de 7 posiciones para que se vea con claridad cómo avanzan ambos índices.
+        </p>
+
+        <div class="queue-simulator" data-queue-simulator="static">
+
+          <div class="queue-controls">
+            <div>
+              <label for="static-value">Valor entero</label>
+              <input
+                id="static-value"
+                type="number"
+                min="-999"
+                max="999"
+                placeholder="Ej. 10">
+            </div>
+
+            <button type="button" data-static-action="enqueue">Encolar</button>
+            <button type="button" data-static-action="dequeue">Descolar</button>
+            <button type="button" data-static-action="example" class="secondary">Cargar ejemplo</button>
+            <button type="button" data-static-action="clear" class="secondary">Limpiar</button>
+          </div>
+
+          <div class="queue-playback-controls" data-playback-controls="static">
+            <label for="static-speed">
+              Tiempo por paso
+              <input
+                id="static-speed"
+                type="range"
+                min="250"
+                max="5000"
+                step="250"
+                value="2500">
+            </label>
+
+            <span class="queue-speed-scale">Rápido · 0.25 s</span>
+            <span id="static-speed-label" class="queue-speed-label">2.50 s / paso</span>
+            <span class="queue-speed-scale">Lento · 5.00 s</span>
+
+            <button type="button" data-playback-action="pause" data-playback-target="static">
+              Pausar
+            </button>
+            <button type="button" data-playback-action="step" data-playback-target="static">
+              Paso a paso
+            </button>
+          </div>
+
+          <div class="queue-state-grid">
+            <div>
+              <span>front</span>
+              <strong id="static-front">-1</strong>
+            </div>
+            <div>
+              <span>rear</span>
+              <strong id="static-rear">-1</strong>
+            </div>
+            <div>
+              <span>Capacidad</span>
+              <strong>7</strong>
+            </div>
+            <div>
+              <span>Elementos activos</span>
+              <strong id="static-count">0</strong>
+            </div>
+          </div>
+
+          <div class="queue-simulator-layout">
+            <div>
+              <div
+                id="static-queue-visual"
+                class="static-queue-visual"
+                aria-label="Representación de una cola estática de siete posiciones">
+              </div>
+            </div>
+
+            <aside class="queue-step-panel">
+              <h3>Pasos de la operación</h3>
+              <ol id="static-steps" class="queue-step-list">
+                <li>Escribe un valor y presiona Encolar.</li>
+              </ol>
+            </aside>
+          </div>
+
+          <div id="static-status" class="queue-status" aria-live="polite">
+            Cola estática vacía.
+          </div>
+
+        </div>
+
+        <div class="note queue-observation">
+          <b>Observa:</b>
+          en esta implementación lineal los datos no se recorren al hacer DEQUEUE.
+          Avanza <code>front</code>. Si <code>rear</code> llega a la última posición,
+          la cola se considera llena aunque hayan quedado celdas libres al inicio.
+        </div>
+      </section>
+
+      <section id="simulador-dinamica" class="queue-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🔗</span>
+          <h2>Simulador animado · Cola dinámica</h2>
+        </div>
+
+        <p>
+          La cola dinámica crece mediante nodos enlazados. Al encolar se crea un nodo al final;
+          al desencolar se elimina el nodo del frente. Cuando la cola queda vacía,
+          <b>front</b> y <b>rear</b> vuelven a <code>NULL</code>.
+        </p>
+
+        <div class="queue-simulator dynamic-queue-simulator" data-queue-simulator="dynamic">
+
+          <div class="queue-controls">
+            <div>
+              <label for="dynamic-value">Valor entero</label>
+              <input
+                id="dynamic-value"
+                type="number"
+                min="-999"
+                max="999"
+                placeholder="Ej. 10">
+            </div>
+
+            <button type="button" data-dynamic-action="enqueue">Encolar</button>
+            <button type="button" data-dynamic-action="dequeue">Descolar</button>
+            <button type="button" data-dynamic-action="example" class="secondary">Cargar ejemplo</button>
+            <button type="button" data-dynamic-action="clear" class="secondary">Limpiar</button>
+          </div>
+
+          <div class="queue-playback-controls" data-playback-controls="dynamic">
+            <label for="dynamic-speed">
+              Tiempo por paso
+              <input
+                id="dynamic-speed"
+                type="range"
+                min="250"
+                max="5000"
+                step="250"
+                value="2500">
+            </label>
+
+            <span class="queue-speed-scale">Rápido · 0.25 s</span>
+            <span id="dynamic-speed-label" class="queue-speed-label">2.50 s / paso</span>
+            <span class="queue-speed-scale">Lento · 5.00 s</span>
+
+            <button type="button" data-playback-action="pause" data-playback-target="dynamic">
+              Pausar
+            </button>
+            <button type="button" data-playback-action="step" data-playback-target="dynamic">
+              Paso a paso
+            </button>
+          </div>
+
+          <div class="queue-state-grid dynamic-state-grid">
+            <div>
+              <span>front</span>
+              <strong id="dynamic-front">NULL</strong>
+            </div>
+            <div>
+              <span>rear</span>
+              <strong id="dynamic-rear">NULL</strong>
+            </div>
+            <div>
+              <span>Nodos</span>
+              <strong id="dynamic-count">0</strong>
+            </div>
+          </div>
+
+          <div class="queue-simulator-layout">
+            <div>
+              <div
+                id="dynamic-queue-visual"
+                class="dynamic-queue-visual"
+                aria-label="Representación de una cola dinámica con nodos enlazados">
+              </div>
+            </div>
+
+            <aside class="queue-step-panel">
+              <h3>Pasos de la operación</h3>
+              <ol id="dynamic-steps" class="queue-step-list">
+                <li>Escribe un valor y presiona Encolar.</li>
+              </ol>
+            </aside>
+          </div>
+
+          <div id="dynamic-status" class="queue-status" aria-live="polite">
+            Cola dinámica vacía.
+          </div>
+
+        </div>
+
+        <div class="note queue-observation">
+          <b>Observa:</b>
+          ENQUEUE agrega siempre al final y DEQUEUE elimina siempre al frente.
+          Esa separación entre entrada y salida es la que conserva el principio <b>FIFO</b>.
+        </div>
+      </section>
+
+      <section class="queue-section">
+        <div class="summary">
+          <div class="bulb">💡</div>
+          <div>
+            <b>COLAS · IDEA CLAVE</b><br>
+            Tanto la implementación estática como la dinámica conservan el mismo comportamiento:
+            <strong>el primero que entra es el primero que sale</strong>. Lo que cambia es la forma
+            en que se administra la memoria.
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../scripts/site.js" defer></script>
+  <script src="../scripts/colas_interactivo.js" defer></script>
+</body>
+</html>

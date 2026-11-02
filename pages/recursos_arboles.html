@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006847">
+  <meta name="description" content="Recursos del tema Árboles: videos y simuladores interactivos de ABB, recorridos y árboles AVL.">
+  <title>Recursos · Árboles | Estructuras de Datos</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/site.css">
+  <link rel="stylesheet" href="../styles/arboles_interactivo.css">
+</head>
+
+<body class="pe-home pe-course-page pe-uniform-page">
+
+  <div id="site-header"></div>
+
+  <section class="topic-course-hero tree-topic-hero">
+    <div class="container-fluid pe-shell">
+      <div class="row g-4 align-items-center py-4 py-xl-5">
+
+        <div class="col-12 col-xl-5">
+          <div class="topic-number-pill">TEMA 4 · Recursos</div>
+          <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
+          <h1 class="course-title">Recursos de Árboles</h1>
+          <p class="course-subtitle mb-0">Videos y simuladores interactivos de ABB, recorridos y AVL</p>
+          <div class="hero-line"></div>
+          <div class="course-quote">
+            <span aria-hidden="true" class="ui-icon">🌳</span>
+            <span>Observa, experimenta y recorre el árbol paso a paso.</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="tree-hero-visual">
+            <img
+              src="../images/arbol_portada.webp"
+              class="tree-hero-image"
+              alt="Árbol binario colorido con nodos"
+              decoding="async">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <div id="course-info" data-topic="TEMA 4 · Recursos de Árboles"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="tree-topic-menu-wrap">
+    <div class="container-fluid pe-shell">
+      <nav class="ed-topic-local" aria-label="Recursos de Árboles">
+        <a href="#videos-arboles">Videos</a>
+        <a href="#simulador-abb">Simulador ABB</a>
+        <a href="#simulador-recorridos">Recorridos</a>
+        <a href="#simulador-avl">Simulador AVL</a>
+        <a href="tema_04_arboles.html">Volver al tema</a>
+      </nav>
+    </div>
+  </section>
+
+  <main class="container-fluid pe-shell page-content-shell">
+    <article class="page-content-card content ed-new-topic">
+
+      <div class="note">
+        <b>Recursos del Tema 4:</b>
+        esta página concentra los materiales audiovisuales y los tres simuladores interactivos de Árboles.
+        Los videos se reproducen dentro del sitio y los simuladores reutilizan el mismo archivo
+        <code>arboles_interactivo.js</code> del tema principal.
+      </div>
+
+      <section id="videos-arboles" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🎬</span>
+          <h2>Videos de apoyo · Árboles</h2>
+        </div>
+
+        <p>
+          Reproduce los videos directamente desde esta página. Los materiales están alojados en Google Drive
+          y se muestran embebidos para que el alumno no salga del sitio.
+        </p>
+
+        <div class="tree-two-column">
+          <article class="tree-figure">
+            <h3>Árboles Binarios</h3>
+            <iframe
+              class="tree-resource-video"
+              src="https://drive.google.com/file/d/1WPxD7zK808Pz_bPntzJt8Z4QekewRpbI/preview"
+              title="Video: Árboles Binarios"
+              loading="lazy"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+            </iframe>
+            <figcaption>
+              Introducción y funcionamiento de los árboles binarios y Árboles Binarios de Búsqueda.
+            </figcaption>
+          </article>
+
+          <article class="tree-figure">
+            <h3>Árboles AVL · Optimización</h3>
+            <iframe
+              class="tree-resource-video"
+              src="https://drive.google.com/file/d/1q1F4prGaq_3Tr3oTjovJ-tq4Sy56cF6l/preview"
+              title="Video: Árboles AVL · Optimización"
+              loading="lazy"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+            </iframe>
+            <figcaption>
+              Balanceo, eficiencia y optimización mediante árboles AVL.
+            </figcaption>
+          </article>
+        </div>
+      </section>
+
+      <section class="tree-section" id="simulador-abb">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">🧪</span>
+<h2>Simulador de Árbol Binario de Búsqueda</h2>
+</div>
+<p>
+          Inserta, busca o elimina claves enteras. Después de cada operación se muestra el árbol resultante
+          y una explicación de las comparaciones realizadas.
+        </p>
+<div class="tree-simulator" data-tree-simulator="bst">
+<div class="tree-simulator-controls">
+<div><label for="bst-value">Valor entero</label><input id="bst-value" max="999" min="-999" placeholder="Ej. 50" type="number"/></div>
+<button data-bst-action="insert" type="button">Insertar</button>
+<button data-bst-action="delete" type="button">Eliminar</button>
+<button data-bst-action="search" type="button">Buscar</button>
+<button class="secondary" data-bst-action="example" type="button">Cargar ejemplo</button>
+<button class="secondary" data-bst-action="clear" type="button">Limpiar</button>
+</div>
+<div class="tree-playback-controls" data-playback-controls="bst">
+<label for="bst-speed">
+              Tiempo por paso
+              <input id="bst-speed" max="5000" min="250" step="250" type="range" value="2500"/>
+</label>
+<span class="tree-speed-scale">Rápido · 0.25 s</span>
+<span class="tree-speed-label" id="bst-speed-label">2.50 s / paso</span>
+<span class="tree-speed-scale">Lento · 5.00 s</span>
+<button data-playback-action="pause" data-playback-target="bst" type="button">
+              Pausar
+            </button>
+<button data-playback-action="step" data-playback-target="bst" type="button">
+              Paso a paso
+            </button>
+</div>
+<div class="tree-simulator-layout">
+<div class="tree-canvas-wrap">
+<svg aria-label="Árbol binario de búsqueda simulado" class="tree-canvas" id="bst-canvas" role="img" viewbox="0 0 1000 520"></svg>
+</div>
+<aside class="tree-step-panel">
+<h3>Pasos de la operación</h3>
+<ol class="tree-step-list" id="bst-steps"><li>Inserta un valor para comenzar.</li></ol>
+</aside>
+</div>
+<div aria-live="polite" class="tree-status" id="bst-status">Árbol vacío.</div>
+</div>
+<div class="note tree-observation">
+<b>Observa:</b>
+          el ABB no se balancea automáticamente. Si insertas valores ordenados, por ejemplo
+          10, 20, 30, 40 y 50, podrás ver cómo se forma un árbol degenerado.
+        </div>
+</section>
+
+      <section class="tree-section" id="simulador-recorridos">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">▶️</span>
+<h2>Simulador animado de recorridos</h2>
+</div>
+<p>
+          Presiona <b>Cargar ejemplo</b> para construir el árbol. Después selecciona un recorrido y observa cómo se visita
+          cada nodo. El nodo actual se resalta y la secuencia se construye paso a paso.
+        </p>
+<div class="tree-simulator traversal-simulator" data-tree-simulator="traversal">
+<div class="tree-simulator-controls traversal-actions">
+<button class="secondary" data-traversal-action="example" type="button">Cargar ejemplo</button>
+<button data-traversal-action="preorder" type="button">Pre-orden</button>
+<button data-traversal-action="inorder" type="button">In-orden</button>
+<button data-traversal-action="postorder" type="button">Post-orden</button>
+<button class="secondary" data-traversal-action="reset" type="button">Reiniciar</button>
+</div>
+<div class="tree-playback-controls" data-playback-controls="traversal">
+<label for="traversal-speed">
+              Tiempo por paso
+              <input id="traversal-speed" max="5000" min="250" step="250" type="range" value="2500"/>
+</label>
+<span class="tree-speed-scale">Rápido · 0.25 s</span>
+<span class="tree-speed-label" id="traversal-speed-label">2.50 s / paso</span>
+<span class="tree-speed-scale">Lento · 5.00 s</span>
+<button data-playback-action="pause" data-playback-target="traversal" type="button">
+              Pausar
+            </button>
+<button data-playback-action="step" data-playback-target="traversal" type="button">
+              Paso a paso
+            </button>
+</div>
+<div class="tree-simulator-layout">
+<div class="tree-canvas-wrap">
+<svg aria-label="Árbol para demostrar recorridos" class="tree-canvas" id="traversal-canvas" role="img" viewbox="0 0 1000 520"></svg>
+</div>
+<aside class="tree-step-panel">
+<h3>Secuencia visitada</h3>
+<div class="traversal-sequence" id="traversal-sequence">—</div>
+<h3>Nodo actual</h3>
+<div class="traversal-current" id="traversal-current">—</div>
+<div class="tree-traversal-note" id="traversal-explanation">
+                Selecciona Pre-orden, In-orden o Post-orden.
+              </div>
+</aside>
+</div>
+<div aria-live="polite" class="tree-status" id="traversal-status">
+            Cargando motor del simulador…
+          </div>
+</div>
+</section>
+
+      <section class="tree-section" id="simulador-avl">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">🧪</span>
+<h2>Simulador de Árbol AVL</h2>
+</div>
+<p>
+          Inserta o elimina valores. El simulador muestra las comparaciones, calcula el factor de equilibrio
+          y explica cada rotación aplicada para recuperar el balance.
+        </p>
+<div class="tree-simulator avl-simulator" data-tree-simulator="avl">
+<div class="tree-simulator-controls">
+<div><label for="avl-value">Valor entero</label><input id="avl-value" max="999" min="-999" placeholder="Ej. 30" type="number"/></div>
+<button data-avl-action="insert" type="button">Insertar</button>
+<button data-avl-action="delete" type="button">Eliminar</button>
+<button class="secondary" data-avl-action="example" type="button">Cargar ejemplo</button>
+<button class="secondary" data-avl-action="clear" type="button">Limpiar</button>
+</div>
+<div class="tree-playback-controls" data-playback-controls="avl">
+<label for="avl-speed">
+              Tiempo por paso
+              <input id="avl-speed" max="5000" min="250" step="250" type="range" value="2500"/>
+</label>
+<span class="tree-speed-scale">Rápido · 0.25 s</span>
+<span class="tree-speed-label" id="avl-speed-label">2.50 s / paso</span>
+<span class="tree-speed-scale">Lento · 5.00 s</span>
+<button data-playback-action="pause" data-playback-target="avl" type="button">
+              Pausar
+            </button>
+<button data-playback-action="step" data-playback-target="avl" type="button">
+              Paso a paso
+            </button>
+</div>
+<div class="tree-simulator-layout">
+<div class="tree-canvas-wrap">
+<svg aria-label="Árbol AVL simulado" class="tree-canvas" id="avl-canvas" role="img" viewbox="0 0 1000 520"></svg>
+</div>
+<aside class="tree-step-panel">
+<h3>Balanceo paso a paso</h3>
+<ol class="tree-step-list" id="avl-steps"><li>Inserta un valor para comenzar.</li></ol>
+</aside>
+</div>
+<div aria-live="polite" class="tree-status" id="avl-status">Árbol AVL vacío.</div>
+</div>
+<div class="note tree-observation">
+<b>Observa:</b>
+          después de cada inserción o eliminación el simulador recalcula altura y FE.
+          Solo realiza una rotación cuando |FE| supera 1.
+        </div>
+</section>
+
+      <section class="tree-section">
+        <div class="summary">
+          <div class="bulb">💡</div>
+          <div>
+            <b>RECURSOS DEL TEMA</b><br>
+            Utiliza primero el simulador ABB para comprender inserción, búsqueda y eliminación;
+            después practica los tres recorridos y finalmente observa cómo un AVL reorganiza el árbol
+            mediante rotaciones para mantener el balance.
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../scripts/site.js" defer></script>
+  <script src="../scripts/arboles_interactivo.js" defer></script>
+</body>
+</html>

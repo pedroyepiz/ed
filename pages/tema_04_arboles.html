@@ -1,9 +1,740 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006847">
+  <meta name="description" content="Tema de Árboles: ABB, recorridos, eficiencia, árboles degenerados, árboles AVL, balanceo, rotaciones, simuladores y cuestionario.">
+  <title>Tema 4 · Árboles | Estructuras de Datos</title>
 
-<html lang="es-MX"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#006847" name="theme-color"/><meta content="Representación, inserción y recorridos de árboles binarios de búsqueda." name="description"/><title>Tema 4 · Árboles | Estructuras de Datos</title><link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/><link href="../styles/site.css" rel="stylesheet"/></head><body class="pe-home pe-course-page pe-uniform-page"><div id="site-header"></div><section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-xl-7"><div class="topic-number-pill">UNIDAD IV · Árboles</div><div class="course-kicker">ESTRUCTURAS DE DATOS</div><h1 class="course-title">Árboles</h1><p class="course-subtitle mb-0">Árboles binarios y árboles binarios de búsqueda (ABB)</p><div class="hero-line"></div><div class="course-quote"><span aria-hidden="true" class="ui-icon">💡</span><span>Elegir una estructura jerárquica permite organizar búsquedas y recorridos.</span></div></div><div class="col-xl-5"><div data-topic="UNIDAD IV · Árboles" id="course-info"></div></div></div></div></section><main class="container-fluid pe-shell page-content-shell"><article class="page-content-card content ed-new-topic"><nav aria-label="Secciones de este tema" class="ed-topic-local"><a href="#que-es">¿Qué es?</a><a href="#para-que">¿Para qué?</a><a href="#como">¿Cómo funciona?</a><a href="#implementacion">Implementación</a><a href="#problema">Problema</a><a href="#resumen">Resumen</a></nav><section id="que-es"><h2>1 · ¿Qué es un árbol?</h2><p>Un <strong>árbol</strong> representa relaciones jerárquicas mediante nodos y enlaces. Tiene una <strong>raíz</strong>; cada nodo puede tener hijos y los nodos sin hijos son hojas. En un <strong>árbol binario</strong>, cada nodo tiene como máximo dos hijos.</p><div class="ed-key">Un árbol binario de búsqueda (ABB) mantiene, para cada nodo, valores menores a la izquierda y mayores a la derecha. Aquí usamos valores únicos.</div></section><section id="para-que"><h2>2 · ¿Para qué sirve?</h2><div class="ed-feature-grid"><div><strong>Buscar</strong><p>Decidir si un dato está presente siguiendo comparaciones.</p></div><div><strong>Ordenar</strong><p>Obtener los valores en orden con un recorrido inorden.</p></div><div><strong>Organizar</strong><p>Representar índices y relaciones jerárquicas.</p></div></div></section><section id="como"><h2>3 · ¿Cómo funciona?</h2><p>Al insertar, compara el valor con el nodo actual: si es menor avanza a la izquierda; si es mayor, a la derecha. Continúa hasta encontrar un enlace vacío.</p><figure aria-label="Árbol binario de búsqueda con raíz 40; hijos 20 y 60; 20 tiene hijos 10 y 30; 60 tiene hijos 50 y 70." class="ed-tree" role="group"><div class="ed-tree-row"><span>40</span></div><div class="ed-tree-row"><span>20</span><span>60</span></div><div class="ed-tree-row"><span>10</span><span>30</span><span>50</span><span>70</span></div><figcaption>Ejemplo de ABB con siete valores. Cada subárbol respeta el orden de búsqueda.</figcaption></figure><div class="ed-feature-grid"><div><strong>Inorden</strong><p>Izquierda → raíz → derecha: 10, 20, 30, 40, 50, 60, 70.</p></div><div><strong>Preorden</strong><p>Raíz → izquierda → derecha: 40, 20, 10, 30, 60, 50, 70.</p></div><div><strong>Posorden</strong><p>Izquierda → derecha → raíz: 10, 30, 20, 50, 70, 60, 40.</p></div></div></section><section id="implementacion"><h2>4 · Implementación</h2><pre><code>typedef struct Nodo {
-    int valor;
-    struct Nodo *izq, *der;
-} Nodo;
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/site.css">
+  <link rel="stylesheet" href="../styles/arboles_interactivo.css">
+</head>
 
-// Si valor &lt; nodo-&gt;valor, avanzar a izq.
-// Si valor &gt; nodo-&gt;valor, avanzar a der.</code></pre><p>La búsqueda y la inserción requieren <strong>O(h)</strong> comparaciones, donde <em>h</em> es la altura. Un ABB puede degenerar en una cadena: en ese caso <em>h</em> se acerca a <em>n</em>. El Tema 5 compara estructuras que mantienen otra propiedad de orden.</p></section><section id="problema"><h2>5 · Problema guiado</h2><p>Inserta en un ABB vacío: <code>40, 20, 60, 10, 30, 50, 70</code>. Después busca 30 y escribe los nodos visitados. Para eliminar un nodo, distingue tres casos: hoja, nodo con un hijo y nodo con dos hijos (reemplazo por sucesor o predecesor).</p><p><a class="ed-topic-cta" href="../actividades.html">Consultar las actividades de árboles</a></p></section><section id="resumen"><h2>6 · Resumen</h2><p>La forma del árbol depende del orden de inserción. En un ABB, inorden produce una secuencia ascendente. Comprobar la altura ayuda a entender el costo de las operaciones.</p></section></article></main><div id="site-footer"></div><script defer="" src="../scripts/site.js"></script></body></html>
+<body class="pe-home pe-course-page pe-uniform-page">
+
+  <div id="site-header"></div>
+
+  <section class="topic-course-hero tree-topic-hero">
+    <div class="container-fluid pe-shell">
+      <div class="row g-4 align-items-center py-4 py-xl-5">
+
+        <div class="col-12 col-xl-5">
+          <div class="topic-number-pill">TEMA 4 · Árboles</div>
+          <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
+          <h1 class="course-title">Árboles</h1>
+          <p class="course-subtitle mb-0">ABB, recorridos, eficiencia, balanceo y árboles AVL</p>
+          <div class="hero-line"></div>
+          <div class="course-quote">
+            <span aria-hidden="true" class="ui-icon">🌳</span>
+            <span>“Una estructura jerárquica permite organizar decisiones, búsquedas y relaciones.”</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="tree-hero-visual">
+            <img
+              src="../images/arbol_portada.webp"
+              class="tree-hero-image"
+              alt="Árbol binario colorido con nodos"
+              decoding="async">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <div id="course-info" data-topic="TEMA 4 · Árboles"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="tree-topic-menu-wrap">
+    <div class="container-fluid pe-shell">
+      <nav class="ed-topic-local" aria-label="Contenido del tema Árboles">
+        <a href="#que-es">¿Qué es?</a>
+        <a href="#abb">ABB</a>
+        <a href="#conceptos">Conceptos</a>
+        <a href="#estructura-nodo">Nodo en C</a>
+        <a href="#eficiencia">Eficiencia</a>
+        <a href="#aplicaciones">Aplicaciones</a>
+        <a href="#degenerado">Degenerado</a>
+        <a href="#recorridos">Recorridos</a>
+        <a href="#simulador-recorridos">Simulador recorridos</a>
+        <a href="#simulador-abb">Simulador ABB</a>
+        <a href="#avl">AVL</a>
+        <a href="#balanceo">Balanceo</a>
+        <a href="#rotaciones">Rotaciones</a>
+        <a href="#simulador-avl">Simulador AVL</a>
+        <a href="#quiz-arboles">Quiz</a>
+        <a href="#resumen">Resumen</a>
+      </nav>
+    </div>
+  </section>
+
+  <main class="container-fluid pe-shell page-content-shell">
+    <article class="page-content-card content ed-new-topic">
+
+      <div class="note">
+        <b>Objetivo de aprendizaje:</b>
+        comprender la estructura y operación de los árboles binarios de búsqueda y de los árboles AVL,
+        analizar su eficiencia, recorrerlos recursivamente y observar cómo el balanceo mantiene búsquedas eficientes.
+      </div>
+
+      <section id="que-es" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🌳</span>
+          <h2>¿Qué es un árbol?</h2>
+        </div>
+
+        <p>
+          Un <b>árbol</b> es una estructura de datos no lineal que organiza información de forma jerárquica.
+          Está formada por <b>nodos</b> unidos mediante ramas. El primer nodo se denomina <b>raíz</b>;
+          los nodos conectados debajo de otro son sus <b>hijos</b>, y los nodos sin hijos se llaman <b>hojas</b>.
+        </p>
+
+        <div class="tree-concept-grid">
+          <article class="tree-concept-card theme-green"><h3>Raíz</h3><p>Nodo inicial del árbol. No tiene padre.</p></article>
+          <article class="tree-concept-card theme-blue"><h3>Nodo</h3><p>Elemento que almacena un dato y referencias hacia otros nodos.</p></article>
+          <article class="tree-concept-card theme-purple"><h3>Rama</h3><p>Conexión que relaciona un nodo padre con un nodo hijo.</p></article>
+          <article class="tree-concept-card theme-orange"><h3>Hoja</h3><p>Nodo que no tiene hijos.</p></article>
+        </div>
+      </section>
+
+      <section id="abb" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🔎</span>
+          <h2>Árbol Binario de Búsqueda (ABB)</h2>
+        </div>
+
+        <p>
+          Un <b>ABB</b> es un árbol binario en el que cada nodo puede tener como máximo dos hijos.
+          Para cada nodo, las claves del subárbol izquierdo son menores y las claves del subárbol derecho son mayores.
+          Esta propiedad permite descartar una parte del árbol en cada comparación.
+        </p>
+
+        <div class="tree-two-column">
+          <div>
+            <h3>¿Cómo funciona?</h3>
+
+            <ol class="tree-steps">
+              <li>La búsqueda comienza en la raíz.</li>
+              <li>Si la clave buscada es menor, se continúa por el subárbol izquierdo.</li>
+              <li>Si es mayor, se continúa por el subárbol derecho.</li>
+              <li>Si coincide, el elemento fue encontrado.</li>
+              <li>Si se llega a NULL, la clave no existe.</li>
+            </ol>
+
+            <pre><code>ALGORITMO BuscarABB(raiz, clave)
+    SI raiz = NULL
+        RETORNAR NO_ENCONTRADO
+    FIN SI
+
+    SI clave = raiz.dato
+        RETORNAR raiz
+    FIN SI
+
+    SI clave &lt; raiz.dato
+        RETORNAR BuscarABB(raiz.izquierdo, clave)
+    SINO
+        RETORNAR BuscarABB(raiz.derecho, clave)
+    FIN SI
+FIN ALGORITMO</code></pre>
+          </div>
+
+          <figure class="tree-figure">
+            <img src="../images/abb_conceptos.webp" alt="Conceptos de un Árbol Binario de Búsqueda" loading="lazy" decoding="async">
+            <figcaption>En un ABB la posición de cada clave depende de su relación de orden con el nodo actual.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="conceptos" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">📐</span>
+          <h2>Conceptos fundamentales: nivel, altura y grado</h2>
+        </div>
+
+        <div class="tree-definition-grid">
+          <article><h3>Nivel</h3><p>Distancia desde la raíz hasta un nodo. En esta página la raíz está en el nivel 0.</p></article>
+          <article><h3>Altura</h3><p>Número de aristas del camino más largo desde un nodo hasta una hoja.</p></article>
+          <article><h3>Grado de un nodo</h3><p>Número de hijos que tiene. En un árbol binario puede ser 0, 1 o 2.</p></article>
+          <article><h3>Subárbol</h3><p>Árbol formado por un nodo y todos sus descendientes.</p></article>
+        </div>
+
+        <figure class="tree-figure wide">
+          <img src="../images/abb_niveles_altura_grado.webp" alt="Árbol Binario de Búsqueda con niveles, altura y grado" loading="lazy" decoding="async">
+        </figure>
+      </section>
+
+
+      <section id="estructura-nodo" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🧩</span>
+          <h2>Estructura de un nodo y representación en C</h2>
+        </div>
+
+        <p>
+          Cada nodo almacena un <b>dato</b> y dos referencias: una al hijo izquierdo
+          y otra al hijo derecho. Cuando un hijo no existe, su referencia apunta a <b>NULL</b>.
+        </p>
+
+        <div class="tree-node-layout">
+          <figure class="tree-figure tree-node-figure">
+            <img
+              src="../images/nodo_estructura.webp"
+              alt="Estructura visual de un nodo con dato, hijo izquierdo e hijo derecho"
+              loading="lazy"
+              decoding="async">
+            <figcaption>
+              Un nodo de árbol binario contiene el dato y dos enlaces hacia sus posibles hijos.
+            </figcaption>
+          </figure>
+
+          <div class="tree-node-code">
+            <h3>Representación básica en C</h3>
+
+            <pre><code>typedef struct Nodo {
+    int dato;
+    struct Nodo *izquierdo;
+    struct Nodo *derecho;
+} Nodo;</code></pre>
+
+            <div class="note">
+              <b>Observación:</b>
+              esta estructura representa el nodo. Las operaciones de insertar, buscar,
+              eliminar o balancear se construyen después utilizando estos tres campos.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="eficiencia" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">⚡</span>
+          <h2>Grado de eficiencia</h2>
+        </div>
+
+        <p>
+          La eficiencia de un árbol depende en gran medida de su <b>altura</b>. Un ABB equilibrado permite
+          búsquedas cercanas a <b>O(log n)</b>; un ABB degenerado puede comportarse como una lista y caer a <b>O(n)</b>.
+        </p>
+
+        <div class="tree-table-wrap">
+          <table class="tree-efficiency-table">
+            <thead><tr><th>Estructura / condición</th><th>Búsqueda</th><th>Inserción</th><th>Eliminación</th></tr></thead>
+            <tbody>
+              <tr><td>ABB equilibrado</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td></tr>
+              <tr><td>ABB degenerado</td><td>O(n)</td><td>O(n)</td><td>O(n)</td></tr>
+              <tr><td>AVL</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="tree-figure wide">
+          <img src="../images/arbol_eficiencia.webp" alt="Comparación de eficiencia entre arreglos, listas enlazadas y árboles" loading="lazy" decoding="async">
+        </figure>
+      </section>
+
+      <section id="aplicaciones" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🌐</span>
+          <h2>¿Dónde se usan los árboles?</h2>
+        </div>
+
+        <div class="tree-concept-grid">
+          <article class="tree-concept-card theme-green"><h3>Sistemas de archivos</h3><p>Directorios y subdirectorios forman una jerarquía natural.</p></article>
+          <article class="tree-concept-card theme-blue"><h3>Bases de datos</h3><p>Árboles de índices permiten localizar registros rápidamente.</p></article>
+          <article class="tree-concept-card theme-purple"><h3>Compiladores</h3><p>Los árboles de sintaxis representan la estructura de expresiones y programas.</p></article>
+          <article class="tree-concept-card theme-orange"><h3>Redes y búsqueda</h3><p>Tries, jerarquías y estructuras de decisión aparecen en enrutamiento y autocompletado.</p></article>
+        </div>
+
+        <figure class="tree-figure wide">
+          <img src="../images/arbol_aplicaciones.webp" alt="Aplicaciones reales de los árboles" loading="lazy" decoding="async">
+        </figure>
+      </section>
+
+      <section id="degenerado" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">📉</span>
+          <h2>Árbol degenerado</h2>
+        </div>
+
+        <p>
+          Un árbol se considera <b>degenerado</b> cuando cada nodo tiene únicamente un hijo y la estructura
+          termina pareciéndose a una lista enlazada. Esto puede ocurrir en un ABB si se insertan claves ya ordenadas.
+        </p>
+
+        <div class="tree-degenerate-demo" aria-label="Ejemplo de árbol degenerado">
+          <span>10</span><i>→</i><span>20</span><i>→</i><span>30</span><i>→</i><span>40</span><i>→</i><span>50</span>
+        </div>
+
+        <div class="note">
+          <b>Consecuencia:</b> la altura se aproxima a n y las operaciones dejan de ser logarítmicas.
+          Esta forma también se conoce como <b>árbol sesgado</b>.
+        </div>
+
+        <figure class="tree-figure wide">
+          <img
+            src="../images/arbol_degenerado.webp"
+            alt="Comparación entre un árbol binario equilibrado y un árbol degenerado"
+            loading="lazy"
+            decoding="async">
+          <figcaption>
+            Una entrada secuencial puede convertir un ABB en una estructura similar a una lista,
+            degradando la búsqueda de O(log n) a O(n).
+          </figcaption>
+        </figure>
+
+      </section>
+
+      <section id="recorridos" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🔁</span>
+          <h2>Recorridos de un árbol</h2>
+        </div>
+
+        <p>
+          Los recorridos recursivos visitan todos los nodos. La diferencia está en el momento en que se
+          <b>procesa el nodo actual</b> respecto a sus subárboles izquierdo y derecho.
+        </p>
+
+        <figure class="tree-figure wide">
+          <img src="../images/recorridos_resumen.webp" alt="Comparación de recorridos preorden, inorden y postorden" loading="lazy" decoding="async">
+        </figure>
+
+        <div class="traversal-grid">
+          <article class="traversal-card">
+            <h3>Pre-orden · N - I - D</h3>
+            <pre><code>ALGORITMO PreOrden(nodo)
+    SI nodo ≠ NULL
+        PROCESAR nodo
+        PreOrden(nodo.izquierdo)
+        PreOrden(nodo.derecho)
+    FIN SI
+FIN ALGORITMO</code></pre>
+            <img src="../images/recorrido_preorden.webp" alt="Ejemplo de recorrido preorden" loading="lazy" decoding="async">
+          </article>
+
+          <article class="traversal-card">
+            <h3>In-orden · I - N - D</h3>
+            <pre><code>ALGORITMO InOrden(nodo)
+    SI nodo ≠ NULL
+        InOrden(nodo.izquierdo)
+        PROCESAR nodo
+        InOrden(nodo.derecho)
+    FIN SI
+FIN ALGORITMO</code></pre>
+            <img src="../images/recorrido_inorden.webp" alt="Ejemplo de recorrido inorden" loading="lazy" decoding="async">
+          </article>
+
+          <article class="traversal-card">
+            <h3>Post-orden · I - D - N</h3>
+            <pre><code>ALGORITMO PostOrden(nodo)
+    SI nodo ≠ NULL
+        PostOrden(nodo.izquierdo)
+        PostOrden(nodo.derecho)
+        PROCESAR nodo
+    FIN SI
+FIN ALGORITMO</code></pre>
+            <img src="../images/recorrido_postorden.webp" alt="Ejemplo de recorrido postorden" loading="lazy" decoding="async">
+          </article>
+        </div>
+      </section>
+
+
+      <section id="simulador-recorridos" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">▶️</span>
+          <h2>Simulador animado de recorridos</h2>
+        </div>
+
+        <p>
+          Presiona <b>Cargar ejemplo</b> para construir el árbol. Después selecciona un recorrido y observa cómo se visita
+          cada nodo. El nodo actual se resalta y la secuencia se construye paso a paso.
+        </p>
+
+        <div class="tree-simulator traversal-simulator" data-tree-simulator="traversal">
+
+          <div class="tree-simulator-controls traversal-actions">
+            <button type="button" data-traversal-action="example" class="secondary">Cargar ejemplo</button>
+            <button type="button" data-traversal-action="preorder">Pre-orden</button>
+            <button type="button" data-traversal-action="inorder">In-orden</button>
+            <button type="button" data-traversal-action="postorder">Post-orden</button>
+            <button type="button" data-traversal-action="reset" class="secondary">Reiniciar</button>
+          </div>
+
+          <div class="tree-playback-controls" data-playback-controls="traversal">
+            <label for="traversal-speed">
+              Tiempo por paso
+              <input id="traversal-speed" type="range" min="250" max="5000" step="250" value="2500">
+            </label>
+            <span class="tree-speed-scale">Rápido · 0.25 s</span>
+            <span id="traversal-speed-label" class="tree-speed-label">2.50 s / paso</span>
+            <span class="tree-speed-scale">Lento · 5.00 s</span>
+
+            <button type="button" data-playback-action="pause" data-playback-target="traversal">
+              Pausar
+            </button>
+            <button type="button" data-playback-action="step" data-playback-target="traversal">
+              Paso a paso
+            </button>
+          </div>
+
+          <div class="tree-simulator-layout">
+            <div class="tree-canvas-wrap">
+              <svg
+                id="traversal-canvas"
+                class="tree-canvas"
+                viewBox="0 0 1000 520"
+                role="img"
+                aria-label="Árbol para demostrar recorridos"></svg>
+            </div>
+
+            <aside class="tree-step-panel">
+              <h3>Secuencia visitada</h3>
+              <div id="traversal-sequence" class="traversal-sequence">—</div>
+
+              <h3>Nodo actual</h3>
+              <div id="traversal-current" class="traversal-current">—</div>
+
+              <div id="traversal-explanation" class="tree-traversal-note">
+                Selecciona Pre-orden, In-orden o Post-orden.
+              </div>
+            </aside>
+          </div>
+
+          <div id="traversal-status" class="tree-status" aria-live="polite">
+            Cargando motor del simulador…
+          </div>
+
+        </div>
+      </section>
+
+      <section id="simulador-abb" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🧪</span>
+          <h2>Simulador de Árbol Binario de Búsqueda</h2>
+        </div>
+
+        <p>
+          Inserta, busca o elimina claves enteras. Después de cada operación se muestra el árbol resultante
+          y una explicación de las comparaciones realizadas.
+        </p>
+
+        <div class="tree-simulator" data-tree-simulator="bst">
+          <div class="tree-simulator-controls">
+            <div><label for="bst-value">Valor entero</label><input id="bst-value" type="number" min="-999" max="999" placeholder="Ej. 50"></div>
+            <button type="button" data-bst-action="insert">Insertar</button>
+            <button type="button" data-bst-action="delete">Eliminar</button>
+            <button type="button" data-bst-action="search">Buscar</button>
+            <button type="button" data-bst-action="example" class="secondary">Cargar ejemplo</button>
+            <button type="button" data-bst-action="clear" class="secondary">Limpiar</button>
+          </div>
+
+
+          <div class="tree-playback-controls" data-playback-controls="bst">
+            <label for="bst-speed">
+              Tiempo por paso
+              <input id="bst-speed" type="range" min="250" max="5000" step="250" value="2500">
+            </label>
+            <span class="tree-speed-scale">Rápido · 0.25 s</span>
+            <span id="bst-speed-label" class="tree-speed-label">2.50 s / paso</span>
+            <span class="tree-speed-scale">Lento · 5.00 s</span>
+
+            <button type="button" data-playback-action="pause" data-playback-target="bst">
+              Pausar
+            </button>
+            <button type="button" data-playback-action="step" data-playback-target="bst">
+              Paso a paso
+            </button>
+          </div>
+
+          <div class="tree-simulator-layout">
+            <div class="tree-canvas-wrap">
+              <svg id="bst-canvas" class="tree-canvas" viewBox="0 0 1000 520" role="img" aria-label="Árbol binario de búsqueda simulado"></svg>
+            </div>
+
+            <aside class="tree-step-panel">
+              <h3>Pasos de la operación</h3>
+              <ol id="bst-steps" class="tree-step-list"><li>Inserta un valor para comenzar.</li></ol>
+            </aside>
+          </div>
+
+          <div id="bst-status" class="tree-status" aria-live="polite">Árbol vacío.</div>
+        </div>
+
+        <div class="note tree-observation">
+          <b>Observa:</b>
+          el ABB no se balancea automáticamente. Si insertas valores ordenados, por ejemplo
+          10, 20, 30, 40 y 50, podrás ver cómo se forma un árbol degenerado.
+        </div>
+      </section>
+
+      <section id="avl" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">⚖️</span>
+          <h2>Árboles AVL</h2>
+        </div>
+
+        <div class="tree-two-column">
+          <div>
+            <h3>¿Qué son?</h3>
+            <p>
+              Un <b>AVL</b> es un Árbol Binario de Búsqueda autobalanceado. Después de insertar o eliminar,
+              verifica la diferencia de alturas entre los subárboles y realiza rotaciones cuando es necesario.
+            </p>
+
+            <h3>Historia</h3>
+            <p>
+              Fue propuesto en 1962 por <b>Georgy Adelson-Velsky</b> y <b>Evgenii Landis</b>.
+              Su nombre proviene de las iniciales de sus apellidos.
+            </p>
+
+            <h3>Eficiencia</h3>
+            <p>Al controlar su altura, búsqueda, inserción y eliminación permanecen en <b>O(log n)</b>.</p>
+          </div>
+
+          <figure class="tree-figure">
+            <img src="../images/avl_conceptos.webp" alt="Conceptos, factor de equilibrio y rotaciones de árboles AVL" loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </section>
+
+      <section id="balanceo" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">📏</span>
+          <h2>Factor de equilibrio y tabla de balanceo</h2>
+        </div>
+
+        <p>En esta página utilizamos la convención:</p>
+
+        <div class="tree-formula">FE(nodo) = altura(izquierdo) − altura(derecho)</div>
+
+        <p>Un nodo AVL está balanceado cuando su factor de equilibrio pertenece a <b>{ -1, 0, +1 }</b>.</p>
+
+        <div class="tree-table-wrap">
+          <table class="tree-balance-table">
+            <thead><tr><th>FE del nodo</th><th>FE del hijo</th><th>Caso</th><th>Rotación requerida</th></tr></thead>
+            <tbody>
+              <tr><td>+2</td><td>≥ 0</td><td>LL</td><td>Rotación simple a la derecha</td></tr>
+              <tr><td>+2</td><td>&lt; 0</td><td>LR</td><td>Rotación izquierda-derecha</td></tr>
+              <tr><td>−2</td><td>≤ 0</td><td>RR</td><td>Rotación simple a la izquierda</td></tr>
+              <tr><td>−2</td><td>&gt; 0</td><td>RL</td><td>Rotación derecha-izquierda</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="tree-figure wide">
+          <img
+            src="../images/avl_matriz_balanceo.webp"
+            alt="Matriz visual de diagnóstico y balanceo en árboles AVL"
+            loading="lazy"
+            decoding="async">
+        </figure>
+
+</section>
+
+      <section id="rotaciones" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🔄</span>
+          <h2>Rotaciones AVL</h2>
+        </div>
+
+        <div class="rotation-grid">
+          <article><h3>LL · Rotación simple a la derecha</h3><img src="../images/avl_rotacion_derecha_ll.webp" alt="Rotación simple a la derecha en un árbol AVL" loading="lazy" decoding="async"></article>
+          <article><h3>RR · Rotación simple a la izquierda</h3><img src="../images/avl_rotacion_izquierda_rr.webp" alt="Rotación simple a la izquierda en un árbol AVL" loading="lazy" decoding="async"></article>
+          <article><h3>LR · Rotación doble izquierda-derecha</h3><img src="../images/avl_rotacion_doble_lr.webp" alt="Rotación doble izquierda-derecha en un árbol AVL" loading="lazy" decoding="async"></article>
+          <article><h3>RL · Rotación doble derecha-izquierda</h3><img src="../images/avl_rotacion_doble_rl.webp" alt="Rotación doble derecha-izquierda en un árbol AVL" loading="lazy" decoding="async"></article>
+        </div>
+      </section>
+
+      <section id="simulador-avl" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🧪</span>
+          <h2>Simulador de Árbol AVL</h2>
+        </div>
+
+        <p>
+          Inserta o elimina valores. El simulador muestra las comparaciones, calcula el factor de equilibrio
+          y explica cada rotación aplicada para recuperar el balance.
+        </p>
+
+        <div class="tree-simulator avl-simulator" data-tree-simulator="avl">
+          <div class="tree-simulator-controls">
+            <div><label for="avl-value">Valor entero</label><input id="avl-value" type="number" min="-999" max="999" placeholder="Ej. 30"></div>
+            <button type="button" data-avl-action="insert">Insertar</button>
+            <button type="button" data-avl-action="delete">Eliminar</button>
+            <button type="button" data-avl-action="example" class="secondary">Cargar ejemplo</button>
+            <button type="button" data-avl-action="clear" class="secondary">Limpiar</button>
+          </div>
+
+
+          <div class="tree-playback-controls" data-playback-controls="avl">
+            <label for="avl-speed">
+              Tiempo por paso
+              <input id="avl-speed" type="range" min="250" max="5000" step="250" value="2500">
+            </label>
+            <span class="tree-speed-scale">Rápido · 0.25 s</span>
+            <span id="avl-speed-label" class="tree-speed-label">2.50 s / paso</span>
+            <span class="tree-speed-scale">Lento · 5.00 s</span>
+
+            <button type="button" data-playback-action="pause" data-playback-target="avl">
+              Pausar
+            </button>
+            <button type="button" data-playback-action="step" data-playback-target="avl">
+              Paso a paso
+            </button>
+          </div>
+
+          <div class="tree-simulator-layout">
+            <div class="tree-canvas-wrap">
+              <svg id="avl-canvas" class="tree-canvas" viewBox="0 0 1000 520" role="img" aria-label="Árbol AVL simulado"></svg>
+            </div>
+
+            <aside class="tree-step-panel">
+              <h3>Balanceo paso a paso</h3>
+              <ol id="avl-steps" class="tree-step-list"><li>Inserta un valor para comenzar.</li></ol>
+            </aside>
+          </div>
+
+          <div id="avl-status" class="tree-status" aria-live="polite">Árbol AVL vacío.</div>
+        </div>
+
+        <div class="note tree-observation">
+          <b>Observa:</b>
+          después de cada inserción o eliminación el simulador recalcula altura y FE.
+          Solo realiza una rotación cuando |FE| supera 1.
+        </div>
+      </section>
+
+      <section id="quiz-arboles" class="tree-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🧠</span>
+          <h2>Cuestionario · Árboles y AVL</h2>
+        </div>
+
+        <div class="tree-quiz" data-tree-quiz>
+
+          <h3>Parte A · Árboles y ABB</h3>
+
+          <fieldset class="tree-question" data-group="general" data-correct="b">
+            <legend>1. ¿Qué propiedad caracteriza a un ABB?</legend>
+            <label><input type="radio" name="tq1" value="a"> Todos los nodos tienen exactamente dos hijos.</label>
+            <label><input type="radio" name="tq1" value="b"> Las claves menores van a la izquierda y las mayores a la derecha.</label>
+            <label><input type="radio" name="tq1" value="c"> Los nodos se almacenan siempre en orden de llegada.</label>
+            <div class="tree-feedback"></div>
+          </fieldset>
+
+          <fieldset class="tree-question" data-group="general" data-correct="c">
+            <legend>2. ¿Qué es una hoja?</legend>
+            <label><input type="radio" name="tq2" value="a"> El nodo raíz.</label>
+            <label><input type="radio" name="tq2" value="b"> Un nodo con dos hijos.</label>
+            <label><input type="radio" name="tq2" value="c"> Un nodo sin hijos.</label>
+            <div class="tree-feedback"></div>
+          </fieldset>
+
+          <fieldset class="tree-question" data-group="general" data-correct="a">
+            <legend>3. ¿Qué recorrido de un ABB produce las claves ordenadas?</legend>
+            <label><input type="radio" name="tq3" value="a"> In-orden.</label>
+            <label><input type="radio" name="tq3" value="b"> Pre-orden.</label>
+            <label><input type="radio" name="tq3" value="c"> Post-orden.</label>
+            <div class="tree-feedback"></div>
+          </fieldset>
+
+          <fieldset class="tree-question" data-group="general" data-correct="b">
+            <legend>4. ¿Qué ocurre con la eficiencia de un ABB degenerado?</legend>
+            <label><input type="radio" name="tq4" value="a"> Mejora a O(1).</label>
+            <label><input type="radio" name="tq4" value="b"> Puede degradarse a O(n).</label>
+            <label><input type="radio" name="tq4" value="c"> Siempre permanece en O(log n).</label>
+            <div class="tree-feedback"></div>
+          </fieldset>
+
+          <fieldset class="tree-question" data-group="general" data-correct="c">
+            <legend>5. ¿Qué representa el grado de un nodo?</legend>
+            <label><input type="radio" name="tq5" value="a"> Su distancia desde la raíz.</label>
+            <label><input type="radio" name="tq5" value="b"> Su valor numérico.</label>
+            <label><input type="radio" name="tq5" value="c"> La cantidad de hijos que posee.</label>
+            <div class="tree-feedback"></div>
+          </fieldset>
+
+          <h3>Parte B · Árboles AVL</h3>
+
+          <fieldset class="tree-question" data-group="avl" data-correct="b">
+            <legend>6. ¿Qué valores de FE son válidos en un nodo AVL balanceado?</legend>
+            <label><input type="radio" name="tq6" value="a"> Solo 0.</label>
+            <label><input type="radio" name="tq6" value="b"> −1, 0 y +1.</label>
+            <label><input type="radio" name="tq6" value="c"> −2 y +2.</label>
+            <div class="tree-feedback"></div>
+          </fieldset>
+
+          <fieldset class="tree-question" data-group="avl" data-correct="a">
+            <legend>7. Con FE = altura(izq) − altura(der), ¿qué indica FE = +2?</legend>
+            <label><input type="radio" name="tq7" value="a"> El subárbol izquierdo es demasiado alto.</label>
+            <label><input type="radio" name="tq7" value="b"> El subárbol derecho es demasiado alto.</label>
+            <label><input type="radio" name="tq7" value="c"> El árbol está perfectamente balanceado.</label>
+            <div class="tree-feedback"></div>
+          </fieldset>
+
+          <fieldset class="tree-question" data-group="avl" data-correct="c">
+            <legend>8. ¿Qué rotación corrige un caso LL?</legend>
+            <label><input type="radio" name="tq8" value="a"> Simple a la izquierda.</label>
+            <label><input type="radio" name="tq8" value="b"> Doble derecha-izquierda.</label>
+            <label><input type="radio" name="tq8" value="c"> Simple a la derecha.</label>
+            <div class="tree-feedback"></div>
+          </fieldset>
+
+          <fieldset class="tree-question" data-group="avl" data-correct="b">
+            <legend>9. ¿Cuál es la principal ventaja de un AVL frente a un ABB sin balanceo?</legend>
+            <label><input type="radio" name="tq9" value="a"> No necesita comparaciones.</label>
+            <label><input type="radio" name="tq9" value="b"> Controla la altura para conservar operaciones O(log n).</label>
+            <label><input type="radio" name="tq9" value="c"> Puede almacenar valores repetidos automáticamente.</label>
+            <div class="tree-feedback"></div>
+          </fieldset>
+
+          <fieldset class="tree-question" data-group="avl" data-correct="a">
+            <legend>10. ¿Cuándo puede ser necesaria una rotación doble?</legend>
+            <label><input type="radio" name="tq10" value="a"> Cuando el desbalance del nodo y el de su hijo tienen direcciones opuestas.</label>
+            <label><input type="radio" name="tq10" value="b"> Siempre que se inserta una hoja.</label>
+            <label><input type="radio" name="tq10" value="c"> Únicamente cuando el árbol está vacío.</label>
+            <div class="tree-feedback"></div>
+          </fieldset>
+
+          <div class="tree-quiz-actions">
+            <button type="button" id="tree-quiz-analyze">Analizar respuestas</button>
+            <button type="button" id="tree-quiz-reset" class="secondary">Reiniciar</button>
+          </div>
+
+          <div class="tree-quiz-score">
+            <span>Árboles: <b id="tree-general-score">0 / 5</b></span>
+            <span>AVL: <b id="tree-avl-score">0 / 5</b></span>
+            <span>Total: <b id="tree-total-score">0 / 10</b></span>
+          </div>
+
+          <div id="tree-quiz-result" class="tree-quiz-result" aria-live="polite"></div>
+
+        </div>
+      </section>
+
+      <section id="resumen" class="tree-section">
+        <div class="summary">
+          <div class="bulb">💡</div>
+          <div>
+            <b>EN RESUMEN</b><br>
+            Un ABB organiza claves por comparación. Su rendimiento depende de la altura.
+            Los recorridos permiten visitar todos los nodos en distintos órdenes y los árboles AVL
+            incorporan balanceo automático para mantener una altura logarítmica.
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../scripts/site.js" defer></script>
+  <script src="../scripts/arboles_interactivo.js" defer></script>
+</body>
+</html>

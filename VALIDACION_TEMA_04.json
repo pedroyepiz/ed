@@ -1,0 +1,12 @@
+{
+  "style_blocks": 0,
+  "style_attrs": 0,
+  "inline_events": 0,
+  "external_scripts": [
+    "../scripts/site.js",
+    "../scripts/arboles_interactivo.js"
+  ],
+  "inline_scripts": 0,
+  "webp_files": 15,
+  "missing_image_refs": []
+}

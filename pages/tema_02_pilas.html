@@ -13,7 +13,8 @@
 
 
 <meta content="Pilas (Stack) | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz." name="description"/>
-<link href="../styles/site.css" rel="stylesheet"/></head>
+<link href="../styles/site.css" rel="stylesheet"/>
+<link href="../styles/pilas_interactivo.css" rel="stylesheet"/></head>
 <body class="pe-home pe-course-page pe-uniform-page ed-topic-interactive">
 <div id="site-header"></div>
 <section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-12 col-xl-5">
@@ -89,6 +90,22 @@
 </div>
 </article>
 </section>
+
+<div class="row justify-content-center my-4">
+  <div class="col-12 col-lg-10 col-xl-9">
+    <figure class="mb-0 text-center">
+      <img
+        src="../images/analogia_pila.webp"
+        class="img-fluid rounded-4 shadow-sm"
+        alt="Analogía de una pila usando libros para explicar el principio LIFO, PUSH y POP"
+        loading="lazy"
+        decoding="async">
+      <figcaption class="small text-body-secondary mt-2">
+        Analogía cotidiana: los elementos se agregan y retiran siempre por la parte superior.
+      </figcaption>
+    </figure>
+  </div>
+</div>
 <div class="section-title" id="tema-seccion-1">5 · DOS FORMAS DE IMPLEMENTAR UNA PILA</div>
 <table class="compare">
 <tr><th>Característica</th><th>Pila estática</th><th>Pila dinámica</th></tr>
@@ -99,6 +116,21 @@
 <tr><td>Principio</td><td class="pc-detail-1" colspan="2"><b>LIFO — Last In, First Out</b></td></tr>
 </table>
 <div class="section-title" id="tema-seccion-2">6 · PILA ESTÁTICA · ARREGLO</div>
+<div class="row justify-content-center my-4">
+  <div class="col-12 col-lg-10 col-xl-9">
+    <figure class="mb-0 text-center">
+      <img
+        src="../images/pila_estatica.webp"
+        class="img-fluid rounded-4 shadow-sm"
+        alt="Pila estática implementada con arreglo, mostrando tope, PUSH, POP e índices"
+        loading="lazy"
+        decoding="async">
+      <figcaption class="small text-body-secondary mt-2">
+        Pila estática: el arreglo tiene capacidad fija y el índice TOPE identifica el último elemento.
+      </figcaption>
+    </figure>
+  </div>
+</div>
 <div class="note"><b>Analogía:</b> como una pila de platos. Solo puedes agregar o quitar platos por la parte superior.</div>
 <div aria-label="Diagrama de pila: el último elemento insertado es el primero que se retira." class="diagram" role="group">
 <div class="stack-row">
@@ -212,6 +244,21 @@ FIN SI</div>
 </div>
 </div>
 <div class="section-title" id="tema-seccion-3">7 · PILA DINÁMICA · NODOS Y PUNTEROS</div>
+<div class="row justify-content-center my-4">
+  <div class="col-12 col-lg-10 col-xl-9">
+    <figure class="mb-0 text-center">
+      <img
+        src="../images/nodo_pila.webp"
+        class="img-fluid rounded-4 shadow-sm"
+        alt="Estructura básica de un nodo de pila con los campos dato y siguiente"
+        loading="lazy"
+        decoding="async">
+      <figcaption class="small text-body-secondary mt-2">
+        Nodo de una pila dinámica: almacena el dato y la referencia al siguiente nodo.
+      </figcaption>
+    </figure>
+  </div>
+</div>
 <div class="note"><b>Analogía:</b> una torre de platos que puede crecer o reducirse según sea necesario. Cada nuevo plato se coloca arriba del anterior.</div>
 <div class="two-col">
 <div>
@@ -239,6 +286,21 @@ FIN SI</div>
 </div>
 </div>
 <div class="section-title" id="tema-seccion-4">8 · ASÍ FUNCIONA UNA PILA DINÁMICA</div>
+<div class="row justify-content-center my-4">
+  <div class="col-12 col-lg-10 col-xl-9">
+    <figure class="mb-0 text-center">
+      <img
+        src="../images/pila_dinamica.webp"
+        class="img-fluid rounded-4 shadow-sm"
+        alt="Pila dinámica con nodos enlazados, tope, PUSH, POP y referencia NULL"
+        loading="lazy"
+        decoding="async">
+      <figcaption class="small text-body-secondary mt-2">
+        Pila dinámica: PUSH crea un nuevo nodo en el tope y POP elimina el nodo más reciente.
+      </figcaption>
+    </figure>
+  </div>
+</div>
 <div aria-label="Diagrama de pila: el último elemento insertado es el primero que se retira." class="diagram" role="group">
 <div class="pc-detail-10">
 <b class="pc-detail-11">TOPE</b> apunta al primer nodo de la pila
@@ -325,7 +387,164 @@ FIN SI</div>
 <tr><td>Backtracking</td><td>Ayuda a retroceder en laberintos, rompecabezas o búsquedas.</td></tr>
 <tr><td>Compiladores</td><td>Se usa en análisis sintáctico y procesamiento de expresiones.</td></tr>
 </table>
-<section class="ed-lab" data-mode="static" data-pc-lab="pilas" id="simulador-static"><h2>Simulador · Pila estática</h2><p>Arreglo de capacidad fija: 5 elementos. TOPE es el índice del último elemento.</p><div class="ed-lab-controls"><label for="valor-static">Valor entero</label><input id="valor-static" max="999" min="-999" step="1" type="number"/><button data-pc-action="add" type="button">PUSH · Apilar</button><button data-pc-action="remove" type="button">POP · Desapilar</button><button data-pc-action="peek" type="button">Consultar tope</button><button data-pc-action="clear" type="button">Limpiar</button></div><p aria-live="polite" data-pc-pointers=""></p><div aria-label="Representación de la estructura" class="pc-track" data-pc-track=""></div><p aria-live="polite" data-pc-status="" role="status"></p></section><section class="ed-lab" data-mode="dynamic" data-pc-lab="pilas" id="simulador-dynamic"><h2>Simulador · Pila dinámica</h2><p>Nodos enlazados creados y liberados al insertar y retirar. El límite de ocho nodos es visual; la estructura real depende de la memoria disponible.</p><div class="ed-lab-controls"><label for="valor-dynamic">Valor entero</label><input id="valor-dynamic" max="999" min="-999" step="1" type="number"/><button data-pc-action="add" type="button">PUSH · Apilar</button><button data-pc-action="remove" type="button">POP · Desapilar</button><button data-pc-action="peek" type="button">Consultar tope</button><button data-pc-action="clear" type="button">Limpiar</button></div><p aria-live="polite" data-pc-pointers=""></p><div aria-label="Representación de la estructura" class="pc-track" data-pc-track=""></div><p aria-live="polite" data-pc-status="" role="status"></p></section><section class="ed-lab ed-quiz" data-ed-quiz="" id="quiz"><h2>Quiz · Pilas estáticas y dinámicas</h2><p>Cuatro preguntas de opción múltiple y tres de código en C. Se asumen incluidos los encabezados necesarios.</p><p aria-live="polite" class="ed-score" data-ed-score="">0 / 7</p><h3>Parte A · Opción múltiple</h3><fieldset data-correct="0" data-ed-question="" data-explanation="La pila usa LIFO; la cola usa FIFO."><legend>1. ¿Qué regla sigue esta estructura?</legend><label><input name="pc-q1" type="radio" value="0"/> LIFO: último en entrar, primero en salir.</label><label><input name="pc-q1" type="radio" value="1"/> FIFO: primero en entrar, primero en salir.</label><label><input name="pc-q1" type="radio" value="2"/> Siempre se retira el menor.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><fieldset data-correct="0" data-ed-question="" data-explanation="El arreglo tiene una capacidad definida y debe comprobarse antes de insertar."><legend>2. ¿Qué limita una implementación estática?</legend><label><input name="pc-q2" type="radio" value="0"/> La capacidad del arreglo.</label><label><input name="pc-q2" type="radio" value="1"/> El valor de cada dato.</label><label><input name="pc-q2" type="radio" value="2"/> La cantidad de punteros NULL.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><fieldset data-correct="1" data-ed-question="" data-explanation="Los enlaces y el dato se obtienen antes de liberar el nodo."><legend>3. ¿Qué debe hacerse al retirar un nodo dinámico?</legend><label><input name="pc-q3" type="radio" value="0"/> Perder su dirección sin liberar.</label><label><input name="pc-q3" type="radio" value="1"/> Guardar lo necesario, actualizar enlaces y liberar el nodo.</label><label><input name="pc-q3" type="radio" value="2"/> Leer sus campos después de free.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><fieldset data-correct="0" data-ed-question="" data-explanation="En una pila tope es NULL; en una cola frente y final son NULL."><legend>4. ¿Qué indica una estructura dinámica vacía?</legend><label><input name="pc-q4" type="radio" value="0"/> El puntero de entrada es NULL.</label><label><input name="pc-q4" type="radio" value="1"/> El dato del nodo es cero.</label><label><input name="pc-q4" type="radio" value="2"/> La dirección siempre es uno.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><h3>Parte B · Analiza el código</h3><article class="ed-code-question" data-correct="correcto" data-ed-question="" data-explanation="Comprueba espacio antes de incrementar el índice."><h4>5. Fragmento de código</h4><p>Pila estática: arreglo pila de CAP posiciones, -1 ≤ tope &lt; CAP; valor es entero.</p><pre><code>if (tope &lt; CAP - 1) {
+
+<section id="simulador-static" class="stack-section mt-4">
+  <div class="section-heading">
+    <span aria-hidden="true" class="ui-icon">🧪</span>
+    <h2>Simulador animado · Pila estática</h2>
+  </div>
+
+  <p>
+    La pila estática utiliza un arreglo de capacidad fija. El índice <b>tope</b> identifica
+    el último elemento insertado. PUSH incrementa el tope y POP retira exactamente ese elemento.
+  </p>
+
+  <div class="stack-simulator" data-stack-simulator="static">
+
+    <div class="stack-controls">
+      <div>
+        <label for="static-value">Valor entero</label>
+        <input id="static-value" type="number" min="-999" max="999" placeholder="Ej. 10">
+      </div>
+
+      <button type="button" data-static-action="push">PUSH</button>
+      <button type="button" data-static-action="pop">POP</button>
+      <button type="button" data-static-action="peek" class="secondary">Consultar tope</button>
+      <button type="button" data-static-action="example" class="secondary">Cargar ejemplo</button>
+      <button type="button" data-static-action="clear" class="secondary">Limpiar</button>
+    </div>
+
+    <div class="stack-playback-controls">
+      <label for="static-speed">
+        Tiempo por paso
+        <input id="static-speed" type="range" min="250" max="5000" step="250" value="2500">
+      </label>
+
+      <span class="stack-speed-scale">Rápido · 0.25 s</span>
+      <span id="static-speed-label" class="stack-speed-label">2.50 s / paso</span>
+      <span class="stack-speed-scale">Lento · 5.00 s</span>
+
+      <button type="button" data-playback-action="pause" data-playback-target="static">Pausar</button>
+      <button type="button" data-playback-action="step" data-playback-target="static">Paso a paso</button>
+    </div>
+
+    <div class="stack-state-grid">
+      <div>
+        <span>tope</span>
+        <strong id="static-top">-1</strong>
+      </div>
+      <div>
+        <span>Capacidad</span>
+        <strong>7</strong>
+      </div>
+      <div>
+        <span>Elementos</span>
+        <strong id="static-count">0</strong>
+      </div>
+    </div>
+
+    <div class="stack-simulator-layout">
+      <div>
+        <div id="static-stack-visual" class="static-stack-visual"
+             aria-label="Representación de una pila estática de siete posiciones"></div>
+      </div>
+
+      <aside class="stack-step-panel">
+        <h3>Pasos de la operación</h3>
+        <ol id="static-steps" class="stack-step-list">
+          <li>Escribe un valor y presiona PUSH.</li>
+        </ol>
+      </aside>
+    </div>
+
+    <div id="static-status" class="stack-status" aria-live="polite">
+      Pila estática vacía.
+    </div>
+  </div>
+
+  <div class="note stack-observation">
+    <b>Observa:</b>
+    PUSH agrega solamente en el <b>tope</b>. POP retira solamente del <b>tope</b>.
+    Por eso una pila conserva el principio <b>LIFO</b>.
+  </div>
+</section>
+
+<section id="simulador-dynamic" class="stack-section mt-4">
+  <div class="section-heading">
+    <span aria-hidden="true" class="ui-icon">🔗</span>
+    <h2>Simulador animado · Pila dinámica</h2>
+  </div>
+
+  <p>
+    La pila dinámica crece con nodos enlazados. El puntero <b>tope</b> siempre apunta al nodo
+    más reciente. PUSH crea un nodo nuevo y POP libera el nodo actual del tope.
+  </p>
+
+  <div class="stack-simulator dynamic-stack-simulator" data-stack-simulator="dynamic">
+
+    <div class="stack-controls">
+      <div>
+        <label for="dynamic-value">Valor entero</label>
+        <input id="dynamic-value" type="number" min="-999" max="999" placeholder="Ej. 10">
+      </div>
+
+      <button type="button" data-dynamic-action="push">PUSH</button>
+      <button type="button" data-dynamic-action="pop">POP</button>
+      <button type="button" data-dynamic-action="peek" class="secondary">Consultar tope</button>
+      <button type="button" data-dynamic-action="example" class="secondary">Cargar ejemplo</button>
+      <button type="button" data-dynamic-action="clear" class="secondary">Limpiar</button>
+    </div>
+
+    <div class="stack-playback-controls">
+      <label for="dynamic-speed">
+        Tiempo por paso
+        <input id="dynamic-speed" type="range" min="250" max="5000" step="250" value="2500">
+      </label>
+
+      <span class="stack-speed-scale">Rápido · 0.25 s</span>
+      <span id="dynamic-speed-label" class="stack-speed-label">2.50 s / paso</span>
+      <span class="stack-speed-scale">Lento · 5.00 s</span>
+
+      <button type="button" data-playback-action="pause" data-playback-target="dynamic">Pausar</button>
+      <button type="button" data-playback-action="step" data-playback-target="dynamic">Paso a paso</button>
+    </div>
+
+    <div class="stack-state-grid">
+      <div>
+        <span>tope</span>
+        <strong id="dynamic-top">NULL</strong>
+      </div>
+      <div>
+        <span>Nodos</span>
+        <strong id="dynamic-count">0</strong>
+      </div>
+    </div>
+
+    <div class="stack-simulator-layout">
+      <div>
+        <div id="dynamic-stack-visual" class="dynamic-stack-visual"
+             aria-label="Representación de una pila dinámica con nodos enlazados"></div>
+      </div>
+
+      <aside class="stack-step-panel">
+        <h3>Pasos de la operación</h3>
+        <ol id="dynamic-steps" class="stack-step-list">
+          <li>Escribe un valor y presiona PUSH.</li>
+        </ol>
+      </aside>
+    </div>
+
+    <div id="dynamic-status" class="stack-status" aria-live="polite">
+      Pila dinámica vacía.
+    </div>
+  </div>
+
+  <div class="note stack-observation">
+    <b>Observa:</b>
+    cada PUSH coloca el nuevo nodo antes del tope anterior.
+    Cada POP mueve <b>tope</b> hacia el siguiente nodo y después libera el nodo retirado.
+  </div>
+</section><section class="ed-lab ed-quiz" data-ed-quiz="" id="quiz"><h2>Quiz · Pilas estáticas y dinámicas</h2><p>Cuatro preguntas de opción múltiple y tres de código en C. Se asumen incluidos los encabezados necesarios.</p><p aria-live="polite" class="ed-score" data-ed-score="">0 / 7</p><h3>Parte A · Opción múltiple</h3><fieldset data-correct="0" data-ed-question="" data-explanation="La pila usa LIFO; la cola usa FIFO."><legend>1. ¿Qué regla sigue esta estructura?</legend><label><input name="pc-q1" type="radio" value="0"/> LIFO: último en entrar, primero en salir.</label><label><input name="pc-q1" type="radio" value="1"/> FIFO: primero en entrar, primero en salir.</label><label><input name="pc-q1" type="radio" value="2"/> Siempre se retira el menor.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><fieldset data-correct="0" data-ed-question="" data-explanation="El arreglo tiene una capacidad definida y debe comprobarse antes de insertar."><legend>2. ¿Qué limita una implementación estática?</legend><label><input name="pc-q2" type="radio" value="0"/> La capacidad del arreglo.</label><label><input name="pc-q2" type="radio" value="1"/> El valor de cada dato.</label><label><input name="pc-q2" type="radio" value="2"/> La cantidad de punteros NULL.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><fieldset data-correct="1" data-ed-question="" data-explanation="Los enlaces y el dato se obtienen antes de liberar el nodo."><legend>3. ¿Qué debe hacerse al retirar un nodo dinámico?</legend><label><input name="pc-q3" type="radio" value="0"/> Perder su dirección sin liberar.</label><label><input name="pc-q3" type="radio" value="1"/> Guardar lo necesario, actualizar enlaces y liberar el nodo.</label><label><input name="pc-q3" type="radio" value="2"/> Leer sus campos después de free.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><fieldset data-correct="0" data-ed-question="" data-explanation="En una pila tope es NULL; en una cola frente y final son NULL."><legend>4. ¿Qué indica una estructura dinámica vacía?</legend><label><input name="pc-q4" type="radio" value="0"/> El puntero de entrada es NULL.</label><label><input name="pc-q4" type="radio" value="1"/> El dato del nodo es cero.</label><label><input name="pc-q4" type="radio" value="2"/> La dirección siempre es uno.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><h3>Parte B · Analiza el código</h3><article class="ed-code-question" data-correct="correcto" data-ed-question="" data-explanation="Comprueba espacio antes de incrementar el índice."><h4>5. Fragmento de código</h4><p>Pila estática: arreglo pila de CAP posiciones, -1 ≤ tope &lt; CAP; valor es entero.</p><pre><code>if (tope &lt; CAP - 1) {
     pila[++tope] = valor;
 }</code></pre><button aria-pressed="false" data-ed-answer="correcto" type="button">Está correcto</button><button aria-pressed="false" data-ed-answer="error" type="button">Tiene un error</button><p aria-live="polite" class="ed-feedback"></p></article><article class="ed-code-question" data-correct="error" data-ed-question="" data-explanation="Accede al nodo después de liberarlo."><h4>6. Fragmento de código</h4><p>Pila dinámica no vacía: tope es válido.</p><pre><code>struct nodo *tmp = tope;
 free(tmp);
@@ -357,4 +576,5 @@ tope = nuevo;</code></pre><button aria-pressed="false" data-ed-answer="correcto"
 
 
 
-<script defer="" src="../scripts/site.js"></script></body></html>
+<script defer="" src="../scripts/site.js"></script>
+<script defer="" src="../scripts/pilas_interactivo.js"></script></body></html>

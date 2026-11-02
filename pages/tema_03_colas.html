@@ -13,7 +13,8 @@
 
 
 <meta content="Colas (Queue) | Estructuras de Datos. Material del curso Estructuras de Datos, UABC FIAD, maestro Pedro Núñez Yepiz." name="description"/>
-<link href="../styles/site.css" rel="stylesheet"/></head>
+<link href="../styles/site.css" rel="stylesheet"/>
+<link href="../styles/colas_interactivo.css" rel="stylesheet"/></head>
 <body class="pe-home pe-course-page pe-uniform-page ed-topic-interactive">
 <div id="site-header"></div>
 <section class="topic-course-hero"><div class="container-fluid pe-shell"><div class="row g-4 align-items-center py-4 py-xl-5"><div class="col-12 col-xl-5">
@@ -25,7 +26,7 @@
 </div>
 <div class="col-12 col-md-6 col-xl-3">
 <div class="topic-hero-visual">
-<img alt="Cola FIFO: encolar por el final y desencolar por el frente; primero en entrar, primero en salir." class="img-fluid rounded-4 shadow-sm w-100" decoding="async" height="443" loading="lazy" src="../images/colas.webp" width="887"/>
+<img alt="Cola FIFO: encolar por el final y desencolar por el frente; primero en entrar, primero en salir." class="img-fluid rounded-4 shadow-sm w-100" decoding="async" src="../images/colas.webp"/>
 </div>
 </div>
 <div class="col-12 col-md-6 col-xl-4"><div data-topic="UNIDAD III · Colas" id="course-info"></div></div></div></div><div class="container-fluid pe-shell pb-4"><nav aria-label="Contenido del tema" class="topic-nav ed-topic-local"><a href="#tema-seccion-1">5 · DOS FORMAS DE IMPLEMENTAR UNA COLA</a><a href="#tema-seccion-2">6 · COLA ESTÁTICA · ARREGLO</a><a href="#tema-seccion-3">7 · COLA DINÁMICA · NODOS Y PUNTEROS</a><a href="#tema-seccion-4">8 · ASÍ FUNCIONA UNA COLA DINÁMICA</a><a href="#tema-seccion-5">9 · CARACTERÍSTICAS IMPORTANTES</a><a href="#tema-seccion-6">10 · APLICACIONES EN COMPUTACIÓN</a><a href="#simulador-static">Simulador estático</a><a href="#simulador-dynamic">Simulador dinámico</a><a href="#quiz">Quiz</a><a href="#resumen">Resumen</a></nav></div></section>
@@ -88,6 +89,17 @@
 <tr><td>Principio</td><td class="pc-detail-1" colspan="2"><b>FIFO — First In, First Out</b></td></tr>
 </table>
 <div class="section-title" id="tema-seccion-2">6 · COLA ESTÁTICA · ARREGLO</div>
+<figure class="my-3 text-center">
+  <img
+    src="../images/cola_estatica.webp"
+    class="img-fluid rounded-4 shadow-sm queue-topic-figure-image"
+    alt="Cola estática implementada con arreglo, mostrando front, rear, encolar y desencolar"
+    loading="lazy"
+    decoding="async">
+  <figcaption class="small text-body-secondary mt-2">
+    Cola estática: arreglo de capacidad fija controlado con los índices <b>front</b> y <b>rear</b>.
+  </figcaption>
+</figure>
 <div class="note"><b>Analogía:</b> una sala con un número fijo de lugares. Cuando todos están ocupados, no puede entrar otra persona hasta que se libere un espacio.</div>
 <div aria-label="Diagrama de cola: los elementos entran al final y salen por el frente." class="diagram" role="group">
 <div class="queue-row">
@@ -170,6 +182,17 @@ FIN SI</div>
 </div>
 </div>
 <div class="section-title" id="tema-seccion-3">7 · COLA DINÁMICA · NODOS Y PUNTEROS</div>
+<figure class="my-3 text-center">
+  <img
+    src="../images/cola_dinamica.webp"
+    class="img-fluid rounded-4 shadow-sm queue-topic-figure-image"
+    alt="Cola dinámica con nodos enlazados, mostrando front, rear, encolar, desencolar y NULL"
+    loading="lazy"
+    decoding="async">
+  <figcaption class="small text-body-secondary mt-2">
+    Cola dinámica: los nodos se crean según se necesitan y quedan enlazados desde <b>front</b> hasta <b>rear</b>.
+  </figcaption>
+</figure>
 <div class="note"><b>Analogía:</b> una fila que puede crecer. Cada persona sabe quién está inmediatamente después de ella; no es necesario reservar todos los lugares desde el inicio.</div>
 <div class="two-col">
 <div>
@@ -297,7 +320,211 @@ FIN SI</div>
 <tr><td>Algoritmos</td><td>BFS utiliza una cola para recorrer grafos por niveles.</td></tr>
 <tr><td>Simulación</td><td>Modela bancos, hospitales, tráfico, llamadas y sistemas de turnos.</td></tr>
 </table>
-<section class="ed-lab" data-mode="static" data-pc-lab="colas" id="simulador-static"><h2>Simulador · Cola estática</h2><p>Arreglo de capacidad fija: 5 elementos. Cola circular: los índices se reutilizan al retirar elementos.</p><div class="ed-lab-controls"><label for="valor-static">Valor entero</label><input id="valor-static" max="999" min="-999" step="1" type="number"/><button data-pc-action="add" type="button">Encolar</button><button data-pc-action="remove" type="button">Desencolar</button><button data-pc-action="peek" type="button">Consultar frente</button><button data-pc-action="clear" type="button">Limpiar</button></div><p aria-live="polite" data-pc-pointers=""></p><div aria-label="Representación de la estructura" class="pc-track" data-pc-track=""></div><p aria-live="polite" data-pc-status="" role="status"></p></section><section class="ed-lab" data-mode="dynamic" data-pc-lab="colas" id="simulador-dynamic"><h2>Simulador · Cola dinámica</h2><p>Nodos enlazados creados y liberados al insertar y retirar. El límite de ocho nodos es visual; la estructura real depende de la memoria disponible.</p><div class="ed-lab-controls"><label for="valor-dynamic">Valor entero</label><input id="valor-dynamic" max="999" min="-999" step="1" type="number"/><button data-pc-action="add" type="button">Encolar</button><button data-pc-action="remove" type="button">Desencolar</button><button data-pc-action="peek" type="button">Consultar frente</button><button data-pc-action="clear" type="button">Limpiar</button></div><p aria-live="polite" data-pc-pointers=""></p><div aria-label="Representación de la estructura" class="pc-track" data-pc-track=""></div><p aria-live="polite" data-pc-status="" role="status"></p></section><section class="ed-lab ed-quiz" data-ed-quiz="" id="quiz"><h2>Quiz · Colas estáticas y dinámicas</h2><p>Cuatro preguntas de opción múltiple y tres de código en C. Se asumen incluidos los encabezados necesarios.</p><p aria-live="polite" class="ed-score" data-ed-score="">0 / 7</p><h3>Parte A · Opción múltiple</h3><fieldset data-correct="1" data-ed-question="" data-explanation="La pila usa LIFO; la cola usa FIFO."><legend>1. ¿Qué regla sigue esta estructura?</legend><label><input name="pc-q1" type="radio" value="0"/> LIFO: último en entrar, primero en salir.</label><label><input name="pc-q1" type="radio" value="1"/> FIFO: primero en entrar, primero en salir.</label><label><input name="pc-q1" type="radio" value="2"/> Siempre se retira el menor.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><fieldset data-correct="0" data-ed-question="" data-explanation="El arreglo tiene una capacidad definida y debe comprobarse antes de insertar."><legend>2. ¿Qué limita una implementación estática?</legend><label><input name="pc-q2" type="radio" value="0"/> La capacidad del arreglo.</label><label><input name="pc-q2" type="radio" value="1"/> El valor de cada dato.</label><label><input name="pc-q2" type="radio" value="2"/> La cantidad de punteros NULL.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><fieldset data-correct="1" data-ed-question="" data-explanation="Los enlaces y el dato se obtienen antes de liberar el nodo."><legend>3. ¿Qué debe hacerse al retirar un nodo dinámico?</legend><label><input name="pc-q3" type="radio" value="0"/> Perder su dirección sin liberar.</label><label><input name="pc-q3" type="radio" value="1"/> Guardar lo necesario, actualizar enlaces y liberar el nodo.</label><label><input name="pc-q3" type="radio" value="2"/> Leer sus campos después de free.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><fieldset data-correct="0" data-ed-question="" data-explanation="En una pila tope es NULL; en una cola frente y final son NULL."><legend>4. ¿Qué indica una estructura dinámica vacía?</legend><label><input name="pc-q4" type="radio" value="0"/> El puntero de entrada es NULL.</label><label><input name="pc-q4" type="radio" value="1"/> El dato del nodo es cero.</label><label><input name="pc-q4" type="radio" value="2"/> La dirección siempre es uno.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><h3>Parte B · Analiza el código</h3><article class="ed-code-question" data-correct="correcto" data-ed-question="" data-explanation="Avanza de forma circular y registra el nuevo elemento."><h4>5. Fragmento de código</h4><p>Cola circular estática: CAP &gt; 0, 0 ≤ final &lt; CAP, cantidad &lt; CAP; arreglo cola de CAP posiciones. final es el próximo índice libre.</p><pre><code>cola[final] = valor;
+
+<section id="simulador-static" class="queue-section mt-4">
+  <div class="section-heading">
+    <span aria-hidden="true" class="ui-icon">🧪</span>
+    <h2>Simulador animado · Cola estática</h2>
+  </div>
+
+  <p>
+    La cola estática usa un arreglo de tamaño fijo. <b>rear</b> indica dónde está el último elemento
+    y <b>front</b> indica qué elemento debe salir primero. Este simulador usa una cola lineal
+    de 7 posiciones para visualizar con claridad cómo avanzan ambos índices.
+  </p>
+
+  <div class="queue-simulator" data-queue-simulator="static">
+
+    <div class="queue-controls">
+      <div>
+        <label for="static-value">Valor entero</label>
+        <input
+          id="static-value"
+          type="number"
+          min="-999"
+          max="999"
+          placeholder="Ej. 10">
+      </div>
+
+      <button type="button" data-static-action="enqueue">Encolar</button>
+      <button type="button" data-static-action="dequeue">Descolar</button>
+      <button type="button" data-static-action="example" class="secondary">Cargar ejemplo</button>
+      <button type="button" data-static-action="clear" class="secondary">Limpiar</button>
+    </div>
+
+    <div class="queue-playback-controls" data-playback-controls="static">
+      <label for="static-speed">
+        Tiempo por paso
+        <input
+          id="static-speed"
+          type="range"
+          min="250"
+          max="5000"
+          step="250"
+          value="2500">
+      </label>
+
+      <span class="queue-speed-scale">Rápido · 0.25 s</span>
+      <span id="static-speed-label" class="queue-speed-label">2.50 s / paso</span>
+      <span class="queue-speed-scale">Lento · 5.00 s</span>
+
+      <button type="button" data-playback-action="pause" data-playback-target="static">
+        Pausar
+      </button>
+      <button type="button" data-playback-action="step" data-playback-target="static">
+        Paso a paso
+      </button>
+    </div>
+
+    <div class="queue-state-grid">
+      <div>
+        <span>front</span>
+        <strong id="static-front">-1</strong>
+      </div>
+      <div>
+        <span>rear</span>
+        <strong id="static-rear">-1</strong>
+      </div>
+      <div>
+        <span>Capacidad</span>
+        <strong>7</strong>
+      </div>
+      <div>
+        <span>Elementos activos</span>
+        <strong id="static-count">0</strong>
+      </div>
+    </div>
+
+    <div class="queue-simulator-layout">
+      <div>
+        <div
+          id="static-queue-visual"
+          class="static-queue-visual"
+          aria-label="Representación de una cola estática de siete posiciones">
+        </div>
+      </div>
+
+      <aside class="queue-step-panel">
+        <h3>Pasos de la operación</h3>
+        <ol id="static-steps" class="queue-step-list">
+          <li>Escribe un valor y presiona Encolar.</li>
+        </ol>
+      </aside>
+    </div>
+
+    <div id="static-status" class="queue-status" aria-live="polite">
+      Cola estática vacía.
+    </div>
+
+  </div>
+
+  <div class="note queue-observation">
+    <b>Observa:</b>
+    en esta implementación lineal los datos no se recorren al hacer DEQUEUE.
+    Avanza <code>front</code>. Si <code>rear</code> llega a la última posición,
+    la cola se considera llena aunque hayan quedado celdas libres al inicio.
+  </div>
+</section>
+
+<section id="simulador-dynamic" class="queue-section mt-4">
+  <div class="section-heading">
+    <span aria-hidden="true" class="ui-icon">🔗</span>
+    <h2>Simulador animado · Cola dinámica</h2>
+  </div>
+
+  <p>
+    La cola dinámica crece mediante nodos enlazados. Al encolar se crea un nodo al final;
+    al desencolar se elimina el nodo del frente. Cuando la cola queda vacía,
+    <b>front</b> y <b>rear</b> vuelven a <code>NULL</code>.
+  </p>
+
+  <div class="queue-simulator dynamic-queue-simulator" data-queue-simulator="dynamic">
+
+    <div class="queue-controls">
+      <div>
+        <label for="dynamic-value">Valor entero</label>
+        <input
+          id="dynamic-value"
+          type="number"
+          min="-999"
+          max="999"
+          placeholder="Ej. 10">
+      </div>
+
+      <button type="button" data-dynamic-action="enqueue">Encolar</button>
+      <button type="button" data-dynamic-action="dequeue">Descolar</button>
+      <button type="button" data-dynamic-action="example" class="secondary">Cargar ejemplo</button>
+      <button type="button" data-dynamic-action="clear" class="secondary">Limpiar</button>
+    </div>
+
+    <div class="queue-playback-controls" data-playback-controls="dynamic">
+      <label for="dynamic-speed">
+        Tiempo por paso
+        <input
+          id="dynamic-speed"
+          type="range"
+          min="250"
+          max="5000"
+          step="250"
+          value="2500">
+      </label>
+
+      <span class="queue-speed-scale">Rápido · 0.25 s</span>
+      <span id="dynamic-speed-label" class="queue-speed-label">2.50 s / paso</span>
+      <span class="queue-speed-scale">Lento · 5.00 s</span>
+
+      <button type="button" data-playback-action="pause" data-playback-target="dynamic">
+        Pausar
+      </button>
+      <button type="button" data-playback-action="step" data-playback-target="dynamic">
+        Paso a paso
+      </button>
+    </div>
+
+    <div class="queue-state-grid dynamic-state-grid">
+      <div>
+        <span>front</span>
+        <strong id="dynamic-front">NULL</strong>
+      </div>
+      <div>
+        <span>rear</span>
+        <strong id="dynamic-rear">NULL</strong>
+      </div>
+      <div>
+        <span>Nodos</span>
+        <strong id="dynamic-count">0</strong>
+      </div>
+    </div>
+
+    <div class="queue-simulator-layout">
+      <div>
+        <div
+          id="dynamic-queue-visual"
+          class="dynamic-queue-visual"
+          aria-label="Representación de una cola dinámica con nodos enlazados">
+        </div>
+      </div>
+
+      <aside class="queue-step-panel">
+        <h3>Pasos de la operación</h3>
+        <ol id="dynamic-steps" class="queue-step-list">
+          <li>Escribe un valor y presiona Encolar.</li>
+        </ol>
+      </aside>
+    </div>
+
+    <div id="dynamic-status" class="queue-status" aria-live="polite">
+      Cola dinámica vacía.
+    </div>
+
+  </div>
+
+  <div class="note queue-observation">
+    <b>Observa:</b>
+    ENQUEUE agrega siempre al final y DEQUEUE elimina siempre al frente.
+    Esa separación entre entrada y salida conserva el principio <b>FIFO</b>.
+  </div>
+</section><section class="ed-lab ed-quiz" data-ed-quiz="" id="quiz"><h2>Quiz · Colas estáticas y dinámicas</h2><p>Cuatro preguntas de opción múltiple y tres de código en C. Se asumen incluidos los encabezados necesarios.</p><p aria-live="polite" class="ed-score" data-ed-score="">0 / 7</p><h3>Parte A · Opción múltiple</h3><fieldset data-correct="1" data-ed-question="" data-explanation="La pila usa LIFO; la cola usa FIFO."><legend>1. ¿Qué regla sigue esta estructura?</legend><label><input name="pc-q1" type="radio" value="0"/> LIFO: último en entrar, primero en salir.</label><label><input name="pc-q1" type="radio" value="1"/> FIFO: primero en entrar, primero en salir.</label><label><input name="pc-q1" type="radio" value="2"/> Siempre se retira el menor.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><fieldset data-correct="0" data-ed-question="" data-explanation="El arreglo tiene una capacidad definida y debe comprobarse antes de insertar."><legend>2. ¿Qué limita una implementación estática?</legend><label><input name="pc-q2" type="radio" value="0"/> La capacidad del arreglo.</label><label><input name="pc-q2" type="radio" value="1"/> El valor de cada dato.</label><label><input name="pc-q2" type="radio" value="2"/> La cantidad de punteros NULL.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><fieldset data-correct="1" data-ed-question="" data-explanation="Los enlaces y el dato se obtienen antes de liberar el nodo."><legend>3. ¿Qué debe hacerse al retirar un nodo dinámico?</legend><label><input name="pc-q3" type="radio" value="0"/> Perder su dirección sin liberar.</label><label><input name="pc-q3" type="radio" value="1"/> Guardar lo necesario, actualizar enlaces y liberar el nodo.</label><label><input name="pc-q3" type="radio" value="2"/> Leer sus campos después de free.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><fieldset data-correct="0" data-ed-question="" data-explanation="En una pila tope es NULL; en una cola frente y final son NULL."><legend>4. ¿Qué indica una estructura dinámica vacía?</legend><label><input name="pc-q4" type="radio" value="0"/> El puntero de entrada es NULL.</label><label><input name="pc-q4" type="radio" value="1"/> El dato del nodo es cero.</label><label><input name="pc-q4" type="radio" value="2"/> La dirección siempre es uno.</label><p aria-live="polite" class="ed-feedback"></p></fieldset><h3>Parte B · Analiza el código</h3><article class="ed-code-question" data-correct="correcto" data-ed-question="" data-explanation="Avanza de forma circular y registra el nuevo elemento."><h4>5. Fragmento de código</h4><p>Cola circular estática: CAP &gt; 0, 0 ≤ final &lt; CAP, cantidad &lt; CAP; arreglo cola de CAP posiciones. final es el próximo índice libre.</p><pre><code>cola[final] = valor;
 final = (final + 1) % CAP;
 cantidad++;</code></pre><button aria-pressed="false" data-ed-answer="correcto" type="button">Está correcto</button><button aria-pressed="false" data-ed-answer="error" type="button">Tiene un error</button><p aria-live="polite" class="ed-feedback"></p></article><article class="ed-code-question" data-correct="error" data-ed-question="" data-explanation="Debe asignar final = NULL al quedar vacía; de otro modo final queda colgante."><h4>6. Fragmento de código</h4><p>Cola dinámica de un nodo: frente == final y ambos son válidos.</p><pre><code>struct nodo *tmp = frente;
 frente = frente-&gt;siguiente;
@@ -330,4 +557,5 @@ final = nuevo;</code></pre><button aria-pressed="false" data-ed-answer="correcto
 
 
 
-<script defer="" src="../scripts/site.js"></script></body></html>
+<script defer="" src="../scripts/site.js"></script>
+<script defer="" src="../scripts/colas_interactivo.js"></script></body></html>

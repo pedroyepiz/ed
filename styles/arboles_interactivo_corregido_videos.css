@@ -1,0 +1,610 @@
+/* =========================================================
+   TEMA 4 · ÁRBOLES · ABB Y AVL
+   ========================================================= */
+
+.tree-section{margin:0 0 36px}
+.tree-section + .tree-section{padding-top:28px;border-top:1px solid #dce9e3}
+
+.tree-hero-visual{width:100%;display:flex;align-items:center;justify-content:center;min-width:0}
+.tree-hero-image{display:block;width:100%;max-width:360px;height:auto;object-fit:contain;border-radius:14px;box-shadow:0 8px 20px rgba(0,75,53,.08)}
+
+.tree-topic-menu-wrap{margin-top:-4px;margin-bottom:22px}
+.tree-topic-menu-wrap .ed-topic-local{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;padding:10px 12px;border:1px solid #d5e6df;border-radius:12px;background:rgba(255,255,255,.9);box-shadow:0 4px 12px rgba(0,70,45,.05)}
+.tree-topic-menu-wrap .ed-topic-local a{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:.55rem .9rem;border:1px solid #c9ded5;border-radius:999px;background:#fff;color:#005b40;text-decoration:none;font-weight:850;line-height:1;box-shadow:0 2px 7px rgba(0,70,45,.05);transition:.15s ease}
+.tree-topic-menu-wrap .ed-topic-local a:hover,
+.tree-topic-menu-wrap .ed-topic-local a:focus-visible{background:#006847;border-color:#006847;color:#fff;transform:translateY(-1px);outline:none}
+
+.tree-concept-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:18px 0}
+.tree-concept-card{padding:18px;border:1px solid #d3e5dd;border-radius:14px;background:#fff;box-shadow:0 5px 15px rgba(0,75,53,.05)}
+.tree-concept-card h3{margin:0 0 .55rem;color:#004b35;font-size:1.03rem;font-weight:900}
+.tree-concept-card p{margin:0}
+.tree-concept-card.theme-green{border-top:5px solid #006847}
+.tree-concept-card.theme-blue{border-top:5px solid #2878a8}
+.tree-concept-card.theme-purple{border-top:5px solid #7048a8}
+.tree-concept-card.theme-orange{border-top:5px solid #d67b1f}
+
+.tree-two-column{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start}
+.tree-definition-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:18px 0}
+.tree-definition-grid article{padding:16px;border:1px solid #d5e6df;border-radius:12px;background:#f9fcfb}
+.tree-definition-grid h3{margin:0 0 .4rem;color:#004b35;font-size:1rem;font-weight:900}
+.tree-definition-grid p{margin:0}
+.tree-steps{padding-left:1.2rem}
+.tree-steps li{margin:.45rem 0}
+
+.tree-figure{margin:18px 0;padding:12px;border:1px solid #d5e6df;border-radius:14px;background:#fff;text-align:center}
+.tree-figure.wide{max-width:1000px;margin:22px auto}
+.tree-figure img{display:block;width:100%;height:auto;margin-inline:auto;border-radius:10px}
+.tree-figure figcaption{margin-top:10px;color:#65756f;font-size:.88rem}
+
+.tree-table-wrap{overflow-x:auto;margin:18px 0}
+.tree-efficiency-table,.tree-balance-table{width:100%;min-width:720px;border-collapse:collapse;background:#fff}
+.tree-efficiency-table th,.tree-efficiency-table td,.tree-balance-table th,.tree-balance-table td{padding:.75rem .85rem;border:1px solid #d0e1da;text-align:center}
+.tree-efficiency-table th,.tree-balance-table th{background:#004b35;color:#fff;font-weight:900}
+.tree-efficiency-table td:not(:first-child),.tree-balance-table td:first-child,.tree-balance-table td:nth-child(2){font-family:Consolas,"Cascadia Code","Courier New",monospace;font-weight:900}
+
+.tree-formula{max-width:760px;margin:16px auto;padding:16px;border:1px solid #bcd9cd;border-radius:12px;background:#eef8f4;color:#004b35;text-align:center;font-family:Consolas,"Cascadia Code","Courier New",monospace;font-size:1.05rem;font-weight:900}
+
+.tree-degenerate-demo{display:flex;flex-wrap:wrap;gap:.65rem;align-items:center;justify-content:center;margin:20px 0;padding:20px;border:1px solid #d5e6df;border-radius:14px;background:#f8fcfa}
+.tree-degenerate-demo span{width:58px;height:58px;display:flex;align-items:center;justify-content:center;border:3px solid #006847;border-radius:999px;background:#eaf5f0;color:#004b35;font-weight:900}
+.tree-degenerate-demo i{color:#d4a017;font-size:1.5rem;font-style:normal;font-weight:900}
+
+.traversal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.traversal-card{padding:16px;border:1px solid #d5e6df;border-radius:14px;background:#fff}
+.traversal-card h3{color:#004b35;font-size:1.05rem;font-weight:900}
+.traversal-card img{display:block;width:100%;height:auto;margin-top:14px;border-radius:10px}
+
+.rotation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.rotation-grid article{padding:14px;border:1px solid #d5e6df;border-radius:14px;background:#fff}
+.rotation-grid h3{color:#004b35;font-size:1rem;font-weight:900}
+.rotation-grid img{display:block;width:100%;height:auto;border-radius:10px}
+
+/* Simuladores */
+.tree-simulator{padding:20px;border:1px solid #cfe2da;border-radius:16px;background:linear-gradient(180deg,#fff,#f4faf7)}
+.tree-simulator-controls{display:flex;flex-wrap:wrap;gap:.7rem;align-items:end}
+.tree-simulator-controls>div{display:grid;gap:.3rem}
+.tree-simulator-controls label{color:#355248;font-size:.82rem;font-weight:900}
+.tree-simulator-controls input{min-height:42px;width:140px;padding:.55rem .7rem;border:1px solid #a9cdbf;border-radius:9px;background:#fff}
+.tree-simulator-controls button,.tree-quiz-actions button{min-height:42px;padding:.65rem 1rem;border:1px solid #006847;border-radius:9px;background:#006847;color:#fff;font-weight:900}
+.tree-simulator-controls .secondary,.tree-quiz-actions .secondary{background:#fff;color:#006847}
+
+.tree-simulator-layout{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(280px,.8fr);gap:1rem;margin-top:18px}
+.tree-canvas-wrap{overflow:auto;min-height:440px;border:1px solid #d4e5de;border-radius:12px;background:#fff}
+.tree-canvas{display:block;width:100%;min-width:720px;min-height:440px}
+.tree-svg-edge{stroke:#0a3159;stroke-width:4}
+.tree-svg-node{fill:#eaf5f0;stroke:#006847;stroke-width:4}
+.tree-svg-node.avl{fill:#edf5ff;stroke:#2878a8}
+.tree-svg-key{fill:#102f26;font-size:22px;font-weight:900;text-anchor:middle;dominant-baseline:middle}
+.tree-svg-balance{fill:#8a6500;font-size:13px;font-weight:900;text-anchor:middle}
+
+.tree-step-panel{max-height:440px;overflow:auto;padding:15px;border:1px solid #d4e5de;border-radius:12px;background:#fff}
+.tree-step-panel h3{margin:0 0 10px;color:#004b35;font-size:1rem;font-weight:900}
+.tree-step-list{margin:0;padding-left:1.2rem}
+.tree-step-list li{margin:.55rem 0;padding:.45rem .55rem;border-radius:7px;background:#f6faf8}
+
+.tree-status{margin-top:14px;padding:11px 13px;border-left:4px solid #006847;border-radius:8px;background:#eef8f4;color:#294b40}
+.tree-status.error{border-left-color:#b42318;background:#fff2f2;color:#8d1a1a}
+
+/* Quiz */
+.tree-quiz>h3{margin-top:24px;color:#004b35;font-size:1.05rem;font-weight:900}
+.tree-question{margin:0 0 14px;padding:16px;border:1px solid #d5e6df;border-radius:12px;background:#fff}
+.tree-question legend{float:none;width:auto;margin:0 0 10px;color:#173c31;font-size:1rem;font-weight:900}
+.tree-question label{display:block;margin:.38rem 0;padding:.5rem .65rem;border-radius:8px;cursor:pointer}
+.tree-question label:hover{background:#f2faf6}
+.tree-feedback{margin-top:8px;min-height:1.1em;font-weight:800}
+.tree-feedback.ok{color:#087443}
+.tree-feedback.bad{color:#b42318}
+.tree-quiz-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:18px}
+.tree-quiz-score{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:14px}
+.tree-quiz-score span{padding:.55rem .75rem;border:1px solid #d5e6df;border-radius:999px;background:#f8fcfa}
+.tree-quiz-result{margin-top:14px;color:#173c31;font-weight:900}
+
+@media(max-width:1199.98px){
+  .tree-hero-image{max-width:330px}
+  .tree-simulator-layout{grid-template-columns:1fr}
+}
+
+@media(max-width:991.98px){
+  .tree-concept-grid,.tree-definition-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tree-two-column{grid-template-columns:1fr}
+  .traversal-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:767.98px){
+  .rotation-grid{grid-template-columns:1fr}
+  .tree-hero-image{max-width:320px}
+}
+
+@media(max-width:575.98px){
+  .tree-concept-grid,.tree-definition-grid{grid-template-columns:1fr}
+  .tree-topic-menu-wrap .ed-topic-local{display:grid;grid-template-columns:1fr 1fr}
+  .tree-topic-menu-wrap .ed-topic-local a{width:100%}
+  .tree-simulator-controls{display:grid;grid-template-columns:1fr}
+  .tree-simulator-controls input,.tree-simulator-controls button{width:100%}
+}
+
+@media(max-width:420px){
+  .tree-topic-menu-wrap .ed-topic-local{grid-template-columns:1fr}
+}
+
+
+/* Pseudocódigo tipo consola */
+.tree-section pre{
+  margin:14px 0;
+  padding:16px;
+  overflow-x:auto;
+  border:1px solid #30363d;
+  border-radius:10px;
+  background:#0d1117;
+  color:#e6edf3;
+}
+
+.tree-section pre code{
+  color:inherit;
+  background:transparent;
+  font-family:Consolas,"Cascadia Code","Courier New",monospace;
+  line-height:1.55;
+}
+
+.tree-observation{
+  margin-top:14px;
+}
+
+
+/* =========================================================
+   NODO EN C
+   ========================================================= */
+
+.tree-node-layout{
+  display:grid;
+  grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr);
+  gap:1.2rem;
+  align-items:start;
+}
+
+.tree-node-figure{
+  margin:0;
+}
+
+.tree-node-figure img{
+  max-width:360px;
+}
+
+.tree-node-code h3{
+  color:#004b35;
+  font-size:1.05rem;
+  font-weight:900;
+}
+
+/* =========================================================
+   CONTROLES DE VELOCIDAD Y REPRODUCCIÓN
+   ========================================================= */
+
+.tree-playback-controls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  align-items:center;
+  margin-top:14px;
+  padding:11px 12px;
+  border:1px solid #d4e5de;
+  border-radius:11px;
+  background:#fff;
+}
+
+.tree-playback-controls label{
+  display:flex;
+  align-items:center;
+  gap:.55rem;
+  color:#315047;
+  font-size:.82rem;
+  font-weight:900;
+}
+
+.tree-playback-controls input[type="range"]{
+  width:180px;
+  accent-color:#006847;
+}
+
+.tree-playback-controls button{
+  min-height:38px;
+  padding:.55rem .85rem;
+  border:1px solid #006847;
+  border-radius:8px;
+  background:#006847;
+  color:#fff;
+  font-weight:900;
+}
+
+.tree-playback-controls button:hover,
+.tree-playback-controls button:focus-visible{
+  background:#004b35;
+  border-color:#004b35;
+  outline:none;
+}
+
+.tree-speed-scale{
+  color:#7a8781;
+  font-size:.74rem;
+  font-weight:800;
+}
+
+.tree-speed-label{
+  min-width:72px;
+  padding:.35rem .55rem;
+  border:1px solid #cfe2da;
+  border-radius:999px;
+  background:#eef8f4;
+  color:#004b35;
+  text-align:center;
+  font-size:.78rem;
+  font-weight:900;
+}
+
+/* =========================================================
+   ANIMACIÓN DE NODOS
+   ========================================================= */
+
+.tree-svg-node{
+  transition:filter .15s ease;
+}
+
+.tree-svg-node.highlight{
+  fill:#fff0a8;
+  stroke:#d4a017;
+  filter:drop-shadow(0 0 8px rgba(212,160,23,.45));
+}
+
+.tree-svg-node.current{
+  fill:#dcf5e8;
+  stroke:#006847;
+  filter:drop-shadow(0 0 10px rgba(0,104,71,.42));
+}
+
+.tree-svg-node.rotation{
+  fill:#ffe2e2;
+  stroke:#c61f3b;
+  filter:drop-shadow(0 0 10px rgba(198,31,59,.35));
+}
+
+.tree-svg-probe{
+  fill:#ffd84d;
+  stroke:#a96c00;
+  stroke-width:4;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,.22));
+}
+
+.tree-svg-probe-text{
+  fill:#2b2100;
+  font-size:18px;
+  font-weight:900;
+  text-anchor:middle;
+  dominant-baseline:middle;
+}
+
+/* =========================================================
+   SIMULADOR DE RECORRIDOS
+   ========================================================= */
+
+.traversal-actions{
+  margin-bottom:0;
+}
+
+.traversal-sequence{
+  min-height:58px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:.45rem;
+  align-items:center;
+  padding:10px;
+  border:1px solid #d4e5de;
+  border-radius:9px;
+  background:#f8fcfa;
+  color:#004b35;
+  font-family:Consolas,"Cascadia Code","Courier New",monospace;
+  font-weight:900;
+}
+
+.traversal-sequence span{
+  min-width:36px;
+  padding:.4rem .55rem;
+  border:1px solid #bcd9cd;
+  border-radius:8px;
+  background:#fff;
+  text-align:center;
+}
+
+.traversal-current{
+  min-height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:12px;
+  border:1px solid #d4e5de;
+  border-radius:9px;
+  background:#fff7d9;
+  color:#7b5a00;
+  font-size:1.35rem;
+  font-weight:900;
+}
+
+.tree-traversal-note{
+  padding:11px 12px;
+  border-left:4px solid #006847;
+  border-radius:8px;
+  background:#eef8f4;
+  color:#294b40;
+}
+
+@media(max-width:991.98px){
+  .tree-node-layout{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:575.98px){
+  .tree-playback-controls{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .tree-playback-controls label{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .tree-playback-controls input[type="range"]{
+    width:100%;
+  }
+}
+
+
+/* Estado visible del modo paso a paso */
+.tree-playback-controls button.active-step-mode{
+  background:#fff4c7;
+  border-color:#d4a017;
+  color:#6f5200;
+  box-shadow:0 0 0 3px rgba(212,160,23,.12);
+}
+
+.tree-playback-controls input[type="range"]{
+  min-width:220px;
+}
+
+.tree-speed-label{
+  min-width:88px;
+}
+
+
+/* =========================================================
+    · CONTROLES DE REPRODUCCIÓN MÁS CLAROS
+   ========================================================= */
+.tree-playback-controls{
+  display:grid;
+  grid-template-columns:auto minmax(260px, 1fr) auto auto auto auto;
+  column-gap:.65rem;
+  row-gap:.45rem;
+  align-items:center;
+}
+
+.tree-playback-controls label{
+  display:contents;
+}
+
+.tree-playback-controls label::before{
+  content:"Tiempo por paso";
+  color:#315047;
+  font-size:.82rem;
+  font-weight:900;
+}
+
+.tree-playback-controls input[type="range"]{
+  width:100%;
+  min-width:260px;
+}
+
+.tree-speed-scale{
+  white-space:nowrap;
+}
+
+.tree-speed-label{
+  white-space:nowrap;
+}
+
+@media(max-width:900px){
+  .tree-playback-controls{
+    grid-template-columns:1fr;
+  }
+
+  .tree-playback-controls label{
+    display:block;
+  }
+
+  .tree-playback-controls label::before{
+    content:none;
+  }
+
+  .tree-playback-controls input[type="range"]{
+    width:100%;
+    min-width:0;
+    margin-top:.35rem;
+  }
+}
+
+
+/* =========================================================
+   AJUSTES FINALES · IMAGEN DE NODO Y RESPONSIVE MÓVIL
+   ========================================================= */
+
+.tree-node-layout{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+}
+
+.tree-node-figure img{
+  width:100%;
+  max-width:700px;
+  height:auto;
+  object-fit:contain;
+}
+
+.tree-simulator,
+.tree-simulator *{
+  box-sizing:border-box;
+}
+
+.tree-canvas{
+  max-width:100%;
+}
+
+@media(max-width:767.98px){
+  .tree-simulator{
+    padding:14px;
+  }
+
+  .tree-simulator-layout{
+    grid-template-columns:1fr;
+    gap:.8rem;
+  }
+
+  .tree-canvas-wrap{
+    width:100%;
+    min-height:300px;
+    overflow:hidden;
+  }
+
+  .tree-canvas{
+    display:block;
+    width:100%;
+    min-width:0;
+    min-height:300px;
+    height:auto;
+    aspect-ratio:1000 / 520;
+  }
+
+  .tree-step-panel{
+    max-height:none;
+    width:100%;
+  }
+
+  .tree-playback-controls{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:.55rem;
+    align-items:center;
+  }
+
+  .tree-playback-controls label{
+    grid-column:1 / -1;
+    width:100%;
+    display:grid;
+    gap:.4rem;
+  }
+
+  .tree-playback-controls input[type="range"]{
+    width:100%;
+    min-width:0;
+  }
+
+  .tree-playback-controls button{
+    width:100%;
+  }
+
+  .tree-speed-scale,
+  .tree-speed-label{
+    text-align:center;
+    min-width:0;
+  }
+
+  .tree-node-layout{
+    grid-template-columns:1fr;
+  }
+
+  .tree-node-figure img{
+    max-width:100%;
+  }
+
+  .tree-section pre{
+    font-size:.82rem;
+  }
+}
+
+@media(max-width:575.98px){
+  .tree-playback-controls{
+    grid-template-columns:1fr;
+  }
+
+  .tree-playback-controls label,
+  .tree-playback-controls button,
+  .tree-speed-scale,
+  .tree-speed-label{
+    grid-column:1;
+    width:100%;
+  }
+
+  .tree-simulator-controls{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:.5rem;
+  }
+
+  .tree-simulator-controls > div{
+    grid-column:1 / -1;
+  }
+
+  .tree-simulator-controls input{
+    width:100%;
+  }
+
+  .tree-simulator-controls button{
+    width:100%;
+  }
+
+  .tree-canvas-wrap{
+    min-height:260px;
+  }
+
+  .tree-canvas{
+    min-height:260px;
+  }
+}
+
+@media(max-width:420px){
+  .tree-simulator-controls{
+    grid-template-columns:1fr;
+  }
+
+  .tree-simulator-controls > div,
+  .tree-simulator-controls button{
+    grid-column:1;
+  }
+
+  .tree-canvas-wrap,
+  .tree-canvas{
+    min-height:230px;
+  }
+}
+
+
+/* =========================================================
+   VIDEOS DE RECURSOS · RESPONSIVE
+   ========================================================= */
+
+.tree-resource-video{
+  display:block;
+  width:100%;
+  max-width:100%;
+  aspect-ratio:16/9;
+  height:auto;
+  border-radius:12px;
+  background:#000;
+  object-fit:contain;
+}
+
+@media(max-width:767.98px){
+  #videos-arboles .tree-two-column{
+    grid-template-columns:1fr;
+  }
+
+  .tree-resource-video{
+    border-radius:10px;
+  }
+}

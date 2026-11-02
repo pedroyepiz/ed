@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006847">
+  <meta name="description" content="Recursos de Pilas: video, PDF y simuladores animados de pilas estáticas y dinámicas.">
+  <title>Recursos · Pilas | Estructuras de Datos</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/site.css">
+  <link rel="stylesheet" href="../styles/pilas_interactivo.css">
+</head>
+
+<body class="pe-home pe-course-page pe-uniform-page">
+
+  <div id="site-header"></div>
+
+  <section class="topic-course-hero stack-topic-hero">
+    <div class="container-fluid pe-shell">
+      <div class="row g-4 align-items-center py-4 py-xl-5">
+
+        <div class="col-12 col-xl-5">
+          <div class="topic-number-pill">TEMA 2 · Recursos</div>
+          <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
+
+          <h1 class="course-title">Recursos de Pilas</h1>
+
+          <p class="course-subtitle mb-0">
+            Video, material visual y simuladores interactivos de pilas estáticas y dinámicas
+          </p>
+
+          <div class="hero-line"></div>
+
+          <div class="course-quote">
+            <span aria-hidden="true" class="ui-icon">🥞</span>
+            <span>LIFO: el último elemento en entrar es el primero en salir.</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="stack-hero-visual">
+            <img
+              src="../images/pilas.webp"
+              class="stack-hero-image"
+              alt="Representación visual de una pila LIFO con operaciones PUSH y POP"
+              decoding="async">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <div
+            id="course-info"
+            data-topic="TEMA 2 · Recursos de Pilas">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="stack-topic-menu-wrap">
+    <div class="container-fluid pe-shell">
+      <nav class="ed-topic-local" aria-label="Recursos de Pilas">
+        <a href="#material-pilas">Video y PDF</a>
+        <a href="#simulador-estatica">Pila estática</a>
+        <a href="#simulador-dinamica">Pila dinámica</a>
+        <a href="tema_02_pilas.html">Volver al tema</a>
+      </nav>
+    </div>
+  </section>
+
+  <main class="container-fluid pe-shell page-content-shell">
+    <article class="page-content-card content ed-new-topic">
+
+      <div class="note">
+        <b>Recursos del Tema 2:</b>
+        revisa primero el video y el PDF para repasar el principio LIFO. Después utiliza los simuladores
+        para observar paso a paso cómo cambia <b>tope</b> durante <b>PUSH</b> y <b>POP</b>.
+      </div>
+
+      <section id="material-pilas" class="stack-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🎬</span>
+          <h2>Material de apoyo · Pilas</h2>
+        </div>
+
+        <p>
+          El video y el PDF están alojados en Google Drive y se muestran dentro de esta página.
+        </p>
+
+        <div class="stack-resource-grid">
+
+          <article class="stack-resource-card">
+            <div class="stack-resource-heading">
+              <span aria-hidden="true">🎬</span>
+              <div>
+                <span class="stack-resource-kicker">VIDEO</span>
+                <h3>Unidad II · Pilas</h3>
+              </div>
+            </div>
+
+            <iframe
+              class="stack-resource-media"
+              src="https://drive.google.com/file/d/1Ct0mF0caUfrKyOXuRemScRDkk14zwv44/preview"
+              title="Video: Unidad II · Pilas"
+              loading="lazy"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+            </iframe>
+
+            <p>
+              Repaso del principio LIFO, operaciones PUSH y POP, pila estática y pila dinámica.
+            </p>
+          </article>
+
+          <article class="stack-resource-card">
+            <div class="stack-resource-heading">
+              <span aria-hidden="true">📘</span>
+              <div>
+                <span class="stack-resource-kicker">PDF</span>
+                <h3>Arquitectura de Pilas LIFO</h3>
+              </div>
+            </div>
+
+            <iframe
+              class="stack-resource-pdf"
+              src="https://drive.google.com/file/d/11t5TJ3n_NHfs0V61Bu_AKkIRI-oi6w_h/preview"
+              title="PDF: Arquitectura de Pilas LIFO"
+              loading="lazy"
+              allow="autoplay"
+              allowfullscreen>
+            </iframe>
+
+            <a
+              class="stack-resource-link"
+              href="https://drive.google.com/file/d/11t5TJ3n_NHfs0V61Bu_AKkIRI-oi6w_h/view"
+              target="_blank"
+              rel="noopener">
+              Abrir PDF en Google Drive
+            </a>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="simulador-estatica" class="stack-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🧪</span>
+          <h2>Simulador animado · Pila estática</h2>
+        </div>
+
+        <p>
+          La pila estática utiliza un arreglo de capacidad fija. El índice <b>tope</b> identifica
+          el último elemento insertado. PUSH incrementa el tope y POP retira exactamente ese elemento.
+        </p>
+
+        <div class="stack-simulator" data-stack-simulator="static">
+
+          <div class="stack-controls">
+            <div>
+              <label for="static-value">Valor entero</label>
+              <input id="static-value" type="number" min="-999" max="999" placeholder="Ej. 10">
+            </div>
+
+            <button type="button" data-static-action="push">PUSH</button>
+            <button type="button" data-static-action="pop">POP</button>
+            <button type="button" data-static-action="peek" class="secondary">Consultar tope</button>
+            <button type="button" data-static-action="example" class="secondary">Cargar ejemplo</button>
+            <button type="button" data-static-action="clear" class="secondary">Limpiar</button>
+          </div>
+
+          <div class="stack-playback-controls">
+            <label for="static-speed">
+              Tiempo por paso
+              <input id="static-speed" type="range" min="250" max="5000" step="250" value="2500">
+            </label>
+
+            <span class="stack-speed-scale">Rápido · 0.25 s</span>
+            <span id="static-speed-label" class="stack-speed-label">2.50 s / paso</span>
+            <span class="stack-speed-scale">Lento · 5.00 s</span>
+
+            <button type="button" data-playback-action="pause" data-playback-target="static">Pausar</button>
+            <button type="button" data-playback-action="step" data-playback-target="static">Paso a paso</button>
+          </div>
+
+          <div class="stack-state-grid">
+            <div>
+              <span>tope</span>
+              <strong id="static-top">-1</strong>
+            </div>
+            <div>
+              <span>Capacidad</span>
+              <strong>7</strong>
+            </div>
+            <div>
+              <span>Elementos</span>
+              <strong id="static-count">0</strong>
+            </div>
+          </div>
+
+          <div class="stack-simulator-layout">
+            <div>
+              <div id="static-stack-visual" class="static-stack-visual"
+                   aria-label="Representación de una pila estática de siete posiciones"></div>
+            </div>
+
+            <aside class="stack-step-panel">
+              <h3>Pasos de la operación</h3>
+              <ol id="static-steps" class="stack-step-list">
+                <li>Escribe un valor y presiona PUSH.</li>
+              </ol>
+            </aside>
+          </div>
+
+          <div id="static-status" class="stack-status" aria-live="polite">
+            Pila estática vacía.
+          </div>
+
+        </div>
+
+        <div class="note stack-observation">
+          <b>Observa:</b>
+          PUSH agrega solamente en el <b>tope</b>. POP retira solamente del <b>tope</b>.
+          Por eso una pila conserva el principio <b>LIFO</b>.
+        </div>
+      </section>
+
+      <section id="simulador-dinamica" class="stack-section">
+        <div class="section-heading">
+          <span aria-hidden="true" class="ui-icon">🔗</span>
+          <h2>Simulador animado · Pila dinámica</h2>
+        </div>
+
+        <p>
+          La pila dinámica crece con nodos enlazados. El puntero <b>tope</b> siempre apunta al nodo
+          más reciente. PUSH crea un nodo nuevo y POP libera el nodo actual del tope.
+        </p>
+
+        <div class="stack-simulator dynamic-stack-simulator" data-stack-simulator="dynamic">
+
+          <div class="stack-controls">
+            <div>
+              <label for="dynamic-value">Valor entero</label>
+              <input id="dynamic-value" type="number" min="-999" max="999" placeholder="Ej. 10">
+            </div>
+
+            <button type="button" data-dynamic-action="push">PUSH</button>
+            <button type="button" data-dynamic-action="pop">POP</button>
+            <button type="button" data-dynamic-action="peek" class="secondary">Consultar tope</button>
+            <button type="button" data-dynamic-action="example" class="secondary">Cargar ejemplo</button>
+            <button type="button" data-dynamic-action="clear" class="secondary">Limpiar</button>
+          </div>
+
+          <div class="stack-playback-controls">
+            <label for="dynamic-speed">
+              Tiempo por paso
+              <input id="dynamic-speed" type="range" min="250" max="5000" step="250" value="2500">
+            </label>
+
+            <span class="stack-speed-scale">Rápido · 0.25 s</span>
+            <span id="dynamic-speed-label" class="stack-speed-label">2.50 s / paso</span>
+            <span class="stack-speed-scale">Lento · 5.00 s</span>
+
+            <button type="button" data-playback-action="pause" data-playback-target="dynamic">Pausar</button>
+            <button type="button" data-playback-action="step" data-playback-target="dynamic">Paso a paso</button>
+          </div>
+
+          <div class="stack-state-grid">
+            <div>
+              <span>tope</span>
+              <strong id="dynamic-top">NULL</strong>
+            </div>
+            <div>
+              <span>Nodos</span>
+              <strong id="dynamic-count">0</strong>
+            </div>
+          </div>
+
+          <div class="stack-simulator-layout">
+            <div>
+              <div id="dynamic-stack-visual" class="dynamic-stack-visual"
+                   aria-label="Representación de una pila dinámica con nodos enlazados"></div>
+            </div>
+
+            <aside class="stack-step-panel">
+              <h3>Pasos de la operación</h3>
+              <ol id="dynamic-steps" class="stack-step-list">
+                <li>Escribe un valor y presiona PUSH.</li>
+              </ol>
+            </aside>
+          </div>
+
+          <div id="dynamic-status" class="stack-status" aria-live="polite">
+            Pila dinámica vacía.
+          </div>
+
+        </div>
+
+        <div class="note stack-observation">
+          <b>Observa:</b>
+          cada PUSH coloca el nuevo nodo antes del tope anterior.
+          Cada POP mueve <b>tope</b> hacia el siguiente nodo y después libera el nodo retirado.
+        </div>
+      </section>
+
+      <section class="stack-section">
+        <div class="summary">
+          <div class="bulb">💡</div>
+          <div>
+            <b>PILAS · IDEA CLAVE</b><br>
+            Tanto en una pila estática como en una dinámica, todas las operaciones principales ocurren
+            en un único extremo llamado <strong>TOPE</strong>. El último elemento insertado será el primero en salir.
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../scripts/site.js" defer></script>
+  <script src="../scripts/pilas_interactivo.js" defer></script>
+</body>
+</html>
