@@ -1,0 +1,2015 @@
+{
+  "listas": {
+    "titulo": "Tema 1 · Listas enlazadas",
+    "icono": "🔗",
+    "preguntas": [
+      {
+        "id": "L01",
+        "pregunta": "¿Qué característica distingue a una lista enlazada de un arreglo?",
+        "opciones": [
+          "Sus nodos pueden estar en posiciones no consecutivas de memoria",
+          "Siempre ocupa memoria contigua",
+          "No utiliza punteros ni referencias",
+          "Tiene tamaño fijo desde compilación"
+        ],
+        "correcta": "Sus nodos pueden estar en posiciones no consecutivas de memoria",
+        "explicacion": "Una lista enlazada conecta nodos mediante referencias; no exige memoria contigua.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L02",
+        "pregunta": "En una lista simplemente enlazada, ¿qué contiene normalmente cada nodo?",
+        "opciones": [
+          "Un dato y un enlace al siguiente nodo",
+          "Dos datos y ningún enlace",
+          "Un enlace al nodo anterior únicamente",
+          "Solo el dato"
+        ],
+        "correcta": "Un dato y un enlace al siguiente nodo",
+        "explicacion": "La lista simple usa un campo de datos y una referencia al siguiente nodo.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L03",
+        "pregunta": "En una lista doblemente enlazada, ¿qué enlaces mantiene un nodo?",
+        "opciones": [
+          "Anterior y siguiente",
+          "Solo siguiente",
+          "Solo anterior",
+          "Raíz e hijo"
+        ],
+        "correcta": "Anterior y siguiente",
+        "explicacion": "La lista doble permite recorrer en ambos sentidos gracias a sus dos referencias.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L04",
+        "pregunta": "¿Qué ocurre con el enlace del último nodo en una lista circular simple?",
+        "opciones": [
+          "Apunta al primer nodo",
+          "Apunta siempre a NULL",
+          "Apunta a sí mismo obligatoriamente",
+          "Se elimina"
+        ],
+        "correcta": "Apunta al primer nodo",
+        "explicacion": "La circularidad se logra enlazando el último nodo nuevamente con el primero.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L05",
+        "pregunta": "En una lista doble circular, ¿qué relación existe entre primero y último?",
+        "opciones": [
+          "Quedan enlazados en ambos sentidos",
+          "Solo el último apunta al primero",
+          "Ambos apuntan a NULL",
+          "No existe nodo primero"
+        ],
+        "correcta": "Quedan enlazados en ambos sentidos",
+        "explicacion": "El siguiente del último llega al primero y el anterior del primero llega al último.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L06",
+        "pregunta": "¿Qué representa normalmente CABEZA o PRIMERO?",
+        "opciones": [
+          "La referencia al primer nodo",
+          "El último dato almacenado",
+          "La cantidad de nodos",
+          "Una posición física fija de memoria"
+        ],
+        "correcta": "La referencia al primer nodo",
+        "explicacion": "CABEZA/PRIMERO permite iniciar el recorrido de la lista.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L07",
+        "pregunta": "En una lista simple no circular, ¿qué indica NULL en el último nodo?",
+        "opciones": [
+          "Que no existe un nodo siguiente",
+          "Que la lista está ordenada",
+          "Que el nodo debe eliminarse",
+          "Que el dato vale cero"
+        ],
+        "correcta": "Que no existe un nodo siguiente",
+        "explicacion": "NULL marca el final natural de una lista simple no circular.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L08",
+        "pregunta": "¿Cuál es el orden correcto para insertar un nodo NUEVO al inicio de una lista simple?",
+        "opciones": [
+          "NUEVO->sig = CABEZA; CABEZA = NUEVO",
+          "CABEZA = NUEVO; NUEVO->sig = CABEZA",
+          "Eliminar CABEZA; CABEZA = NUEVO",
+          "NUEVO->sig = NULL; no cambiar CABEZA"
+        ],
+        "correcta": "NUEVO->sig = CABEZA; CABEZA = NUEVO",
+        "explicacion": "Primero se conserva el enlace hacia la antigua cabeza y después se actualiza CABEZA.",
+        "nivel": "medio",
+        "codigo": "NUEVO.siguiente ← CABEZA\nCABEZA ← NUEVO"
+      },
+      {
+        "id": "L09",
+        "pregunta": "Para insertar al final de una lista simple sin puntero ÚLTIMO, ¿qué debe hacerse normalmente?",
+        "opciones": [
+          "Recorrer hasta encontrar el nodo cuyo siguiente sea NULL",
+          "Insertar siempre antes de CABEZA",
+          "Ordenar toda la memoria",
+          "Cambiar todos los datos de lugar"
+        ],
+        "correcta": "Recorrer hasta encontrar el nodo cuyo siguiente sea NULL",
+        "explicacion": "Sin una referencia directa al último nodo hay que recorrer la lista hasta su final.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L10",
+        "pregunta": "¿Cuál es la complejidad típica de buscar un valor en una lista enlazada sin información adicional?",
+        "opciones": [
+          "O(n)",
+          "O(1)",
+          "O(log n) garantizado",
+          "O(n²)"
+        ],
+        "correcta": "O(n)",
+        "explicacion": "En el peor caso se revisan todos los nodos.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L11",
+        "pregunta": "En una lista simple ordenada ascendentemente, al buscar 25 y encontrar un nodo con 30, ¿qué puede concluirse?",
+        "opciones": [
+          "25 no aparece después y la búsqueda puede detenerse",
+          "Debe seguirse hasta NULL obligatoriamente",
+          "25 debe estar en el nodo anterior físicamente",
+          "La lista dejó de estar ordenada"
+        ],
+        "correcta": "25 no aparece después y la búsqueda puede detenerse",
+        "explicacion": "Si la lista está ordenada, todos los valores posteriores serán mayores o iguales a 30.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L12",
+        "pregunta": "¿Qué ventaja principal ofrece una lista dinámica frente a un arreglo de tamaño fijo?",
+        "opciones": [
+          "Puede crecer o disminuir durante la ejecución",
+          "La búsqueda siempre es O(1)",
+          "Nunca usa memoria adicional",
+          "Sus nodos siempre están ordenados"
+        ],
+        "correcta": "Puede crecer o disminuir durante la ejecución",
+        "explicacion": "La memoria se solicita y libera conforme se agregan o eliminan nodos.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L13",
+        "pregunta": "Al eliminar el primer nodo de una lista simple, ¿qué actualización es esencial?",
+        "opciones": [
+          "CABEZA debe avanzar al segundo nodo",
+          "Todos los nodos deben moverse físicamente",
+          "El último nodo debe convertirse en primero",
+          "Se deben invertir todos los enlaces"
+        ],
+        "correcta": "CABEZA debe avanzar al segundo nodo",
+        "explicacion": "La nueva cabeza será el nodo que antes era el segundo.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L14",
+        "pregunta": "Al eliminar un nodo intermedio en una lista simple, ¿qué enlace debe modificarse?",
+        "opciones": [
+          "El siguiente del nodo anterior debe apuntar al siguiente del nodo eliminado",
+          "El siguiente del eliminado debe apuntar a sí mismo",
+          "CABEZA siempre debe cambiar",
+          "Todos los enlaces deben ponerse en NULL"
+        ],
+        "correcta": "El siguiente del nodo anterior debe apuntar al siguiente del nodo eliminado",
+        "explicacion": "Así se evita perder la continuidad de la lista.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L15",
+        "pregunta": "¿Qué condición representa una lista simple vacía?",
+        "opciones": [
+          "CABEZA = NULL",
+          "CABEZA = 0 obligatoriamente",
+          "ÚLTIMO = CABEZA siempre",
+          "El primer dato vale -1"
+        ],
+        "correcta": "CABEZA = NULL",
+        "explicacion": "Sin nodos, la referencia de inicio no apunta a ningún objeto.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L16",
+        "pregunta": "Si una lista simple tiene un solo nodo, ¿qué relación es correcta?",
+        "opciones": [
+          "CABEZA apunta a ese nodo y su siguiente es NULL",
+          "CABEZA es NULL",
+          "El nodo debe apuntar al anterior",
+          "Siempre existe un segundo nodo"
+        ],
+        "correcta": "CABEZA apunta a ese nodo y su siguiente es NULL",
+        "explicacion": "Ese mismo nodo es primero y último.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L17",
+        "pregunta": "Si una lista circular simple tiene un solo nodo, ¿a dónde apunta su enlace siguiente?",
+        "opciones": [
+          "Al mismo nodo",
+          "A NULL obligatoriamente",
+          "A un nodo fantasma",
+          "Al nodo anterior inexistente"
+        ],
+        "correcta": "Al mismo nodo",
+        "explicacion": "Para conservar la circularidad, el único nodo vuelve a sí mismo.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L18",
+        "pregunta": "¿Qué permite hacer directamente una lista doble que una lista simple no permite sin información adicional?",
+        "opciones": [
+          "Recorrer desde el último hacia el primero",
+          "Buscar en tiempo O(1) cualquier valor",
+          "Eliminar sin modificar enlaces",
+          "Guardar únicamente números"
+        ],
+        "correcta": "Recorrer desde el último hacia el primero",
+        "explicacion": "El enlace anterior posibilita un recorrido inverso.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L19",
+        "pregunta": "¿Cuál de estas aplicaciones es apropiada para una lista enlazada?",
+        "opciones": [
+          "Una colección cuyo tamaño cambia frecuentemente",
+          "Acceso inmediato por índice a millones de posiciones",
+          "Una constante matemática",
+          "Un registro de tamaño inmutable sin altas ni bajas"
+        ],
+        "correcta": "Una colección cuyo tamaño cambia frecuentemente",
+        "explicacion": "Las listas son útiles cuando hay inserciones y eliminaciones dinámicas.",
+        "nivel": "medio"
+      },
+      {
+        "id": "L20",
+        "pregunta": "¿Qué problema tiene este recorrido?",
+        "opciones": [
+          "Nunca avanza AUXILIAR y puede producir un ciclo infinito",
+          "El algoritmo elimina todos los nodos",
+          "Solo funciona en listas dobles",
+          "Convierte la lista en circular"
+        ],
+        "correcta": "Nunca avanza AUXILIAR y puede producir un ciclo infinito",
+        "explicacion": "Dentro del MIENTRAS falta AUXILIAR ← AUXILIAR.siguiente.",
+        "nivel": "medio",
+        "codigo": "AUXILIAR ← CABEZA\nMIENTRAS AUXILIAR ≠ NULL\n    MOSTRAR AUXILIAR.dato\nFIN MIENTRAS"
+      },
+      {
+        "id": "L21",
+        "pregunta": "¿Qué hace correctamente este pseudocódigo?",
+        "opciones": [
+          "Recorre una lista simple desde CABEZA hasta NULL",
+          "Inserta un nodo al inicio",
+          "Invierte la lista",
+          "Ordena la lista"
+        ],
+        "correcta": "Recorre una lista simple desde CABEZA hasta NULL",
+        "explicacion": "Muestra cada dato y avanza a través del enlace siguiente.",
+        "nivel": "medio",
+        "codigo": "AUX ← CABEZA\nMIENTRAS AUX ≠ NULL\n    MOSTRAR AUX.dato\n    AUX ← AUX.siguiente\nFIN MIENTRAS"
+      },
+      {
+        "id": "L22",
+        "pregunta": "¿Qué error aparece en este intento de insertar al inicio?",
+        "opciones": [
+          "Se pierde la lista anterior porque CABEZA cambia antes de enlazar NUEVO",
+          "No se reserva un arreglo",
+          "Se crea una lista circular",
+          "El dato nuevo se duplica automáticamente"
+        ],
+        "correcta": "Se pierde la lista anterior porque CABEZA cambia antes de enlazar NUEVO",
+        "explicacion": "Después de CABEZA ← NUEVO, NUEVO.siguiente ← CABEZA hace que NUEVO apunte a sí mismo.",
+        "nivel": "medio",
+        "codigo": "CABEZA ← NUEVO\nNUEVO.siguiente ← CABEZA"
+      },
+      {
+        "id": "L23",
+        "pregunta": "Observa la imagen. ¿Qué tipo de estructura representa?",
+        "opciones": [
+          "Lista simplemente enlazada",
+          "Lista doble circular",
+          "Pila estática",
+          "Árbol binario"
+        ],
+        "correcta": "Lista simplemente enlazada",
+        "explicacion": "Cada nodo contiene dato y siguiente; el último termina en NULL.",
+        "nivel": "medio",
+        "imagen": "../images/listas_simples.webp"
+      },
+      {
+        "id": "L24",
+        "pregunta": "Observa la imagen. ¿Qué característica identifica a la estructura?",
+        "opciones": [
+          "Permite recorrido en ambos sentidos mediante anterior y siguiente",
+          "Solo tiene un enlace por nodo",
+          "El último apunta a NULL por ambos lados",
+          "Es una tabla hash"
+        ],
+        "correcta": "Permite recorrido en ambos sentidos mediante anterior y siguiente",
+        "explicacion": "La imagen muestra los campos anterior, dato y siguiente.",
+        "nivel": "medio",
+        "imagen": "../images/listas_dobles.webp"
+      },
+      {
+        "id": "L25",
+        "pregunta": "Observa la imagen. ¿Cuál es la propiedad principal mostrada?",
+        "opciones": [
+          "El primero y el último se enlazan en ambos sentidos",
+          "El último apunta a NULL",
+          "Solo puede recorrerse de izquierda a derecha",
+          "Los datos se almacenan en un arreglo"
+        ],
+        "correcta": "El primero y el último se enlazan en ambos sentidos",
+        "explicacion": "Eso caracteriza a una lista doblemente circular.",
+        "nivel": "medio",
+        "imagen": "../images/listas_doblemente_circulares.webp"
+      }
+    ]
+  },
+  "pilas": {
+    "titulo": "Tema 2 · Pilas",
+    "icono": "🥞",
+    "preguntas": [
+      {
+        "id": "P01",
+        "pregunta": "¿Qué principio describe el comportamiento de una pila?",
+        "opciones": [
+          "LIFO: último en entrar, primero en salir",
+          "FIFO: primero en entrar, primero en salir",
+          "Orden aleatorio",
+          "Acceso directo por índice"
+        ],
+        "correcta": "LIFO: último en entrar, primero en salir",
+        "explicacion": "Todas las operaciones principales ocurren en el tope.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P02",
+        "pregunta": "¿Cómo se llama la operación que agrega un elemento a una pila?",
+        "opciones": [
+          "PUSH",
+          "POP",
+          "DEQUEUE",
+          "HASH"
+        ],
+        "correcta": "PUSH",
+        "explicacion": "PUSH inserta un elemento en el tope.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P03",
+        "pregunta": "¿Cómo se llama la operación que elimina y devuelve el elemento del tope?",
+        "opciones": [
+          "POP",
+          "PUSH",
+          "ENQUEUE",
+          "SEARCH"
+        ],
+        "correcta": "POP",
+        "explicacion": "POP trabaja exclusivamente con el elemento superior.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P04",
+        "pregunta": "¿Qué representa TOPE en una pila estática?",
+        "opciones": [
+          "El índice del último elemento válido",
+          "La capacidad total",
+          "El primer elemento insertado",
+          "Una tabla hash auxiliar"
+        ],
+        "correcta": "El índice del último elemento válido",
+        "explicacion": "TOPE permite saber dónde insertar o retirar.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P05",
+        "pregunta": "Si una pila estática vacía usa TOPE = -1, ¿qué indica esa condición?",
+        "opciones": [
+          "No hay elementos almacenados",
+          "La pila está llena",
+          "Existe exactamente un elemento",
+          "Debe ordenarse"
+        ],
+        "correcta": "No hay elementos almacenados",
+        "explicacion": "TOPE=-1 es una convención común para pila vacía.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P06",
+        "pregunta": "¿Qué es overflow en una pila estática?",
+        "opciones": [
+          "Intentar PUSH cuando ya no hay espacio",
+          "Intentar POP en una pila vacía",
+          "Consultar el tope",
+          "Ordenar los elementos"
+        ],
+        "correcta": "Intentar PUSH cuando ya no hay espacio",
+        "explicacion": "La capacidad fija del arreglo impide agregar otro elemento.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P07",
+        "pregunta": "¿Qué es underflow en una pila?",
+        "opciones": [
+          "Intentar POP cuando está vacía",
+          "Insertar un dato repetido",
+          "Llegar a la mitad del arreglo",
+          "Usar memoria dinámica"
+        ],
+        "correcta": "Intentar POP cuando está vacía",
+        "explicacion": "No existe un elemento que pueda retirarse.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P08",
+        "pregunta": "Después de PUSH(10), PUSH(20), PUSH(30), ¿qué valor devolverá POP()?",
+        "opciones": [
+          "30",
+          "10",
+          "20",
+          "Ninguno"
+        ],
+        "correcta": "30",
+        "explicacion": "30 fue el último en entrar.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P09",
+        "pregunta": "¿Qué operación consulta el elemento del tope sin eliminarlo?",
+        "opciones": [
+          "PEEK o TOP",
+          "POP",
+          "PUSH",
+          "DEQUEUE"
+        ],
+        "correcta": "PEEK o TOP",
+        "explicacion": "La consulta no modifica la estructura.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P10",
+        "pregunta": "¿Cuál es la complejidad típica de PUSH y POP en una pila correctamente implementada?",
+        "opciones": [
+          "O(1)",
+          "O(n)",
+          "O(log n)",
+          "O(n²)"
+        ],
+        "correcta": "O(1)",
+        "explicacion": "Ambas operaciones trabajan directamente con el tope.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P11",
+        "pregunta": "¿Cuál es una aplicación clásica de las pilas?",
+        "opciones": [
+          "Manejo de llamadas a funciones",
+          "Cola de impresión FIFO",
+          "Búsqueda hash por módulo",
+          "Balanceo de AVL sin recursión"
+        ],
+        "correcta": "Manejo de llamadas a funciones",
+        "explicacion": "La pila de ejecución guarda contextos de llamadas.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P12",
+        "pregunta": "¿Qué estructura se usa frecuentemente para implementar Deshacer (Undo)?",
+        "opciones": [
+          "Pila",
+          "Cola",
+          "Tabla hash solamente",
+          "Montículo mínimo obligatoriamente"
+        ],
+        "correcta": "Pila",
+        "explicacion": "Las acciones se deshacen en orden inverso al que se realizaron.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P13",
+        "pregunta": "¿Qué ocurre en una pila dinámica al realizar PUSH?",
+        "opciones": [
+          "Se crea un nodo nuevo y TOPE pasa a apuntarlo",
+          "Se recorre toda la lista hasta NULL obligatoriamente",
+          "Se elimina el nodo anterior",
+          "Se mueve un índice de frente"
+        ],
+        "correcta": "Se crea un nodo nuevo y TOPE pasa a apuntarlo",
+        "explicacion": "El nuevo nodo enlaza al tope anterior.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P14",
+        "pregunta": "En una pila dinámica, ¿a dónde debe apuntar el campo siguiente del nodo nuevo antes de actualizar TOPE?",
+        "opciones": [
+          "Al TOPE anterior",
+          "A NULL siempre",
+          "Al último nodo de una cola",
+          "Al nodo raíz"
+        ],
+        "correcta": "Al TOPE anterior",
+        "explicacion": "Así se conserva el resto de la pila.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P15",
+        "pregunta": "¿Qué hace este pseudocódigo?",
+        "opciones": [
+          "Realiza PUSH en una pila dinámica",
+          "Realiza POP",
+          "Recorre una cola",
+          "Balancea un AVL"
+        ],
+        "correcta": "Realiza PUSH en una pila dinámica",
+        "explicacion": "El nuevo nodo queda enlazado al tope anterior y luego se convierte en el nuevo tope.",
+        "nivel": "medio",
+        "codigo": "CREAR NUEVO\nNUEVO.dato ← VALOR\nNUEVO.siguiente ← TOPE\nTOPE ← NUEVO"
+      },
+      {
+        "id": "P16",
+        "pregunta": "¿Qué falta en este POP dinámico antes de liberar el nodo actual?",
+        "opciones": [
+          "Mover TOPE al siguiente nodo",
+          "Ordenar la pila",
+          "Crear un segundo arreglo",
+          "Incrementar REAR"
+        ],
+        "correcta": "Mover TOPE al siguiente nodo",
+        "explicacion": "Primero debe conservarse el acceso al resto de la pila.",
+        "nivel": "medio",
+        "codigo": "TEMP ← TOPE\nDATO ← TEMP.dato\nLIBERAR TEMP"
+      },
+      {
+        "id": "P17",
+        "pregunta": "Si TOPE apunta a 50 → 40 → 30 → NULL, ¿qué valor queda en TOPE después de POP()?",
+        "opciones": [
+          "40",
+          "50",
+          "30",
+          "NULL"
+        ],
+        "correcta": "40",
+        "explicacion": "Se elimina 50 y TOPE avanza al nodo 40.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P18",
+        "pregunta": "¿Cuál es una diferencia principal entre pila estática y dinámica?",
+        "opciones": [
+          "La estática usa capacidad fija; la dinámica puede crecer con nodos",
+          "La dinámica no usa LIFO",
+          "La estática no tiene TOPE",
+          "La dinámica solo almacena texto"
+        ],
+        "correcta": "La estática usa capacidad fija; la dinámica puede crecer con nodos",
+        "explicacion": "Ambas conservan LIFO; cambia la administración de memoria.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P19",
+        "pregunta": "¿Qué resultado produce invertir la cadena ABC usando una pila?",
+        "opciones": [
+          "CBA",
+          "ABC",
+          "BAC",
+          "CAB"
+        ],
+        "correcta": "CBA",
+        "explicacion": "Al desapilar se obtiene el orden inverso al de inserción.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P20",
+        "pregunta": "¿Por qué una pila es útil para evaluar paréntesis balanceados?",
+        "opciones": [
+          "Permite comparar cierres con la apertura más reciente",
+          "Ordena los símbolos alfabéticamente",
+          "Elimina todos los cierres",
+          "Trabaja como FIFO"
+        ],
+        "correcta": "Permite comparar cierres con la apertura más reciente",
+        "explicacion": "La última apertura pendiente debe cerrarse primero.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P21",
+        "pregunta": "¿Qué error presenta este PUSH estático si TOPE ya apunta al último índice?",
+        "opciones": [
+          "Puede escribir fuera del arreglo si no se valida overflow",
+          "Produce underflow",
+          "Convierte la pila en cola",
+          "No modifica nada"
+        ],
+        "correcta": "Puede escribir fuera del arreglo si no se valida overflow",
+        "explicacion": "Antes de incrementar TOPE debe verificarse la capacidad.",
+        "nivel": "medio",
+        "codigo": "TOPE ← TOPE + 1\nPILA[TOPE] ← VALOR"
+      },
+      {
+        "id": "P22",
+        "pregunta": "Después de PUSH(5), PUSH(8), POP(), PUSH(3), ¿qué valor está en el tope?",
+        "opciones": [
+          "3",
+          "8",
+          "5",
+          "NULL"
+        ],
+        "correcta": "3",
+        "explicacion": "8 se elimina; después 3 se convierte en el nuevo tope.",
+        "nivel": "medio"
+      },
+      {
+        "id": "P23",
+        "pregunta": "Observa la imagen. ¿Qué operación está representada al agregar 40?",
+        "opciones": [
+          "PUSH",
+          "POP",
+          "DEQUEUE",
+          "REHASH"
+        ],
+        "correcta": "PUSH",
+        "explicacion": "El nuevo valor se coloca en el tope de la pila estática.",
+        "nivel": "medio",
+        "imagen": "../images/pila_estatica.webp"
+      },
+      {
+        "id": "P24",
+        "pregunta": "Observa la imagen. ¿Qué tipo de memoria representa la estructura?",
+        "opciones": [
+          "Memoria dinámica con nodos enlazados",
+          "Arreglo estático",
+          "Tabla hash",
+          "Matriz bidimensional"
+        ],
+        "correcta": "Memoria dinámica con nodos enlazados",
+        "explicacion": "Cada nodo contiene dato y enlace al siguiente.",
+        "nivel": "medio",
+        "imagen": "../images/pila_dinamica.webp"
+      },
+      {
+        "id": "P25",
+        "pregunta": "En la analogía de libros, ¿qué libro debe retirarse primero?",
+        "opciones": [
+          "El que está arriba",
+          "El que está abajo",
+          "Cualquiera al azar",
+          "Siempre el más antiguo"
+        ],
+        "correcta": "El que está arriba",
+        "explicacion": "La analogía representa LIFO.",
+        "nivel": "medio",
+        "imagen": "../images/analogia_pila.webp"
+      }
+    ]
+  },
+  "colas": {
+    "titulo": "Tema 3 · Colas",
+    "icono": "🎟️",
+    "preguntas": [
+      {
+        "id": "C01",
+        "pregunta": "¿Qué principio describe a una cola?",
+        "opciones": [
+          "FIFO: primero en entrar, primero en salir",
+          "LIFO: último en entrar, primero en salir",
+          "Orden aleatorio",
+          "Orden por hash"
+        ],
+        "correcta": "FIFO: primero en entrar, primero en salir",
+        "explicacion": "La cola atiende primero al elemento que llegó primero.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C02",
+        "pregunta": "¿Cómo se llama la operación que agrega un elemento al final de una cola?",
+        "opciones": [
+          "ENCOLAR / ENQUEUE",
+          "POP",
+          "PUSH",
+          "ROTAR"
+        ],
+        "correcta": "ENCOLAR / ENQUEUE",
+        "explicacion": "El nuevo dato entra por el final o REAR.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C03",
+        "pregunta": "¿Cómo se llama la operación que elimina el elemento del frente?",
+        "opciones": [
+          "DESCOLAR / DEQUEUE",
+          "PUSH",
+          "PEEK de pila",
+          "HASH"
+        ],
+        "correcta": "DESCOLAR / DEQUEUE",
+        "explicacion": "La salida ocurre por FRONT.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C04",
+        "pregunta": "¿Qué representa FRONT?",
+        "opciones": [
+          "El elemento que saldrá primero",
+          "El último elemento insertado",
+          "La capacidad total",
+          "El índice hash"
+        ],
+        "correcta": "El elemento que saldrá primero",
+        "explicacion": "FRONT marca el extremo de salida.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C05",
+        "pregunta": "¿Qué representa REAR?",
+        "opciones": [
+          "El extremo donde se agrega el nuevo elemento",
+          "El elemento que siempre sale",
+          "El inicio de una pila",
+          "Una hoja de árbol"
+        ],
+        "correcta": "El extremo donde se agrega el nuevo elemento",
+        "explicacion": "REAR marca el final de la cola.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C06",
+        "pregunta": "Después de ENQUEUE(10), ENQUEUE(20), ENQUEUE(30), ¿qué devuelve DEQUEUE()?",
+        "opciones": [
+          "10",
+          "30",
+          "20",
+          "NULL"
+        ],
+        "correcta": "10",
+        "explicacion": "10 fue el primero en entrar.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C07",
+        "pregunta": "¿Qué es underflow en una cola?",
+        "opciones": [
+          "Intentar desencolar cuando está vacía",
+          "Encolar en una cola con espacio",
+          "Mover REAR",
+          "Consultar FRONT"
+        ],
+        "correcta": "Intentar desencolar cuando está vacía",
+        "explicacion": "No existe un elemento disponible para salir.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C08",
+        "pregunta": "¿Qué es overflow en una cola estática lineal?",
+        "opciones": [
+          "Intentar encolar cuando REAR ya alcanzó la última posición disponible",
+          "Desencolar el primer elemento",
+          "Buscar un valor",
+          "Usar nodos dinámicos"
+        ],
+        "correcta": "Intentar encolar cuando REAR ya alcanzó la última posición disponible",
+        "explicacion": "La implementación lineal de tamaño fijo puede quedarse sin posiciones al final.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C09",
+        "pregunta": "¿Qué ventaja tiene una cola circular estática frente a una cola lineal simple?",
+        "opciones": [
+          "Puede reutilizar posiciones liberadas al inicio",
+          "Convierte FIFO en LIFO",
+          "Elimina la necesidad de FRONT",
+          "Garantiza búsqueda O(1) de cualquier valor"
+        ],
+        "correcta": "Puede reutilizar posiciones liberadas al inicio",
+        "explicacion": "Los índices regresan al inicio mediante aritmética modular.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C10",
+        "pregunta": "¿Cuál es la complejidad típica de ENQUEUE y DEQUEUE en una cola bien implementada?",
+        "opciones": [
+          "O(1)",
+          "O(n)",
+          "O(log n)",
+          "O(n²)"
+        ],
+        "correcta": "O(1)",
+        "explicacion": "Se trabaja directamente con FRONT y REAR.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C11",
+        "pregunta": "¿Cuál es una aplicación típica de una cola?",
+        "opciones": [
+          "Cola de impresión",
+          "Deshacer acciones",
+          "Llamadas recursivas",
+          "Balanceo AVL"
+        ],
+        "correcta": "Cola de impresión",
+        "explicacion": "Los trabajos suelen atenderse en el orden de llegada.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C12",
+        "pregunta": "¿Qué algoritmo de grafos utiliza normalmente una cola?",
+        "opciones": [
+          "Búsqueda en amplitud (BFS)",
+          "Recorrido postorden",
+          "Heapsort",
+          "DJB2"
+        ],
+        "correcta": "Búsqueda en amplitud (BFS)",
+        "explicacion": "BFS procesa los vértices por niveles usando FIFO.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C13",
+        "pregunta": "En una cola dinámica vacía, al encolar el primer nodo, ¿qué ocurre?",
+        "opciones": [
+          "FRONT y REAR apuntan al mismo nodo",
+          "Solo FRONT cambia",
+          "Solo REAR cambia y FRONT queda NULL",
+          "El nodo se elimina"
+        ],
+        "correcta": "FRONT y REAR apuntan al mismo nodo",
+        "explicacion": "Ese nodo es simultáneamente primero y último.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C14",
+        "pregunta": "En una cola dinámica con un solo nodo, después de DEQUEUE, ¿qué debe ocurrir?",
+        "opciones": [
+          "FRONT y REAR quedan en NULL",
+          "REAR conserva el nodo eliminado",
+          "FRONT apunta a sí mismo",
+          "La cola se convierte en pila"
+        ],
+        "correcta": "FRONT y REAR quedan en NULL",
+        "explicacion": "Ya no quedan nodos en la estructura.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C15",
+        "pregunta": "¿Qué hace este pseudocódigo?",
+        "opciones": [
+          "Agrega un nodo al final de una cola dinámica",
+          "Elimina el frente",
+          "Realiza PUSH",
+          "Calcula un hash"
+        ],
+        "correcta": "Agrega un nodo al final de una cola dinámica",
+        "explicacion": "El nodo actual de REAR enlaza al nuevo y después REAR avanza.",
+        "nivel": "medio",
+        "codigo": "NUEVO.siguiente ← NULL\nSI REAR ≠ NULL\n    REAR.siguiente ← NUEVO\nSINO\n    FRONT ← NUEVO\nFIN SI\nREAR ← NUEVO"
+      },
+      {
+        "id": "C16",
+        "pregunta": "¿Qué falta en este DEQUEUE dinámico?",
+        "opciones": [
+          "Actualizar FRONT antes de liberar TEMP",
+          "Ordenar la cola",
+          "Incrementar REAR siempre",
+          "Crear un arreglo"
+        ],
+        "correcta": "Actualizar FRONT antes de liberar TEMP",
+        "explicacion": "Si se libera primero el nodo, se pierde la referencia al siguiente.",
+        "nivel": "medio",
+        "codigo": "TEMP ← FRONT\nDATO ← TEMP.dato\nLIBERAR TEMP"
+      },
+      {
+        "id": "C17",
+        "pregunta": "Si FRONT apunta a 10 → 20 → 30 y REAR a 30, ¿qué queda después de DEQUEUE()?",
+        "opciones": [
+          "FRONT=20 y REAR=30",
+          "FRONT=30 y REAR=20",
+          "FRONT=10 y REAR=20",
+          "Ambos NULL"
+        ],
+        "correcta": "FRONT=20 y REAR=30",
+        "explicacion": "Solo sale el primer nodo.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C18",
+        "pregunta": "¿Cuál es la diferencia esencial entre pila y cola?",
+        "opciones": [
+          "Pila usa LIFO; cola usa FIFO",
+          "Ambas usan exactamente el mismo orden",
+          "La cola solo usa memoria estática",
+          "La pila requiere dos extremos"
+        ],
+        "correcta": "Pila usa LIFO; cola usa FIFO",
+        "explicacion": "El criterio de salida es diferente.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C19",
+        "pregunta": "¿Qué condición describe una cola vacía dinámica?",
+        "opciones": [
+          "FRONT = NULL y REAR = NULL",
+          "FRONT = REAR = 0 obligatoriamente",
+          "REAR > FRONT",
+          "REAR = -1 y FRONT = 100"
+        ],
+        "correcta": "FRONT = NULL y REAR = NULL",
+        "explicacion": "Sin nodos, ninguno de los dos extremos apunta a un objeto.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C20",
+        "pregunta": "¿Cuál secuencia de salida corresponde a ENQUEUE(5), ENQUEUE(7), ENQUEUE(9) y tres DEQUEUE?",
+        "opciones": [
+          "5, 7, 9",
+          "9, 7, 5",
+          "7, 5, 9",
+          "5, 9, 7"
+        ],
+        "correcta": "5, 7, 9",
+        "explicacion": "La cola conserva el orden de llegada.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C21",
+        "pregunta": "¿Qué error conceptual hay en este ENQUEUE?",
+        "opciones": [
+          "Inserta por FRONT y rompe el comportamiento FIFO esperado",
+          "Produce un árbol AVL",
+          "Es correcto para una cola FIFO",
+          "Calcula módulo"
+        ],
+        "correcta": "Inserta por FRONT y rompe el comportamiento FIFO esperado",
+        "explicacion": "En una cola convencional los nuevos elementos entran por REAR.",
+        "nivel": "medio",
+        "codigo": "NUEVO.siguiente ← FRONT\nFRONT ← NUEVO"
+      },
+      {
+        "id": "C22",
+        "pregunta": "Si una cola estática lineal tiene celdas libres antes de FRONT pero REAR ya está en la última posición, ¿qué problema puede aparecer?",
+        "opciones": [
+          "Overflow aparente aunque existan huecos al inicio",
+          "Underflow obligatorio",
+          "PUSH incorrecto",
+          "Rotación AVL"
+        ],
+        "correcta": "Overflow aparente aunque existan huecos al inicio",
+        "explicacion": "Una cola circular evita este desperdicio reutilizando posiciones.",
+        "nivel": "medio"
+      },
+      {
+        "id": "C23",
+        "pregunta": "Observa la imagen. ¿Qué extremo corresponde a la salida?",
+        "opciones": [
+          "FRENTE",
+          "FINAL",
+          "Ambos simultáneamente",
+          "Ninguno"
+        ],
+        "correcta": "FRENTE",
+        "explicacion": "La operación desencolar ocurre en el frente.",
+        "nivel": "medio",
+        "imagen": "../images/colas.webp"
+      },
+      {
+        "id": "C24",
+        "pregunta": "Observa la imagen. ¿Qué estructura de almacenamiento se muestra?",
+        "opciones": [
+          "Cola estática con arreglo de tamaño fijo",
+          "Pila dinámica",
+          "Lista doble circular",
+          "Tabla hash"
+        ],
+        "correcta": "Cola estática con arreglo de tamaño fijo",
+        "explicacion": "Se observan posiciones indexadas y capacidad fija.",
+        "nivel": "medio",
+        "imagen": "../images/cola_estatica.webp"
+      },
+      {
+        "id": "C25",
+        "pregunta": "Observa la imagen. ¿Qué característica corresponde a la cola dinámica?",
+        "opciones": [
+          "Los nodos crecen según se necesitan",
+          "La capacidad siempre es 7",
+          "No usa enlaces",
+          "Solo puede tener un nodo"
+        ],
+        "correcta": "Los nodos crecen según se necesitan",
+        "explicacion": "La implementación dinámica enlaza nodos y no depende de un arreglo fijo.",
+        "nivel": "medio",
+        "imagen": "../images/cola_dinamica.webp"
+      }
+    ]
+  },
+  "arboles": {
+    "titulo": "Tema 4 · Árboles ABB y AVL",
+    "icono": "🌳",
+    "preguntas": [
+      {
+        "id": "A01",
+        "pregunta": "¿Qué tipo de estructura es un árbol?",
+        "opciones": [
+          "No lineal y jerárquica",
+          "Lineal y secuencial",
+          "Siempre estática",
+          "Una tabla de dispersión"
+        ],
+        "correcta": "No lineal y jerárquica",
+        "explicacion": "Los nodos se organizan mediante relaciones padre-hijo.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A02",
+        "pregunta": "¿Cómo se llama el nodo principal de un árbol?",
+        "opciones": [
+          "Raíz",
+          "Hoja",
+          "Cola",
+          "Tope"
+        ],
+        "correcta": "Raíz",
+        "explicacion": "La raíz es el punto de entrada de la jerarquía.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A03",
+        "pregunta": "¿Qué es un nodo hoja?",
+        "opciones": [
+          "Un nodo sin hijos",
+          "Un nodo con dos padres",
+          "La raíz obligatoriamente",
+          "Un nodo con clave repetida"
+        ],
+        "correcta": "Un nodo sin hijos",
+        "explicacion": "Una hoja termina una rama.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A04",
+        "pregunta": "En un árbol binario, ¿cuántos hijos puede tener como máximo cada nodo?",
+        "opciones": [
+          "2",
+          "1",
+          "3",
+          "Ilimitados"
+        ],
+        "correcta": "2",
+        "explicacion": "Un árbol binario distingue hijo izquierdo e hijo derecho.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A05",
+        "pregunta": "En un ABB, ¿qué propiedad debe cumplir el subárbol izquierdo?",
+        "opciones": [
+          "Contener claves menores que el nodo",
+          "Contener claves mayores",
+          "Contener siempre hojas",
+          "Ser vacío obligatoriamente"
+        ],
+        "correcta": "Contener claves menores que el nodo",
+        "explicacion": "La propiedad de orden permite búsquedas eficientes.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A06",
+        "pregunta": "En un ABB, ¿qué propiedad debe cumplir el subárbol derecho?",
+        "opciones": [
+          "Contener claves mayores que el nodo",
+          "Contener claves menores",
+          "Tener la misma clave",
+          "Ser una lista"
+        ],
+        "correcta": "Contener claves mayores que el nodo",
+        "explicacion": "Es la contraparte del subárbol izquierdo.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A07",
+        "pregunta": "¿Qué recorrido de un ABB produce las claves en orden ascendente?",
+        "opciones": [
+          "In-orden",
+          "Pre-orden",
+          "Post-orden",
+          "Por niveles siempre"
+        ],
+        "correcta": "In-orden",
+        "explicacion": "In-orden visita izquierda, nodo y derecha.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A08",
+        "pregunta": "¿Cuál es el orden de Pre-orden?",
+        "opciones": [
+          "Nodo - Izquierda - Derecha",
+          "Izquierda - Nodo - Derecha",
+          "Izquierda - Derecha - Nodo",
+          "Derecha - Nodo - Izquierda"
+        ],
+        "correcta": "Nodo - Izquierda - Derecha",
+        "explicacion": "La raíz se procesa antes de sus subárboles.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A09",
+        "pregunta": "¿Cuál es el orden de Post-orden?",
+        "opciones": [
+          "Izquierda - Derecha - Nodo",
+          "Nodo - Izquierda - Derecha",
+          "Izquierda - Nodo - Derecha",
+          "Nodo - Derecha - Izquierda"
+        ],
+        "correcta": "Izquierda - Derecha - Nodo",
+        "explicacion": "La raíz se procesa al final.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A10",
+        "pregunta": "¿Qué ocurre con la eficiencia de un ABB si se degenera en una cadena?",
+        "opciones": [
+          "Puede caer hasta O(n)",
+          "Siempre conserva O(1)",
+          "Mejora a O(log log n)",
+          "No cambia"
+        ],
+        "correcta": "Puede caer hasta O(n)",
+        "explicacion": "La altura puede crecer hasta n.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A11",
+        "pregunta": "¿Qué patrón de inserción puede degenerar fácilmente un ABB puro?",
+        "opciones": [
+          "Datos ya ordenados",
+          "Datos perfectamente balanceados",
+          "Solo números pares",
+          "Datos hash"
+        ],
+        "correcta": "Datos ya ordenados",
+        "explicacion": "Cada nuevo valor puede quedar como hijo del anterior.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A12",
+        "pregunta": "¿Qué ventaja busca un árbol AVL?",
+        "opciones": [
+          "Mantener altura O(log n) mediante balanceo",
+          "Eliminar la propiedad de búsqueda",
+          "Convertirse en lista",
+          "Guardar solo cadenas"
+        ],
+        "correcta": "Mantener altura O(log n) mediante balanceo",
+        "explicacion": "Las rotaciones controlan el desequilibrio.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A13",
+        "pregunta": "Si FE = altura(izq) - altura(der), ¿qué valores son válidos en un AVL balanceado?",
+        "opciones": [
+          "-1, 0 y 1",
+          "Solo 0",
+          "-2 y 2",
+          "Cualquier entero"
+        ],
+        "correcta": "-1, 0 y 1",
+        "explicacion": "El valor absoluto del factor de equilibrio no debe superar 1.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A14",
+        "pregunta": "Con FE = altura(izq)-altura(der), un nodo con FE=+2 está cargado hacia:",
+        "opciones": [
+          "La izquierda",
+          "La derecha",
+          "Ningún lado",
+          "Ambos lados por igual"
+        ],
+        "correcta": "La izquierda",
+        "explicacion": "El subárbol izquierdo es dos niveles más alto.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A15",
+        "pregunta": "¿Qué rotación corrige típicamente un caso izquierda-izquierda (LL)?",
+        "opciones": [
+          "Rotación simple a la derecha",
+          "Rotación simple a la izquierda",
+          "Doble derecha-izquierda",
+          "Ninguna"
+        ],
+        "correcta": "Rotación simple a la derecha",
+        "explicacion": "El hijo izquierdo sube para restaurar el balance.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A16",
+        "pregunta": "¿Qué rotación corrige típicamente un caso derecha-derecha (RR)?",
+        "opciones": [
+          "Rotación simple a la izquierda",
+          "Rotación simple a la derecha",
+          "Doble izquierda-derecha",
+          "Post-orden"
+        ],
+        "correcta": "Rotación simple a la izquierda",
+        "explicacion": "El hijo derecho sube.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A17",
+        "pregunta": "¿Qué se requiere para un caso izquierda-derecha (LR)?",
+        "opciones": [
+          "Una rotación doble",
+          "Solo una búsqueda",
+          "Eliminar la raíz",
+          "Rehashing"
+        ],
+        "correcta": "Una rotación doble",
+        "explicacion": "Primero se corrige el hijo y luego el nodo desbalanceado.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A18",
+        "pregunta": "¿Qué se requiere para un caso derecha-izquierda (RL)?",
+        "opciones": [
+          "Una rotación doble",
+          "Un POP",
+          "Un recorrido lineal",
+          "Un heapify"
+        ],
+        "correcta": "Una rotación doble",
+        "explicacion": "Es el caso simétrico de LR.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A19",
+        "pregunta": "¿Qué hace este pseudocódigo?",
+        "opciones": [
+          "Recorrido in-orden",
+          "Recorrido pre-orden",
+          "Recorrido post-orden",
+          "Inserción hash"
+        ],
+        "correcta": "Recorrido in-orden",
+        "explicacion": "Primero visita el subárbol izquierdo, luego el nodo y después el derecho.",
+        "nivel": "medio",
+        "codigo": "INORDEN(NODO)\nSI NODO ≠ NULL\n    INORDEN(NODO.izq)\n    MOSTRAR NODO.dato\n    INORDEN(NODO.der)\nFIN SI"
+      },
+      {
+        "id": "A20",
+        "pregunta": "¿Qué recorrido implementa este pseudocódigo?",
+        "opciones": [
+          "Pre-orden",
+          "In-orden",
+          "Post-orden",
+          "BFS"
+        ],
+        "correcta": "Pre-orden",
+        "explicacion": "El nodo se procesa antes de visitar sus dos subárboles.",
+        "nivel": "medio",
+        "codigo": "RECORRER(NODO)\nSI NODO ≠ NULL\n    MOSTRAR NODO.dato\n    RECORRER(NODO.izq)\n    RECORRER(NODO.der)\nFIN SI"
+      },
+      {
+        "id": "A21",
+        "pregunta": "¿Qué recorrido implementa este pseudocódigo?",
+        "opciones": [
+          "Post-orden",
+          "Pre-orden",
+          "In-orden",
+          "Hash"
+        ],
+        "correcta": "Post-orden",
+        "explicacion": "El nodo se procesa después de ambos subárboles.",
+        "nivel": "medio",
+        "codigo": "RECORRER(NODO)\nSI NODO ≠ NULL\n    RECORRER(NODO.izq)\n    RECORRER(NODO.der)\n    MOSTRAR NODO.dato\nFIN SI"
+      },
+      {
+        "id": "A22",
+        "pregunta": "¿Cuál es la complejidad típica de búsqueda en un AVL?",
+        "opciones": [
+          "O(log n)",
+          "O(n²)",
+          "O(1) garantizado",
+          "O(n!)"
+        ],
+        "correcta": "O(log n)",
+        "explicacion": "El balance mantiene la altura logarítmica.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A23",
+        "pregunta": "¿Qué representan los dos enlaces básicos de un nodo binario?",
+        "opciones": [
+          "Hijo izquierdo e hijo derecho",
+          "Anterior y siguiente de una lista",
+          "FRONT y REAR",
+          "Clave y hash"
+        ],
+        "correcta": "Hijo izquierdo e hijo derecho",
+        "explicacion": "Un nodo binario mantiene hasta dos referencias.",
+        "nivel": "medio",
+        "imagen": "../images/nodo_estructura.webp"
+      },
+      {
+        "id": "A24",
+        "pregunta": "¿Cuál es una aplicación real de los árboles?",
+        "opciones": [
+          "Jerarquías de directorios y sistemas de archivos",
+          "Solo colas de impresión",
+          "Conversión decimal-binario únicamente",
+          "Control de overflow"
+        ],
+        "correcta": "Jerarquías de directorios y sistemas de archivos",
+        "explicacion": "Los árboles representan naturalmente información jerárquica.",
+        "nivel": "medio"
+      },
+      {
+        "id": "A25",
+        "pregunta": "Si un ABB contiene raíz 50, hijo izquierdo 30 e hijo derecho 70, ¿dónde se insertaría 60?",
+        "opciones": [
+          "Como descendiente del subárbol derecho de 50 y a la izquierda de 70",
+          "A la izquierda de 30",
+          "Como nueva raíz",
+          "No puede insertarse"
+        ],
+        "correcta": "Como descendiente del subárbol derecho de 50 y a la izquierda de 70",
+        "explicacion": "60 > 50 y 60 < 70.",
+        "nivel": "medio"
+      }
+    ]
+  },
+  "monticulos": {
+    "titulo": "Tema 5 · Montículos",
+    "icono": "⚡",
+    "preguntas": [
+      {
+        "id": "M01",
+        "pregunta": "¿Qué es un montículo (heap) binario?",
+        "opciones": [
+          "Un árbol binario completo que cumple una propiedad de orden",
+          "Una lista circular",
+          "Una tabla hash",
+          "Un ABB siempre perfectamente ordenado"
+        ],
+        "correcta": "Un árbol binario completo que cumple una propiedad de orden",
+        "explicacion": "Además de la forma completa, cada padre respeta la relación min-heap o max-heap.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M02",
+        "pregunta": "En un max-heap, ¿qué valor se encuentra en la raíz?",
+        "opciones": [
+          "El mayor",
+          "El menor",
+          "El último insertado siempre",
+          "Un valor aleatorio"
+        ],
+        "correcta": "El mayor",
+        "explicacion": "Cada padre es mayor o igual que sus hijos.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M03",
+        "pregunta": "En un min-heap, ¿qué valor se encuentra en la raíz?",
+        "opciones": [
+          "El menor",
+          "El mayor",
+          "La mediana",
+          "El primero insertado obligatoriamente"
+        ],
+        "correcta": "El menor",
+        "explicacion": "Cada padre es menor o igual que sus hijos.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M04",
+        "pregunta": "¿Qué significa que un heap sea un árbol binario completo?",
+        "opciones": [
+          "Todos los niveles están llenos salvo quizá el último, que se llena de izquierda a derecha",
+          "Todos los nodos tienen exactamente dos hijos",
+          "La raíz no tiene hijos",
+          "Las claves están ordenadas de izquierda a derecha"
+        ],
+        "correcta": "Todos los niveles están llenos salvo quizá el último, que se llena de izquierda a derecha",
+        "explicacion": "La propiedad de forma permite representarlo eficientemente en un arreglo.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M05",
+        "pregunta": "¿Cuál es una aplicación principal de un heap?",
+        "opciones": [
+          "Cola de prioridad",
+          "Lista de reproducción circular",
+          "Hash con encadenamiento",
+          "Pila de llamadas"
+        ],
+        "correcta": "Cola de prioridad",
+        "explicacion": "La raíz permite acceder rápidamente al elemento de mayor o menor prioridad.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M06",
+        "pregunta": "¿Cuál es la complejidad típica de consultar la raíz de un heap?",
+        "opciones": [
+          "O(1)",
+          "O(log n)",
+          "O(n)",
+          "O(n²)"
+        ],
+        "correcta": "O(1)",
+        "explicacion": "La raíz está directamente accesible.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M07",
+        "pregunta": "¿Cuál es la complejidad típica de insertar en un heap?",
+        "opciones": [
+          "O(log n)",
+          "O(1) garantizado",
+          "O(n²)",
+          "O(n!)"
+        ],
+        "correcta": "O(log n)",
+        "explicacion": "El elemento puede subir por la altura del árbol.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M08",
+        "pregunta": "¿Cuál es la complejidad típica de eliminar la raíz de un heap?",
+        "opciones": [
+          "O(log n)",
+          "O(1) garantizado",
+          "O(n²)",
+          "O(n!)"
+        ],
+        "correcta": "O(log n)",
+        "explicacion": "Tras reemplazar la raíz se aplica descenso/heapify.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M09",
+        "pregunta": "En un heap representado con arreglo usando índices desde 0, ¿cuál es el hijo izquierdo de i?",
+        "opciones": [
+          "2*i + 1",
+          "2*i",
+          "i + 1",
+          "i/2"
+        ],
+        "correcta": "2*i + 1",
+        "explicacion": "Es la fórmula estándar con base cero.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M10",
+        "pregunta": "En un heap con índices desde 0, ¿cuál es el hijo derecho de i?",
+        "opciones": [
+          "2*i + 2",
+          "2*i + 1",
+          "i - 1",
+          "i/2"
+        ],
+        "correcta": "2*i + 2",
+        "explicacion": "Es la posición inmediata al hijo izquierdo.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M11",
+        "pregunta": "En un heap con índices desde 0, ¿cómo se obtiene el padre de i>0?",
+        "opciones": [
+          "floor((i-1)/2)",
+          "2*i+1",
+          "i+2",
+          "i/2 + 1"
+        ],
+        "correcta": "floor((i-1)/2)",
+        "explicacion": "Esta fórmula permite subir hacia la raíz.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M12",
+        "pregunta": "¿Qué operación se realiza después de insertar un valor al final de un max-heap?",
+        "opciones": [
+          "Compararlo con su padre y subirlo mientras sea mayor",
+          "Ordenar todo el arreglo con burbuja",
+          "Eliminar la raíz",
+          "Convertirlo en ABB"
+        ],
+        "correcta": "Compararlo con su padre y subirlo mientras sea mayor",
+        "explicacion": "El proceso suele llamarse sift-up o bubble-up.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M13",
+        "pregunta": "Al eliminar la raíz de un heap, ¿qué elemento suele colocarse temporalmente en la raíz?",
+        "opciones": [
+          "El último elemento del heap",
+          "El segundo elemento siempre",
+          "Un valor NULL permanente",
+          "El mínimo obligatoriamente"
+        ],
+        "correcta": "El último elemento del heap",
+        "explicacion": "Luego se restaura la propiedad con heapify hacia abajo.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M14",
+        "pregunta": "¿Qué hace HEAPIFY hacia abajo en un max-heap?",
+        "opciones": [
+          "Intercambia con el hijo mayor cuando sea necesario",
+          "Intercambia siempre con el hijo izquierdo",
+          "Ordena todos los niveles de menor a mayor",
+          "Convierte el heap en lista"
+        ],
+        "correcta": "Intercambia con el hijo mayor cuando sea necesario",
+        "explicacion": "Así se restaura la propiedad padre ≥ hijos.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M15",
+        "pregunta": "¿Un heap mantiene todos sus elementos completamente ordenados?",
+        "opciones": [
+          "No, solo garantiza la relación padre-hijo",
+          "Sí, siempre queda ordenado ascendentemente",
+          "Sí, pero solo en hojas",
+          "Solo si es min-heap"
+        ],
+        "correcta": "No, solo garantiza la relación padre-hijo",
+        "explicacion": "No debe confundirse un heap con un arreglo totalmente ordenado.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M16",
+        "pregunta": "¿Cuál de estas secuencias puede representar un max-heap válido?",
+        "opciones": [
+          "90, 70, 80, 20, 60, 50, 40",
+          "10, 20, 30, 40, 50, 60, 70",
+          "50, 90, 80, 20",
+          "1, 100, 2"
+        ],
+        "correcta": "90, 70, 80, 20, 60, 50, 40",
+        "explicacion": "Cada padre es mayor o igual que sus hijos.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M17",
+        "pregunta": "¿Cuál de estas secuencias puede representar un min-heap válido?",
+        "opciones": [
+          "10, 20, 15, 40, 30, 50, 25",
+          "90, 80, 70, 60",
+          "30, 10, 20",
+          "50, 100, 1"
+        ],
+        "correcta": "10, 20, 15, 40, 30, 50, 25",
+        "explicacion": "Cada padre es menor o igual que sus hijos.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M18",
+        "pregunta": "¿Qué hace este pseudocódigo?",
+        "opciones": [
+          "Sube un elemento en un max-heap después de insertarlo",
+          "Elimina la raíz",
+          "Recorre in-orden",
+          "Calcula DJB2"
+        ],
+        "correcta": "Sube un elemento en un max-heap después de insertarlo",
+        "explicacion": "Mientras el hijo sea mayor que el padre, ambos se intercambian.",
+        "nivel": "medio",
+        "codigo": "MIENTRAS i > 0\n    p ← PADRE(i)\n    SI heap[p] >= heap[i]\n        TERMINAR\n    INTERCAMBIAR(heap[p], heap[i])\n    i ← p\nFIN MIENTRAS"
+      },
+      {
+        "id": "M19",
+        "pregunta": "¿Qué error hay en este max-heap si raíz=40 y uno de sus hijos=70?",
+        "opciones": [
+          "Viola la propiedad de max-heap",
+          "Es completamente correcto",
+          "Solo afecta el recorrido",
+          "Convierte el heap en min-heap automáticamente"
+        ],
+        "correcta": "Viola la propiedad de max-heap",
+        "explicacion": "En un max-heap el padre debe ser mayor o igual que sus hijos.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M20",
+        "pregunta": "¿Qué diferencia principal existe entre ABB y heap?",
+        "opciones": [
+          "El ABB ordena por subárboles; el heap solo impone relación padre-hijo y forma completa",
+          "Son exactamente iguales",
+          "El heap siempre permite búsqueda O(log n) de cualquier clave",
+          "El ABB siempre es completo"
+        ],
+        "correcta": "El ABB ordena por subárboles; el heap solo impone relación padre-hijo y forma completa",
+        "explicacion": "Por eso un heap es excelente para prioridades, pero no para buscar cualquier clave.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M21",
+        "pregunta": "¿Cuál es la complejidad de construir un heap mediante el algoritmo bottom-up clásico?",
+        "opciones": [
+          "O(n)",
+          "O(n log n) obligatoriamente",
+          "O(1)",
+          "O(n²)"
+        ],
+        "correcta": "O(n)",
+        "explicacion": "El análisis agregado de heapify desde los nodos internos da tiempo lineal.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M22",
+        "pregunta": "¿Cuál es la complejidad de Heapsort?",
+        "opciones": [
+          "O(n log n)",
+          "O(n)",
+          "O(1)",
+          "O(n²) siempre"
+        ],
+        "correcta": "O(n log n)",
+        "explicacion": "Se realizan n extracciones, cada una con ajuste logarítmico.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M23",
+        "pregunta": "En un max-heap, ¿qué operación es ideal para obtener repetidamente el elemento de mayor prioridad?",
+        "opciones": [
+          "Eliminar la raíz y aplicar heapify",
+          "Recorrer todas las hojas",
+          "Buscar desde el último nodo",
+          "Aplicar DJB2"
+        ],
+        "correcta": "Eliminar la raíz y aplicar heapify",
+        "explicacion": "La raíz contiene el mayor valor o prioridad.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M24",
+        "pregunta": "¿Qué condición debe respetar un min-heap?",
+        "opciones": [
+          "Cada padre <= sus hijos",
+          "Cada padre >= sus hijos",
+          "Izquierda < nodo < derecha como ABB",
+          "Todos los nodos tienen dos hijos"
+        ],
+        "correcta": "Cada padre <= sus hijos",
+        "explicacion": "La propiedad se aplica localmente en cada relación padre-hijo.",
+        "nivel": "medio"
+      },
+      {
+        "id": "M25",
+        "pregunta": "Si en un max-heap se inserta un valor mayor que su padre, ¿qué debe ocurrir?",
+        "opciones": [
+          "Debe intercambiarse hacia arriba hasta recuperar la propiedad",
+          "Debe quedarse en la misma posición",
+          "Debe eliminarse",
+          "Debe convertirse en raíz de un ABB"
+        ],
+        "correcta": "Debe intercambiarse hacia arriba hasta recuperar la propiedad",
+        "explicacion": "Ese proceso restaura el orden del heap.",
+        "nivel": "medio"
+      }
+    ]
+  },
+  "hash": {
+    "titulo": "Tema 6 · Tablas hash",
+    "icono": "#️⃣",
+    "preguntas": [
+      {
+        "id": "H01",
+        "pregunta": "¿Cuál es el propósito principal de una función hash?",
+        "opciones": [
+          "Transformar una clave en un índice de tabla",
+          "Ordenar completamente los registros",
+          "Crear una pila",
+          "Balancear un AVL"
+        ],
+        "correcta": "Transformar una clave en un índice de tabla",
+        "explicacion": "La función hash determina la posición candidata de almacenamiento.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H02",
+        "pregunta": "Para una clave numérica k y tabla de tamaño m, ¿qué función simple se usa frecuentemente?",
+        "opciones": [
+          "h(k) = k % m",
+          "h(k) = k + m",
+          "h(k) = k / 0",
+          "h(k) = m - k siempre"
+        ],
+        "correcta": "h(k) = k % m",
+        "explicacion": "El módulo produce un índice entre 0 y m-1.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H03",
+        "pregunta": "Si m=13 y k=300123, ¿cuál es h(k)=k % 13?",
+        "opciones": [
+          "5",
+          "1",
+          "7",
+          "12"
+        ],
+        "correcta": "5",
+        "explicacion": "300123 = 13×23086 + 5.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H04",
+        "pregunta": "¿Qué es una colisión hash?",
+        "opciones": [
+          "Dos claves diferentes producen el mismo índice",
+          "Una clave no tiene caracteres",
+          "La tabla está vacía",
+          "La función devuelve NULL siempre"
+        ],
+        "correcta": "Dos claves diferentes producen el mismo índice",
+        "explicacion": "Las colisiones deben resolverse con alguna estrategia.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H05",
+        "pregunta": "¿Qué estrategia almacena varias claves en el mismo índice mediante una lista enlazada?",
+        "opciones": [
+          "Encadenamiento",
+          "Sondeo lineal",
+          "AVL",
+          "Pila"
+        ],
+        "correcta": "Encadenamiento",
+        "explicacion": "Cada posición puede apuntar a una lista de elementos colisionados.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H06",
+        "pregunta": "¿Qué hace el sondeo lineal tras una colisión?",
+        "opciones": [
+          "Prueba posiciones consecutivas",
+          "Crea siempre una lista enlazada",
+          "Duplica la tabla de inmediato",
+          "Elimina la clave"
+        ],
+        "correcta": "Prueba posiciones consecutivas",
+        "explicacion": "Normalmente se evalúa (h(k)+i) % m.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H07",
+        "pregunta": "¿Qué fórmula representa el sondeo cuadrático?",
+        "opciones": [
+          "(h(k) + i²) % m",
+          "h(k) + i",
+          "k / i",
+          "33*h+c"
+        ],
+        "correcta": "(h(k) + i²) % m",
+        "explicacion": "El desplazamiento crece cuadráticamente.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H08",
+        "pregunta": "¿Qué representa el factor de ocupación α?",
+        "opciones": [
+          "n/m: elementos almacenados entre tamaño de la tabla",
+          "m/n siempre mayor que 1",
+          "Número de colisiones únicamente",
+          "Cantidad de caracteres de la clave"
+        ],
+        "correcta": "n/m: elementos almacenados entre tamaño de la tabla",
+        "explicacion": "Indica qué tan llena está la tabla.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H09",
+        "pregunta": "¿Qué suele ocurrir cuando aumenta demasiado el factor de ocupación?",
+        "opciones": [
+          "Aumentan las colisiones y puede bajar el rendimiento",
+          "La tabla se vuelve automáticamente AVL",
+          "Las búsquedas siempre pasan a O(1) perfecto",
+          "Desaparecen las colisiones"
+        ],
+        "correcta": "Aumentan las colisiones y puede bajar el rendimiento",
+        "explicacion": "Una tabla demasiado llena necesita más sondeos o cadenas más largas.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H10",
+        "pregunta": "¿Qué es rehashing?",
+        "opciones": [
+          "Crear una tabla nueva, normalmente mayor, y volver a calcular posiciones",
+          "Eliminar todas las claves",
+          "Convertir hash en heap",
+          "Ordenar alfabéticamente las claves"
+        ],
+        "correcta": "Crear una tabla nueva, normalmente mayor, y volver a calcular posiciones",
+        "explicacion": "Al cambiar m, los índices deben calcularse nuevamente.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H11",
+        "pregunta": "¿Cuál es el tiempo promedio esperado de búsqueda en una buena tabla hash?",
+        "opciones": [
+          "O(1)",
+          "O(n²)",
+          "O(log n) obligatoriamente",
+          "O(n!)"
+        ],
+        "correcta": "O(1)",
+        "explicacion": "Con buena dispersión y carga controlada, el acceso esperado es constante.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H12",
+        "pregunta": "¿Cuál puede ser el peor caso de búsqueda en una tabla hash?",
+        "opciones": [
+          "O(n)",
+          "O(1) siempre",
+          "O(log log n)",
+          "O(n!)"
+        ],
+        "correcta": "O(n)",
+        "explicacion": "Si muchas claves colisionan, puede ser necesario revisar numerosos elementos.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H13",
+        "pregunta": "¿Cuál es el valor inicial clásico del algoritmo DJB2?",
+        "opciones": [
+          "5381",
+          "0",
+          "13",
+          "256"
+        ],
+        "correcta": "5381",
+        "explicacion": "DJB2 inicia tradicionalmente con 5381.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H14",
+        "pregunta": "¿Qué multiplicador caracteriza a DJB2?",
+        "opciones": [
+          "33",
+          "13",
+          "2",
+          "256"
+        ],
+        "correcta": "33",
+        "explicacion": "La actualización clásica es hash = hash*33 + c.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H15",
+        "pregunta": "¿Por qué (hash << 5) + hash equivale a hash * 33?",
+        "opciones": [
+          "Porque desplazar 5 bits multiplica por 32 y luego se suma hash",
+          "Porque desplazar 5 bits divide por 5",
+          "Porque 5+1=33",
+          "No son equivalentes"
+        ],
+        "correcta": "Porque desplazar 5 bits multiplica por 32 y luego se suma hash",
+        "explicacion": "32h + h = 33h.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H16",
+        "pregunta": "¿Qué representa c en DJB2?",
+        "opciones": [
+          "El código numérico del carácter actual",
+          "El tamaño de la tabla obligatoriamente",
+          "El número de colisiones",
+          "El índice final"
+        ],
+        "correcta": "El código numérico del carácter actual",
+        "explicacion": "Cada carácter modifica acumulativamente el hash.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H17",
+        "pregunta": "¿Qué hace este pseudocódigo?",
+        "opciones": [
+          "Calcula DJB2 para una cadena",
+          "Realiza sondeo lineal",
+          "Balancea un AVL",
+          "Inserta en una pila"
+        ],
+        "correcta": "Calcula DJB2 para una cadena",
+        "explicacion": "Comienza en 5381 y combina cada carácter multiplicando por 33.",
+        "nivel": "medio",
+        "codigo": "hash ← 5381\nPARA cada carácter c DE clave\n    hash ← hash * 33 + CODIGO(c)\nFIN PARA"
+      },
+      {
+        "id": "H18",
+        "pregunta": "Si se usa encadenamiento y dos claves llegan al mismo índice, ¿qué ocurre?",
+        "opciones": [
+          "Ambas pueden conservarse dentro de la lista de esa posición",
+          "La segunda debe descartarse",
+          "La tabla debe borrarse",
+          "La primera cambia de clave"
+        ],
+        "correcta": "Ambas pueden conservarse dentro de la lista de esa posición",
+        "explicacion": "El encadenamiento resuelve la colisión mediante nodos enlazados.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H19",
+        "pregunta": "¿Qué problema clásico puede producir el sondeo lineal?",
+        "opciones": [
+          "Agrupamiento primario (clustering)",
+          "Rotaciones AVL",
+          "Underflow de pila",
+          "Recursión infinita obligatoria"
+        ],
+        "correcta": "Agrupamiento primario (clustering)",
+        "explicacion": "Secuencias de posiciones ocupadas tienden a crecer.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H20",
+        "pregunta": "¿Qué ventaja busca el sondeo cuadrático frente al lineal?",
+        "opciones": [
+          "Dispersar mejor las posiciones probadas y reducir agrupamientos consecutivos",
+          "Eliminar la función hash",
+          "Garantizar cero colisiones",
+          "Usar listas enlazadas"
+        ],
+        "correcta": "Dispersar mejor las posiciones probadas y reducir agrupamientos consecutivos",
+        "explicacion": "Los saltos i² evitan revisar únicamente posiciones consecutivas.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H21",
+        "pregunta": "¿Por qué suele elegirse un tamaño primo para una tabla con módulo?",
+        "opciones": [
+          "Ayuda a mejorar la dispersión con muchos patrones de claves",
+          "Garantiza que nunca haya colisiones",
+          "Reduce todas las claves a cero",
+          "Evita usar memoria"
+        ],
+        "correcta": "Ayuda a mejorar la dispersión con muchos patrones de claves",
+        "explicacion": "Un tamaño primo suele interactuar mejor con funciones modulares.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H22",
+        "pregunta": "¿Qué error tiene este procedimiento de sondeo lineal?",
+        "opciones": [
+          "No aplica módulo y el índice puede salir del arreglo",
+          "Usa demasiadas listas",
+          "Calcula DJB2 correctamente",
+          "Es un AVL"
+        ],
+        "correcta": "No aplica módulo y el índice puede salir del arreglo",
+        "explicacion": "El índice debe envolverse con % m.",
+        "nivel": "medio",
+        "codigo": "indice ← h(clave)\nMIENTRAS tabla[indice] esté ocupada\n    indice ← indice + 1\nFIN MIENTRAS"
+      },
+      {
+        "id": "H23",
+        "pregunta": "Observa la imagen. ¿Qué estrategia de colisiones se muestra?",
+        "opciones": [
+          "Encadenamiento",
+          "Sondeo lineal",
+          "Sondeo cuadrático",
+          "Heapify"
+        ],
+        "correcta": "Encadenamiento",
+        "explicacion": "Varios registros pueden quedar enlazados desde la misma posición de la tabla.",
+        "nivel": "medio",
+        "imagen": "../images/Tabla hash con encadenamiento numérico.png"
+      },
+      {
+        "id": "H24",
+        "pregunta": "¿Cómo puede aplicarse una tabla hash a archivos binarios?",
+        "opciones": [
+          "Usando el hash para localizar rápidamente la posición o registro asociado",
+          "Convirtiendo todos los archivos en texto",
+          "Solo mediante recorrido secuencial",
+          "Eliminando los índices"
+        ],
+        "correcta": "Usando el hash para localizar rápidamente la posición o registro asociado",
+        "explicacion": "El hash puede ayudar a construir índices y accesos directos a registros.",
+        "nivel": "medio"
+      },
+      {
+        "id": "H25",
+        "pregunta": "Si dos claves distintas producen exactamente el mismo valor h(k), ¿qué debe hacer una implementación correcta?",
+        "opciones": [
+          "Aplicar una estrategia de resolución de colisiones",
+          "Sobrescribir siempre la primera sin aviso",
+          "Declarar que ambas claves son iguales",
+          "Detener el programa obligatoriamente"
+        ],
+        "correcta": "Aplicar una estrategia de resolución de colisiones",
+        "explicacion": "Encadenamiento o direccionamiento abierto permiten conservar las claves.",
+        "nivel": "medio"
+      }
+    ]
+  }
+}

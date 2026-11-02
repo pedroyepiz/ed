@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006847">
+  <meta name="description" content="Cuestionario aleatorio de Estructuras de Datos: Listas, Pilas, Colas, Árboles, Montículos y Tablas Hash.">
+  <title>Cuestionario de Estructuras de Datos | UABC FIAD</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../styles/site.css">
+  <link rel="stylesheet" href="../styles/cuestionario_estructuras.css">
+</head>
+
+<body class="pe-home pe-course-page pe-uniform-page">
+  <div id="site-header"></div>
+
+  <section class="topic-course-hero quiz-course-hero">
+    <div class="container-fluid pe-shell">
+      <div class="row g-4 align-items-center py-4 py-xl-5">
+        <div class="col-12 col-xl-7">
+          <div class="topic-number-pill">
+            <i class="bi bi-patch-question-fill"></i> Evaluación interactiva
+          </div>
+          <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
+          <h1 class="course-title">Cuestionario de estructuras</h1>
+          <p class="course-subtitle mb-0">
+            Banco aleatorio de preguntas por tema · 10 preguntas por intento
+          </p>
+          <div class="hero-line"></div>
+          <div class="course-quote">
+            <i class="bi bi-shuffle"></i>
+            <span>Cada intento selecciona preguntas diferentes del banco del tema.</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-xl-5">
+          <div id="course-info" data-topic="Cuestionario de Estructuras de Datos"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container-fluid pe-shell page-content-shell">
+    <article class="page-content-card content quiz-page">
+
+      <div class="note">
+        <b>Instrucciones:</b>
+        selecciona un tema. El sistema tomará <b>10 preguntas aleatorias de un banco de 25</b>.
+        Algunas preguntas incluyen pseudocódigo o imágenes. Contesta las 10 y presiona
+        <b>Comprobar respuestas</b> para conocer aciertos, errores y calificación.
+      </div>
+
+      <section class="quiz-topic-section" aria-labelledby="quiz-topic-title">
+        <div class="section-heading">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+          <h2 id="quiz-topic-title">Selecciona un tema</h2>
+        </div>
+
+        <div id="quiz-topic-grid" class="quiz-topic-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="quiz-panel" class="quiz-panel d-none" aria-labelledby="quiz-current-topic">
+        <div class="quiz-toolbar">
+          <div>
+            <span class="quiz-toolbar-kicker">CUESTIONARIO ACTUAL</span>
+            <h2 id="quiz-current-topic">Tema</h2>
+            <p id="quiz-current-meta">10 preguntas aleatorias</p>
+          </div>
+
+          <div class="quiz-toolbar-actions">
+            <button id="quiz-new-attempt" class="quiz-btn secondary" type="button">
+              <i class="bi bi-shuffle"></i> Nuevo intento
+            </button>
+            <button id="quiz-change-topic" class="quiz-btn secondary" type="button">
+              <i class="bi bi-grid"></i> Cambiar tema
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-progress-wrap" aria-label="Progreso del cuestionario">
+          <div class="quiz-progress-text">
+            <span>Respondidas</span>
+            <strong id="quiz-progress-label">0 / 10</strong>
+          </div>
+          <div class="quiz-progress">
+            <div id="quiz-progress-bar" class="quiz-progress-bar"></div>
+          </div>
+        </div>
+
+        <form id="quiz-form" novalidate>
+          <div id="quiz-questions" class="quiz-questions"></div>
+
+          <div class="quiz-submit-row">
+            <button id="quiz-check" class="quiz-btn primary" type="submit">
+              <i class="bi bi-check2-circle"></i> Comprobar respuestas
+            </button>
+          </div>
+        </form>
+
+        <section id="quiz-result" class="quiz-result d-none" aria-live="polite">
+          <div class="quiz-score-circle">
+            <span id="quiz-score-number">0</span>
+            <small>/ 100</small>
+          </div>
+          <div>
+            <span class="quiz-result-kicker">RESULTADO</span>
+            <h2 id="quiz-result-title">Calificación</h2>
+            <p id="quiz-result-text"></p>
+          </div>
+        </section>
+      </section>
+
+      <div id="quiz-load-error" class="quiz-load-error d-none" role="alert">
+        No fue posible cargar el banco de preguntas. Verifica que
+        <code>data/preguntas_estructuras.json</code> exista en el sitio y abre la página desde
+        GitHub Pages o un servidor local.
+      </div>
+
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../scripts/site.js" defer></script>
+  <script src="../scripts/cuestionario_estructuras.js" defer></script>
+</body>
+</html>
