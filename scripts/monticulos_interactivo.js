@@ -849,4 +849,88 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.querySelector("[data-heap-simulator]")) {
     new HeapSimulator();
   }
+
+  function initHeapTopicQuiz() {
+    const form = document.getElementById("heap-topic-quiz");
+    if (!form) return;
+
+    const questions = [...form.querySelectorAll(".heap-quiz-question")];
+    const result = document.getElementById("heap-quiz-result");
+    const resetButton = form.querySelector("[data-heap-quiz-reset]");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const unanswered = questions.filter((question) => {
+        return !question.querySelector('input[type="radio"]:checked');
+      });
+
+      if (unanswered.length) {
+        result.textContent = `Faltan ${unanswered.length} pregunta(s) por contestar.`;
+        result.classList.add("visible");
+        unanswered[0].scrollIntoView({behavior:"smooth", block:"center"});
+        return;
+      }
+
+      let correct = 0;
+
+      questions.forEach((question) => {
+        question.classList.remove("correct", "incorrect", "checked");
+
+        const expected = question.dataset.correct;
+        const selected = question.querySelector('input[type="radio"]:checked');
+
+        question.querySelectorAll("label").forEach((label) => {
+          label.classList.remove("correct-answer", "user-wrong");
+          const input = label.querySelector('input[type="radio"]');
+
+          if (input.value === expected) {
+            label.classList.add("correct-answer");
+          }
+
+          if (input.checked && input.value !== expected) {
+            label.classList.add("user-wrong");
+          }
+        });
+
+        if (selected.value === expected) {
+          correct++;
+          question.classList.add("correct");
+        } else {
+          question.classList.add("incorrect");
+        }
+
+        question.classList.add("checked");
+      });
+
+      const score = correct * 20;
+      const message =
+        score >= 80
+          ? "Buen dominio de los conceptos fundamentales."
+          : score >= 60
+            ? "Conviene repasar las preguntas incorrectas."
+            : "Es recomendable volver a revisar el tema y utilizar los simuladores.";
+
+      result.innerHTML = `<strong>${correct}/5 correctas · ${score}/100.</strong> ${message}`;
+      result.classList.add("visible");
+      result.scrollIntoView({behavior:"smooth", block:"center"});
+    });
+
+    resetButton?.addEventListener("click", () => {
+      form.reset();
+
+      questions.forEach((question) => {
+        question.classList.remove("correct", "incorrect", "checked");
+        question.querySelectorAll("label").forEach((label) => {
+          label.classList.remove("correct-answer", "user-wrong");
+        });
+      });
+
+      result.textContent = "";
+      result.classList.remove("visible");
+    });
+  }
+
+  initHeapTopicQuiz();
+
 });
