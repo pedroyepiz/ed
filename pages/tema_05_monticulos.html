@@ -1,337 +1,290 @@
 <!DOCTYPE html>
+
 <html lang="es-MX">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <meta content="#006847" name="theme-color"/>
-  <meta content="Tema 5 de Estructuras de Datos: colas con prioridad y mont&iacute;culos binarios (heaps), representaci&oacute;n en arreglo, Heapify Up, Heapify Down, eficiencia y aplicaciones." name="description"/>
-  <title>
-   Tema 5 &middot; Colas con prioridad y montones | Estructuras de Datos
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#006847" name="theme-color"/>
+<meta content="Tema 5 de Estructuras de Datos: colas con prioridad y montículos binarios (heaps), representación en arreglo, Heapify Up, Heapify Down, eficiencia y aplicaciones." name="description"/>
+<title>
+   Tema 5 · Colas con prioridad y montones | Estructuras de Datos
   </title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="../styles/site.css" rel="stylesheet"/>
-  <link href="../styles/monticulos_interactivo.css" rel="stylesheet"/>
- </head>
- <body class="pe-home pe-course-page pe-uniform-page">
-  <div id="site-header">
-  </div>
-  <section class="topic-course-hero heap-topic-hero">
-   <div class="container-fluid pe-shell">
-    <div class="row g-4 align-items-center py-4 py-xl-5">
-     <div class="col-12 col-xl-5">
-      <div class="topic-number-pill">
-       TEMA 5 &middot; Colas con prioridad y montones
-      </div>
-      <div class="course-kicker">
-       ESTRUCTURAS DE DATOS
-      </div>
-      <h1 class="course-title">
-       Colas con prioridad y montones
-      </h1>
-      <p class="course-subtitle mb-0">
-       Priority Queues &middot; Min-Heap &middot; Max-Heap &middot; Heapify
-      </p>
-      <div class="hero-line">
-      </div>
-      <div class="course-quote">
-       <span aria-hidden="true" class="ui-icon">
-        ⚡
-       </span>
-       <span>
-        &ldquo;La prioridad decide qu&eacute; elemento debe atenderse primero; el heap permite hacerlo eficientemente.&rdquo;
-       </span>
-      </div>
-     </div>
-     <div class="col-12 col-md-6 col-xl-3">
-      <div class="heap-topic-cover">
-       <img alt="Infograf&iacute;a de mont&iacute;culos Min-Heap y Max-Heap con representaci&oacute;n en arreglo" decoding="async" loading="eager" src="../images/monticulos_portada.webp"/>
-      </div>
-     </div>
-     <div class="col-12 col-md-6 col-xl-4">
-      <div data-topic="TEMA 5 &middot; Colas con prioridad y montones" id="course-info">
-      </div>
-     </div>
-    </div>
-   </div>
-  </section>
-  <section class="heap-topic-menu-wrap">
-   <div class="container-fluid pe-shell">
-    <nav aria-label="Contenido del Tema 5" class="ed-topic-local">
-     <a href="#competencia">
-      Competencia
-     </a>
-     <a href="#definicion">
-      5.1 Definici&oacute;n
-     </a>
-     <a href="#prioridad">
-      5.1.1 Cola con prioridad
-     </a>
-     <a href="#montones">
-      5.1.2 Montones
-     </a>
-     <a href="#arreglo">
-      Representaci&oacute;n
-     </a>
-     <a href="#heapify-up">
-      Heapify Up
-     </a>
-     <a href="#heapify-down">
-      Heapify Down
-     </a>
-     <a href="#eficiencia">
-      Eficiencia
-     </a>
-     <a href="#aplicaciones">
-      Aplicaciones
-     </a>
-     <a href="#comparacion">
-      Comparaci&oacute;n
-     </a>
-     <a href="#problemas">
-      5.3 Problemas
-     </a>
-     <a href="#simulador-prioridad">
-      Sim. prioridad
-     </a>
-     <a href="#simulador-heap">
-      Sim. Heap
-     </a>
-     <a href="recursos_monticulos.html">
-      Recursos
-     </a>
-     <a href="#quiz-monticulos">
-      5 preguntas
-     </a>
-     <a href="cuestionario_estructuras.html?tema=monticulos">
-      Quiz general
-     </a>
-    </nav>
-   </div>
-  </section>
-  <main class="container-fluid pe-shell page-content-shell">
-   <article class="page-content-card content ed-new-topic">
-    <section class="heap-section" id="competencia">
-     <div class="note">
-      <b>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../styles/site.css" rel="stylesheet"/>
+<link href="../styles/monticulos_interactivo.css" rel="stylesheet"/>
+</head>
+<body class="pe-home pe-course-page pe-uniform-page ed-topic-interactive">
+<div id="site-header">
+</div>
+<section class="topic-course-hero">
+<div class="container-fluid pe-shell">
+<div class="row g-4 align-items-center py-4 py-xl-5">
+<div class="col-12 col-xl-5">
+<div class="topic-number-pill">TEMA 5 · Colas con prioridad y montones</div>
+<div class="course-kicker">ESTRUCTURAS DE DATOS</div>
+<h1 class="course-title">Colas con prioridad y montones</h1>
+<p class="course-subtitle mb-0">Priority Queues · Min-Heap · Max-Heap · Heapify</p>
+<div class="hero-line"></div>
+<div class="course-quote">
+<span aria-hidden="true" class="ui-icon">⚡</span>
+<span>“La prioridad decide qué elemento debe atenderse primero; el heap permite hacerlo eficientemente.”</span>
+</div>
+</div>
+<div class="col-12 col-md-6 col-xl-3">
+<div class="topic-hero-visual">
+<img alt="Montones o heaps: Min-Heap, Max-Heap y representación en arreglo" class="img-fluid rounded-4 shadow-sm w-100" decoding="async" height="443" loading="eager" src="../images/monticulos_portada.webp" width="887"/>
+</div>
+</div>
+<div class="col-12 col-md-6 col-xl-4">
+<div data-topic="TEMA 5 · Colas con prioridad y montones" id="course-info"></div>
+</div>
+</div>
+</div>
+<div class="container-fluid pe-shell pb-4">
+<nav aria-label="Contenido del Tema 5" class="topic-nav ed-topic-local">
+<a href="#competencia">Competencia</a>
+<a href="#definicion">5.1 Definición</a>
+<a href="#prioridad">5.1.1 Cola con prioridad</a>
+<a href="#montones">5.1.2 Montones</a>
+<a href="#arreglo">Representación</a>
+<a href="#heapify-up">Heapify Up</a>
+<a href="#heapify-down">Heapify Down</a>
+<a href="#eficiencia">Eficiencia</a>
+<a href="#aplicaciones">Aplicaciones</a>
+<a href="#comparacion">Comparación</a>
+<a href="#problemas">5.3 Problemas</a>
+<a href="#simulador-prioridad">Sim. prioridad</a>
+<a href="#simulador-heap">Sim. Heap</a>
+<a href="recursos_monticulos.html">Recursos</a>
+<a href="#quiz-monticulos">5 preguntas</a>
+<a href="cuestionario_estructuras.html?tema=monticulos">Quiz general</a>
+</nav>
+</div>
+</section>
+<main class="container-fluid pe-shell page-content-shell">
+<article class="page-content-card content ed-new-topic">
+<section class="heap-section" id="competencia">
+<div class="note">
+<b>
        Competencia:
       </b>
-      elaborar un programa de procesamiento de informaci&oacute;n, aplicando los conceptos de
-          colas con prioridad y montones, con el prop&oacute;sito de dar soluci&oacute;n a un problema
-          espec&iacute;fico pertinente, con una actitud creativa, proactiva y honesta.
+      elaborar un programa de procesamiento de información, aplicando los conceptos de
+          colas con prioridad y montones, con el propósito de dar solución a un problema
+          específico pertinente, con una actitud creativa, proactiva y honesta.
       <br/>
-      <b>
-       Duraci&oacute;n:
+<b>
+       Duración:
       </b>
       6 horas.
      </div>
-    </section>
-    <section class="heap-section" id="definicion">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</section>
+<section class="heap-section" id="definicion">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        🎯
       </span>
-      <h2>
-       5.1 &middot; Definici&oacute;n
+<h2>
+       5.1 · Definición
       </h2>
-     </div>
-     <p>
+</div>
+<p>
       Una
       <b>
        cola con prioridad
       </b>
       es una estructura en la que cada elemento posee una
           prioridad asociada. A diferencia de una cola FIFO, el siguiente elemento que se
-          atiende no necesariamente es el primero que lleg&oacute;, sino el que tiene la prioridad
-          m&aacute;s alta de acuerdo con el criterio definido.
+          atiende no necesariamente es el primero que llegó, sino el que tiene la prioridad
+          más alta de acuerdo con el criterio definido.
      </p>
-     <p>
+<p>
       Un
       <b>
-       mont&iacute;culo o heap
+       montículo o heap
       </b>
       es una estructura basada en un
       <b>
-       &aacute;rbol binario completo
+       árbol binario completo
       </b>
       que permite implementar eficientemente una cola con prioridad.
      </p>
-     <div class="heap-concept-grid">
-      <article class="heap-concept-card">
-       <span aria-hidden="true" class="heap-concept-icon">
+<div class="heap-concept-grid">
+<article class="heap-concept-card">
+<span aria-hidden="true" class="heap-concept-icon">
         🎫
        </span>
-       <h3>
+<h3>
         Cola con prioridad
        </h3>
-       <p>
-        Define el comportamiento: qui&eacute;n debe ser atendido primero.
+<p>
+        Define el comportamiento: quién debe ser atendido primero.
        </p>
-      </article>
-      <article class="heap-concept-card">
-       <span aria-hidden="true" class="heap-concept-icon">
+</article>
+<article class="heap-concept-card">
+<span aria-hidden="true" class="heap-concept-icon">
         ⚡
        </span>
-       <h3>
+<h3>
         Heap
        </h3>
-       <p>
-        Organiza eficientemente los elementos para encontrar r&aacute;pidamente al prioritario.
+<p>
+        Organiza eficientemente los elementos para encontrar rápidamente al prioritario.
        </p>
-      </article>
-      <article class="heap-concept-card">
-       <span aria-hidden="true" class="heap-concept-icon">
+</article>
+<article class="heap-concept-card">
+<span aria-hidden="true" class="heap-concept-icon">
         🧠
        </span>
-       <h3>
+<h3>
         No son lo mismo
        </h3>
-       <p>
-        La cola con prioridad es un tipo abstracto de dato; el heap es una implementaci&oacute;n com&uacute;n.
+<p>
+        La cola con prioridad es un tipo abstracto de dato; el heap es una implementación común.
        </p>
-      </article>
-     </div>
-    </section>
-    <section class="heap-section" id="prioridad">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</article>
+</div>
+</section>
+<section class="heap-section" id="prioridad">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        🚑
       </span>
-      <h2>
-       5.1.1 &middot; Implementaci&oacute;n y aplicaciones de las colas con prioridad
+<h2>
+       5.1.1 · Implementación y aplicaciones de las colas con prioridad
       </h2>
-     </div>
-     <p>
+</div>
+<p>
       En una cola FIFO tradicional, el criterio de salida es el
       <b>
        orden de llegada
       </b>
       .
           En una cola con prioridad, el criterio cambia: el sistema selecciona al elemento con
-          la prioridad m&aacute;s importante.
+          la prioridad más importante.
      </p>
-     <div class="table-responsive">
-      <table class="table align-middle">
-       <thead>
-        <tr>
-         <th>
-          Caracter&iacute;stica
+<div class="table-responsive">
+<table class="table align-middle">
+<thead>
+<tr>
+<th>
+          Característica
          </th>
-         <th>
+<th>
           Cola FIFO
          </th>
-         <th>
+<th>
           Cola con prioridad
          </th>
-        </tr>
-       </thead>
-       <tbody>
-        <tr>
-         <td>
-          Orden de atenci&oacute;n
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+          Orden de atención
          </td>
-         <td>
+<td>
           Orden de llegada
          </td>
-         <td>
-          Seg&uacute;n prioridad
+<td>
+          Según prioridad
          </td>
-        </tr>
-        <tr>
-         <td>
+</tr>
+<tr>
+<td>
           Primer elemento
          </td>
-         <td>
-          El m&aacute;s antiguo
+<td>
+          El más antiguo
          </td>
-         <td>
+<td>
           El de mayor prioridad
          </td>
-        </tr>
-        <tr>
-         <td>
-          Operaci&oacute;n principal
+</tr>
+<tr>
+<td>
+          Operación principal
          </td>
-         <td>
+<td>
           Desencolar
          </td>
-         <td>
+<td>
           Extraer prioritario
          </td>
-        </tr>
-        <tr>
-         <td>
+</tr>
+<tr>
+<td>
           Ejemplo
          </td>
-         <td>
-          Fila de impresi&oacute;n
+<td>
+          Fila de impresión
          </td>
-         <td>
-          Atenci&oacute;n de urgencias
+<td>
+          Atención de urgencias
          </td>
-        </tr>
-       </tbody>
-      </table>
-     </div>
-     <div class="note">
-      <b>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note">
+<b>
        Ejemplo:
       </b>
       si llegan Ana con prioridad 3, Luis con prioridad 1 y Marta con prioridad 2,
-          y el n&uacute;mero 1 representa la mayor urgencia, el orden de atenci&oacute;n ser&aacute;:
+          y el número 1 representa la mayor urgencia, el orden de atención será:
       <b>
-       Luis &rarr; Marta &rarr; Ana
+       Luis → Marta → Ana
       </b>
       .
      </div>
-     <pre><code>ALGORITMO ExtraerPrioritario(cola)
-    SI cola est&aacute; vac&iacute;a
+<pre><code>ALGORITMO ExtraerPrioritario(cola)
+    SI cola está vacía
         RETORNAR ERROR
     FIN SI
 
-    prioritario &larr; elemento con mayor prioridad
+    prioritario ← elemento con mayor prioridad
     ELIMINAR prioritario
     RETORNAR prioritario
 FIN ALGORITMO</code></pre>
-     <div class="heap-image-grid heap-image-grid-two">
-      <figure class="heap-figure">
-       <img alt="Ejemplo de cola con prioridad aplicada a turnos m&eacute;dicos" decoding="async" loading="lazy" src="../images/cola_prioridad_medica.webp"/>
-       <figcaption>
+<div class="heap-image-grid heap-image-grid-two">
+<figure class="heap-figure">
+<img alt="Ejemplo de cola con prioridad aplicada a turnos médicos" decoding="async" loading="lazy" src="../images/cola_prioridad_medica.webp"/>
+<figcaption>
         Ejemplo cotidiano: se atiende primero al elemento con mayor prioridad.
        </figcaption>
-      </figure>
-      <figure class="heap-figure">
-       <img alt="Cola con prioridad implementada mediante nodos ordenados" decoding="async" loading="lazy" src="../images/cola_prioridad_nodos.webp"/>
-       <figcaption>
-        Implementaci&oacute;n con nodos: dato, prioridad y enlace al siguiente.
+</figure>
+<figure class="heap-figure">
+<img alt="Cola con prioridad implementada mediante nodos ordenados" decoding="async" loading="lazy" src="../images/cola_prioridad_nodos.webp"/>
+<figcaption>
+        Implementación con nodos: dato, prioridad y enlace al siguiente.
        </figcaption>
-      </figure>
-     </div>
-     <div class="note">
-      <b>
-       Convenci&oacute;n de prioridad:
+</figure>
+</div>
+<div class="note">
+<b>
+       Convención de prioridad:
       </b>
       algunas implementaciones usan
       <b>
-       1 como la prioridad m&aacute;s alta
+       1 como la prioridad más alta
       </b>
       y otras usan
       <b>
-       un n&uacute;mero mayor como prioridad m&aacute;s alta
+       un número mayor como prioridad más alta
       </b>
-      . Ambas son v&aacute;lidas; lo importante es
+      . Ambas son válidas; lo importante es
   definir la regla antes de insertar y atender elementos.
      </div>
-    </section>
-    <section class="heap-section" id="simulador-prioridad">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</section>
+<section class="heap-section" id="simulador-prioridad">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        🎫
       </span>
-      <h2>
-       Simulador animado &middot; Cola con prioridad
+<h2>
+       Simulador animado · Cola con prioridad
       </h2>
-     </div>
-     <p>
+</div>
+<p>
       Cada elemento tiene un
       <b>
        valor
@@ -341,193 +294,193 @@ FIN ALGORITMO</code></pre>
        prioridad
       </b>
       .
-          En este simulador, un n&uacute;mero de prioridad mayor significa que debe atenderse antes.
+          En este simulador, un número de prioridad mayor significa que debe atenderse antes.
           Si dos elementos tienen la misma prioridad, se conserva el orden de llegada.
      </p>
-     <div class="note heap-simulator-note">
-      <b>
+<div class="note heap-simulator-note">
+<b>
        En este simulador:
       </b>
-      se conserva la misma configuraci&oacute;n de la p&aacute;gina de Recursos:
+      se conserva la misma configuración de la página de Recursos:
       <b>
-       un n&uacute;mero mayor representa mayor prioridad
+       un número mayor representa mayor prioridad
       </b>
-      . La infograf&iacute;a anterior muestra la
-  convenci&oacute;n inversa para que conozcas ambas posibilidades.
+      . La infografía anterior muestra la
+  convención inversa para que conozcas ambas posibilidades.
      </div>
-     <div class="priority-simulator" data-priority-simulator="">
-      <div class="heap-controls">
-       <div>
-        <label for="priority-value">
+<div class="priority-simulator" data-priority-simulator="">
+<div class="heap-controls">
+<div>
+<label for="priority-value">
          Valor
         </label>
-        <input id="priority-value" maxlength="12" placeholder="Ej. A" type="text"/>
-       </div>
-       <div>
-        <label for="priority-level">
+<input id="priority-value" maxlength="12" placeholder="Ej. A" type="text"/>
+</div>
+<div>
+<label for="priority-level">
          Prioridad
         </label>
-        <input id="priority-level" max="99" min="1" type="number" value="5"/>
-       </div>
-       <button data-priority-action="enqueue" type="button">
+<input id="priority-level" max="99" min="1" type="number" value="5"/>
+</div>
+<button data-priority-action="enqueue" type="button">
         Agregar
        </button>
-       <button data-priority-action="dequeue" type="button">
+<button data-priority-action="dequeue" type="button">
         Atender
        </button>
-       <button class="secondary" data-priority-action="peek" type="button">
+<button class="secondary" data-priority-action="peek" type="button">
         Consultar primero
        </button>
-       <button class="secondary" data-priority-action="example" type="button">
+<button class="secondary" data-priority-action="example" type="button">
         Cargar ejemplo
        </button>
-       <button class="secondary" data-priority-action="clear" type="button">
+<button class="secondary" data-priority-action="clear" type="button">
         Limpiar
        </button>
-      </div>
-      <div class="heap-playback-controls" data-playback-controls="priority">
-       <label for="priority-speed">
+</div>
+<div class="heap-playback-controls" data-playback-controls="priority">
+<label for="priority-speed">
         Tiempo por paso
         <input id="priority-speed" max="5000" min="250" step="250" type="range" value="2500"/>
-       </label>
-       <span class="heap-speed-scale">
-        R&aacute;pido &middot; 0.25 s
+</label>
+<span class="heap-speed-scale">
+        Rápido · 0.25 s
        </span>
-       <span class="heap-speed-label" id="priority-speed-label">
+<span class="heap-speed-label" id="priority-speed-label">
         2.50 s / paso
        </span>
-       <span class="heap-speed-scale">
-        Lento &middot; 5.00 s
+<span class="heap-speed-scale">
+        Lento · 5.00 s
        </span>
-       <button data-playback-action="pause" data-playback-target="priority" type="button">
+<button data-playback-action="pause" data-playback-target="priority" type="button">
         Pausar
        </button>
-       <button data-playback-action="step" data-playback-target="priority" type="button">
+<button data-playback-action="step" data-playback-target="priority" type="button">
         Paso a paso
        </button>
-      </div>
-      <div class="priority-state-grid">
-       <div>
-        <span>
+</div>
+<div class="priority-state-grid">
+<div>
+<span>
          Elementos
         </span>
-        <strong id="priority-count">
+<strong id="priority-count">
          0
         </strong>
-       </div>
-       <div>
-        <span>
+</div>
+<div>
+<span>
          Siguiente en salir
         </span>
-        <strong id="priority-next">
-         &mdash;
+<strong id="priority-next">
+         —
         </strong>
-       </div>
-       <div>
-        <span>
+</div>
+<div>
+<span>
          Regla
         </span>
-        <strong>
+<strong>
          Mayor prioridad
         </strong>
-       </div>
-      </div>
-      <div class="heap-simulator-layout">
-       <div>
-        <div class="priority-visual-wrap">
-         <div class="priority-direction">
-          <span>
+</div>
+</div>
+<div class="heap-simulator-layout">
+<div>
+<div class="priority-visual-wrap">
+<div class="priority-direction">
+<span>
            SALIDA
           </span>
-          <span aria-hidden="true">
-           &larr;
+<span aria-hidden="true">
+           ←
           </span>
-          <span>
-           ORDEN DE ATENCI&Oacute;N
+<span>
+           ORDEN DE ATENCIÓN
           </span>
-          <span aria-hidden="true">
-           &larr;
+<span aria-hidden="true">
+           ←
           </span>
-          <span>
+<span>
            ENTRADA
           </span>
-         </div>
-         <div aria-label="Cola con prioridad simulada" class="priority-visual" id="priority-visual">
-         </div>
-        </div>
-       </div>
-       <aside class="heap-step-panel">
-        <h3>
-         &iquest;Qu&eacute; est&aacute; ocurriendo?
+</div>
+<div aria-label="Cola con prioridad simulada" class="priority-visual" id="priority-visual">
+</div>
+</div>
+</div>
+<aside class="heap-step-panel">
+<h3>
+         ¿Qué está ocurriendo?
         </h3>
-        <ol class="heap-step-list" id="priority-steps">
-         <li>
+<ol class="heap-step-list" id="priority-steps">
+<li>
           Agrega un elemento para comenzar.
          </li>
-        </ol>
-       </aside>
+</ol>
+</aside>
+</div>
+<div aria-live="polite" class="heap-status" id="priority-status">
+       Cola con prioridad vacía.
       </div>
-      <div aria-live="polite" class="heap-status" id="priority-status">
-       Cola con prioridad vac&iacute;a.
-      </div>
-     </div>
-     <div class="note heap-observation">
-      <b>
+</div>
+<div class="note heap-observation">
+<b>
        Observa:
       </b>
-      la posici&oacute;n de salida depende de la prioridad, no &uacute;nicamente del orden de llegada.
-          Cuando dos prioridades son iguales, el que lleg&oacute; primero conserva preferencia.
+      la posición de salida depende de la prioridad, no únicamente del orden de llegada.
+          Cuando dos prioridades son iguales, el que llegó primero conserva preferencia.
      </div>
-    </section>
-    <section class="heap-section" id="montones">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</section>
+<section class="heap-section" id="montones">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        🌳
       </span>
-      <h2>
-       5.1.2 &middot; Montones (Heaps)
+<h2>
+       5.1.2 · Montones (Heaps)
       </h2>
-     </div>
-     <p>
-      Un heap binario debe cumplir simult&aacute;neamente dos propiedades:
+</div>
+<p>
+      Un heap binario debe cumplir simultáneamente dos propiedades:
      </p>
-     <div class="heap-concept-grid">
-      <article class="heap-concept-card">
-       <span aria-hidden="true" class="heap-concept-icon">
+<div class="heap-concept-grid">
+<article class="heap-concept-card">
+<span aria-hidden="true" class="heap-concept-icon">
         🧱
        </span>
-       <h3>
+<h3>
         Propiedad estructural
        </h3>
-       <p>
-        Es un &aacute;rbol binario completo; el &uacute;ltimo nivel se ocupa de izquierda a derecha.
+<p>
+        Es un árbol binario completo; el último nivel se ocupa de izquierda a derecha.
        </p>
-      </article>
-      <article class="heap-concept-card">
-       <span aria-hidden="true" class="heap-concept-icon">
+</article>
+<article class="heap-concept-card">
+<span aria-hidden="true" class="heap-concept-icon">
         ⬇️
        </span>
-       <h3>
+<h3>
         Min-Heap
        </h3>
-       <p>
-        El menor valor est&aacute; en la ra&iacute;z y cada padre es menor o igual que sus hijos.
+<p>
+        El menor valor está en la raíz y cada padre es menor o igual que sus hijos.
        </p>
-      </article>
-      <article class="heap-concept-card">
-       <span aria-hidden="true" class="heap-concept-icon">
+</article>
+<article class="heap-concept-card">
+<span aria-hidden="true" class="heap-concept-icon">
         ⬆️
        </span>
-       <h3>
+<h3>
         Max-Heap
        </h3>
-       <p>
-        El mayor valor est&aacute; en la ra&iacute;z y cada padre es mayor o igual que sus hijos.
+<p>
+        El mayor valor está en la raíz y cada padre es mayor o igual que sus hijos.
        </p>
-      </article>
-     </div>
-     <div class="note">
-      <b>
+</article>
+</div>
+<div class="note">
+<b>
        Importante:
       </b>
       un heap
@@ -535,324 +488,324 @@ FIN ALGORITMO</code></pre>
        no es un ABB
       </b>
       . En un ABB se cumple izquierda &lt; nodo &lt; derecha;
-          en un heap solo se exige la relaci&oacute;n de prioridad entre cada padre y sus hijos.
+          en un heap solo se exige la relación de prioridad entre cada padre y sus hijos.
      </div>
-     <div class="heap-image-feature">
-      <figure class="heap-figure">
-       <img alt="Infograf&iacute;a general de montones Min-Heap y Max-Heap" decoding="async" loading="lazy" src="../images/monticulos_heaps.webp"/>
-       <figcaption>
-        Visi&oacute;n general: propiedades, Min-Heap, Max-Heap, representaci&oacute;n en arreglo y eficiencia.
+<div class="heap-image-feature">
+<figure class="heap-figure">
+<img alt="Infografía general de montones Min-Heap y Max-Heap" decoding="async" loading="lazy" src="../images/monticulos_heaps.webp"/>
+<figcaption>
+        Visión general: propiedades, Min-Heap, Max-Heap, representación en arreglo y eficiencia.
        </figcaption>
-      </figure>
-     </div>
-     <div class="heap-image-grid heap-image-grid-portrait">
-      <figure class="heap-figure heap-figure-portrait">
-       <img alt="Ejemplo gr&aacute;fico de Min-Heap con representaci&oacute;n en arreglo" decoding="async" loading="lazy" src="../images/heap_min.webp"/>
-       <figcaption>
+</figure>
+</div>
+<div class="heap-image-grid heap-image-grid-portrait">
+<figure class="heap-figure heap-figure-portrait">
+<img alt="Ejemplo gráfico de Min-Heap con representación en arreglo" decoding="async" loading="lazy" src="../images/heap_min.webp"/>
+<figcaption>
         Min-Heap: cada padre es menor o igual que sus hijos.
        </figcaption>
-      </figure>
-      <figure class="heap-figure heap-figure-portrait">
-       <img alt="Ejemplo gr&aacute;fico de Max-Heap con representaci&oacute;n en arreglo" decoding="async" loading="lazy" src="../images/heap_max.webp"/>
-       <figcaption>
+</figure>
+<figure class="heap-figure heap-figure-portrait">
+<img alt="Ejemplo gráfico de Max-Heap con representación en arreglo" decoding="async" loading="lazy" src="../images/heap_max.webp"/>
+<figcaption>
         Max-Heap: cada padre es mayor o igual que sus hijos.
        </figcaption>
-      </figure>
-     </div>
-    </section>
-    <section class="heap-section" id="arreglo">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</figure>
+</div>
+</section>
+<section class="heap-section" id="arreglo">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        🧮
       </span>
-      <h2>
-       Representaci&oacute;n gr&aacute;fica y almacenamiento en un arreglo
+<h2>
+       Representación gráfica y almacenamiento en un arreglo
       </h2>
-     </div>
-     <p>
-      Aunque conceptualmente un heap es un &aacute;rbol, normalmente se almacena en un
+</div>
+<p>
+      Aunque conceptualmente un heap es un árbol, normalmente se almacena en un
       <b>
        arreglo unidimensional
       </b>
-      . Gracias a que el &aacute;rbol es completo, no es necesario
+      . Gracias a que el árbol es completo, no es necesario
           guardar punteros hacia los hijos.
      </p>
-     <div class="heap-comparison-strip">
-      <div>
-       <strong>
+<div class="heap-comparison-strip">
+<div>
+<strong>
         Padre
        </strong>
-       <span>
+<span>
         (i - 1) / 2
        </span>
-      </div>
-      <div>
-       <strong>
+</div>
+<div>
+<strong>
         Hijo izquierdo
        </strong>
-       <span>
+<span>
         2i + 1
        </span>
-      </div>
-      <div>
-       <strong>
+</div>
+<div>
+<strong>
         Hijo derecho
        </strong>
-       <span>
+<span>
         2i + 2
        </span>
-      </div>
-      <div>
-       <strong>
-        Ra&iacute;z
+</div>
+<div>
+<strong>
+        Raíz
        </strong>
-       <span>
-        &iacute;ndice 0
+<span>
+        índice 0
        </span>
-      </div>
-     </div>
-     <div class="note">
-      <b>
+</div>
+</div>
+<div class="note">
+<b>
        Ejemplo Min-Heap:
       </b>
-      <code>
+<code>
        [10, 20, 15, 40, 30, 25, 35]
       </code>
       .
-          La posici&oacute;n en el arreglo comienza en el &iacute;ndice 0.
+          La posición en el arreglo comienza en el índice 0.
      </div>
-    </section>
-    <section class="heap-section" id="heapify-up">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</section>
+<section class="heap-section" id="heapify-up">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        ⬆️
       </span>
-      <h2>
-       5.2 &middot; Insertar un elemento &middot; Heapify Up
+<h2>
+       5.2 · Insertar un elemento · Heapify Up
       </h2>
-     </div>
-     <p>
-      El nuevo valor se coloca al final para conservar la forma de &aacute;rbol completo.
-          Despu&eacute;s se compara con su padre y sube mientras viole la propiedad del heap.
+</div>
+<p>
+      El nuevo valor se coloca al final para conservar la forma de árbol completo.
+          Después se compara con su padre y sube mientras viole la propiedad del heap.
      </p>
-     <pre><code>ALGORITMO InsertarMinHeap(heap, valor)
+<pre><code>ALGORITMO InsertarMinHeap(heap, valor)
     AGREGAR valor AL FINAL DE heap
-    i &larr; &Uacute;LTIMO_INDICE(heap)
+    i ← ÚLTIMO_INDICE(heap)
 
     MIENTRAS i &gt; 0
-        padre &larr; (i - 1) / 2
+        padre ← (i - 1) / 2
 
         SI heap[padre] &lt;= heap[i]
             TERMINAR
         FIN SI
 
         INTERCAMBIAR heap[padre], heap[i]
-        i &larr; padre
+        i ← padre
     FIN MIENTRAS
 FIN ALGORITMO</code></pre>
-    </section>
-    <section class="heap-section" id="heapify-down">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</section>
+<section class="heap-section" id="heapify-down">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        ⬇️
       </span>
-      <h2>
-       5.2 &middot; Extraer la ra&iacute;z &middot; Heapify Down
+<h2>
+       5.2 · Extraer la raíz · Heapify Down
       </h2>
-     </div>
-     <p>
-      La ra&iacute;z representa el elemento prioritario. Despu&eacute;s de extraerla, el &uacute;ltimo
-          elemento del arreglo ocupa temporalmente la ra&iacute;z y baja compar&aacute;ndose con sus hijos.
+</div>
+<p>
+      La raíz representa el elemento prioritario. Después de extraerla, el último
+          elemento del arreglo ocupa temporalmente la raíz y baja comparándose con sus hijos.
      </p>
-     <pre><code>ALGORITMO ExtraerMinimo(heap)
-    minimo &larr; heap[0]
-    heap[0] &larr; ULTIMO_ELEMENTO(heap)
+<pre><code>ALGORITMO ExtraerMinimo(heap)
+    minimo ← heap[0]
+    heap[0] ← ULTIMO_ELEMENTO(heap)
     ELIMINAR ULTIMO_ELEMENTO(heap)
 
-    i &larr; 0
+    i ← 0
 
     MIENTRAS tenga al menos un hijo
-        hijo &larr; HIJO_MENOR(i)
+        hijo ← HIJO_MENOR(i)
 
         SI heap[i] &lt;= heap[hijo]
             TERMINAR
         FIN SI
 
         INTERCAMBIAR heap[i], heap[hijo]
-        i &larr; hijo
+        i ← hijo
     FIN MIENTRAS
 
     RETORNAR minimo
 FIN ALGORITMO</code></pre>
-     <p>
-      <b>
+<p>
+<b>
        Heapify Up
       </b>
       y
       <b>
        Heapify Down
       </b>
-      recorren como m&aacute;ximo la altura del &aacute;rbol,
+      recorren como máximo la altura del árbol,
           por lo que su costo es
       <b>
        O(log n)
       </b>
       .
      </p>
-    </section>
-    <section class="heap-section" id="simulador-heap">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</section>
+<section class="heap-section" id="simulador-heap">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        ⚡
       </span>
-      <h2>
-       Simulador animado &middot; Mont&iacute;culo binario (Heap)
+<h2>
+       Simulador animado · Montículo binario (Heap)
       </h2>
-     </div>
-     <p>
-      Inserta valores y observa c&oacute;mo primero se agregan en la
+</div>
+<p>
+      Inserta valores y observa cómo primero se agregan en la
       <b>
-       &uacute;ltima posici&oacute;n del arreglo
+       última posición del arreglo
       </b>
-      y despu&eacute;s suben compar&aacute;ndose con su padre. Al extraer la ra&iacute;z, el &uacute;ltimo elemento ocupa
+      y después suben comparándose con su padre. Al extraer la raíz, el último elemento ocupa
           temporalmente su lugar y luego baja hasta recuperar la propiedad del heap.
      </p>
-     <div class="heap-simulator" data-heap-simulator="">
-      <div class="heap-controls">
-       <div>
-        <label for="heap-value">
+<div class="heap-simulator" data-heap-simulator="">
+<div class="heap-controls">
+<div>
+<label for="heap-value">
          Valor entero
         </label>
-        <input id="heap-value" max="999" min="-999" placeholder="Ej. 70" type="number"/>
-       </div>
-       <div>
-        <label for="heap-type">
+<input id="heap-value" max="999" min="-999" placeholder="Ej. 70" type="number"/>
+</div>
+<div>
+<label for="heap-type">
          Tipo
         </label>
-        <select id="heap-type">
-         <option value="max">
-          Max-Heap &middot; mayor arriba
+<select id="heap-type">
+<option value="max">
+          Max-Heap · mayor arriba
          </option>
-         <option value="min">
-          Min-Heap &middot; menor arriba
+<option value="min">
+          Min-Heap · menor arriba
          </option>
-        </select>
-       </div>
-       <button data-heap-action="insert" type="button">
+</select>
+</div>
+<button data-heap-action="insert" type="button">
         Insertar
        </button>
-       <button data-heap-action="extract" type="button">
-        Extraer ra&iacute;z
+<button data-heap-action="extract" type="button">
+        Extraer raíz
        </button>
-       <button class="secondary" data-heap-action="peek" type="button">
-        Consultar ra&iacute;z
+<button class="secondary" data-heap-action="peek" type="button">
+        Consultar raíz
        </button>
-       <button class="secondary" data-heap-action="example" type="button">
+<button class="secondary" data-heap-action="example" type="button">
         Cargar ejemplo
        </button>
-       <button class="secondary" data-heap-action="clear" type="button">
+<button class="secondary" data-heap-action="clear" type="button">
         Limpiar
        </button>
-      </div>
-      <div class="heap-playback-controls" data-playback-controls="heap">
-       <label for="heap-speed">
+</div>
+<div class="heap-playback-controls" data-playback-controls="heap">
+<label for="heap-speed">
         Tiempo por paso
         <input id="heap-speed" max="5000" min="250" step="250" type="range" value="2500"/>
-       </label>
-       <span class="heap-speed-scale">
-        R&aacute;pido &middot; 0.25 s
+</label>
+<span class="heap-speed-scale">
+        Rápido · 0.25 s
        </span>
-       <span class="heap-speed-label" id="heap-speed-label">
+<span class="heap-speed-label" id="heap-speed-label">
         2.50 s / paso
        </span>
-       <span class="heap-speed-scale">
-        Lento &middot; 5.00 s
+<span class="heap-speed-scale">
+        Lento · 5.00 s
        </span>
-       <button data-playback-action="pause" data-playback-target="heap" type="button">
+<button data-playback-action="pause" data-playback-target="heap" type="button">
         Pausar
        </button>
-       <button data-playback-action="step" data-playback-target="heap" type="button">
+<button data-playback-action="step" data-playback-target="heap" type="button">
         Paso a paso
        </button>
-      </div>
-      <div class="heap-state-grid">
-       <div>
-        <span>
+</div>
+<div class="heap-state-grid">
+<div>
+<span>
          Tipo
         </span>
-        <strong id="heap-type-label">
+<strong id="heap-type-label">
          MAX-HEAP
         </strong>
-       </div>
-       <div>
-        <span>
-         Ra&iacute;z
+</div>
+<div>
+<span>
+         Raíz
         </span>
-        <strong id="heap-root-value">
-         &mdash;
+<strong id="heap-root-value">
+         —
         </strong>
-       </div>
-       <div>
-        <span>
+</div>
+<div>
+<span>
          Elementos
         </span>
-        <strong id="heap-count">
+<strong id="heap-count">
          0
         </strong>
-       </div>
-       <div>
-        <span>
+</div>
+<div>
+<span>
          Altura aprox.
         </span>
-        <strong id="heap-height">
+<strong id="heap-height">
          0
         </strong>
-       </div>
-      </div>
-      <div class="heap-simulator-layout">
-       <div>
-        <div class="heap-tree-wrap">
-         <div class="heap-view-title">
-          <span>
-           🌳 &Aacute;rbol binario completo
+</div>
+</div>
+<div class="heap-simulator-layout">
+<div>
+<div class="heap-tree-wrap">
+<div class="heap-view-title">
+<span>
+           🌳 Árbol binario completo
           </span>
-          <span id="heap-property-text">
-           Padre &ge; hijos
+<span id="heap-property-text">
+           Padre ≥ hijos
           </span>
-         </div>
-         <svg aria-label="Mont&iacute;culo binario simulado" class="heap-canvas" id="heap-canvas" role="img" viewbox="0 0 1000 520">
-         </svg>
-        </div>
-        <div class="heap-array-wrap">
-         <div class="heap-view-title">
-          <span>
+</div>
+<svg aria-label="Montículo binario simulado" class="heap-canvas" id="heap-canvas" role="img" viewbox="0 0 1000 520">
+</svg>
+</div>
+<div class="heap-array-wrap">
+<div class="heap-view-title">
+<span>
            🧱 El mismo heap dentro de un arreglo
           </span>
-          <span>
-           hijo izq = 2i+1 &middot; hijo der = 2i+2
+<span>
+           hijo izq = 2i+1 · hijo der = 2i+2
           </span>
-         </div>
-         <div aria-label="Representaci&oacute;n del heap en arreglo" class="heap-array" id="heap-array">
-         </div>
-        </div>
-       </div>
-       <aside class="heap-step-panel">
-        <h3>
+</div>
+<div aria-label="Representación del heap en arreglo" class="heap-array" id="heap-array">
+</div>
+</div>
+</div>
+<aside class="heap-step-panel">
+<h3>
          Heapify paso a paso
         </h3>
-        <ol class="heap-step-list" id="heap-steps">
-         <li>
+<ol class="heap-step-list" id="heap-steps">
+<li>
           Inserta un valor para comenzar.
          </li>
-        </ol>
-       </aside>
+</ol>
+</aside>
+</div>
+<div aria-live="polite" class="heap-status" id="heap-status">
+       Montículo vacío.
       </div>
-      <div aria-live="polite" class="heap-status" id="heap-status">
-       Mont&iacute;culo vac&iacute;o.
-      </div>
-     </div>
-     <div class="note heap-observation">
-      <b>
+</div>
+<div class="note heap-observation">
+<b>
        Observa:
       </b>
       un heap
@@ -860,359 +813,359 @@ FIN ALGORITMO</code></pre>
        no es un ABB
       </b>
       . Solo exige que cada padre cumpla la propiedad respecto de sus hijos.
-          El arreglo conserva la forma de &aacute;rbol binario completo sin guardar punteros.
+          El arreglo conserva la forma de árbol binario completo sin guardar punteros.
      </div>
-    </section>
-    <section class="heap-section" id="eficiencia">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</section>
+<section class="heap-section" id="eficiencia">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        ⚡
       </span>
-      <h2>
+<h2>
        Operaciones y grado de eficiencia
       </h2>
-     </div>
-     <div class="heap-image-feature heap-image-feature-narrow">
-      <figure class="heap-figure heap-figure-portrait">
-       <img alt="Operaciones y complejidad de un heap" decoding="async" loading="lazy" src="../images/heap_operaciones_eficiencia.webp"/>
-       <figcaption>
+</div>
+<div class="heap-image-feature heap-image-feature-narrow">
+<figure class="heap-figure heap-figure-portrait">
+<img alt="Operaciones y complejidad de un heap" decoding="async" loading="lazy" src="../images/heap_operaciones_eficiencia.webp"/>
+<figcaption>
         Resumen visual de las operaciones principales y su complejidad.
        </figcaption>
-      </figure>
-     </div>
-     <div class="table-responsive">
-      <table class="table align-middle">
-       <thead>
-        <tr>
-         <th>
-          Operaci&oacute;n
+</figure>
+</div>
+<div class="table-responsive">
+<table class="table align-middle">
+<thead>
+<tr>
+<th>
+          Operación
          </th>
-         <th>
-          &iquest;Qu&eacute; realiza?
+<th>
+          ¿Qué realiza?
          </th>
-         <th>
+<th>
           Complejidad
          </th>
-        </tr>
-       </thead>
-       <tbody>
-        <tr>
-         <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
           Insertar
          </td>
-         <td>
+<td>
           Agrega y reordena
          </td>
-         <td>
-          <b>
+<td>
+<b>
            O(log n)
           </b>
+</td>
+</tr>
+<tr>
+<td>
+          Consultar raíz
          </td>
-        </tr>
-        <tr>
-         <td>
-          Consultar ra&iacute;z
-         </td>
-         <td>
+<td>
           Obtiene el prioritario sin eliminar
          </td>
-         <td>
-          <b>
+<td>
+<b>
            O(1)
           </b>
+</td>
+</tr>
+<tr>
+<td>
+          Extraer raíz
          </td>
-        </tr>
-        <tr>
-         <td>
-          Extraer ra&iacute;z
-         </td>
-         <td>
+<td>
           Elimina el prioritario y reordena
          </td>
-         <td>
-          <b>
+<td>
+<b>
            O(log n)
           </b>
-         </td>
-        </tr>
-        <tr>
-         <td>
+</td>
+</tr>
+<tr>
+<td>
           Buscar valor arbitrario
          </td>
-         <td>
+<td>
           Recorre elementos
          </td>
-         <td>
-          <b>
+<td>
+<b>
            O(n)
           </b>
-         </td>
-        </tr>
-        <tr>
-         <td>
+</td>
+</tr>
+<tr>
+<td>
           Eliminar valor arbitrario
          </td>
-         <td>
+<td>
           Busca, elimina y reordena
          </td>
-         <td>
-          <b>
+<td>
+<b>
            O(n)
           </b>
-         </td>
-        </tr>
-        <tr>
-         <td>
+</td>
+</tr>
+<tr>
+<td>
           Cambiar prioridad
          </td>
-         <td>
-          Actualiza una posici&oacute;n conocida y reordena
+<td>
+          Actualiza una posición conocida y reordena
          </td>
-         <td>
-          <b>
+<td>
+<b>
            O(log n)
           </b>
           *
          </td>
-        </tr>
-        <tr>
-         <td>
+</tr>
+<tr>
+<td>
           Build-Heap
          </td>
-         <td>
+<td>
           Organiza un arreglo existente
          </td>
-         <td>
-          <b>
+<td>
+<b>
            O(n)
           </b>
-         </td>
-        </tr>
-        <tr>
-         <td>
+</td>
+</tr>
+<tr>
+<td>
           Heapsort
          </td>
-         <td>
+<td>
           Ordena todos los elementos
          </td>
-         <td>
-          <b>
+<td>
+<b>
            O(n log n)
           </b>
-         </td>
-        </tr>
-       </tbody>
-      </table>
-     </div>
-     <p class="small">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="small">
       * Si primero hay que buscar el elemento, el costo total puede llegar a O(n).
      </p>
-    </section>
-    <section class="heap-section" id="aplicaciones">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</section>
+<section class="heap-section" id="aplicaciones">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        🌐
       </span>
-      <h2>
+<h2>
        Aplicaciones en ciencias computacionales
       </h2>
-     </div>
-     <div class="heap-concept-grid">
-      <article class="heap-concept-card">
-       <span class="heap-concept-icon">
+</div>
+<div class="heap-concept-grid">
+<article class="heap-concept-card">
+<span class="heap-concept-icon">
         🖥️
        </span>
-       <h3>
+<h3>
         Sistemas operativos
        </h3>
-       <p>
-        Selecci&oacute;n de procesos seg&uacute;n prioridad.
+<p>
+        Selección de procesos según prioridad.
        </p>
-      </article>
-      <article class="heap-concept-card">
-       <span class="heap-concept-icon">
+</article>
+<article class="heap-concept-card">
+<span class="heap-concept-icon">
         🌐
        </span>
-       <h3>
+<h3>
         Redes
        </h3>
-       <p>
-        Priorizaci&oacute;n de paquetes y eventos.
+<p>
+        Priorización de paquetes y eventos.
        </p>
-      </article>
-      <article class="heap-concept-card">
-       <span class="heap-concept-icon">
+</article>
+<article class="heap-concept-card">
+<span class="heap-concept-icon">
         🗺️
        </span>
-       <h3>
+<h3>
         Grafos
        </h3>
-       <p>
+<p>
         Dijkstra y Prim.
        </p>
-      </article>
-      <article class="heap-concept-card">
-       <span class="heap-concept-icon">
+</article>
+<article class="heap-concept-card">
+<span class="heap-concept-icon">
         ⏱️
        </span>
-       <h3>
+<h3>
         Simuladores
        </h3>
-       <p>
+<p>
         Eventos por instante o prioridad.
        </p>
-      </article>
-      <article class="heap-concept-card">
-       <span class="heap-concept-icon">
+</article>
+<article class="heap-concept-card">
+<span class="heap-concept-icon">
         🗜️
        </span>
-       <h3>
-        Compresi&oacute;n
+<h3>
+        Compresión
        </h3>
-       <p>
-        Construcci&oacute;n de &aacute;rboles de Huffman.
+<p>
+        Construcción de árboles de Huffman.
        </p>
-      </article>
-      <article class="heap-concept-card">
-       <span class="heap-concept-icon">
+</article>
+<article class="heap-concept-card">
+<span class="heap-concept-icon">
         📊
        </span>
-       <h3>
+<h3>
         Ordenamiento
        </h3>
-       <p>
+<p>
         Algoritmo Heapsort.
        </p>
-      </article>
-     </div>
-    </section>
-    <section class="heap-section" id="comparacion">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</article>
+</div>
+</section>
+<section class="heap-section" id="comparacion">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        📋
       </span>
-      <h2>
-       Comparaci&oacute;n con otras estructuras
+<h2>
+       Comparación con otras estructuras
       </h2>
-     </div>
-     <div class="table-responsive">
-      <table class="table align-middle">
-       <thead>
-        <tr>
-         <th>
+</div>
+<div class="table-responsive">
+<table class="table align-middle">
+<thead>
+<tr>
+<th>
           Estructura
          </th>
-         <th>
+<th>
           Insertar
          </th>
-         <th>
+<th>
           Obtener prioritario
          </th>
-         <th>
+<th>
           Extraer prioritario
          </th>
-        </tr>
-       </thead>
-       <tbody>
-        <tr>
-         <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
           Arreglo sin ordenar
          </td>
-         <td>
+<td>
           O(1)*
          </td>
-         <td>
+<td>
           O(n)
          </td>
-         <td>
+<td>
           O(n)
          </td>
-        </tr>
-        <tr>
-         <td>
+</tr>
+<tr>
+<td>
           Arreglo ordenado
          </td>
-         <td>
+<td>
           O(n)
          </td>
-         <td>
+<td>
           O(1)
          </td>
-         <td>
+<td>
           O(1)
          </td>
-        </tr>
-        <tr>
-         <td>
+</tr>
+<tr>
+<td>
           Lista enlazada ordenada
          </td>
-         <td>
+<td>
           O(n)
          </td>
-         <td>
+<td>
           O(1)
          </td>
-         <td>
+<td>
           O(1)
          </td>
-        </tr>
-        <tr>
-         <td>
-          <b>
+</tr>
+<tr>
+<td>
+<b>
            Heap binario
           </b>
-         </td>
-         <td>
-          <b>
+</td>
+<td>
+<b>
            O(log n)
           </b>
-         </td>
-         <td>
-          <b>
+</td>
+<td>
+<b>
            O(1)
           </b>
-         </td>
-         <td>
-          <b>
+</td>
+<td>
+<b>
            O(log n)
           </b>
+</td>
+</tr>
+<tr>
+<td>
+          Árbol AVL
          </td>
-        </tr>
-        <tr>
-         <td>
-          &Aacute;rbol AVL
-         </td>
-         <td>
+<td>
           O(log n)
          </td>
-         <td>
+<td>
           O(log n)
          </td>
-         <td>
+<td>
           O(log n)
          </td>
-        </tr>
-       </tbody>
-      </table>
-     </div>
-    </section>
-    <section class="heap-section" id="problemas">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="heap-section" id="problemas">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        🧪
       </span>
-      <h2>
-       5.3 &middot; Soluci&oacute;n de problemas
+<h2>
+       5.3 · Solución de problemas
       </h2>
-     </div>
-     <h3>
-      Problema de aplicaci&oacute;n &middot; Solicitudes de soporte
+</div>
+<h3>
+      Problema de aplicación · Solicitudes de soporte
      </h3>
-     <p>
-      Desarrollar un sistema que administre solicitudes de soporte t&eacute;cnico de un laboratorio.
-          Cada solicitud contiene folio, descripci&oacute;n, prioridad y orden de llegada.
+<p>
+      Desarrollar un sistema que administre solicitudes de soporte técnico de un laboratorio.
+          Cada solicitud contiene folio, descripción, prioridad y orden de llegada.
      </p>
-     <pre><code>REGISTRO Solicitud
+<pre><code>REGISTRO Solicitud
     folio
     descripcion
     prioridad
@@ -1220,15 +1173,15 @@ FIN ALGORITMO</code></pre>
 FIN REGISTRO
 
 ALGORITMO AtenderSolicitud(heap)
-    SI heap est&aacute; vac&iacute;o
+    SI heap está vacío
         MOSTRAR "No hay solicitudes pendientes"
     SINO
-        solicitud &larr; ExtraerRaiz(heap)
+        solicitud ← ExtraerRaiz(heap)
         MOSTRAR solicitud
     FIN SI
 FIN ALGORITMO</code></pre>
-     <div class="note">
-      <b>
+<div class="note">
+<b>
        Propuesta:
       </b>
       implementar un
@@ -1238,230 +1191,226 @@ FIN ALGORITMO</code></pre>
       donde prioridad 1 representa la mayor urgencia.
           Los empates se resuelven mediante el orden de llegada.
      </div>
-    </section>
-    <section class="heap-section">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</section>
+<section class="heap-section">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        🧪
       </span>
-      <h2>
+<h2>
        Practica con los simuladores
       </h2>
-     </div>
-     <p>
-      En la p&aacute;gina de recursos puedes observar lentamente una cola con prioridad y un
+</div>
+<p>
+      En la página de recursos puedes observar lentamente una cola con prioridad y un
           Min-Heap o Max-Heap, cambiar la velocidad, pausar y avanzar paso a paso.
      </p>
-     <p>
-      <a class="course-btn topic-btn" href="recursos_monticulos.html">
-       <span>
-        Abrir simuladores de Mont&iacute;culos
+<p>
+<a class="course-btn topic-btn" href="recursos_monticulos.html">
+<span>
+        Abrir simuladores de Montículos
        </span>
-       <span aria-hidden="true" class="ui-icon">
-        &rarr;
+<span aria-hidden="true" class="ui-icon">
+        →
        </span>
-      </a>
-     </p>
-    </section>
-    <section class="heap-section" id="resumen">
-     <div class="summary">
-      <div class="bulb">
+</a>
+</p>
+</section>
+<section class="heap-section" id="resumen">
+<div class="summary">
+<div class="bulb">
        ⚡
       </div>
-      <div>
-       <b>
+<div>
+<b>
         RESUMEN DEL TEMA 5
        </b>
-       <br/>
-       Una cola con prioridad decide qui&eacute;n debe atenderse primero.
-            Un heap binario permite implementar esa decisi&oacute;n eficientemente.
-            En un Min-Heap el m&iacute;nimo est&aacute; en la ra&iacute;z; en un Max-Heap est&aacute; el m&aacute;ximo.
-            La inserci&oacute;n usa
+<br/>
+       Una cola con prioridad decide quién debe atenderse primero.
+            Un heap binario permite implementar esa decisión eficientemente.
+            En un Min-Heap el mínimo está en la raíz; en un Max-Heap está el máximo.
+            La inserción usa
        <strong>
         Heapify Up
        </strong>
-       y la extracci&oacute;n usa
+       y la extracción usa
        <strong>
         Heapify Down
        </strong>
        .
       </div>
-     </div>
-    </section>
-    <section class="heap-section heap-quiz-section" data-heap-quiz="" id="quiz-monticulos">
-     <div class="section-heading">
-      <span aria-hidden="true" class="ui-icon">
+</div>
+</section>
+<section class="heap-section heap-quiz-section" data-heap-quiz="" id="quiz-monticulos">
+<div class="section-heading">
+<span aria-hidden="true" class="ui-icon">
        🧠
       </span>
-      <h2>
-       Comprobaci&oacute;n r&aacute;pida &middot; 5 preguntas
+<h2>
+       Comprobación rápida · 5 preguntas
       </h2>
-     </div>
-     <p>
+</div>
+<p>
       Selecciona una respuesta en cada pregunta y presiona
       <b>
        Comprobar
       </b>
       .
-    El sistema marcar&aacute; aciertos, errores y calcular&aacute; tu calificaci&oacute;n.
+    El sistema marcará aciertos, errores y calculará tu calificación.
      </p>
-     <form class="heap-topic-quiz" id="heap-topic-quiz" novalidate="">
-      <fieldset class="heap-quiz-question" data-correct="heap">
-       <legend>
-        1. &iquest;Qu&eacute; estructura se utiliza frecuentemente para implementar eficientemente una cola con prioridad?
+<form class="heap-topic-quiz" id="heap-topic-quiz" novalidate="">
+<fieldset class="heap-quiz-question" data-correct="heap">
+<legend>
+        1. ¿Qué estructura se utiliza frecuentemente para implementar eficientemente una cola con prioridad?
        </legend>
-       <label>
-        <input name="mq1" type="radio" value="lista"/>
+<label>
+<input name="mq1" type="radio" value="lista"/>
         Una lista simple sin ordenar
        </label>
-       <label>
-        <input name="mq1" type="radio" value="heap"/>
-        Un mont&iacute;culo (Heap)
+<label>
+<input name="mq1" type="radio" value="heap"/>
+        Un montículo (Heap)
        </label>
-       <label>
-        <input name="mq1" type="radio" value="pila"/>
+<label>
+<input name="mq1" type="radio" value="pila"/>
         Una pila
        </label>
-       <label>
-        <input name="mq1" type="radio" value="matriz"/>
+<label>
+<input name="mq1" type="radio" value="matriz"/>
         Una matriz cuadrada
        </label>
-       <div class="heap-quiz-feedback">
-        Un heap mantiene el elemento prioritario en la ra&iacute;z y permite inserci&oacute;n/extracci&oacute;n en O(log n).
+<div class="heap-quiz-feedback">
+        Un heap mantiene el elemento prioritario en la raíz y permite inserción/extracción en O(log n).
        </div>
-      </fieldset>
-      <fieldset class="heap-quiz-question" data-correct="menor">
-       <legend>
-        2. En un Min-Heap, &iquest;qu&eacute; valor debe encontrarse en la ra&iacute;z?
+</fieldset>
+<fieldset class="heap-quiz-question" data-correct="menor">
+<legend>
+        2. En un Min-Heap, ¿qué valor debe encontrarse en la raíz?
        </legend>
-       <label>
-        <input name="mq2" type="radio" value="mayor"/>
+<label>
+<input name="mq2" type="radio" value="mayor"/>
         El mayor valor
        </label>
-       <label>
-        <input name="mq2" type="radio" value="ultimo"/>
-        El &uacute;ltimo valor insertado
+<label>
+<input name="mq2" type="radio" value="ultimo"/>
+        El último valor insertado
        </label>
-       <label>
-        <input name="mq2" type="radio" value="menor"/>
+<label>
+<input name="mq2" type="radio" value="menor"/>
         El menor valor
        </label>
-       <label>
-        <input name="mq2" type="radio" value="medio"/>
+<label>
+<input name="mq2" type="radio" value="medio"/>
         El valor medio
        </label>
-       <div class="heap-quiz-feedback">
-        En un Min-Heap cada padre es menor o igual que sus hijos; por eso el m&iacute;nimo queda en la ra&iacute;z.
+<div class="heap-quiz-feedback">
+        En un Min-Heap cada padre es menor o igual que sus hijos; por eso el mínimo queda en la raíz.
        </div>
-      </fieldset>
-      <fieldset class="heap-quiz-question" data-correct="2i1">
-       <legend>
-        3. Si el arreglo inicia en &iacute;ndice 0, &iquest;cu&aacute;l es la f&oacute;rmula del hijo izquierdo del nodo i?
+</fieldset>
+<fieldset class="heap-quiz-question" data-correct="2i1">
+<legend>
+        3. Si el arreglo inicia en índice 0, ¿cuál es la fórmula del hijo izquierdo del nodo i?
        </legend>
-       <label>
-        <input name="mq3" type="radio" value="i1"/>
+<label>
+<input name="mq3" type="radio" value="i1"/>
         i + 1
        </label>
-       <label>
-        <input name="mq3" type="radio" value="2i"/>
+<label>
+<input name="mq3" type="radio" value="2i"/>
         2i
        </label>
-       <label>
-        <input name="mq3" type="radio" value="2i1"/>
+<label>
+<input name="mq3" type="radio" value="2i1"/>
         2i + 1
        </label>
-       <label>
-        <input name="mq3" type="radio" value="i2"/>
+<label>
+<input name="mq3" type="radio" value="i2"/>
         i / 2
        </label>
-       <div class="heap-quiz-feedback">
-        En un heap almacenado desde &iacute;ndice 0: izquierdo = 2i+1 y derecho = 2i+2.
+<div class="heap-quiz-feedback">
+        En un heap almacenado desde índice 0: izquierdo = 2i+1 y derecho = 2i+2.
        </div>
-      </fieldset>
-      <fieldset class="heap-quiz-question" data-correct="sube">
-       <legend>
-        4. Al insertar un valor que viola la propiedad del heap respecto de su padre, &iquest;qu&eacute; proceso se aplica?
+</fieldset>
+<fieldset class="heap-quiz-question" data-correct="sube">
+<legend>
+        4. Al insertar un valor que viola la propiedad del heap respecto de su padre, ¿qué proceso se aplica?
        </legend>
-       <label>
-        <input name="mq4" type="radio" value="sube"/>
-        Heapify Up: el nodo puede subir intercambi&aacute;ndose con su padre
+<label>
+<input name="mq4" type="radio" value="sube"/>
+        Heapify Up: el nodo puede subir intercambiándose con su padre
        </label>
-       <label>
-        <input name="mq4" type="radio" value="borra"/>
+<label>
+<input name="mq4" type="radio" value="borra"/>
         Se elimina el nodo
        </label>
-       <label>
-        <input name="mq4" type="radio" value="inorden"/>
+<label>
+<input name="mq4" type="radio" value="inorden"/>
         Se aplica recorrido In-orden
        </label>
-       <label>
-        <input name="mq4" type="radio" value="hash"/>
-        Se calcula una funci&oacute;n hash
+<label>
+<input name="mq4" type="radio" value="hash"/>
+        Se calcula una función hash
        </label>
-       <div class="heap-quiz-feedback">
-        La inserci&oacute;n conserva la forma completa agregando al final y luego aplica Heapify Up.
+<div class="heap-quiz-feedback">
+        La inserción conserva la forma completa agregando al final y luego aplica Heapify Up.
        </div>
-      </fieldset>
-      <fieldset class="heap-quiz-question" data-correct="log">
-       <legend>
-        5. &iquest;Cu&aacute;l es la complejidad t&iacute;pica de insertar o extraer la ra&iacute;z de un heap binario?
+</fieldset>
+<fieldset class="heap-quiz-question" data-correct="log">
+<legend>
+        5. ¿Cuál es la complejidad típica de insertar o extraer la raíz de un heap binario?
        </legend>
-       <label>
-        <input name="mq5" type="radio" value="uno"/>
+<label>
+<input name="mq5" type="radio" value="uno"/>
         O(1)
        </label>
-       <label>
-        <input name="mq5" type="radio" value="log"/>
+<label>
+<input name="mq5" type="radio" value="log"/>
         O(log n)
        </label>
-       <label>
-        <input name="mq5" type="radio" value="n"/>
+<label>
+<input name="mq5" type="radio" value="n"/>
         O(n)
        </label>
-       <label>
-        <input name="mq5" type="radio" value="n2"/>
-        O(n&sup2;)
+<label>
+<input name="mq5" type="radio" value="n2"/>
+        O(n²)
        </label>
-       <div class="heap-quiz-feedback">
-        Heapify recorre como m&aacute;ximo la altura del &aacute;rbol binario completo: O(log n).
+<div class="heap-quiz-feedback">
+        Heapify recorre como máximo la altura del árbol binario completo: O(log n).
        </div>
-      </fieldset>
-      <div class="heap-quiz-actions">
-       <button class="course-btn topic-btn" type="submit">
-        Comprobar respuestas
-       </button>
-       <button class="course-btn topic-btn secondary" data-heap-quiz-reset="" type="button">
-        Reiniciar
-       </button>
-      </div>
-      <div aria-live="polite" class="heap-quiz-result" id="heap-quiz-result">
-      </div>
-     </form>
-    </section>
-    <nav aria-label="Navegaci&oacute;n entre temas" class="page-navigation">
-     <a class="page-nav-btn previous" href="tema_04_arboles.html">
-      <span>
-       &larr; Anterior
+</fieldset>
+<div class="heap-quiz-actions">
+<button class="heap-quiz-btn heap-quiz-btn-primary" type="submit">Comprobar respuestas</button>
+<button class="heap-quiz-btn heap-quiz-btn-secondary" data-heap-quiz-reset="" type="button">Reiniciar</button>
+</div>
+<div aria-live="polite" class="heap-quiz-result" id="heap-quiz-result">
+</div>
+</form>
+</section>
+<nav aria-label="Navegación entre temas" class="page-navigation">
+<a class="page-nav-btn previous" href="tema_04_arboles.html">
+<span>
+       ← Anterior
       </span>
-     </a>
-     <a class="page-nav-btn home" href="../index.html">
-      <span>
+</a>
+<a class="page-nav-btn home" href="../index.html">
+<span>
        ⌂ Inicio
       </span>
-     </a>
-     <a class="page-nav-btn next" href="tema_06_hash.html">
-      <span>
-       Siguiente &rarr;
+</a>
+<a class="page-nav-btn next" href="tema_06_hash.html">
+<span>
+       Siguiente →
       </span>
-     </a>
-    </nav>
-   </article>
-  </main>
-  <div id="site-footer">
-  </div>
-  <script defer="" src="../scripts/site.js">
-  </script>
-  <script defer="True" src="../scripts/monticulos_interactivo.js">
-  </script>
- </body>
+</a>
+</nav>
+</article>
+</main>
+<div id="site-footer">
+</div>
+<script defer="" src="../scripts/site.js">
+</script>
+<script defer="True" src="../scripts/monticulos_interactivo.js">
+</script>
+</body>
 </html>

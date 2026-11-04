@@ -989,61 +989,78 @@
 
 
 /* =========================================================
-   TEMA 5 · IMAGEN DE PORTADA
+   TEMA 5 · BOTONES DEL QUIZ
+   Estilos propios para evitar conflictos con .course-btn
    ========================================================= */
 
-.heap-topic-cover{
+.heap-quiz-actions{
   display:flex;
+  flex-wrap:wrap;
+  gap:.7rem;
+  align-items:center;
+  margin-top:4px;
+}
+
+.heap-quiz-btn{
+  appearance:none;
+  -webkit-appearance:none;
+  display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:100%;
-  min-width:0;
-  padding:4px 0;
+  min-height:44px;
+  padding:.68rem 1rem;
+  border-radius:9px;
+  font-family:inherit;
+  font-size:.9rem;
+  font-weight:900;
+  line-height:1.15;
+  text-decoration:none;
+  cursor:pointer;
+  opacity:1;
+  visibility:visible;
 }
 
-.heap-topic-cover img{
-  display:block;
-  width:100%;
-  max-width:420px;
-  max-height:250px;
-  height:auto;
-  object-fit:contain;
-  margin-inline:auto;
-  border:1px solid #d3e5de;
-  border-radius:14px;
-  background:#fff;
-  box-shadow:0 8px 20px rgba(0,75,53,.08);
+.heap-quiz-btn-primary{
+  border:1px solid #006847;
+  background:#006847;
+  color:#ffffff;
+  box-shadow:0 3px 8px rgba(0,104,71,.16);
 }
 
-@media(max-width:1199.98px){
-  .heap-topic-cover img{
-    max-width:390px;
-    max-height:235px;
-  }
+.heap-quiz-btn-primary:hover,
+.heap-quiz-btn-primary:focus-visible{
+  border-color:#004b35;
+  background:#004b35;
+  color:#ffffff;
+  outline:none;
 }
 
-@media(max-width:991.98px){
-  .heap-topic-cover img{
-    max-width:360px;
-    max-height:220px;
-  }
+.heap-quiz-btn-secondary{
+  border:1px solid #006847;
+  background:#ffffff;
+  color:#006847;
 }
 
-@media(max-width:767.98px){
-  .heap-topic-cover{
-    margin-inline:auto;
-  }
+.heap-quiz-btn-secondary:hover,
+.heap-quiz-btn-secondary:focus-visible{
+  background:#eef8f4;
+  color:#004b35;
+  border-color:#004b35;
+  outline:none;
+}
 
-  .heap-topic-cover img{
-    width:min(100%,360px);
-    max-height:none;
-  }
+.heap-quiz-btn:disabled{
+  opacity:.55;
+  cursor:not-allowed;
 }
 
 @media(max-width:575.98px){
-  .heap-topic-cover img{
+  .heap-quiz-actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .heap-quiz-btn{
     width:100%;
-    max-width:340px;
-    border-radius:10px;
   }
 }
