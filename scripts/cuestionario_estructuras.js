@@ -53,12 +53,13 @@ document.addEventListener("DOMContentLoaded", () => {
       button.dataset.topic = key;
 
       button.innerHTML = `
-        <div>
+        <div class="quiz-topic-card-main">
           <div class="quiz-topic-icon" aria-hidden="true">${escapeHtml(topic.icono || "❓")}</div>
+          <div class="quiz-topic-label">CUESTIONARIO</div>
           <h3>${escapeHtml(topic.titulo)}</h3>
-          <p>Selecciona 10 preguntas aleatorias del banco de este tema.</p>
+          <p>Responde 10 preguntas y comprueba tu dominio del tema.</p>
         </div>
-        <span class="quiz-topic-count">${topic.preguntas.length} preguntas disponibles</span>
+        <span class="quiz-topic-start">Comenzar <span aria-hidden="true">→</span></span>
       `;
 
       button.addEventListener("click", () => startTopic(key));
@@ -81,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     checked = false;
     result.classList.add("d-none");
     currentTopicTitle.textContent = topic.titulo;
-    currentMeta.textContent = `${QUESTIONS_PER_ATTEMPT} preguntas aleatorias de ${topic.preguntas.length}`;
+    currentMeta.textContent = `Cuestionario de ${QUESTIONS_PER_ATTEMPT} preguntas`;
     renderQuestions();
 
     panel.classList.remove("d-none");
@@ -103,8 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const header = document.createElement("div");
       header.className = "quiz-question-header";
       header.innerHTML = `
-        <div class="quiz-question-number">${index + 1}</div>
-        <h3 class="quiz-question-title">${escapeHtml(question.pregunta)}</h3>
+        <div class="quiz-question-number" aria-label="Pregunta ${index + 1}">${index + 1}</div>
+        <div class="quiz-question-heading">
+          <span class="quiz-question-kicker">PREGUNTA ${index + 1}</span>
+          <h3 class="quiz-question-title">${escapeHtml(question.pregunta)}</h3>
+        </div>
       `;
       article.appendChild(header);
 
@@ -319,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startTopic(requestedTopic);
       }
     } catch (error) {
-      console.error("No fue posible cargar el banco de preguntas:", error);
+      console.error("No fue posible cargar las preguntas:", error);
       loadError.classList.remove("d-none");
     }
   }

@@ -46,6 +46,33 @@
     "tema_06_hash.html"
   ];
 
+  // Secuencia de galerías de infografías.
+  // Usa el mismo sistema de navegación inferior que las páginas de temas.
+  const infographicFiles = [
+    "infografias_introduccion.html",
+    "infografias_listas.html",
+    "infografias_pilas.html",
+    "infografias_colas.html",
+    "infografias_arboles.html",
+    "infografias_monticulos.html",
+    "infografias_hash.html"
+  ];
+
+  // Secuencia de páginas de Recursos.
+  // El botón central "Inicio" de estas páginas vuelve al menú
+  // Presentaciones, videos y simuladores.
+  const resourceFiles = [
+    "calculadora_binaria.html",
+    "recursos_listas.html",
+    "recursos_pilas.html",
+    "recursos_colas.html",
+    "recursos_arboles.html",
+    "recursos_monticulos.html",
+    "recursos_hash.html",
+    "cuestionario_estructuras.html"
+  ];
+
+
   const iconPaths = {
     home: "M3 10.5 12 3l9 7.5M5.5 9.5V21h13V9.5M9 21v-7h6v7",
     previous: "M19 12H5m0 0 6-6m-6 6 6 6",
@@ -95,19 +122,44 @@
     if (footer) footer.insertAdjacentElement("beforebegin", bottom);
     else document.body.append(bottom);
 
-    const setButtons = (previous, next) => {
+    const setButtons = (previous, next, home = "index.html") => {
       bottom.replaceChildren();
       if (previous) bottom.append(link("Anterior", previous, "previous", "ed-page-button"));
       else bottom.append(document.createElement("span"));
-      bottom.append(link("Inicio", "index.html", "home", "ed-page-button ed-page-home"));
+      bottom.append(link("Inicio", home, "home", "ed-page-button ed-page-home"));
       if (next) bottom.append(link("Siguiente", next, "next", "ed-page-button"));
       else bottom.append(document.createElement("span"));
     };
 
     const index = inPages ? topicFiles.indexOf(file) : -1;
+    const infographicIndex = inPages ? infographicFiles.indexOf(file) : -1;
+    const resourceIndex = inPages ? resourceFiles.indexOf(file) : -1;
+
     if (index >= 0) {
       setButtons(index > 0 ? `pages/${topicFiles[index - 1]}` : null,
         index < topicFiles.length - 1 ? `pages/${topicFiles[index + 1]}` : "pages/presentaciones_videos.html");
+    } else if (infographicIndex >= 0) {
+      const previous = infographicIndex > 0
+        ? `pages/${infographicFiles[infographicIndex - 1]}`
+        : "pages/tema_00_introduccion.html";
+
+      const next = infographicIndex < infographicFiles.length - 1
+        ? `pages/${infographicFiles[infographicIndex + 1]}`
+        : "pages/bibliografia.html";
+
+      setButtons(previous, next);
+    } else if (resourceIndex >= 0) {
+      const resourceHome = "pages/presentaciones_videos.html";
+
+      const previous = resourceIndex > 0
+        ? `pages/${resourceFiles[resourceIndex - 1]}`
+        : resourceHome;
+
+      const next = resourceIndex < resourceFiles.length - 1
+        ? `pages/${resourceFiles[resourceIndex + 1]}`
+        : resourceHome;
+
+      setButtons(previous, next, resourceHome);
     } else if (file === "presentaciones_videos.html") {
       setButtons(`pages/${topicFiles[topicFiles.length - 1]}`, "actividades.html");
     } else if (file === "actividades.html") {
