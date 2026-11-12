@@ -516,14 +516,59 @@ FIN ALGORITMO</code></pre>
 
         <div class="tree-table-wrap">
           <table class="tree-balance-table">
-            <thead><tr><th>FE del nodo</th><th>FE del hijo</th><th>Caso</th><th>Rotación requerida</th></tr></thead>
+            <thead>
+              <tr>
+                <th>FE de A</th>
+                <th>Hijo que revisas</th>
+                <th>FE del hijo</th>
+                <th>Rotación que debes aplicar</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td>+2</td><td>≥ 0</td><td>LL</td><td>Rotación simple a la derecha</td></tr>
-              <tr><td>+2</td><td>&lt; 0</td><td>LR</td><td>Rotación izquierda-derecha</td></tr>
-              <tr><td>−2</td><td>≤ 0</td><td>RR</td><td>Rotación simple a la izquierda</td></tr>
-              <tr><td>−2</td><td>&gt; 0</td><td>RL</td><td>Rotación derecha-izquierda</td></tr>
+              <tr>
+                <td><b>+2</b></td>
+                <td>Izquierdo</td>
+                <td><b>+1</b></td>
+                <td><b>Simple a la derecha</b> — caso LL</td>
+              </tr>
+              <tr>
+                <td><b>+2</b></td>
+                <td>Izquierdo</td>
+                <td><b>0</b></td>
+                <td><b>Simple a la derecha</b></td>
+              </tr>
+              <tr>
+                <td><b>+2</b></td>
+                <td>Izquierdo</td>
+                <td><b>−1</b></td>
+                <td><b>Doble izquierda-derecha</b> — primero izquierda en el hijo, después derecha en A</td>
+              </tr>
+              <tr>
+                <td><b>−2</b></td>
+                <td>Derecho</td>
+                <td><b>−1</b></td>
+                <td><b>Simple a la izquierda</b> — caso RR</td>
+              </tr>
+              <tr>
+                <td><b>−2</b></td>
+                <td>Derecho</td>
+                <td><b>0</b></td>
+                <td><b>Simple a la izquierda</b></td>
+              </tr>
+              <tr>
+                <td><b>−2</b></td>
+                <td>Derecho</td>
+                <td><b>+1</b></td>
+                <td><b>Doble derecha-izquierda</b> — primero derecha en el hijo, después izquierda en A</td>
+              </tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="note">
+          <b>Regla de lectura:</b>
+          un nodo con <b>FE = −1, 0 o +1</b> está equilibrado.
+          Las filas donde el hijo tiene <b>FE = 0</b> se utilizan al reequilibrar después de una eliminación.
         </div>
 
         <figure class="tree-figure wide">
