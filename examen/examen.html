@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#006847">
+  <meta name="description" content="Examen de Estructuras de Datos de la Facultad de Ingeniería, Arquitectura y Diseño.">
+  <title>Examen de Estructuras de Datos · UABC FIAD</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../styles/site.css">
+  <link rel="stylesheet" href="./examen.css">
+</head>
+<body id="inicio" class="pe-home pe-course-page pe-uniform-page page-examen-ed">
+  <a class="peq-skip" href="#peq-app">Saltar al examen</a>
+  <div id="site-header"></div>
+  <section class="topic-course-hero peq-hero">
+    <div class="container-fluid pe-shell"><div class="row g-4 align-items-center">
+      <div class="col-xl-7">
+        <div class="topic-number-pill">Evaluación individual</div>
+        <div class="course-kicker">ESTRUCTURAS DE DATOS</div>
+        <h1 class="course-title">Examen</h1>
+        <p class="course-subtitle">Responde 30 preguntas de conceptos y análisis de código en C.</p>
+        <div class="hero-line"></div>
+      </div>
+      <div class="col-xl-5"><div id="course-info" data-topic="Examen de Estructuras de Datos"></div></div>
+    </div></div>
+  </section>
+  <main id="peq-app" class="container-fluid pe-shell page-content-shell">
+    <article class="page-content-card content peq-card">
+      <noscript><p class="peq-message error">Activa JavaScript para realizar la evaluación.</p></noscript>
+      <p id="peq-live" class="peq-sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+      <section id="peq-registration" aria-labelledby="peq-register-title">
+        <div class="peq-section-heading"><span class="peq-eyebrow">ANTES DE COMENZAR</span><h2 id="peq-register-title" tabindex="-1">Identifica tu examen</h2><p>Completa tus datos y la verificación para continuar.</p></div>
+        <form id="peq-register-form" novalidate>
+          <div class="peq-registration-grid">
+            <div>
+              <div class="peq-field"><label for="peq-name">Nombre completo</label><input id="peq-name" name="name" autocomplete="name" maxlength="100" required aria-describedby="peq-name-error"><p id="peq-name-error" class="peq-field-error"></p></div>
+              <div class="peq-two-fields">
+                <div class="peq-field"><label for="peq-matricula">Matrícula</label><input id="peq-matricula" name="matricula" inputmode="numeric" autocomplete="off" maxlength="10" required aria-describedby="peq-matricula-error"><p id="peq-matricula-error" class="peq-field-error"></p></div>
+                <div class="peq-field"><label for="peq-group">Grupo</label><input id="peq-group" name="group" autocomplete="off" maxlength="20" required aria-describedby="peq-group-error"><p id="peq-group-error" class="peq-field-error"></p></div>
+              </div>
+              <div class="peq-field"><label for="peq-email">Correo institucional UABC</label><input id="peq-email" name="email" type="email" placeholder="usuario@uabc.edu.mx" autocomplete="email" maxlength="254" required aria-describedby="peq-email-hint peq-email-error"><p id="peq-email-hint" class="peq-small peq-muted">Solo se aceptan correos @uabc.edu.mx.</p><p id="peq-email-error" class="peq-field-error"></p></div>
+              <div class="peq-field"><label for="peq-confirm-email">Confirma tu correo institucional</label><input id="peq-confirm-email" name="confirmEmail" type="email" placeholder="usuario@uabc.edu.mx" autocomplete="off" maxlength="254" required aria-describedby="peq-email-hint peq-confirmEmail-error"><p id="peq-confirmEmail-error" class="peq-field-error"></p></div>
+              <div class="peq-honeypot" aria-hidden="true"><label for="peq-website">Deja vacío este campo</label><input id="peq-website" name="website" tabindex="-1" autocomplete="off"></div>
+              <p class="peq-small peq-muted">Usaremos tus datos para registrar la entrega y enviarte el comprobante si lo solicitas.</p>
+            </div>
+            <aside class="peq-verification" aria-labelledby="peq-verify-title">
+              <h3 id="peq-verify-title">Completa la imagen</h3>
+              <p id="peq-verify-instructions" class="peq-small">Desliza la pieza del Cimarrón hasta que encaje. También puedes usar las flechas del teclado.</p>
+              <div id="peq-puzzle">
+                <div class="peq-puzzle-board"><canvas data-puzzle-image role="img" aria-label="Imagen del Cimarrón con un espacio por completar"></canvas><canvas data-puzzle-piece aria-hidden="true"></canvas></div>
+                <label for="peq-drag" class="peq-sr-only">Mover pieza del rompecabezas</label>
+                <input id="peq-drag" type="range" min="0" max="300" value="0" step="1" aria-describedby="peq-puzzle-status">
+                <p id="peq-puzzle-status" data-puzzle-status role="status" aria-live="polite">Cargando imagen…</p>
+                <button class="peq-link-button" data-puzzle-reset type="button">Reiniciar verificación</button>
+              </div>
+              <div id="peq-turnstile" class="peq-turnstile" hidden></div>
+              <button id="peq-accessible" class="peq-link-button peq-verification-alternative" type="button">Usar verificación sin imagen</button>
+              <p id="peq-verification-note" class="peq-small peq-muted" hidden></p>
+            </aside>
+          </div>
+          <p id="peq-register-error" class="peq-message error" role="alert" hidden></p>
+          <div class="peq-form-footer"><p class="peq-muted peq-small">Responde todas las preguntas antes de entregar. Solo se admite una entrega por matrícula o correo.</p><button id="peq-start" class="peq-button" type="submit" disabled>Comenzar examen <span aria-hidden="true">→</span></button></div>
+        </form>
+      </section>
+      <section id="peq-attempt" hidden aria-labelledby="peq-attempt-title">
+        <div class="peq-section-heading"><span class="peq-eyebrow">ANALIZA Y RESPONDE</span><h2 id="peq-attempt-title" tabindex="-1">Tu examen</h2><p>Selecciona la opción que responde a cada planteamiento.</p></div>
+        <details class="peq-code-rules"><summary>Criterios para leer el código</summary><p>Se usa C11. Los fragmentos sueltos están dentro de <code>main</code> y las cabeceras necesarias están incluidas, salvo que la pregunta las evalúe. Se ignoran los espacios al final de la salida y el salto final. No supongas tamaños fijos de los tipos. Cuando el enunciado indique que la reserva de memoria tiene éxito, sigue esa condición.</p></details>
+        <div id="peq-progress" class="peq-progress-sticky"><div class="peq-progress-label"><span>Avance</span><span id="peq-progress-label">0%</span></div><div id="peq-progress-track" role="progressbar" aria-label="Avance de respuestas" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="peq-progress-fill"></div></div></div>
+        <form id="peq-quiz-form" novalidate><div id="peq-questions"></div><p id="peq-quiz-error" class="peq-message error" role="alert" hidden></p><div class="peq-submit-row"><button id="peq-finish" class="peq-button" type="submit">Finalizar examen</button></div></form>
+      </section>
+      <section id="peq-result" hidden aria-labelledby="peq-result-title"></section>
+      <dialog id="peq-confirm-finish" class="peq-dialog" aria-labelledby="peq-dialog-title">
+        <h2 id="peq-dialog-title">¿Entregar el examen?</h2>
+        <p>Al entregar se registrará tu calificación. Todavía puedes regresar a revisar tus respuestas.</p>
+        <form method="dialog" class="peq-dialog-actions">
+          <button class="peq-button secondary" value="cancel" autofocus>Seguir revisando</button>
+          <button class="peq-button" value="deliver">Entregar examen</button>
+        </form>
+      </dialog>
+    </article>
+  </main>
+  <div id="site-footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../scripts/site.js" defer></script>
+  <script src="./examen.config.js" defer></script>
+  <script src="./examen.core.js" defer></script>
+  <script src="./examen.puzzle.js" defer></script>
+  <script src="./examen.js" defer></script>
+</body>
+</html>
